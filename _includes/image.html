@@ -1,0 +1,8 @@
+<figure style="margin: 0; padding: 8px;">
+   {% if include.url %} <a href="{{ include.url }}"> {%endif%}
+    <img src="{{ include.file }}" style="max-width: {{ include.max-width }}; width: {{ include.width }}; height: {{ include.height }};"
+       alt="{{ include.alt }}"/>
+   {% if include.url %}  </a> {%endif%}
+    <figcaption style="text-align: center;">{{ include.caption }}</figcaption>
+ </figure>
+ 

@@ -1,0 +1,10 @@
+title: Yoraba technology blog
+description: Latest terends in software engineering
+show_downloads: false
+google_analytics: G-T8BWX5RG3W
+theme: jekyll-theme-cayman
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  
