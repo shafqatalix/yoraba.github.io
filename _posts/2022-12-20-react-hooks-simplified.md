@@ -97,7 +97,8 @@ function Toolbar() {
 }
 
 function ThemedButton(props) {
-  return <button style={{ background: props.theme }}>I am styled by theme context!</button>;
+  const style={ background: props.theme };
+  return <button style={style}>I am styled by theme context!</button>;
 }
 ```
 
