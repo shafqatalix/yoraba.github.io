@@ -2,9 +2,11 @@
 title: About Me
 description: " "
 layout: home
-published: false
+published: true
 permalink: /about
 ---
 
-Testing
+{% include profile.html %}
+
+ 
 
