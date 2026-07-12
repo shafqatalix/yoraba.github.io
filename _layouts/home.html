@@ -1,16 +1,15 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: " en-US" }}">
+<html lang="{{ site.lang | default: 'en-US' }}">
 
 <head>
   <meta charset="UTF-8">
-
   {% seo %}
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style"
-    type="text/css" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#157878">
+  <meta name="theme-color" content="#0d1117">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  {% include theme-toggle.html %}
   <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
   {% include head-custom.html %}
 </head>
@@ -18,94 +17,90 @@
 <body>
   <a id="skip-to-content" href="#content">Skip to the content.</a>
 
-  <header class="page-header" role="banner">
-    <div style="display: flex;align-items: center;justify-content: center;color: white;">
-      <div style="padding-right: 20px;">
-        <a aria-label="Yoraba" href="/">
-          <div style="display: flex; align-items: center;justify-content: space-between; "
-            class="flex items-center justify-between">
-            <div class="mr-3">
-              <svg style="color: white;" xmlns="http://www.w3.org/2000/svg" width="44" height="44" fill="none"
-                stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                class="logo_svg__feather logo_svg__feather-layers" viewBox="0 0 24 24">
-                <path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-              </svg>
-            </div>
-            <!-- <div class="hidden h-6 text-2xl font-semibold sm:block">Yoraba</div> -->
-          </div>
-        </a>
-      </div>
-      <h1 class="project-name">{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
-    </div>
-    <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline
-      }}</h2>
+  {% include nav.html %}
 
+  <header class="page-header" role="banner">
+    <h1 class="project-name">{{ site.title | default: site.github.repository_name }}</h1>
+    <h2 class="project-tagline">{{ site.description | default: site.github.project_tagline }}</h2>
   </header>
-  <!-- <div class="flex items-center leading-5 space-x-4 sm:space-x-6"><a
-      class="hidden sm:block font-medium text-gray-900 dark:text-gray-100" href="/blog">Blog</a><a
-      class="hidden sm:block font-medium text-gray-900 dark:text-gray-100" href="/calculators">Calculators</a><a
-      class="hidden sm:block font-medium text-gray-900 dark:text-gray-100" href="/privacy-policy">Privacy Policy</a><a
-      class="hidden sm:block font-medium text-gray-900 dark:text-gray-100" href="/about">About</a><button
-      aria-label="Search"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-        stroke="currentColor" class="text-gray-900 dark:text-gray-100 h-6 w-6">
-        <path stroke-linecap="round" stroke-linejoin="round"
-          d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"></path>
-      </svg></button><button aria-label="Toggle Menu" class="sm:hidden"><svg xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 20 20" fill="currentColor" class="text-gray-900 dark:text-gray-100 h-8 w-8">
-        <path fill-rule="evenodd"
-          d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-          clip-rule="evenodd"></path>
-      </svg></button>
-    <div
-      class="fixed left-0 top-0 z-10 h-full w-full transform opacity-95 dark:opacity-[0.98] bg-white duration-300 ease-in-out dark:bg-gray-950 translate-x-full">
-      <div class="flex justify-end"><button class="mr-8 mt-11 h-8 w-8" aria-label="Toggle Menu"><svg
-            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-            class="text-gray-900 dark:text-gray-100">
-            <path fill-rule="evenodd"
-              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-              clip-rule="evenodd"></path>
-          </svg></button></div>
-      <nav class="fixed mt-8 h-full">
-        <div class="px-12 py-4"><a class="text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100"
-            href="/">Home</a></div>
-        <div class="px-12 py-4"><a class="text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100"
-            href="/blog">Blog</a></div>
-        <div class="px-12 py-4"><a class="text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100"
-            href="/calculators">Calculators</a></div>
-        <div class="px-12 py-4"><a class="text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100"
-            href="/privacy-policy">Privacy Policy</a></div>
-        <div class="px-12 py-4"><a class="text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100"
-            href="/about">About</a></div>
-      </nav>
+
+  {% if page.is_homepage %}
+  <section class="grid-section" id="content">
+    <div class="grid">
+
+      <div class="grid-card">
+        <div class="card-icon">&#128221;</div>
+        <div class="section-header">
+          <div class="card-title">Blog Posts</div>
+          <a class="see-all" href="/">All posts &rarr;</a>
+        </div>
+        <div class="card-desc">
+          {% for post in site.posts limit:3 %}
+            <a href="{{ post.url }}">{{ post.title }}</a><br>
+          {% endfor %}
+          {% if site.posts.size == 0 %}
+            <span>No posts yet.</span>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="grid-card">
+        <div class="card-icon">&#128736;</div>
+        <div class="section-header">
+          <div class="card-title">Tools</div>
+          <a class="see-all" href="/tools">All tools &rarr;</a>
+        </div>
+        <div class="card-desc">
+          {% for tool in site.tools limit:3 %}
+            <a href="{{ tool.url }}">{{ tool.title }}</a><br>
+          {% endfor %}
+          {% if site.tools.size == 0 %}
+            <span>Coming soon.</span>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="grid-card">
+        <div class="card-icon">&#128203;</div>
+        <div class="section-header">
+          <div class="card-title">Cheatsheets</div>
+          <a class="see-all" href="/cheatsheets">All cheatsheets &rarr;</a>
+        </div>
+        <div class="card-desc">
+          {% for sheet in site.cheatsheets limit:3 %}
+            <a href="{{ sheet.url }}">{{ sheet.title }}</a><br>
+          {% endfor %}
+          {% if site.cheatsheets.size == 0 %}
+            <span>Coming soon.</span>
+          {% endif %}
+        </div>
+      </div>
+
     </div>
-  </div> -->
+  </section>
+
+  <section class="latest-posts">
+    <div class="section-header">
+      <h2 class="section-title">Latest Posts</h2>
+    </div>
+    {% for post in site.posts limit:3 %}
+    <div class="post-card">
+      <div class="post-date">{{ post.date | date: "%-d %B %Y" }}</div>
+      <div class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></div>
+      {% if post.description %}
+      <p class="post-desc">{{ post.description }}</p>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </section>
+  {% else %}
 
   <main id="content" class="main-content" role="main">
-
-
     {{ content }}
-
-    <footer style="display: flex;justify-content: center;">
-      <div align="center">
-        {% include image.html file="images/social-icons/linkedin.svg" url="https://www.linkedin.com/in/shafqatalix"
-        alt="linkedin" height="24px" width="24px" %}
-
-      </div>
-      <div align="center">
-        {% include image.html file="images/social-icons/twitter.svg" url="https://twitter.com/shafqatalix"
-        alt="X/Twitter" height="24px" width="24px" %}
-
-      </div>
-      <div align="center">
-        {% include image.html file="images/social-icons/github.svg" url="https://github.com/shafqatalix" alt="github"
-        height="24px" width="24px" %}
-      </div>
-
-
-
-
-    </footer>
   </main>
+  {% endif %}
+
+  {% include footer.html %}
 </body>
 
 </html>

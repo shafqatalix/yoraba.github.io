@@ -1,5 +1,5 @@
-title: Yoraba technology blog
-description: Latest terends in software engineering
+title: YORABA
+description: Your Software Engineering Hub
 show_downloads: false
 google_analytics: G-T8BWX5RG3W
 theme: jekyll-theme-cayman
@@ -7,4 +7,21 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
-  
+
+collections:
+  tools:
+    output: true
+  cheatsheets:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: "tools"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "cheatsheets"
+    values:
+      layout: "post"

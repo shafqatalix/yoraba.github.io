@@ -1,16 +1,15 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: " en-US" }}">
+<html lang="{{ site.lang | default: 'en-US' }}">
 
 <head>
   <meta charset="UTF-8">
-
   {% seo %}
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style"
-    type="text/css" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#157878">
+  <meta name="theme-color" content="#0d1117">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  {% include theme-toggle.html %}
   <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
   {% include head-custom.html %}
 </head>
@@ -18,23 +17,36 @@
 <body>
   <a id="skip-to-content" href="#content">Skip to the content.</a>
 
+  {% include nav.html %}
+
   <header class="page-header" role="banner">
     <h1 class="project-name">{{ page.title | default: site.title }}</h1>
-    <h2 class="project-tagline">{{ page.description | default: site.description
-      }}</h2>
-
+    <h2 class="project-tagline">{{ page.description | default: site.description }}</h2>
   </header>
 
   <main id="content" class="main-content" role="main">
-    <div style="font-size:14px;color:gray;">{{ page.date | date: "%-d %B %Y" }}</div>
+    <div style="font-size:0.8rem;color:var(--text-secondary);">{{ page.date | date: "%-d %B %Y" }}</div>
     {{ content }}
 
     <footer class="site-footer">
-      <script src="https://utteranc.es/client.js" repo="shafqatalix/comments.yoraba.com" issue-term="pathname"
-        theme="github-light" crossorigin="anonymous" integrity="sha384-fu37qCdzTFjEWsnuik0ASdJij1SVwzCpeltZfuSulYExo7P5sTcD0aG6ECQHQR62" async></script>
-        
+      <div id="utterances-container"></div>
+      <script>
+        (function() {
+          var theme = document.documentElement.dataset.theme === 'light' ? 'github-light' : 'github-dark';
+          var s = document.createElement('script');
+          s.src = 'https://utteranc.es/client.js';
+          s.setAttribute('repo', 'shafqatalix/comments.yoraba.com');
+          s.setAttribute('issue-term', 'pathname');
+          s.setAttribute('theme', theme);
+          s.setAttribute('crossorigin', 'anonymous');
+          s.async = true;
+          document.getElementById('utterances-container').appendChild(s);
+        })();
+      </script>
     </footer>
   </main>
+
+  {% include footer.html %}
 </body>
 
 </html>
