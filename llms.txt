@@ -1,0 +1,25 @@
+# Yoraba Software Engineering Hub
+
+> Developer tools, cheatsheets, and in-depth software engineering articles.
+
+This site is a developer resource hub authored by Shafqat Ali. It contains practical tools, quick-reference cheatsheets, and articles covering topics like React, GraphQL, Docker, and Node.js.
+
+## Content Structure
+
+- **Blog Posts:** Technical articles and tutorials.
+- **Tools:** Interactive developer utilities running locally in the browser (e.g., Base64 Encoder, JSON Formatter, Regex Tester).
+- **Cheatsheets:** Quick-reference guides for commands and APIs (e.g., Git, Docker, JavaScript arrays).
+
+## Key URLs
+
+- Home: https://yoraba.github.io/
+- Blog Posts: https://yoraba.github.io/
+- Developer Tools: https://yoraba.github.io/tools/
+- Cheatsheets: https://yoraba.github.io/cheatsheets/
+- About: https://yoraba.github.io/about/
+
+## Site Details
+
+- Technologies: Jekyll, GitHub Pages
+- Author: Shafqat Ali
+- Theme: Cayman (Customized)
