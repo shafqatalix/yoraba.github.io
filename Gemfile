@@ -5,6 +5,7 @@ source "https://rubygems.org"
 # gem "rails"
 gem "jekyll"
 gem "jekyll-theme-cayman"
+gem "html-proofer"
 
 group :jekyll_plugins do
     gem "jekyll-feed"
