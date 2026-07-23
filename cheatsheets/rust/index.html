@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>Rust | YORABA</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Rust" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Comprehensive reference for Rust syntax, ownership, borrowing, structs, enums, error handling, traits, smart pointers, and Cargo." />
+<meta name="twitter:description" property="og:description" content="Comprehensive reference for Rust syntax, ownership, borrowing, structs, enums, error handling, traits, smart pointers, and Cargo." />
+<link rel="canonical" href="https://yoraba.com/cheatsheets/rust/" />
+<meta property="og:url" content="https://yoraba.com/cheatsheets/rust/" />
+<meta property="og:site_name" content="YORABA" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-07-23T14:08:42+00:00" />
+<meta property="article:modified_time" content="2026-07-23T14:08:42+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Rust" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-07-23T14:08:42+00:00","datePublished":"2026-07-23T14:08:42+00:00","description":"Comprehensive reference for Rust syntax, ownership, borrowing, structs, enums, error handling, traits, smart pointers, and Cargo.","headline":"Rust","mainEntityOfPage":{"@type":"WebPage","@id":"https://yoraba.com/cheatsheets/rust/"},"url":"https://yoraba.com/cheatsheets/rust/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1117">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <script>
+(function() {
+  var saved = localStorage.getItem('theme');
+  var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  document.documentElement.dataset.theme = theme;
+  window.toggleTheme = function() {
+    var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem('theme', next);
+    var frame = document.querySelector('.utterances-frame');
+    if (frame) {
+      frame.contentWindow.postMessage(
+        { type: 'set-theme', theme: next === 'dark' ? 'github-dark' : 'github-light' },
+        'https://utteranc.es'
+      );
+    }
+  };
+})();
+</script>
+
+  <link rel="stylesheet" href="/assets/css/style.css?v=">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+ 
+  <!-- Google tag (gtag.js) -->
+<script async crossorigin="anonymous" src="https://www.googletagmanager.com/gtag/js?id=G-T8BWX5RG3W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T8BWX5RG3W');
+</script>
+
+
+
+<!-- PWA Manifest -->
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register("/sw.js")
+        .then(registration => {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        })
+        .catch(err => {
+          console.error('ServiceWorker registration failed: ', err);
+        });
+    });
+  }
+</script>
+
+<!-- You can set your favicon here -->
+<link rel="shortcut icon" type="image/svg+xml" href="/images/logo.svg">
+
+<!-- end custom head snippets -->
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Rust Cheatsheet",
+    "description": "Comprehensive reference for Rust syntax, ownership, borrowing, structs, enums, error handling, traits, smart pointers, and Cargo.",
+    "author": {
+      "@type": "Person",
+      "name": "Shafqat Ali",
+      "url": "https://yoraba.com/about/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "YORABA",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://yoraba.com/images/logo.svg"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://yoraba.com/cheatsheets/rust/"
+    },
+    "inLanguage": "en-US",
+    "dateModified": "2026-07-23"
+  }
+  </script>
+  
+  
+  
+
+  
+  
+  
+</head>
+
+<body>
+  <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+  <nav class="site-nav">
+  <a class="nav-logo" href="/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+    </svg>
+    YORABA
+  </a>
+  <div class="nav-links" id="nav-links">
+    <a href="/tools">Tools</a>
+    <a href="/finance">Finance</a>
+    <a href="/multimedia">Multimedia</a>
+    <a href="/calculators">Calculators</a>
+    <a href="/cheatsheets">Cheatsheets</a>
+    <a href="/posts">Blogs</a>
+    <a href="/author">Author</a>
+    <a href="/about">About</a>
+  </div>
+  <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </button>
+  <button class="nav-toggle" aria-label="Toggle Menu"
+    onclick="document.getElementById('nav-links').classList.toggle('active')">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
+</nav>
+
+  <header class="page-header" role="banner">
+    <h1 class="project-name">Rust</h1>
+    <h2 class="project-tagline">Comprehensive reference for Rust syntax, ownership, borrowing, structs, enums, error handling, traits, smart pointers, and Cargo.</h2>
+  </header>
+
+  <main id="content" class="main-content" role="main">
+    
+    
+
+    
+    <nav class="breadcrumbs" aria-label="Breadcrumb" style="font-size: 0.85rem; margin-bottom: 1.5rem; color: var(--text-secondary); display: flex; align-items: center; flex-wrap: wrap; gap: 0.25rem;">
+      <a href="/" style="text-decoration: none; color: var(--link);">Home</a>
+      <span style="color: var(--border);">&rarr;</span>
+      
+      
+        <a href="/cheatsheets/" style="text-decoration: none; color: var(--link);">Cheatsheets</a>
+      
+      
+      
+      
+      <span style="color: var(--border);">&rarr;</span>
+      <span style="color: var(--text-secondary);">Rust</span>
+    </nav>
+    
+
+    
+
+    
+    <div class="cheatsheet-actions">
+      <button onclick="window.print()" class="btn-pdf">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="8" y1="11" x2="16" y2="11"></line>
+          <text x="12" y="18" font-size="5.5" font-weight="900" fill="currentColor" stroke="none" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">PDF</text>
+        </svg>
+        Export as PDF
+      </button>
+    </div>
+
+    <h1 class="print-title">Rust Cheatsheet</h1>
+    
+
+    
+    
+
+    
+
+    <p>A quick-reference guide for essential and advanced Rust concepts, covering mutability, ownership, pattern matching, error handling, traits, smart pointers, and Cargo commands.</p>
+
+<h2 id="variables--mutability">Variables &amp; Mutability</h2>
+
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>                  <span class="c1">// Immutable variable (default)</span>
+    <span class="c1">// x = 6;                   // Error: Cannot assign twice to immutable variable</span>
+
+    <span class="k">let</span> <span class="k">mut</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>              <span class="c1">// Mutable variable</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>                      <span class="c1">// Success</span>
+
+    <span class="k">const</span> <span class="n">MAX_POINTS</span><span class="p">:</span> <span class="nb">u32</span> <span class="o">=</span> <span class="mi">100_000</span><span class="p">;</span> <span class="c1">// Constant (must have explicit type, resolved at compile-time)</span>
+    
+    <span class="c1">// Shadowing (re-declaring variable with same name, can change type)</span>
+    <span class="k">let</span> <span class="n">spaces</span> <span class="o">=</span> <span class="s">"   "</span><span class="p">;</span>
+    <span class="k">let</span> <span class="n">spaces</span> <span class="o">=</span> <span class="n">spaces</span><span class="nf">.len</span><span class="p">();</span>  <span class="c1">// Shadowed 'spaces' is now an integer</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="ownership--borrowing">Ownership &amp; Borrowing</h2>
+
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// 1. Move Semantics (Types on heap move ownership by default)</span>
+    <span class="k">let</span> <span class="n">s1</span> <span class="o">=</span> <span class="nn">String</span><span class="p">::</span><span class="nf">from</span><span class="p">(</span><span class="s">"hello"</span><span class="p">);</span>
+    <span class="k">let</span> <span class="n">s2</span> <span class="o">=</span> <span class="n">s1</span><span class="p">;</span>                <span class="c1">// s1 is MOVED to s2. s1 is no longer valid.</span>
+    <span class="c1">// console.log!("{}", s1);  // Error: Value borrowed here after move</span>
+
+    <span class="c1">// 2. References &amp; Borrowing</span>
+    <span class="k">let</span> <span class="n">len</span> <span class="o">=</span> <span class="nf">calculate_length</span><span class="p">(</span><span class="o">&amp;</span><span class="n">s2</span><span class="p">);</span> <span class="c1">// Pass read-only reference (&amp;s2)</span>
+
+    <span class="c1">// 3. Mutable References</span>
+    <span class="k">let</span> <span class="k">mut</span> <span class="n">s3</span> <span class="o">=</span> <span class="nn">String</span><span class="p">::</span><span class="nf">from</span><span class="p">(</span><span class="s">"hello"</span><span class="p">);</span>
+    <span class="nf">change_string</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span> <span class="n">s3</span><span class="p">);</span>     <span class="c1">// Pass mutable reference (&amp;mut s3)</span>
+    
+    <span class="c1">// Borrowing Rules:</span>
+    <span class="c1">// - You can have any number of immutable references (&amp;T) OR</span>
+    <span class="c1">// - Exactly ONE mutable reference (&amp;mut T) at any given time</span>
+    <span class="c1">// - References must always be valid (no dangling references)</span>
+<span class="p">}</span>
+
+<span class="k">fn</span> <span class="nf">calculate_length</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">String</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">usize</span> <span class="p">{</span>
+    <span class="n">s</span><span class="nf">.len</span><span class="p">()</span>                     <span class="c1">// Returns size, does not take ownership</span>
+<span class="p">}</span>
+
+<span class="k">fn</span> <span class="nf">change_string</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="o">&amp;</span><span class="k">mut</span> <span class="nb">String</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">s</span><span class="nf">.push_str</span><span class="p">(</span><span class="s">", world"</span><span class="p">);</span>      <span class="c1">// Modifies original String safely</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="structs--enums">Structs &amp; Enums</h2>
+
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Standard Struct</span>
+<span class="k">struct</span> <span class="n">User</span> <span class="p">{</span>
+    <span class="n">username</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
+    <span class="n">email</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
+    <span class="n">active</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1">// Tuple Struct (Named fields are omitted)</span>
+<span class="k">struct</span> <span class="nf">Color</span><span class="p">(</span><span class="nb">i32</span><span class="p">,</span> <span class="nb">i32</span><span class="p">,</span> <span class="nb">i32</span><span class="p">);</span>
+
+<span class="c1">// Implementation block (defines methods)</span>
+<span class="k">impl</span> <span class="n">User</span> <span class="p">{</span>
+    <span class="k">fn</span> <span class="nf">greet</span><span class="p">(</span><span class="o">&amp;</span><span class="k">self</span><span class="p">)</span> <span class="p">{</span>           <span class="c1">// Method (takes &amp;self reference)</span>
+        <span class="nd">println!</span><span class="p">(</span><span class="s">"Hello, {}!"</span><span class="p">,</span> <span class="k">self</span><span class="py">.username</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">fn</span> <span class="nf">create_new</span><span class="p">(</span><span class="n">username</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="n">email</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="k">Self</span> <span class="p">{</span> <span class="c1">// Associated Function (static helper)</span>
+        <span class="k">Self</span> <span class="p">{</span> <span class="n">username</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">active</span><span class="p">:</span> <span class="k">true</span> <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Enums with data</span>
+<span class="k">enum</span> <span class="n">Message</span> <span class="p">{</span>
+    <span class="n">Quit</span><span class="p">,</span>
+    <span class="n">Move</span> <span class="p">{</span> <span class="n">x</span><span class="p">:</span> <span class="nb">i32</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">i32</span> <span class="p">},</span>    <span class="c1">// Anonymous struct data</span>
+    <span class="nf">Write</span><span class="p">(</span><span class="nb">String</span><span class="p">),</span>              <span class="c1">// Tuple data</span>
+    <span class="nf">ChangeColor</span><span class="p">(</span><span class="nb">i32</span><span class="p">,</span> <span class="nb">i32</span><span class="p">,</span> <span class="nb">i32</span><span class="p">),</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="pattern-matching">Pattern Matching</h2>
+
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fn</span> <span class="nf">process_message</span><span class="p">(</span><span class="n">msg</span><span class="p">:</span> <span class="n">Message</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">match</span> <span class="n">msg</span> <span class="p">{</span>
+        <span class="nn">Message</span><span class="p">::</span><span class="n">Quit</span> <span class="k">=&gt;</span> <span class="p">{</span>
+            <span class="nd">println!</span><span class="p">(</span><span class="s">"Quitting"</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="nn">Message</span><span class="p">::</span><span class="n">Move</span> <span class="p">{</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">}</span> <span class="k">=&gt;</span> <span class="p">{</span>
+            <span class="nd">println!</span><span class="p">(</span><span class="s">"Moving to x: {}, y: {}"</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="nn">Message</span><span class="p">::</span><span class="nf">Write</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="k">=&gt;</span> <span class="p">{</span>
+            <span class="nd">println!</span><span class="p">(</span><span class="s">"Text: {}"</span><span class="p">,</span> <span class="n">text</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">_</span> <span class="k">=&gt;</span> <span class="nd">println!</span><span class="p">(</span><span class="s">"Other action"</span><span class="p">),</span> <span class="c1">// Default match fallback</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// if let (Destructure a single pattern cleanly)</span>
+<span class="k">fn</span> <span class="nf">check_optional</span><span class="p">(</span><span class="n">opt</span><span class="p">:</span> <span class="nb">Option</span><span class="o">&lt;</span><span class="nb">i32</span><span class="o">&gt;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="k">let</span> <span class="nf">Some</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">=</span> <span class="n">opt</span> <span class="p">{</span>
+        <span class="nd">println!</span><span class="p">(</span><span class="s">"Number is: {}"</span><span class="p">,</span> <span class="n">number</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="error-handling">Error Handling</h2>
+
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 1. Unrecoverable Errors (Crash the thread immediately)</span>
+<span class="c1">// panic!("Fatal crash occurred!");</span>
+
+<span class="c1">// 2. Recoverable Errors (Option &amp; Result)</span>
+<span class="c1">// Option&lt;T&gt;: Some(T) or None (Represents presence/absence of value)</span>
+<span class="k">let</span> <span class="n">item</span><span class="p">:</span> <span class="nb">Option</span><span class="o">&lt;</span><span class="nb">i32</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nf">Some</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="k">let</span> <span class="n">val</span> <span class="o">=</span> <span class="n">item</span><span class="nf">.unwrap_or</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>    <span class="c1">// Safe unwrap with fallback default</span>
+
+<span class="c1">// Result&lt;T, E&gt;: Ok(T) or Err(E) (Represents success or failure of operations)</span>
+<span class="k">fn</span> <span class="nf">read_username_from_file</span><span class="p">()</span> <span class="k">-&gt;</span> <span class="nb">Result</span><span class="o">&lt;</span><span class="nb">String</span><span class="p">,</span> <span class="nn">std</span><span class="p">::</span><span class="nn">io</span><span class="p">::</span><span class="n">Error</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="k">mut</span> <span class="n">file</span> <span class="o">=</span> <span class="nn">std</span><span class="p">::</span><span class="nn">fs</span><span class="p">::</span><span class="nn">File</span><span class="p">::</span><span class="nf">open</span><span class="p">(</span><span class="s">"username.txt"</span><span class="p">)</span><span class="o">?</span><span class="p">;</span> <span class="c1">// '?' operator propagates error upward instantly</span>
+    <span class="k">let</span> <span class="k">mut</span> <span class="n">username</span> <span class="o">=</span> <span class="nn">String</span><span class="p">::</span><span class="nf">new</span><span class="p">();</span>
+    <span class="nn">std</span><span class="p">::</span><span class="nn">io</span><span class="p">::</span><span class="nn">Read</span><span class="p">::</span><span class="nf">read_to_string</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span> <span class="n">file</span><span class="p">,</span> <span class="o">&amp;</span><span class="k">mut</span> <span class="n">username</span><span class="p">)</span><span class="o">?</span><span class="p">;</span>
+    <span class="nf">Ok</span><span class="p">(</span><span class="n">username</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="collections">Collections</h2>
+
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 1. Vectors (Dynamically sized arrays)</span>
+<span class="k">let</span> <span class="k">mut</span> <span class="n">v</span><span class="p">:</span> <span class="nb">Vec</span><span class="o">&lt;</span><span class="nb">i32</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nn">Vec</span><span class="p">::</span><span class="nf">new</span><span class="p">();</span>
+<span class="n">v</span><span class="nf">.push</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">v</span><span class="nf">.push</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="k">let</span> <span class="n">third</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">i32</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>        <span class="c1">// Direct index borrow (panics if out of bounds)</span>
+<span class="k">let</span> <span class="n">safe_third</span><span class="p">:</span> <span class="nb">Option</span><span class="o">&lt;&amp;</span><span class="nb">i32</span><span class="o">&gt;</span> <span class="o">=</span> <span class="n">v</span><span class="nf">.get</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="c1">// Safe retrieval (returns Some or None)</span>
+
+<span class="c1">// 2. Strings vs String slices</span>
+<span class="k">let</span> <span class="n">s1</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span> <span class="o">=</span> <span class="s">"Hello"</span><span class="p">;</span>         <span class="c1">// String slice (fixed size, immutable reference)</span>
+<span class="k">let</span> <span class="k">mut</span> <span class="n">s2</span><span class="p">:</span> <span class="nb">String</span> <span class="o">=</span> <span class="n">s1</span><span class="nf">.to_string</span><span class="p">();</span> <span class="c1">// String (heap-allocated, dynamic, mutable)</span>
+<span class="n">s2</span><span class="nf">.push_str</span><span class="p">(</span><span class="s">" World"</span><span class="p">);</span>
+
+<span class="c1">// 3. HashMaps</span>
+<span class="k">use</span> <span class="nn">std</span><span class="p">::</span><span class="nn">collections</span><span class="p">::</span><span class="n">HashMap</span><span class="p">;</span>
+<span class="k">let</span> <span class="k">mut</span> <span class="n">scores</span> <span class="o">=</span> <span class="nn">HashMap</span><span class="p">::</span><span class="nf">new</span><span class="p">();</span>
+<span class="n">scores</span><span class="nf">.insert</span><span class="p">(</span><span class="nn">String</span><span class="p">::</span><span class="nf">from</span><span class="p">(</span><span class="s">"Blue"</span><span class="p">),</span> <span class="mi">10</span><span class="p">);</span>
+<span class="k">let</span> <span class="n">team_score</span> <span class="o">=</span> <span class="n">scores</span><span class="nf">.get</span><span class="p">(</span><span class="s">"Blue"</span><span class="p">);</span> <span class="c1">// Returns Option&lt;&amp;i32&gt;</span>
+</code></pre></div></div>
+
+<h2 id="traits--generics">Traits &amp; Generics</h2>
+
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Generics in Structs</span>
+<span class="k">struct</span> <span class="n">Point</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="n">x</span><span class="p">:</span> <span class="n">T</span><span class="p">,</span>
+    <span class="n">y</span><span class="p">:</span> <span class="n">T</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1">// Traits (Interface behavior agreements)</span>
+<span class="k">pub</span> <span class="k">trait</span> <span class="n">Summary</span> <span class="p">{</span>
+    <span class="k">fn</span> <span class="nf">summarize</span><span class="p">(</span><span class="o">&amp;</span><span class="k">self</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">String</span><span class="p">;</span>
+    
+    <span class="c1">// Default implementation</span>
+    <span class="k">fn</span> <span class="nf">default_summary</span><span class="p">(</span><span class="o">&amp;</span><span class="k">self</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">String</span> <span class="p">{</span>
+        <span class="nn">String</span><span class="p">::</span><span class="nf">from</span><span class="p">(</span><span class="s">"(Read more...)"</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Implementing Traits</span>
+<span class="k">impl</span> <span class="n">Summary</span> <span class="k">for</span> <span class="n">User</span> <span class="p">{</span>
+    <span class="k">fn</span> <span class="nf">summarize</span><span class="p">(</span><span class="o">&amp;</span><span class="k">self</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">String</span> <span class="p">{</span>
+        <span class="nd">format!</span><span class="p">(</span><span class="s">"User: {}"</span><span class="p">,</span> <span class="k">self</span><span class="py">.username</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Trait Bounds (Restrict generics to specific trait behaviors)</span>
+<span class="k">pub</span> <span class="k">fn</span> <span class="n">notify</span><span class="o">&lt;</span><span class="n">T</span><span class="p">:</span> <span class="n">Summary</span><span class="o">&gt;</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">T</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"Notification: {}"</span><span class="p">,</span> <span class="n">item</span><span class="nf">.summarize</span><span class="p">());</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="smart-pointers">Smart Pointers</h2>
+
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Box&lt;T&gt; (Heap allocation: puts data on heap, keeps pointer on stack)</span>
+<span class="k">let</span> <span class="n">b</span> <span class="o">=</span> <span class="nn">Box</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+
+<span class="c1">// Rc&lt;T&gt; (Reference Counted: enables multiple read-only ownerships on single-threaded)</span>
+<span class="k">use</span> <span class="nn">std</span><span class="p">::</span><span class="nn">rc</span><span class="p">::</span><span class="nb">Rc</span><span class="p">;</span>
+<span class="k">let</span> <span class="n">rc_data</span> <span class="o">=</span> <span class="nn">Rc</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="nn">String</span><span class="p">::</span><span class="nf">from</span><span class="p">(</span><span class="s">"shared"</span><span class="p">));</span>
+<span class="k">let</span> <span class="n">ref1</span> <span class="o">=</span> <span class="nn">Rc</span><span class="p">::</span><span class="nf">clone</span><span class="p">(</span><span class="o">&amp;</span><span class="n">rc_data</span><span class="p">);</span> <span class="c1">// Increments reference count, does not copy string data</span>
+
+<span class="c1">// Arc&lt;T&gt; (Atomically Reference Counted: safe thread-safe Rc alternative)</span>
+<span class="k">use</span> <span class="nn">std</span><span class="p">::</span><span class="nn">sync</span><span class="p">::</span><span class="nb">Arc</span><span class="p">;</span>
+<span class="k">let</span> <span class="n">arc_data</span> <span class="o">=</span> <span class="nn">Arc</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="nn">String</span><span class="p">::</span><span class="nf">from</span><span class="p">(</span><span class="s">"thread-shared"</span><span class="p">));</span>
+</code></pre></div></div>
+
+<h2 id="cargo-commands">Cargo Commands</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cargo new &lt;project_name&gt;       <span class="c"># Create a new binary Cargo package</span>
+cargo build                   <span class="c"># Compile the current package in Debug mode</span>
+cargo build <span class="nt">--release</span>         <span class="c"># Compile package with optimizations in Release mode</span>
+cargo run                     <span class="c"># Compile and run the binary target</span>
+cargo <span class="nb">test</span>                    <span class="c"># Compile and run all unit and integration tests</span>
+cargo check                   <span class="c"># Fast check: analyze code for compile errors without writing binary</span>
+cargo clippy                  <span class="c"># Run linter tool to analyze styles and idiomatic warnings</span>
+cargo <span class="nb">fmt</span>                     <span class="c"># Format all files in active crate according to Rustfmt</span>
+cargo update                  <span class="c"># Check and update all local dependencies in Cargo.lock</span>
+</code></pre></div></div>
+<hr />
+
+
+    
+
+    
+    <section class="related-section">
+      <h3>Recommended Cheatsheets</h3>
+      <p>Check out our other essential cheatsheets for developers:</p>
+      <div class="related-grid">
+        
+        
+          
+            
+            <div class="post-card">
+              <div class="post-title"><a href="/cheatsheets/browser-shortcuts/">Browser Shortcuts Cheatsheet</a></div>
+              <p class="post-desc">Comprehensive reference for essential web browser keyboard shortcuts, coverin...</p>
+            </div>
+          
+        
+          
+            
+            <div class="post-card">
+              <div class="post-title"><a href="/cheatsheets/css-flexbox/">CSS Flexbox Cheatsheet</a></div>
+              <p class="post-desc">Comprehensive reference for CSS Flexible Box Layout (Flexbox), covering flex ...</p>
+            </div>
+          
+        
+          
+            
+            <div class="post-card">
+              <div class="post-title"><a href="/cheatsheets/css-grid/">CSS Grid Cheatsheet</a></div>
+              <p class="post-desc">Comprehensive reference for CSS Grid Layout, covering grid container properti...</p>
+            </div>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </section>
+    
+
+    
+
+    
+
+    
+
+    
+  </main>
+
+  <footer class="site-footer-dark">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h3>Popular Tools</h3>
+      <ul>
+        <li><a href="/tools/json-formatter/">JSON Formatter</a></li>
+        <li><a href="/tools/qr-code-generator/">QR Code Generator</a></li>
+        <li><a href="/tools/base64-encoder-decoder/">Base64 Encoder/Decoder</a></li>
+        <li><a href="/tools/text-compare/">Text Compare</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Calculators & Finance</h3>
+      <ul>
+        <li><a href="/finance/currency-calculator/">Currency Calculator</a></li>
+        <li><a href="/finance/mortgage-calculator/">Mortgage Calculator</a></li>
+        <li><a href="/calculators/ip-subnet-calculator/">IP Subnet Calculator</a></li>
+        <li><a href="/calculators/time-zone-calculator/">Time Zone Calculator</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Quick References</h3>
+      <ul>
+        <li><a href="/cheatsheets/git-commands/">Git Cheatsheet</a></li>
+        <li><a href="/cheatsheets/docker-commands/">Docker Cheatsheet</a></li>
+        <li><a href="/cheatsheets/react-hooks/">React Hooks Cheatsheet</a></li>
+        <li><a href="/cheatsheets/javascript/">JavaScript Cheatsheet</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/shafqatalix" aria-label="LinkedIn">
+        <img src="/images/social-icons/linkedin.svg" alt="LinkedIn">
+      </a>
+      <a href="https://twitter.com/shafqatalix" aria-label="X/Twitter">
+        <img src="/images/social-icons/twitter.svg" alt="X/Twitter">
+      </a>
+      <a href="https://github.com/shafqatalix" aria-label="GitHub">
+        <img src="/images/social-icons/github.svg" alt="GitHub">
+      </a>
+    </div>
+    <div class="footer-copy">&copy; 2026 YORABA. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+
+</html>

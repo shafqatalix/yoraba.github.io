@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>Git Commands | YORABA</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Git Commands" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Comprehensive reference for Git basic commands, branching, merging, rebasing, stashing, cherry-picking, resets, reflog recovery, and GitHub Flow." />
+<meta name="twitter:description" property="og:description" content="Comprehensive reference for Git basic commands, branching, merging, rebasing, stashing, cherry-picking, resets, reflog recovery, and GitHub Flow." />
+<link rel="canonical" href="https://yoraba.com/cheatsheets/git-commands/" />
+<meta property="og:url" content="https://yoraba.com/cheatsheets/git-commands/" />
+<meta property="og:site_name" content="YORABA" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-07-23T14:08:42+00:00" />
+<meta property="article:modified_time" content="2026-07-23T14:08:42+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Git Commands" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-07-23T14:08:42+00:00","datePublished":"2026-07-23T14:08:42+00:00","description":"Comprehensive reference for Git basic commands, branching, merging, rebasing, stashing, cherry-picking, resets, reflog recovery, and GitHub Flow.","headline":"Git Commands","mainEntityOfPage":{"@type":"WebPage","@id":"https://yoraba.com/cheatsheets/git-commands/"},"url":"https://yoraba.com/cheatsheets/git-commands/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1117">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <script>
+(function() {
+  var saved = localStorage.getItem('theme');
+  var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  document.documentElement.dataset.theme = theme;
+  window.toggleTheme = function() {
+    var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem('theme', next);
+    var frame = document.querySelector('.utterances-frame');
+    if (frame) {
+      frame.contentWindow.postMessage(
+        { type: 'set-theme', theme: next === 'dark' ? 'github-dark' : 'github-light' },
+        'https://utteranc.es'
+      );
+    }
+  };
+})();
+</script>
+
+  <link rel="stylesheet" href="/assets/css/style.css?v=">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+ 
+  <!-- Google tag (gtag.js) -->
+<script async crossorigin="anonymous" src="https://www.googletagmanager.com/gtag/js?id=G-T8BWX5RG3W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T8BWX5RG3W');
+</script>
+
+
+
+<!-- PWA Manifest -->
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register("/sw.js")
+        .then(registration => {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        })
+        .catch(err => {
+          console.error('ServiceWorker registration failed: ', err);
+        });
+    });
+  }
+</script>
+
+<!-- You can set your favicon here -->
+<link rel="shortcut icon" type="image/svg+xml" href="/images/logo.svg">
+
+<!-- end custom head snippets -->
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Git Commands Cheatsheet",
+    "description": "Comprehensive reference for Git basic commands, branching, merging, rebasing, stashing, cherry-picking, resets, reflog recovery, and GitHub Flow.",
+    "author": {
+      "@type": "Person",
+      "name": "Shafqat Ali",
+      "url": "https://yoraba.com/about/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "YORABA",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://yoraba.com/images/logo.svg"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://yoraba.com/cheatsheets/git-commands/"
+    },
+    "inLanguage": "en-US",
+    "dateModified": "2026-07-23"
+  }
+  </script>
+  
+  
+  
+
+  
+  
+  
+</head>
+
+<body>
+  <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+  <nav class="site-nav">
+  <a class="nav-logo" href="/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+    </svg>
+    YORABA
+  </a>
+  <div class="nav-links" id="nav-links">
+    <a href="/tools">Tools</a>
+    <a href="/finance">Finance</a>
+    <a href="/multimedia">Multimedia</a>
+    <a href="/calculators">Calculators</a>
+    <a href="/cheatsheets">Cheatsheets</a>
+    <a href="/posts">Blogs</a>
+    <a href="/author">Author</a>
+    <a href="/about">About</a>
+  </div>
+  <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </button>
+  <button class="nav-toggle" aria-label="Toggle Menu"
+    onclick="document.getElementById('nav-links').classList.toggle('active')">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
+</nav>
+
+  <header class="page-header" role="banner">
+    <h1 class="project-name">Git Commands</h1>
+    <h2 class="project-tagline">Comprehensive reference for Git basic commands, branching, merging, rebasing, stashing, cherry-picking, resets, reflog recovery, and GitHub Flow.</h2>
+  </header>
+
+  <main id="content" class="main-content" role="main">
+    
+    
+
+    
+    <nav class="breadcrumbs" aria-label="Breadcrumb" style="font-size: 0.85rem; margin-bottom: 1.5rem; color: var(--text-secondary); display: flex; align-items: center; flex-wrap: wrap; gap: 0.25rem;">
+      <a href="/" style="text-decoration: none; color: var(--link);">Home</a>
+      <span style="color: var(--border);">&rarr;</span>
+      
+      
+        <a href="/cheatsheets/" style="text-decoration: none; color: var(--link);">Cheatsheets</a>
+      
+      
+      
+      
+      <span style="color: var(--border);">&rarr;</span>
+      <span style="color: var(--text-secondary);">Git Commands</span>
+    </nav>
+    
+
+    
+
+    
+    <div class="cheatsheet-actions">
+      <button onclick="window.print()" class="btn-pdf">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="8" y1="11" x2="16" y2="11"></line>
+          <text x="12" y="18" font-size="5.5" font-weight="900" fill="currentColor" stroke="none" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">PDF</text>
+        </svg>
+        Export as PDF
+      </button>
+    </div>
+
+    <h1 class="print-title">Git Commands Cheatsheet</h1>
+    
+
+    
+    
+
+    
+
+    <p>A comprehensive reference for essential and advanced Git commands, from basic branching to rebase, cherry-pick, reflog disaster recovery, and GitHub Flow.</p>
+
+<h2 id="basic-commands">Basic Commands</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git init                      <span class="c"># Initialize a new local Git repository</span>
+git clone &lt;url&gt;               <span class="c"># Clone a remote repository to your machine</span>
+git status                    <span class="c"># Show working tree status (tracked/untracked files)</span>
+git diff                      <span class="c"># Show unstaged changes compared to the index</span>
+git diff <span class="nt">--staged</span>             <span class="c"># Show staged changes compared to the last commit</span>
+git add &lt;file&gt;                <span class="c"># Stage changes of a specific file</span>
+git add <span class="nb">.</span>                     <span class="c"># Stage all changes (new, modified, deleted)</span>
+git commit <span class="nt">-m</span> <span class="s2">"message"</span>       <span class="c"># Commit staged changes with a descriptive message</span>
+git commit <span class="nt">--amend</span>            <span class="c"># Modify the very last commit (change message or add files)</span>
+git log                       <span class="c"># Show commit history list</span>
+git log <span class="nt">--oneline</span> <span class="nt">--graph</span>     <span class="c"># Visual, compact view of commit history and branches</span>
+git show &lt;commit&gt;             <span class="c"># Show details and content changes of a specific commit</span>
+</code></pre></div></div>
+
+<h2 id="branching">Branching</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch                    <span class="c"># List local branches (* indicates current branch)</span>
+git branch <span class="nt">-a</span>                 <span class="c"># List both local and remote branches</span>
+git branch &lt;name&gt;             <span class="c"># Create a new branch</span>
+git checkout &lt;branch&gt;         <span class="c"># Switch to a specific branch</span>
+git checkout <span class="nt">-b</span> &lt;name&gt;        <span class="c"># Create and switch to a new branch instantly</span>
+git switch &lt;branch&gt;           <span class="c"># Modern, safer alternative to checkout for branch switching</span>
+git switch <span class="nt">-c</span> &lt;name&gt;          <span class="c"># Modern alternative to create and switch to a new branch</span>
+git branch <span class="nt">-d</span> &lt;name&gt;          <span class="c"># Delete a local branch (must be merged)</span>
+git branch <span class="nt">-D</span> &lt;name&gt;          <span class="c"># Force delete a local branch (even if unmerged!)</span>
+git branch <span class="nt">-m</span> &lt;new-name&gt;      <span class="c"># Rename the current branch</span>
+</code></pre></div></div>
+
+<h2 id="merge">Merge</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git merge &lt;branch&gt;            <span class="c"># Merge target branch into the current branch</span>
+git merge <span class="nt">--abort</span>             <span class="c"># Stop the merge and return to the pre-merge state (on conflict)</span>
+git merge <span class="nt">--continue</span>          <span class="c"># Resume merging after resolving conflicts manually</span>
+git merge <span class="nt">--squash</span> &lt;branch&gt;   <span class="c"># Combine all target branch commits into a single commit on current branch</span>
+</code></pre></div></div>
+
+<h2 id="rebase">Rebase</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git rebase &lt;branch&gt;           <span class="c"># Rebase current branch commits on top of target branch</span>
+git rebase <span class="nt">-i</span> HEAD~&lt;n&gt;        <span class="c"># Interactive rebase of last 'n' commits (squash, reword, drop)</span>
+git rebase <span class="nt">--abort</span>            <span class="c"># Cancel the rebase operation entirely</span>
+git rebase <span class="nt">--continue</span>         <span class="c"># Resume rebasing after manually resolving conflicts</span>
+</code></pre></div></div>
+
+<h2 id="cherry-pick">Cherry Pick</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git cherry-pick &lt;commit&gt;      <span class="c"># Copy a specific commit from another branch to current branch</span>
+git cherry-pick <span class="nt">--abort</span>       <span class="c"># Cancel cherry-picking and undo local changes</span>
+git cherry-pick <span class="nt">--continue</span>    <span class="c"># Resume cherry-picking after manual conflict resolution</span>
+</code></pre></div></div>
+
+<h2 id="stash">Stash</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git stash                     <span class="c"># Save uncommitted changes to a temporary stack and clean working tree</span>
+git stash <span class="nt">-u</span>                  <span class="c"># Stash changes including untracked files</span>
+git stash list                <span class="c"># View all stashed change sets</span>
+git stash apply               <span class="c"># Apply the most recent stash without removing it from stack</span>
+git stash apply stash@<span class="o">{</span>n<span class="o">}</span>     <span class="c"># Apply a specific stash from list</span>
+git stash pop                 <span class="c"># Apply the most recent stash and delete it from stack</span>
+git stash drop stash@<span class="o">{</span>n<span class="o">}</span>      <span class="c"># Delete a specific stash from stack</span>
+git stash clear               <span class="c"># Delete all stashes from stack</span>
+</code></pre></div></div>
+
+<h2 id="reset--revert">Reset &amp; Revert</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Revert (Safe: creates a new commit that undoes changes, preserves history)</span>
+git revert &lt;commit&gt;           <span class="c"># Revert a specific commit by creating a new inverse commit</span>
+
+<span class="c"># Reset (Destructive: moves HEAD back, rewrites history, use carefully!)</span>
+git reset &lt;commit&gt;            <span class="c"># Mixed reset (default): unstages changes, keeps files in working directory</span>
+git reset <span class="nt">--soft</span> &lt;commit&gt;     <span class="c"># Soft reset: moves HEAD back, keeps changes staged in index</span>
+git reset <span class="nt">--hard</span> &lt;commit&gt;     <span class="c"># Hard reset: moves HEAD back, DESTROYS all staged and unstaged changes!</span>
+git reset <span class="nt">--hard</span> HEAD~1       <span class="c"># Undo the very last commit and delete all its work</span>
+</code></pre></div></div>
+
+<h2 id="reflog-disaster-recovery">Reflog (Disaster Recovery)</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Git records every change to HEAD. Reflog lets you recover deleted branches or commits!</span>
+git reflog                    <span class="c"># List all movements of HEAD (even deleted commits/rebases)</span>
+git show HEAD@<span class="o">{</span>n<span class="o">}</span>             <span class="c"># View changes at reflog index 'n'</span>
+git checkout HEAD@<span class="o">{</span>n<span class="o">}</span>         <span class="c"># Checkout state at reflog index 'n'</span>
+git branch &lt;name&gt; HEAD@<span class="o">{</span>n<span class="o">}</span>    <span class="c"># Re-create a deleted branch from a specific reflog state</span>
+git reset <span class="nt">--hard</span> HEAD@<span class="o">{</span>n<span class="o">}</span>     <span class="c"># Force HEAD back to a lost commit/state found in reflog</span>
+</code></pre></div></div>
+
+<h2 id="github-flow">GitHub Flow</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 1. Sync Fork / Local Main</span>
+git checkout main             <span class="c"># Switch to main branch</span>
+git pull origin main          <span class="c"># Pull latest changes from remote main</span>
+
+<span class="c"># 2. Create Feature Branch</span>
+git checkout <span class="nt">-b</span> feature/new   <span class="c"># Create descriptive feature branch</span>
+
+<span class="c"># 3. Work &amp; Commit</span>
+git add <span class="nb">.</span> <span class="o">&amp;&amp;</span> git commit <span class="nt">-m</span> <span class="s2">"feat: implement new service"</span> <span class="c"># Stage and commit work</span>
+
+<span class="c"># 4. Push Branch to Remote</span>
+git push <span class="nt">-u</span> origin feature/new <span class="c"># Push feature branch and set upstream tracking</span>
+
+<span class="c"># 5. Sync with Remote updates (rebase main)</span>
+git fetch origin              <span class="c"># Fetch latest remote state</span>
+git rebase origin/main        <span class="c"># Rebase feature commits on top of current remote main</span>
+
+<span class="c"># 6. Open Pull Request (PR)</span>
+<span class="c"># Open pull request on GitHub web or via GitHub CLI:</span>
+gh <span class="nb">pr </span>create <span class="nt">--title</span> <span class="s2">"feat: new service"</span> <span class="nt">--body</span> <span class="s2">"Implements new service"</span>
+</code></pre></div></div>
+
+
+    
+
+    
+    <section class="related-section">
+      <h3>Recommended Cheatsheets</h3>
+      <p>Check out our other essential cheatsheets for developers:</p>
+      <div class="related-grid">
+        
+        
+          
+            
+            <div class="post-card">
+              <div class="post-title"><a href="/cheatsheets/browser-shortcuts/">Browser Shortcuts Cheatsheet</a></div>
+              <p class="post-desc">Comprehensive reference for essential web browser keyboard shortcuts, coverin...</p>
+            </div>
+          
+        
+          
+            
+            <div class="post-card">
+              <div class="post-title"><a href="/cheatsheets/css-flexbox/">CSS Flexbox Cheatsheet</a></div>
+              <p class="post-desc">Comprehensive reference for CSS Flexible Box Layout (Flexbox), covering flex ...</p>
+            </div>
+          
+        
+          
+            
+            <div class="post-card">
+              <div class="post-title"><a href="/cheatsheets/css-grid/">CSS Grid Cheatsheet</a></div>
+              <p class="post-desc">Comprehensive reference for CSS Grid Layout, covering grid container properti...</p>
+            </div>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </section>
+    
+
+    
+
+    
+
+    
+
+    
+  </main>
+
+  <footer class="site-footer-dark">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h3>Popular Tools</h3>
+      <ul>
+        <li><a href="/tools/json-formatter/">JSON Formatter</a></li>
+        <li><a href="/tools/qr-code-generator/">QR Code Generator</a></li>
+        <li><a href="/tools/base64-encoder-decoder/">Base64 Encoder/Decoder</a></li>
+        <li><a href="/tools/text-compare/">Text Compare</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Calculators & Finance</h3>
+      <ul>
+        <li><a href="/finance/currency-calculator/">Currency Calculator</a></li>
+        <li><a href="/finance/mortgage-calculator/">Mortgage Calculator</a></li>
+        <li><a href="/calculators/ip-subnet-calculator/">IP Subnet Calculator</a></li>
+        <li><a href="/calculators/time-zone-calculator/">Time Zone Calculator</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Quick References</h3>
+      <ul>
+        <li><a href="/cheatsheets/git-commands/">Git Cheatsheet</a></li>
+        <li><a href="/cheatsheets/docker-commands/">Docker Cheatsheet</a></li>
+        <li><a href="/cheatsheets/react-hooks/">React Hooks Cheatsheet</a></li>
+        <li><a href="/cheatsheets/javascript/">JavaScript Cheatsheet</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/shafqatalix" aria-label="LinkedIn">
+        <img src="/images/social-icons/linkedin.svg" alt="LinkedIn">
+      </a>
+      <a href="https://twitter.com/shafqatalix" aria-label="X/Twitter">
+        <img src="/images/social-icons/twitter.svg" alt="X/Twitter">
+      </a>
+      <a href="https://github.com/shafqatalix" aria-label="GitHub">
+        <img src="/images/social-icons/github.svg" alt="GitHub">
+      </a>
+    </div>
+    <div class="footer-copy">&copy; 2026 YORABA. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+
+</html>

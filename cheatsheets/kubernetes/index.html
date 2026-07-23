@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>Kubernetes | YORABA</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Kubernetes" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Comprehensive reference for Kubernetes kubectl commands, covering context management, namespace operations, pods, deployments, services, secrets, debugging, scaling, and cluster administration." />
+<meta name="twitter:description" property="og:description" content="Comprehensive reference for Kubernetes kubectl commands, covering context management, namespace operations, pods, deployments, services, secrets, debugging, scaling, and cluster administration." />
+<link rel="canonical" href="https://yoraba.com/cheatsheets/kubernetes/" />
+<meta property="og:url" content="https://yoraba.com/cheatsheets/kubernetes/" />
+<meta property="og:site_name" content="YORABA" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-07-23T14:08:42+00:00" />
+<meta property="article:modified_time" content="2026-07-23T14:08:42+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Kubernetes" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-07-23T14:08:42+00:00","datePublished":"2026-07-23T14:08:42+00:00","description":"Comprehensive reference for Kubernetes kubectl commands, covering context management, namespace operations, pods, deployments, services, secrets, debugging, scaling, and cluster administration.","headline":"Kubernetes","mainEntityOfPage":{"@type":"WebPage","@id":"https://yoraba.com/cheatsheets/kubernetes/"},"url":"https://yoraba.com/cheatsheets/kubernetes/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1117">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <script>
+(function() {
+  var saved = localStorage.getItem('theme');
+  var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  document.documentElement.dataset.theme = theme;
+  window.toggleTheme = function() {
+    var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem('theme', next);
+    var frame = document.querySelector('.utterances-frame');
+    if (frame) {
+      frame.contentWindow.postMessage(
+        { type: 'set-theme', theme: next === 'dark' ? 'github-dark' : 'github-light' },
+        'https://utteranc.es'
+      );
+    }
+  };
+})();
+</script>
+
+  <link rel="stylesheet" href="/assets/css/style.css?v=">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+ 
+  <!-- Google tag (gtag.js) -->
+<script async crossorigin="anonymous" src="https://www.googletagmanager.com/gtag/js?id=G-T8BWX5RG3W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T8BWX5RG3W');
+</script>
+
+
+
+<!-- PWA Manifest -->
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register("/sw.js")
+        .then(registration => {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        })
+        .catch(err => {
+          console.error('ServiceWorker registration failed: ', err);
+        });
+    });
+  }
+</script>
+
+<!-- You can set your favicon here -->
+<link rel="shortcut icon" type="image/svg+xml" href="/images/logo.svg">
+
+<!-- end custom head snippets -->
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Kubernetes Cheatsheet",
+    "description": "Comprehensive reference for Kubernetes kubectl commands, covering context management, namespace operations, pods, deployments, services, secrets, debugging, scaling, and cluster administration.",
+    "author": {
+      "@type": "Person",
+      "name": "Shafqat Ali",
+      "url": "https://yoraba.com/about/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "YORABA",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://yoraba.com/images/logo.svg"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://yoraba.com/cheatsheets/kubernetes/"
+    },
+    "inLanguage": "en-US",
+    "dateModified": "2026-07-23"
+  }
+  </script>
+  
+  
+  
+
+  
+  
+  
+</head>
+
+<body>
+  <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+  <nav class="site-nav">
+  <a class="nav-logo" href="/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+    </svg>
+    YORABA
+  </a>
+  <div class="nav-links" id="nav-links">
+    <a href="/tools">Tools</a>
+    <a href="/finance">Finance</a>
+    <a href="/multimedia">Multimedia</a>
+    <a href="/calculators">Calculators</a>
+    <a href="/cheatsheets">Cheatsheets</a>
+    <a href="/posts">Blogs</a>
+    <a href="/author">Author</a>
+    <a href="/about">About</a>
+  </div>
+  <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </button>
+  <button class="nav-toggle" aria-label="Toggle Menu"
+    onclick="document.getElementById('nav-links').classList.toggle('active')">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
+</nav>
+
+  <header class="page-header" role="banner">
+    <h1 class="project-name">Kubernetes</h1>
+    <h2 class="project-tagline">Comprehensive reference for Kubernetes kubectl commands, covering context management, namespace operations, pods, deployments, services, secrets, debugging, scaling, and cluster administration.</h2>
+  </header>
+
+  <main id="content" class="main-content" role="main">
+    
+    
+
+    
+    <nav class="breadcrumbs" aria-label="Breadcrumb" style="font-size: 0.85rem; margin-bottom: 1.5rem; color: var(--text-secondary); display: flex; align-items: center; flex-wrap: wrap; gap: 0.25rem;">
+      <a href="/" style="text-decoration: none; color: var(--link);">Home</a>
+      <span style="color: var(--border);">&rarr;</span>
+      
+      
+        <a href="/cheatsheets/" style="text-decoration: none; color: var(--link);">Cheatsheets</a>
+      
+      
+      
+      
+      <span style="color: var(--border);">&rarr;</span>
+      <span style="color: var(--text-secondary);">Kubernetes</span>
+    </nav>
+    
+
+    
+
+    
+    <div class="cheatsheet-actions">
+      <button onclick="window.print()" class="btn-pdf">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="8" y1="11" x2="16" y2="11"></line>
+          <text x="12" y="18" font-size="5.5" font-weight="900" fill="currentColor" stroke="none" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">PDF</text>
+        </svg>
+        Export as PDF
+      </button>
+    </div>
+
+    <h1 class="print-title">Kubernetes Cheatsheet</h1>
+    
+
+    
+    
+
+    
+
+    <p>A comprehensive quick-reference guide for Kubernetes cluster administration and application management using the <code class="language-plaintext highlighter-rouge">kubectl</code> CLI.</p>
+
+<h2 id="cluster-config--context">Cluster Config &amp; Context</h2>
+
+<p>Configure and switch between multiple Kubernetes clusters and namespaces.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl config view                          <span class="c"># Display merged kubeconfig settings</span>
+kubectl config get-contexts                  <span class="c"># List all available cluster contexts</span>
+kubectl config current-context               <span class="c"># Display the currently active context</span>
+kubectl config use-context &lt;context-name&gt;    <span class="c"># Switch active context to a different cluster</span>
+kubectl config set-context <span class="nt">--current</span> <span class="nt">--namespace</span><span class="o">=</span>&lt;ns&gt; <span class="c"># Change default namespace for active context</span>
+kubectl cluster-info                         <span class="c"># Display address details of master and services</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="working-with-namespaces">Working with Namespaces</h2>
+
+<p>Isolate cluster resources and switch namespaces.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl get namespaces                       <span class="c"># List all namespaces in the cluster</span>
+kubectl create namespace &lt;namespace-name&gt;    <span class="c"># Create a new namespace</span>
+kubectl get all <span class="nt">-n</span> &lt;namespace-name&gt;          <span class="c"># List all resources within a specific namespace</span>
+kubectl delete namespace &lt;namespace-name&gt;    <span class="c"># Delete namespace and all resources within it</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="pod-management">Pod Management</h2>
+
+<p>Deploy, query, inspect, and manage pods (the basic execution units).</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Querying Pods</span>
+kubectl get pods                             <span class="c"># List pods in default namespace</span>
+kubectl get pods <span class="nt">-A</span>                          <span class="c"># List pods across ALL namespaces</span>
+kubectl get pods <span class="nt">-o</span> wide                     <span class="c"># List pods with extended info (IP, Node)</span>
+kubectl get pods <span class="nt">-l</span> <span class="nv">app</span><span class="o">=</span>nginx                <span class="c"># Filter pods matching a specific label selector</span>
+kubectl get pods <span class="nt">--watch</span>                     <span class="c"># List pods and watch for real-time state changes</span>
+
+<span class="c"># Inspecting &amp; Deleting Pods</span>
+kubectl describe pod &lt;pod-name&gt;              <span class="c"># View low-level config, state, and event logs for a pod</span>
+kubectl get pod &lt;pod-name&gt; <span class="nt">-o</span> yaml           <span class="c"># Export pod configuration in YAML format</span>
+kubectl delete pod &lt;pod-name&gt;                <span class="c"># Terminate and delete a specific pod</span>
+kubectl delete pods <span class="nt">--all</span>                    <span class="c"># Force delete ALL pods in active namespace</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="deployments--scaling">Deployments &amp; Scaling</h2>
+
+<p>Manage self-healing application deployments and scale replicas.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Deployments &amp; Scaling</span>
+kubectl get deployments                      <span class="c"># List deployments in active namespace</span>
+kubectl describe deployment &lt;deploy-name&gt;    <span class="c"># View details of a deployment</span>
+kubectl scale deployment &lt;deploy-name&gt; <span class="nt">--replicas</span><span class="o">=</span>5 <span class="c"># Scale replicas up or down to a specific count</span>
+kubectl autoscale deployment &lt;d-name&gt; <span class="nt">--min</span><span class="o">=</span>2 <span class="nt">--max</span><span class="o">=</span>10 <span class="nt">--cpu-percent</span><span class="o">=</span>80 <span class="c"># Set CPU-based autoscaling</span>
+
+<span class="c"># Updates &amp; Rollouts</span>
+kubectl <span class="nb">set </span>image deployment/&lt;d-name&gt; &lt;c&gt;<span class="o">=</span>&lt;image&gt;:&lt;tag&gt; <span class="c"># Update container image in deployment</span>
+kubectl rollout status deployment/&lt;d-name&gt;   <span class="c"># Monitor the deployment rollout status</span>
+kubectl rollout <span class="nb">history </span>deployment/&lt;d-name&gt;  <span class="c"># View revision history of rollouts</span>
+kubectl rollout undo deployment/&lt;d-name&gt;     <span class="c"># Rollback deployment to the previous version</span>
+kubectl rollout undo deployment/&lt;d-name&gt; <span class="nt">--to-revision</span><span class="o">=</span>3 <span class="c"># Rollback to a specific revision</span>
+kubectl rollout restart deployment/&lt;d-name&gt;  <span class="c"># Perform a rolling restart of all replica pods</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="services--networking">Services &amp; Networking</h2>
+
+<p>Expose applications internally or externally via services, port-forwarding, or ingress.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Querying Services</span>
+kubectl get services                         <span class="c"># List all services in active namespace</span>
+kubectl describe service &lt;service-name&gt;      <span class="c"># View detailed configurations and endpoints</span>
+
+<span class="c"># Exposing &amp; Forwarding Ports</span>
+kubectl expose deployment &lt;d-name&gt; <span class="nt">--port</span><span class="o">=</span>80 <span class="nt">--target-port</span><span class="o">=</span>8080 <span class="nt">--type</span><span class="o">=</span>ClusterIP <span class="c"># Expose deploy as ClusterIP</span>
+kubectl expose deployment &lt;d-name&gt; <span class="nt">--port</span><span class="o">=</span>80 <span class="nt">--type</span><span class="o">=</span>LoadBalancer <span class="c"># Expose deploy externally via LoadBalancer</span>
+kubectl port-forward pod/&lt;pod-name&gt; 8080:80  <span class="c"># Bind local port 8080 to container port 80 of a pod</span>
+kubectl port-forward svc/&lt;svc-name&gt; 8080:80  <span class="c"># Bind local port 8080 to port 80 of a cluster service</span>
+
+<span class="c"># Ingress</span>
+kubectl get ingress                          <span class="c"># List all configured ingresses</span>
+kubectl describe ingress &lt;ingress-name&gt;      <span class="c"># View detailed ingress rules and hosts</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="configmaps--secrets">ConfigMaps &amp; Secrets</h2>
+
+<p>Manage non-sensitive configurations and encrypted secrets.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># ConfigMaps</span>
+kubectl get configmaps                       <span class="c"># List all ConfigMaps</span>
+kubectl describe configmap &lt;cm-name&gt;         <span class="c"># Inspect configuration values</span>
+kubectl create configmap &lt;name&gt; <span class="nt">--from-literal</span><span class="o">=</span><span class="nv">key</span><span class="o">=</span>value <span class="c"># Create ConfigMap from command-line values</span>
+kubectl create configmap &lt;name&gt; <span class="nt">--from-file</span><span class="o">=</span>config.env  <span class="c"># Create ConfigMap from a file</span>
+
+<span class="c"># Secrets</span>
+kubectl get secrets                          <span class="c"># List all Secrets</span>
+kubectl describe secret &lt;secret-name&gt;        <span class="c"># View secret metadata (values are hidden)</span>
+kubectl get secret &lt;name&gt; <span class="nt">-o</span> <span class="nv">jsonpath</span><span class="o">=</span><span class="s1">'{.data.password}'</span> | <span class="nb">base64</span> <span class="nt">--decode</span> <span class="c"># Retrieve and decrypt secret value</span>
+kubectl create secret generic &lt;name&gt; <span class="nt">--from-literal</span><span class="o">=</span>db-pass<span class="o">=</span>secretpw <span class="c"># Create generic secret from literal</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="logs-debugging--troubleshooting">Logs, Debugging &amp; Troubleshooting</h2>
+
+<p>Investigate, debug, and diagnose application or node failures.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Container Logs</span>
+kubectl logs &lt;pod-name&gt;                      <span class="c"># Print stdout logs for a pod</span>
+kubectl logs &lt;pod-name&gt; <span class="nt">-c</span> &lt;container-name&gt;  <span class="c"># Print logs for a specific container inside a multi-container pod</span>
+kubectl logs <span class="nt">-f</span> &lt;pod-name&gt;                   <span class="c"># Tail/follow stdout logs in real-time</span>
+kubectl logs <span class="nt">--tail</span><span class="o">=</span>100 &lt;pod-name&gt;           <span class="c"># Print only the last 100 log lines</span>
+kubectl logs <span class="nt">--since</span><span class="o">=</span>1h &lt;pod-name&gt;           <span class="c"># Print logs from the last hour</span>
+
+<span class="c"># Active Debugging</span>
+kubectl <span class="nb">exec</span> <span class="nt">-it</span> &lt;pod-name&gt; <span class="nt">--</span> sh            <span class="c"># Execute an interactive shell inside a pod</span>
+kubectl <span class="nb">exec</span> &lt;pod-name&gt; <span class="nt">--</span> <span class="nb">env</span>               <span class="c"># Execute a single command (e.g. env) inside a pod without shells</span>
+kubectl get events <span class="nt">--sort-by</span><span class="o">=</span><span class="s1">'.metadata.creationTimestamp'</span> <span class="c"># View cluster event logs sorted by time</span>
+kubectl top pods                             <span class="c"># View real-time CPU and Memory usage of pods</span>
+kubectl top nodes                            <span class="c"># View real-time CPU and Memory usage of nodes</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="applying--deleting-declarative-manifests">Applying &amp; Deleting Declarative Manifests</h2>
+
+<p>Apply configuration states defined in YAML files.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl apply <span class="nt">-f</span> manifest.yaml               <span class="c"># Create or update resources declared in a YAML file</span>
+kubectl apply <span class="nt">-f</span> ./directory/                <span class="c"># Apply all YAML configurations within a folder</span>
+kubectl diff <span class="nt">-f</span> manifest.yaml                <span class="c"># Preview structural changes before applying them</span>
+kubectl delete <span class="nt">-f</span> manifest.yaml              <span class="c"># Delete all resources defined in a YAML file</span>
+kubectl explain pod.spec                     <span class="c"># View structural API schema fields and definitions</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="cluster-node-administration">Cluster Node Administration</h2>
+
+<p>Administer physical/virtual host nodes in your cluster (Admin rights required).</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl get nodes                            <span class="c"># List all nodes making up the cluster</span>
+kubectl describe node &lt;node-name&gt;            <span class="c"># Inspect node health, capacity, and resource limits</span>
+kubectl cordon &lt;node-name&gt;                   <span class="c"># Mark node as unschedulable (prevents new pods)</span>
+kubectl drain &lt;node-name&gt; <span class="nt">--ignore-daemonsets</span><span class="c"># Safe eviction of all pods from node (for maintenance)</span>
+kubectl uncordon &lt;node-name&gt;                 <span class="c"># Mark node as schedulable again</span>
+</code></pre></div></div>
+
+
+    
+
+    
+    <section class="related-section">
+      <h3>Recommended Cheatsheets</h3>
+      <p>Check out our other essential cheatsheets for developers:</p>
+      <div class="related-grid">
+        
+        
+          
+            
+            <div class="post-card">
+              <div class="post-title"><a href="/cheatsheets/browser-shortcuts/">Browser Shortcuts Cheatsheet</a></div>
+              <p class="post-desc">Comprehensive reference for essential web browser keyboard shortcuts, coverin...</p>
+            </div>
+          
+        
+          
+            
+            <div class="post-card">
+              <div class="post-title"><a href="/cheatsheets/css-flexbox/">CSS Flexbox Cheatsheet</a></div>
+              <p class="post-desc">Comprehensive reference for CSS Flexible Box Layout (Flexbox), covering flex ...</p>
+            </div>
+          
+        
+          
+            
+            <div class="post-card">
+              <div class="post-title"><a href="/cheatsheets/css-grid/">CSS Grid Cheatsheet</a></div>
+              <p class="post-desc">Comprehensive reference for CSS Grid Layout, covering grid container properti...</p>
+            </div>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </section>
+    
+
+    
+
+    
+
+    
+
+    
+  </main>
+
+  <footer class="site-footer-dark">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h3>Popular Tools</h3>
+      <ul>
+        <li><a href="/tools/json-formatter/">JSON Formatter</a></li>
+        <li><a href="/tools/qr-code-generator/">QR Code Generator</a></li>
+        <li><a href="/tools/base64-encoder-decoder/">Base64 Encoder/Decoder</a></li>
+        <li><a href="/tools/text-compare/">Text Compare</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Calculators & Finance</h3>
+      <ul>
+        <li><a href="/finance/currency-calculator/">Currency Calculator</a></li>
+        <li><a href="/finance/mortgage-calculator/">Mortgage Calculator</a></li>
+        <li><a href="/calculators/ip-subnet-calculator/">IP Subnet Calculator</a></li>
+        <li><a href="/calculators/time-zone-calculator/">Time Zone Calculator</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Quick References</h3>
+      <ul>
+        <li><a href="/cheatsheets/git-commands/">Git Cheatsheet</a></li>
+        <li><a href="/cheatsheets/docker-commands/">Docker Cheatsheet</a></li>
+        <li><a href="/cheatsheets/react-hooks/">React Hooks Cheatsheet</a></li>
+        <li><a href="/cheatsheets/javascript/">JavaScript Cheatsheet</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/shafqatalix" aria-label="LinkedIn">
+        <img src="/images/social-icons/linkedin.svg" alt="LinkedIn">
+      </a>
+      <a href="https://twitter.com/shafqatalix" aria-label="X/Twitter">
+        <img src="/images/social-icons/twitter.svg" alt="X/Twitter">
+      </a>
+      <a href="https://github.com/shafqatalix" aria-label="GitHub">
+        <img src="/images/social-icons/github.svg" alt="GitHub">
+      </a>
+    </div>
+    <div class="footer-copy">&copy; 2026 YORABA. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+
+</html>

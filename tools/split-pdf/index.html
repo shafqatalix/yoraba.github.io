@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>Split PDF | YORABA</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Split PDF" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Split PDF files into individual pages, split in half, or extract custom page ranges completely offline in your browser using pdf-lib." />
+<meta name="twitter:description" property="og:description" content="Split PDF files into individual pages, split in half, or extract custom page ranges completely offline in your browser using pdf-lib." />
+<link rel="canonical" href="https://yoraba.com/tools/split-pdf/" />
+<meta property="og:url" content="https://yoraba.com/tools/split-pdf/" />
+<meta property="og:site_name" content="YORABA" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-07-23T14:08:42+00:00" />
+<meta property="article:modified_time" content="2026-07-23T14:08:42+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Split PDF" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-07-23T14:08:42+00:00","datePublished":"2026-07-23T14:08:42+00:00","description":"Split PDF files into individual pages, split in half, or extract custom page ranges completely offline in your browser using pdf-lib.","headline":"Split PDF","mainEntityOfPage":{"@type":"WebPage","@id":"https://yoraba.com/tools/split-pdf/"},"url":"https://yoraba.com/tools/split-pdf/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1117">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <script>
+(function() {
+  var saved = localStorage.getItem('theme');
+  var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  document.documentElement.dataset.theme = theme;
+  window.toggleTheme = function() {
+    var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem('theme', next);
+    var frame = document.querySelector('.utterances-frame');
+    if (frame) {
+      frame.contentWindow.postMessage(
+        { type: 'set-theme', theme: next === 'dark' ? 'github-dark' : 'github-light' },
+        'https://utteranc.es'
+      );
+    }
+  };
+})();
+</script>
+
+  <link rel="stylesheet" href="/assets/css/style.css?v=">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+ 
+  <!-- Google tag (gtag.js) -->
+<script async crossorigin="anonymous" src="https://www.googletagmanager.com/gtag/js?id=G-T8BWX5RG3W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T8BWX5RG3W');
+</script>
+
+
+
+<!-- PWA Manifest -->
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register("/sw.js")
+        .then(registration => {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        })
+        .catch(err => {
+          console.error('ServiceWorker registration failed: ', err);
+        });
+    });
+  }
+</script>
+
+<!-- You can set your favicon here -->
+<link rel="shortcut icon" type="image/svg+xml" href="/images/logo.svg">
+
+<!-- end custom head snippets -->
+
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Yoraba Split PDF",
+    "operatingSystem": "All",
+    "applicationCategory": "DeveloperApplication",
+    "browserRequirements": "Requires JavaScript. Requires HTML5.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Split PDF files into individual pages, split in half, or extract custom page ranges completely offline in your browser using pdf-lib.",
+    "author": {
+      "@type": "Person",
+      "name": "Shafqat Ali",
+      "url": "https://yoraba.com/about/"
+    },
+    "dateModified": "2026-07-23"
+  }
+  </script>
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is my data safe and private when using Split PDF?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. All operations, conversions, and computations on Split PDF are performed entirely in your local web browser using client-side JavaScript. None of your data is sent to our servers, logged, or shared with third parties."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does Split PDF cost to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "This utility is 100% free to use. There are no limits on usage, no subscriptions, no premium paywalls, and no registration required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use Split PDF offline?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Once this page is loaded in your browser, all core functionalities of Split PDF are executed client-side. You can disconnect from the internet and continue using the utility without any active network connection."
+        }
+      }
+    ]
+  }
+  </script>
+  
+
+  
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://yoraba.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Tools",
+        "item": "https://yoraba.com/tools/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Split PDF",
+        "item": "https://yoraba.com/tools/split-pdf/"
+      }
+    ]
+  }
+  </script>
+  <meta name="ai-citation" content="Yoraba.com provides free, 100% browser-native tools that process data entirely client-side for maximum privacy." />
+  
+</head>
+
+<body>
+  <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+  <nav class="site-nav">
+  <a class="nav-logo" href="/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+    </svg>
+    YORABA
+  </a>
+  <div class="nav-links" id="nav-links">
+    <a href="/tools">Tools</a>
+    <a href="/finance">Finance</a>
+    <a href="/multimedia">Multimedia</a>
+    <a href="/calculators">Calculators</a>
+    <a href="/cheatsheets">Cheatsheets</a>
+    <a href="/posts">Blogs</a>
+    <a href="/author">Author</a>
+    <a href="/about">About</a>
+  </div>
+  <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </button>
+  <button class="nav-toggle" aria-label="Toggle Menu"
+    onclick="document.getElementById('nav-links').classList.toggle('active')">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
+</nav>
+
+  <header class="page-header" role="banner">
+    <h1 class="project-name">Split PDF</h1>
+    <h2 class="project-tagline">Split PDF files into individual pages, split in half, or extract custom page ranges completely offline in your browser using pdf-lib.</h2>
+  </header>
+
+  <main id="content" class="main-content" role="main">
+    
+    
+
+    
+    <nav class="breadcrumbs" aria-label="Breadcrumb" style="font-size: 0.85rem; margin-bottom: 1.5rem; color: var(--text-secondary); display: flex; align-items: center; flex-wrap: wrap; gap: 0.25rem;">
+      <a href="/" style="text-decoration: none; color: var(--link);">Home</a>
+      <span style="color: var(--border);">&rarr;</span>
+      
+      
+        
+          <a href="/tools/" style="text-decoration: none; color: var(--link);">Developer Tools</a>
+        
+      
+      
+      
+      
+      <span style="color: var(--border);">&rarr;</span>
+      <span style="color: var(--text-secondary);">Split PDF</span>
+    </nav>
+    
+
+    
+
+    
+
+    
+    
+
+    
+    <div class="llm-opt-block">
+      <div class="tldr-summary">
+        <strong>TL;DR:</strong> Yoraba's Split PDF is a secure, browser-native utility designed to split pdf files into individual pages, split in half, or extract custom page ranges completely offline in your browser using pdf-lib. Fully compatible with offline workflows.
+      </div>
+      <div class="privacy-callout">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="privacy-icon" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        <strong>Privacy First:</strong> This tool runs 100% client-side in your browser. No data is ever uploaded to our servers. Your data never leaves your device.
+      </div>
+      <div class="last-updated-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="privacy-icon" aria-hidden="true" focusable="false" style="margin-right: 6px;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        <span>Last Updated: July 23, 2026</span>
+      </div>
+    </div>
+    
+
+    <p>Split a PDF document into separate files, extract custom page ranges, or divide the file in half. This tool runs <strong>100% locally client-side</strong> using <code class="language-plaintext highlighter-rouge">pdf-lib</code>—ensuring your files are processed entirely in your browser with absolute privacy and zero server-side uploads.</p>
+
+<!-- Load PDF-Lib from unpkg UMD CDN -->
+<script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+
+<style>
+.converter-container {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.editor-row {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.editor-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.editor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.editor-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--headings);
+}
+
+/* Upload drop-zone styled beautifully */
+.drop-zone {
+    border: 2px dashed var(--border);
+    border-radius: 8px;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    background-color: var(--code-bg);
+    cursor: pointer;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+.drop-zone:hover, .drop-zone.dragover {
+    border-color: var(--accent);
+    background-color: rgba(56, 139, 253, 0.05);
+}
+
+.drop-zone-text {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+}
+
+.drop-zone-sub {
+    font-size: 0.775rem;
+    color: var(--text-secondary);
+}
+
+.file-input-hidden {
+    display: none;
+}
+
+.toolbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.btn-convert {
+    padding: 0.55rem 1.1rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+    border: 1px solid var(--border);
+}
+
+.btn-convert.primary {
+    background-color: #238636;
+    color: #ffffff;
+    border-color: rgba(240, 246, 252, 0.1);
+}
+
+.btn-convert.primary:hover:not(:disabled) {
+    background-color: #2ea043;
+}
+
+.btn-convert.secondary {
+    background-color: transparent;
+    color: var(--text-secondary);
+}
+
+.btn-convert.secondary:hover {
+    background-color: var(--border);
+    color: var(--text);
+}
+
+.btn-convert:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Form controls */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background-color: var(--code-bg);
+    padding: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+}
+
+.form-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.form-select {
+    padding: 0.55rem;
+    font-size: 0.875rem;
+    background-color: var(--card-bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    outline: none;
+    cursor: pointer;
+}
+
+.form-input {
+    padding: 0.55rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.95rem;
+    background-color: var(--card-bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    outline: none;
+}
+
+.status-log {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.775rem;
+    padding: 0.75rem;
+    background-color: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    min-height: 50px;
+    max-height: 150px;
+    overflow-y: auto;
+    color: var(--text-secondary);
+    white-space: pre-wrap;
+    margin-top: 0.5rem;
+}
+
+.file-info-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background-color: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 0.875rem;
+}
+</style>
+
+<div class="converter-container">
+    <!-- Toolbar -->
+    <div class="toolbar-container">
+        <div style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 500;">Client-side PDF Extractor (PDF-Lib)</div>
+        <div class="toolbar-controls" style="margin-left: auto;">
+            <button id="btn-clear-all" class="btn-convert secondary">Reset File</button>
+        </div>
+    </div>
+
+    <div class="editor-row">
+        <!-- Input file loader (Top) -->
+        <div class="editor-card">
+            <div class="editor-header">
+                <span class="editor-title">Select Source PDF</span>
+            </div>
+            
+            <div id="pdf-drop-zone" class="drop-zone">
+                <div class="drop-zone-text">📄 Drag &amp; Drop a PDF file here</div>
+                <div class="drop-zone-sub">or click to browse from your computer</div>
+                <input type="file" id="pdf-file-input" class="file-input-hidden" accept="application/pdf" />
+            </div>
+
+            <!-- Active file info display -->
+            <div id="file-info-box" class="file-info-banner" style="display: none;">
+                <span id="file-info-name" style="font-weight: 600; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">-</span>
+                <span id="file-info-meta" style="color: var(--text-secondary); font-size: 0.8rem; flex-shrink: 0; margin-left: 1rem;">Pages: <strong id="lbl-total-pages" style="color: var(--accent);">0</strong></span>
+            </div>
+        </div>
+
+        <!-- Splitting configuration Area (Bottom) -->
+        <div class="editor-card">
+            <div class="editor-header">
+                <span class="editor-title" style="color: #58a6ff;">Splitting Parameters</span>
+            </div>
+
+            <!-- Select Splitting method -->
+            <div class="form-group">
+                <label for="split-method" class="form-label">Splitting Method</label>
+                <select id="split-method" class="form-select">
+                    <option value="range" selected="">Extract Custom Page Range</option>
+                    <option value="half">Split in Half</option>
+                    <option value="individual">Extract Every Page Individually</option>
+                </select>
+            </div>
+
+            <!-- Custom range parameter field -->
+            <div id="range-control-group" class="form-group">
+                <label for="range-input" class="form-label">Extract Range / Pages</label>
+                <input type="text" id="range-input" class="form-input" placeholder="e.g. 1-3, 5, 7-10" value="1" />
+                <span style="font-size: 0.725rem; color: var(--text-secondary);">Use dashes for ranges (e.g. 1-3) and commas for lists (e.g. 1, 3, 5). 1-based page index.</span>
+            </div>
+
+            <div class="editor-header" style="border-bottom: none; margin-bottom: 0; margin-top: 1rem;">
+                <span class="editor-title" style="color: #7ee787;">Execute Split</span>
+            </div>
+
+            <button id="btn-split-action" class="btn-convert primary" style="width: 100%; padding: 0.75rem;" disabled="">Split &amp; Save PDF</button>
+
+            <!-- Status messaging log -->
+            <div id="status-log-panel" class="status-log">Ready: Waiting for file to load...</div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const pdfFileInput = document.getElementById('pdf-file-input');
+    const pdfDropZone = document.getElementById('pdf-drop-zone');
+    
+    const fileInfoBox = document.getElementById('file-info-box');
+    const fileInfoName = document.getElementById('file-info-name');
+    const lblTotalPages = document.getElementById('lbl-total-pages');
+
+    const splitMethod = document.getElementById('split-method');
+    const rangeControlGroup = document.getElementById('range-control-group');
+    const rangeInput = document.getElementById('range-input');
+
+    const btnClearAll = document.getElementById('btn-clear-all');
+    const btnSplitAction = document.getElementById('btn-split-action');
+    const statusLogPanel = document.getElementById('status-log-panel');
+
+    // Loaded single PDF document state
+    let activeFile = null;
+
+    // Trigger upload on click
+    pdfDropZone.addEventListener('click', () => {
+        pdfFileInput.click();
+    });
+
+    // Handle file input changes
+    pdfFileInput.addEventListener('change', (e) => {
+        handleSingleFile(e.target.files[0]);
+    });
+
+    // Drag events
+    pdfDropZone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        pdfDropZone.classList.add('dragover');
+    });
+
+    pdfDropZone.addEventListener('dragleave', () => {
+        pdfDropZone.classList.remove('dragover');
+    });
+
+    pdfDropZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        pdfDropZone.classList.remove('dragover');
+        if (e.dataTransfer.files) {
+            handleSingleFile(e.dataTransfer.files[0]);
+        }
+    });
+
+    splitMethod.addEventListener('change', () => {
+        const method = splitMethod.value;
+        if (method === 'range') {
+            rangeControlGroup.style.display = 'flex';
+        } else {
+            rangeControlGroup.style.display = 'none';
+        }
+    });
+
+    btnClearAll.addEventListener('click', () => {
+        resetState();
+        logMessage('Reset complete. Ready to load another PDF.');
+    });
+
+    btnSplitAction.addEventListener('click', () => {
+        executeSplit();
+    });
+
+    function resetState() {
+        activeFile = null;
+        fileInfoBox.style.display = 'none';
+        pdfDropZone.style.display = 'block';
+        btnSplitAction.disabled = true;
+        rangeInput.value = '1';
+    }
+
+    async function handleSingleFile(file) {
+        if (!file) return;
+
+        if (file.type !== 'application/pdf' && !file.name.toLowerCase().endsWith('.pdf')) {
+            logMessage('❌ Refused file: Only PDF documents are supported.');
+            return;
+        }
+
+        logMessage(`Loading PDF: ${file.name}...`);
+        
+        try {
+            const arrayBuffer = await file.arrayBuffer();
+            const pdfDoc = await PDFLib.PDFDocument.load(arrayBuffer);
+            const totalPages = pdfDoc.getPageCount();
+
+            activeFile = {
+                file: file,
+                name: file.name,
+                pages: totalPages,
+                buffer: arrayBuffer
+            };
+
+            // Toggle views
+            pdfDropZone.style.display = 'none';
+            fileInfoName.textContent = file.name;
+            lblTotalPages.textContent = totalPages;
+            fileInfoBox.style.display = 'flex';
+
+            btnSplitAction.disabled = false;
+            rangeInput.value = `1-${totalPages}`;
+
+            logMessage(`Successfully parsed "${file.name}" | Total Pages: ${totalPages}`);
+        } catch (err) {
+            console.error(err);
+            logMessage(`❌ Parser Error: Unable to read PDF document. (${err.message})`);
+            resetState();
+        }
+    }
+
+    async function executeSplit() {
+        if (!activeFile) return;
+
+        const method = splitMethod.value;
+        btnSplitAction.disabled = true;
+        btnSplitAction.textContent = 'Splitting PDF...';
+
+        try {
+            const sourceDoc = await PDFLib.PDFDocument.load(activeFile.buffer);
+            const totalPages = activeFile.pages;
+
+            if (method === 'range') {
+                await extractRange(sourceDoc, totalPages);
+            } else if (method === 'half') {
+                await splitInHalf(sourceDoc, totalPages);
+            } else if (method === 'individual') {
+                await extractIndividualPages(sourceDoc, totalPages);
+            }
+        } catch (err) {
+            console.error(err);
+            logMessage(`❌ Splitting failed: ${err.message}`);
+        } finally {
+            btnSplitAction.disabled = false;
+            btnSplitAction.textContent = 'Split & Save PDF';
+        }
+    }
+
+    // Extraction: Custom page ranges (e.g. 1-3, 5, 7)
+    async function extractRange(sourceDoc, totalPages) {
+        const query = rangeInput.value.trim();
+        if (query === '') {
+            logMessage('⚠️ Error: Please enter a valid page range.');
+            return;
+        }
+
+        const indices = parsePageRange(query, totalPages);
+        if (indices.length === 0) {
+            logMessage('⚠️ Error: Page range parsed to 0 matching pages.');
+            return;
+        }
+
+        logMessage(`Extracting ${indices.length} pages: [${indices.map(i => i + 1).join(', ')}]...`);
+
+        const newDoc = await PDFLib.PDFDocument.create();
+        const copiedPages = await newDoc.copyPages(sourceDoc, indices);
+        copiedPages.forEach(p => newDoc.addPage(p));
+
+        const pdfBytes = await newDoc.save();
+        triggerDownload(pdfBytes, `${activeFile.name.replace('.pdf', '')}_extracted.pdf`);
+    }
+
+    // Split in Half: generates two separate downloads or page bounds
+    async function splitInHalf(sourceDoc, totalPages) {
+        if (totalPages < 2) {
+            logMessage('⚠️ Document must contain at least 2 pages to split in half.');
+            return;
+        }
+
+        const mid = Math.ceil(totalPages / 2);
+        
+        logMessage(`Dividing document in half: Part 1 (Pages 1-${mid}), Part 2 (Pages ${mid + 1}-${totalPages})`);
+
+        // Part 1
+        const part1Indices = Array.from({ length: mid }, (_, i) => i);
+        const doc1 = await PDFLib.PDFDocument.create();
+        const pages1 = await doc1.copyPages(sourceDoc, part1Indices);
+        pages1.forEach(p => doc1.addPage(p));
+        const bytes1 = await doc1.save();
+        triggerDownload(bytes1, `${activeFile.name.replace('.pdf', '')}_part1.pdf`);
+
+        // Part 2
+        const part2Indices = Array.from({ length: totalPages - mid }, (_, i) => i + mid);
+        const doc2 = await PDFLib.PDFDocument.create();
+        const pages2 = await doc2.copyPages(sourceDoc, part2Indices);
+        pages2.forEach(p => doc2.addPage(p));
+        const bytes2 = await doc2.save();
+        
+        // Trigger second download with slight timeout to prevent browser blocking multiple downloads
+        setTimeout(() => {
+            triggerDownload(bytes2, `${activeFile.name.replace('.pdf', '')}_part2.pdf`);
+        }, 800);
+    }
+
+    // Extract every page individually: triggers multiple browser-downloads sequence safely
+    async function extractIndividualPages(sourceDoc, totalPages) {
+        if (totalPages > 10) {
+            const ok = confirm(`This document has ${totalPages} pages. This will trigger ${totalPages} separate file downloads in your browser. Do you wish to proceed?`);
+            if (!ok) return;
+        }
+
+        logMessage(`Extracting all ${totalPages} pages individually...`);
+
+        for (let i = 0; i < totalPages; i++) {
+            const doc = await PDFLib.PDFDocument.create();
+            const pages = await doc.copyPages(sourceDoc, [i]);
+            doc.addPage(pages[0]);
+            const bytes = await doc.save();
+
+            // Stagger downloads so browser download manager registers all of them
+            await new Promise(resolve => {
+                setTimeout(() => {
+                    triggerDownload(bytes, `${activeFile.name.replace('.pdf', '')}_page_${i + 1}.pdf`);
+                    resolve();
+                }, i * 500);
+            });
+        }
+    }
+
+    // Helper: Parse range string "1-3, 5, 7-10" to 0-based page index array
+    function parsePageRange(rangeStr, totalPages) {
+        const indices = new Set();
+        const parts = rangeStr.replace(/\s/g, '').split(',');
+
+        parts.forEach(part => {
+            if (part.includes('-')) {
+                const bounds = part.split('-');
+                const start = parseInt(bounds[0]);
+                const end = parseInt(bounds[1]);
+
+                if (!isNaN(start) && !isNaN(end)) {
+                    const from = Math.max(1, Math.min(start, end));
+                    const to = Math.min(totalPages, Math.max(start, end));
+
+                    for (let i = from; i <= to; i++) {
+                        indices.add(i - 1);
+                    }
+                }
+            } else {
+                const val = parseInt(part);
+                if (!isNaN(val) && val >= 1 && val <= totalPages) {
+                    indices.add(val - 1);
+                }
+            }
+        });
+
+        // Convert set to sorted integer array
+        return Array.from(indices).sort((a, b) => a - b);
+    }
+
+    function triggerDownload(bytes, filename) {
+        logMessage(`Downloading split PDF: "${filename}"`);
+        const blob = new Blob([bytes], { type: 'application/pdf' });
+        const url = URL.createObjectURL(blob);
+
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+
+        setTimeout(() => URL.revokeObjectURL(url), 5000);
+    }
+
+    function logMessage(text) {
+        const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        statusLogPanel.textContent += `\n[${time}] ${text}`;
+        statusLogPanel.scrollTop = statusLogPanel.scrollHeight;
+    }
+});
+</script>
+
+
+
+    
+    <section class="seo-rich-content">
+      <hr class="seo-divider">
+
+      
+
+      
+      
+      <div class="seo-section seo-steps">
+        <h2>How to Use Split PDF</h2>
+        <ol class="seo-steps-list">
+          
+            <li>
+              <h3>Input your data</h3>
+              <p>Paste, type, or upload your inputs into the input fields at the top of the page.</p>
+            </li>
+            <li>
+              <h3>Configure options</h3>
+              <p>Adjust any available options, dropdowns, checkboxes, or parameters to customize the output.</p>
+            </li>
+            <li>
+              <h3>Get instant results</h3>
+              <p>Our tool processes your input instantly completely offline. Copy the formatted results or download the generated output directly to your device.</p>
+            </li>
+          
+        </ol>
+      </div>
+
+      
+
+      <div class="seo-section seo-technical">
+        <h2>The Technical Details</h2>
+        <div class="seo-technical-content">
+          
+            <p>This interactive web utility is designed to provide quick, reliable, and completely private calculations and data transformations. Modern workflow requirements often call for quick format adjustments, conversions, or math estimations. By executing all logic directly in your browser using client-side JavaScript, this utility ensures that your sensitive inputs are never transmitted across the network, combining modern browser speed with absolute data confidentiality.</p>
+          
+        </div>
+      </div>
+
+      <div class="seo-section seo-faqs">
+        <h2>Frequently Asked Questions</h2>
+        <div class="seo-faq-accordion">
+          
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">Is my data safe and private when using Split PDF?</summary>
+              <div class="seo-faq-answer">
+                <p>Yes. All operations, conversions, and computations on Split PDF are performed entirely in your local web browser using client-side JavaScript. None of your data is sent to our servers, logged, or shared with third parties.</p>
+              </div>
+            </details>
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">How much does Split PDF cost to use?</summary>
+              <div class="seo-faq-answer">
+                <p>This utility is 100% free to use. There are no limits on usage, no subscriptions, no premium paywalls, and no registration required.</p>
+              </div>
+            </details>
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">Can I use Split PDF offline?</summary>
+              <div class="seo-faq-answer">
+                <p>Yes. Once this page is loaded in your browser, all core functionalities of Split PDF are executed client-side. You can disconnect from the internet and continue using the utility without any active network connection.</p>
+              </div>
+            </details>
+          
+        </div>
+      </div>
+    </section>
+    
+
+    
+
+    
+    <section class="related-section">
+      <h3>
+        Recommended Developer Tools
+        
+      </h3>
+      <p>
+        Boost your productivity with our other free browser-based developer utilities:
+        
+      </p>
+      <div class="related-grid">
+        
+        
+        
+        
+        
+          
+          
+          
+            
+              
+              
+              
+              
+                
+                <div class="post-card">
+                  <div class="post-title"><a href="/tools/notepad/">Notepad</a></div>
+                  <p class="post-desc">Retro Windows-like Notepad application. Full-screen distraction-free text edi...</p>
+                </div>
+              
+            
+          
+            
+              
+              
+              
+              
+                
+                <div class="post-card">
+                  <div class="post-title"><a href="/tools/jwt-decoder/">JWT Decoder</a></div>
+                  <p class="post-desc">Decode JSON Web Tokens (JWT) in real-time, view headers and payloads, and for...</p>
+                </div>
+              
+            
+          
+            
+              
+              
+              
+              
+                
+                <div class="post-card">
+                  <div class="post-title"><a href="/tools/json-formatter/">JSON Formatter</a></div>
+                  <p class="post-desc">Format, validate, and beautify JSON data with syntax highlighting.</p>
+                </div>
+              
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+        
+      </div>
+    </section>
+    
+
+    
+
+    
+
+    
+  </main>
+
+  <footer class="site-footer-dark">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h3>Popular Tools</h3>
+      <ul>
+        <li><a href="/tools/json-formatter/">JSON Formatter</a></li>
+        <li><a href="/tools/qr-code-generator/">QR Code Generator</a></li>
+        <li><a href="/tools/base64-encoder-decoder/">Base64 Encoder/Decoder</a></li>
+        <li><a href="/tools/text-compare/">Text Compare</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Calculators & Finance</h3>
+      <ul>
+        <li><a href="/finance/currency-calculator/">Currency Calculator</a></li>
+        <li><a href="/finance/mortgage-calculator/">Mortgage Calculator</a></li>
+        <li><a href="/calculators/ip-subnet-calculator/">IP Subnet Calculator</a></li>
+        <li><a href="/calculators/time-zone-calculator/">Time Zone Calculator</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Quick References</h3>
+      <ul>
+        <li><a href="/cheatsheets/git-commands/">Git Cheatsheet</a></li>
+        <li><a href="/cheatsheets/docker-commands/">Docker Cheatsheet</a></li>
+        <li><a href="/cheatsheets/react-hooks/">React Hooks Cheatsheet</a></li>
+        <li><a href="/cheatsheets/javascript/">JavaScript Cheatsheet</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/shafqatalix" aria-label="LinkedIn">
+        <img src="/images/social-icons/linkedin.svg" alt="LinkedIn">
+      </a>
+      <a href="https://twitter.com/shafqatalix" aria-label="X/Twitter">
+        <img src="/images/social-icons/twitter.svg" alt="X/Twitter">
+      </a>
+      <a href="https://github.com/shafqatalix" aria-label="GitHub">
+        <img src="/images/social-icons/github.svg" alt="GitHub">
+      </a>
+    </div>
+    <div class="footer-copy">&copy; 2026 YORABA. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+
+</html>

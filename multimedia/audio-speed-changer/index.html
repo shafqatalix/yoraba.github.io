@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>Audio Speed Changer | YORABA</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Audio Speed Changer" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Adjust the playback speed and tempo of local MP3, WAV, M4A, or OGG audio files by up to 2.5x entirely in your browser. Render and download offline." />
+<meta name="twitter:description" property="og:description" content="Adjust the playback speed and tempo of local MP3, WAV, M4A, or OGG audio files by up to 2.5x entirely in your browser. Render and download offline." />
+<link rel="canonical" href="https://yoraba.com/multimedia/audio-speed-changer/" />
+<meta property="og:url" content="https://yoraba.com/multimedia/audio-speed-changer/" />
+<meta property="og:site_name" content="YORABA" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-07-23T14:08:42+00:00" />
+<meta property="article:modified_time" content="2026-07-23T14:08:42+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Audio Speed Changer" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-07-23T14:08:42+00:00","datePublished":"2026-07-23T14:08:42+00:00","description":"Adjust the playback speed and tempo of local MP3, WAV, M4A, or OGG audio files by up to 2.5x entirely in your browser. Render and download offline.","headline":"Audio Speed Changer","mainEntityOfPage":{"@type":"WebPage","@id":"https://yoraba.com/multimedia/audio-speed-changer/"},"url":"https://yoraba.com/multimedia/audio-speed-changer/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1117">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <script>
+(function() {
+  var saved = localStorage.getItem('theme');
+  var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  document.documentElement.dataset.theme = theme;
+  window.toggleTheme = function() {
+    var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem('theme', next);
+    var frame = document.querySelector('.utterances-frame');
+    if (frame) {
+      frame.contentWindow.postMessage(
+        { type: 'set-theme', theme: next === 'dark' ? 'github-dark' : 'github-light' },
+        'https://utteranc.es'
+      );
+    }
+  };
+})();
+</script>
+
+  <link rel="stylesheet" href="/assets/css/style.css?v=">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+ 
+  <!-- Google tag (gtag.js) -->
+<script async crossorigin="anonymous" src="https://www.googletagmanager.com/gtag/js?id=G-T8BWX5RG3W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T8BWX5RG3W');
+</script>
+
+
+
+<!-- PWA Manifest -->
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register("/sw.js")
+        .then(registration => {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        })
+        .catch(err => {
+          console.error('ServiceWorker registration failed: ', err);
+        });
+    });
+  }
+</script>
+
+<!-- You can set your favicon here -->
+<link rel="shortcut icon" type="image/svg+xml" href="/images/logo.svg">
+
+<!-- end custom head snippets -->
+
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Yoraba Audio Speed Changer",
+    "operatingSystem": "All",
+    "applicationCategory": "MultimediaApplication",
+    "browserRequirements": "Requires JavaScript. Requires HTML5.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Adjust the playback speed and tempo of local MP3, WAV, M4A, or OGG audio files by up to 2.5x entirely in your browser. Render and download offline.",
+    "author": {
+      "@type": "Person",
+      "name": "Shafqat Ali",
+      "url": "https://yoraba.com/about/"
+    },
+    "dateModified": "2026-07-23"
+  }
+  </script>
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is my data safe and private when using Audio Speed Changer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. All operations, conversions, and computations on Audio Speed Changer are performed entirely in your local web browser using client-side JavaScript. None of your data is sent to our servers, logged, or shared with third parties."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does Audio Speed Changer cost to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "This utility is 100% free to use. There are no limits on usage, no subscriptions, no premium paywalls, and no registration required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use Audio Speed Changer offline?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Once this page is loaded in your browser, all core functionalities of Audio Speed Changer are executed client-side. You can disconnect from the internet and continue using the utility without any active network connection."
+        }
+      }
+    ]
+  }
+  </script>
+  
+
+  
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://yoraba.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Multimedia",
+        "item": "https://yoraba.com/multimedia/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Audio Speed Changer",
+        "item": "https://yoraba.com/multimedia/audio-speed-changer/"
+      }
+    ]
+  }
+  </script>
+  <meta name="ai-citation" content="Yoraba.com provides free, 100% browser-native tools that process data entirely client-side for maximum privacy." />
+  
+</head>
+
+<body>
+  <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+  <nav class="site-nav">
+  <a class="nav-logo" href="/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+    </svg>
+    YORABA
+  </a>
+  <div class="nav-links" id="nav-links">
+    <a href="/tools">Tools</a>
+    <a href="/finance">Finance</a>
+    <a href="/multimedia">Multimedia</a>
+    <a href="/calculators">Calculators</a>
+    <a href="/cheatsheets">Cheatsheets</a>
+    <a href="/posts">Blogs</a>
+    <a href="/author">Author</a>
+    <a href="/about">About</a>
+  </div>
+  <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </button>
+  <button class="nav-toggle" aria-label="Toggle Menu"
+    onclick="document.getElementById('nav-links').classList.toggle('active')">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
+</nav>
+
+  <header class="page-header" role="banner">
+    <h1 class="project-name">Audio Speed Changer</h1>
+    <h2 class="project-tagline">Adjust the playback speed and tempo of local MP3, WAV, M4A, or OGG audio files by up to 2.5x entirely in your browser. Render and download offline.</h2>
+  </header>
+
+  <main id="content" class="main-content" role="main">
+    
+    
+
+    
+    <nav class="breadcrumbs" aria-label="Breadcrumb" style="font-size: 0.85rem; margin-bottom: 1.5rem; color: var(--text-secondary); display: flex; align-items: center; flex-wrap: wrap; gap: 0.25rem;">
+      <a href="/" style="text-decoration: none; color: var(--link);">Home</a>
+      <span style="color: var(--border);">&rarr;</span>
+      
+      
+        
+          <a href="/multimedia/" style="text-decoration: none; color: var(--link);">Multimedia Tools</a>
+        
+      
+      
+      
+      
+      <span style="color: var(--border);">&rarr;</span>
+      <span style="color: var(--text-secondary);">Audio Speed Changer</span>
+    </nav>
+    
+
+    
+
+    
+
+    
+    
+
+    
+    <div class="llm-opt-block">
+      <div class="tldr-summary">
+        <strong>TL;DR:</strong> Yoraba's Audio Speed Changer is a secure, browser-native utility designed to adjust the playback speed and tempo of local mp3, wav, m4a, or ogg audio files by up to 25x entirely in your browser render and download offline. Fully compatible with offline workflows.
+      </div>
+      <div class="privacy-callout">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="privacy-icon" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        <strong>Privacy First:</strong> This tool runs 100% client-side in your browser. No data is ever uploaded to our servers. Your data never leaves your device.
+      </div>
+      <div class="last-updated-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="privacy-icon" aria-hidden="true" focusable="false" style="margin-right: 6px;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        <span>Last Updated: July 23, 2026</span>
+      </div>
+    </div>
+    
+
+    <p>Change the playback speed and tempo of your MP3, WAV, M4A, AAC, or OGG audio files entirely in your browser. This tool runs <strong>100% locally client-side</strong> using standard Web Audio APIs—meaning your files are processed completely inside your browser, keeping your lectures, audiobooks, and music private, confidential, and secure.</p>
+
+<style>
+.speed-container {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.editor-row {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.editor-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.editor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.editor-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--headings);
+}
+
+/* Upload drop-zone styled beautifully */
+.drop-zone {
+    border: 2px dashed var(--border);
+    border-radius: 8px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    background-color: var(--code-bg);
+    cursor: pointer;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+.drop-zone:hover, .drop-zone.dragover {
+    border-color: var(--accent);
+    background-color: rgba(56, 139, 253, 0.05);
+}
+
+.drop-zone-text {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+}
+
+.drop-zone-sub {
+    font-size: 0.775rem;
+    color: var(--text-secondary);
+}
+
+.file-input-hidden {
+    display: none;
+}
+
+.toolbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.btn-convert {
+    padding: 0.55rem 1.1rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+    border: 1px solid var(--border);
+}
+
+.btn-convert.primary {
+    background-color: #238636;
+    color: #ffffff;
+    border-color: rgba(240, 246, 252, 0.1);
+}
+
+.btn-convert.primary:hover:not(:disabled) {
+    background-color: #2ea043;
+}
+
+.btn-convert.secondary {
+    background-color: transparent;
+    color: var(--text-secondary);
+}
+
+.btn-convert.secondary:hover {
+    background-color: var(--border);
+    color: var(--text);
+}
+
+.btn-convert:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Control parameters */
+.form-group-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+@media (min-width: 40em) {
+    .form-group-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background-color: var(--code-bg);
+    padding: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+}
+
+.form-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.slider-input {
+    width: 100%;
+    cursor: pointer;
+    accent-color: var(--accent);
+}
+
+.presets-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.25rem;
+}
+
+.preset-btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background-color: var(--card-bg);
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.preset-btn:hover {
+    background-color: var(--border);
+    color: var(--text);
+}
+
+.status-log {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.775rem;
+    padding: 0.75rem;
+    background-color: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    min-height: 50px;
+    max-height: 120px;
+    overflow-y: auto;
+    color: var(--text-secondary);
+    white-space: pre-wrap;
+    margin-top: 0.5rem;
+}
+
+/* Visual boards */
+.preview-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background-color: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    gap: 1rem;
+}
+
+.audio-player-output {
+    width: 100%;
+}
+</style>
+
+<div class="speed-container">
+    <!-- Toolbar -->
+    <div class="toolbar-container">
+        <div style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 500;">Offline Web Audio Resampling &amp; Tempo Engine</div>
+        <div class="toolbar-controls" style="margin-left: auto;">
+            <button id="btn-clear-all" class="btn-convert secondary">Clear File</button>
+        </div>
+    </div>
+
+    <div class="editor-row">
+        <!-- Input Drop Zone (Top) -->
+        <div class="editor-card">
+            <div class="editor-header">
+                <span class="editor-title">Load Audio File (MP3, WAV, M4A, OGG)</span>
+            </div>
+            
+            <div id="audio-drop-zone" class="drop-zone">
+                <div class="drop-zone-text">🎵 Drag &amp; Drop audio file here</div>
+                <div class="drop-zone-sub">Supports major formats. Processing is completed 100% locally in-browser.</div>
+                <input type="file" id="audio-file-input" class="file-input-hidden" accept="audio/*" />
+            </div>
+
+            <!-- Display metadata once video loaded -->
+            <div id="file-info-box" class="form-group" style="display: none; background-color: var(--code-bg); border-color: var(--border);">
+                <div class="form-label" style="color: #58a6ff;">Source File Information</div>
+                <div style="font-size: 0.825rem; color: var(--text); display: flex; flex-direction: column; gap: 0.25rem;">
+                    <span><strong>Filename:</strong> <span id="lbl-info-name">-</span></span>
+                    <span><strong>Size:</strong> <span id="lbl-info-size">-</span></span>
+                    <span><strong>Duration:</strong> <span id="lbl-info-duration">-</span></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Volume Boost Controls Card (Middle) -->
+        <div class="editor-card">
+            <div class="editor-header">
+                <span class="editor-title" style="color: #58a6ff;">Tempo Adjustments</span>
+            </div>
+
+            <div class="form-group-row">
+                <!-- Speed Slider -->
+                <div class="form-group">
+                    <label for="speed-slider" class="form-label" id="lbl-speed-val">Playback Speed (1.00x - Normal)</label>
+                    <input type="range" id="speed-slider" class="slider-input" min="50" max="250" value="100" step="5" />
+                </div>
+
+                <!-- Presets -->
+                <div class="form-group">
+                    <label class="form-label">Speed Presets</label>
+                    <div class="presets-container">
+                        <button class="preset-btn" data-speed="0.5">0.50x (Slow)</button>
+                        <button class="preset-btn" data-speed="0.75">0.75x</button>
+                        <button class="preset-btn" data-speed="1.0">1.00x (Normal)</button>
+                        <button class="preset-btn" data-speed="1.25">1.25x</button>
+                        <button class="preset-btn" data-speed="1.5">1.50x</button>
+                        <button class="preset-btn" data-speed="2.0">2.00x (Fast)</button>
+                        <button class="preset-btn" data-speed="2.5">2.50x</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="editor-header" style="border-bottom: none; margin-bottom: 0; margin-top: 1rem;">
+                <span class="editor-title" style="color: #7ee787;">Resample Action</span>
+            </div>
+
+            <button id="btn-render-action" class="btn-convert primary" style="width: 100%; padding: 0.75rem;" disabled="">Render Playback Speed</button>
+
+            <!-- Rendered Output Area (Initially hidden) -->
+            <div id="speed-header" class="editor-header" style="border-bottom: none; margin-bottom: 0; margin-top: 1.5rem; display: none;">
+                <span class="editor-title" style="color: #d299ff;">Speed Adjusted Preview</span>
+                <button id="btn-download-audio" class="btn-convert primary" style="padding: 0.35rem 0.75rem; font-size: 0.75rem;">Download Resampled File</button>
+            </div>
+            
+            <div id="preview-box" class="preview-panel" style="display: none;">
+                <audio id="speed-audio-player" class="audio-player-output" controls=""></audio>
+            </div>
+
+            <!-- Status messaging log -->
+            <div id="status-log-panel" class="status-log">Ready: Waiting for audio file...</div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const audioFileInput = document.getElementById('audio-file-input');
+    const audioDropZone = document.getElementById('audio-drop-zone');
+
+    const fileInfoBox = document.getElementById('file-info-box');
+    const lblInfoName = document.getElementById('lbl-info-name');
+    const lblInfoSize = document.getElementById('lbl-info-size');
+    const lblInfoDuration = document.getElementById('lbl-info-duration');
+
+    const speedSlider = document.getElementById('speed-slider');
+    const lblSpeedVal = document.getElementById('lbl-speed-val');
+
+    const btnRenderAction = document.getElementById('btn-render-action');
+    const btnClearAll = document.getElementById('btn-clear-all');
+    const statusLogPanel = document.getElementById('status-log-panel');
+
+    const speedHeader = document.getElementById('speed-header');
+    const previewBox = document.getElementById('preview-box');
+    const speedAudioPlayer = document.getElementById('speed-audio-player');
+    const btnDownloadAudio = document.getElementById('btn-download-audio');
+
+    // State
+    let activeAudioFile = null;
+    let activeFileUrl = null;
+    let speedBlob = null;
+    let speedBlobUrl = null;
+
+    // Trigger upload on click
+    audioDropZone.addEventListener('click', () => {
+        audioFileInput.click();
+    });
+
+    // Handle file input changes
+    audioFileInput.addEventListener('change', (e) => {
+        handleAudioFile(e.target.files[0]);
+    });
+
+    // Drag events
+    audioDropZone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        audioDropZone.classList.add('dragover');
+    });
+
+    audioDropZone.addEventListener('dragleave', () => {
+        audioDropZone.classList.remove('dragover');
+    });
+
+    audioDropZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        audioDropZone.classList.remove('dragover');
+        if (e.dataTransfer.files) {
+            handleAudioFile(e.dataTransfer.files[0]);
+        }
+    });
+
+    // Slider display update
+    speedSlider.addEventListener('input', () => {
+        const val = parseFloat(speedSlider.value) / 100;
+        lblSpeedVal.textContent = `Playback Speed (${val.toFixed(2)}x${val === 1.0 ? ' - Normal' : ''})`;
+    });
+
+    // Presets trigger
+    document.querySelectorAll('.preset-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const val = parseFloat(btn.getAttribute('data-speed'));
+            speedSlider.value = Math.round(val * 100);
+            lblSpeedVal.textContent = `Playback Speed (${val.toFixed(2)}x${val === 1.0 ? ' - Normal' : ''})`;
+            logMessage(`Speed preset changed to ${val.toFixed(2)}x`);
+        });
+    });
+
+    btnClearAll.addEventListener('click', () => {
+        resetSpeedState();
+        logMessage('Speed changer environment reset.');
+    });
+
+    btnRenderAction.addEventListener('click', () => {
+        executeSpeedRendering();
+    });
+
+    btnDownloadAudio.addEventListener('click', () => {
+        if (!speedBlobUrl) return;
+
+        const originalName = activeAudioFile.name;
+        const lastDot = originalName.lastIndexOf('.');
+        const baseName = lastDot !== -1 ? originalName.substring(0, lastDot) : originalName;
+        const speedVal = (parseFloat(speedSlider.value) / 100).toFixed(2);
+        const finalName = `${baseName}_speed_${speedVal}x.wav`;
+
+        logMessage(`Downloading speed adjusted file: ${finalName}...`);
+        const a = document.createElement('a');
+        a.href = speedBlobUrl;
+        a.download = finalName;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    });
+
+    function handleAudioFile(file) {
+        if (!file) return;
+
+        logMessage(`Loading audio file: ${file.name} (${formatSize(file.size)})...`);
+
+        resetSpeedState();
+
+        activeAudioFile = file;
+        activeFileUrl = URL.createObjectURL(file);
+
+        lblInfoName.textContent = file.name;
+        lblInfoSize.textContent = formatSize(file.size);
+
+        // Get duration on load
+        const audio = new Audio();
+        audio.src = activeFileUrl;
+        audio.addEventListener('loadedmetadata', () => {
+            lblInfoDuration.textContent = formatTimeCode(audio.duration);
+            fileInfoBox.style.display = 'block';
+            btnRenderAction.disabled = false;
+            logMessage('✔ Audio loaded successfully and prepared for local DSP speed resampling.');
+        });
+        audio.addEventListener('error', () => {
+            logMessage('❌ Failed to load audio. Please verify that this file is a valid audio format.');
+            btnRenderAction.disabled = true;
+        });
+    }
+
+    async function executeSpeedRendering() {
+        if (!activeAudioFile) return;
+
+        btnRenderAction.disabled = true;
+        btnRenderAction.textContent = 'Rendering Speed Change...';
+        logMessage('⚡ Spawning Offline Audio DSP Thread... loading sound buffer.');
+
+        speedHeader.style.display = 'none';
+        previewBox.style.display = 'none';
+        speedAudioPlayer.src = '';
+
+        try {
+            // Read file into ArrayBuffer
+            const arrayBuffer = await activeAudioFile.arrayBuffer();
+
+            // Decode Audio Data
+            const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            logMessage('Decoding local binary stream into multi-channel audio buffer...');
+            
+            audioCtx.decodeAudioData(arrayBuffer, async (audioBuffer) => {
+                logMessage('✔ Sound buffer decoded successfully! Preparing offline speed multiplier...');
+
+                const originalDuration = audioBuffer.duration;
+                const sampleRate = audioBuffer.sampleRate;
+                const numChannels = audioBuffer.numberOfChannels;
+
+                const multiplier = parseFloat(speedSlider.value) / 100;
+                
+                // New duration is original duration divided by multiplier
+                const targetLength = Math.round(audioBuffer.length / multiplier);
+
+                // Set up OfflineAudioContext
+                const offlineCtx = new OfflineAudioContext(numChannels, targetLength, sampleRate);
+
+                // Source Node
+                const source = offlineCtx.createBufferSource();
+                source.buffer = audioBuffer;
+
+                // Adjust playbackRate on source node
+                source.playbackRate.setValueAtTime(multiplier, 0);
+
+                // Connections
+                source.connect(offlineCtx.destination);
+                source.start(0);
+
+                const targetDuration = originalDuration / multiplier;
+                logMessage(`Rendering ${numChannels}-channel sound map at ${sampleRate}Hz...`);
+                logMessage(`Speed: ${multiplier.toFixed(2)}x | Estimated duration: ${formatTimeCode(targetDuration)}`);
+                
+                const renderedBuffer = await offlineCtx.startRendering();
+                logMessage('✔ Audio rendering finished! Encoding stream into PCM WAV container...');
+
+                // Convert to WAV Blob
+                speedBlob = bufferToWav(renderedBuffer);
+                speedBlobUrl = URL.createObjectURL(speedBlob);
+
+                speedAudioPlayer.src = speedBlobUrl;
+                speedHeader.style.display = 'flex';
+                previewBox.style.display = 'flex';
+
+                btnRenderAction.disabled = false;
+                btnRenderAction.textContent = 'Render Playback Speed';
+                logMessage(`✔ Speed successfully adjusted! Rendered WAV File size: ${formatSize(speedBlob.size)}`);
+                audioCtx.close();
+            }, (decodeErr) => {
+                logMessage(`❌ Audio Decoding failed: ${decodeErr.message || 'Format unsupported by your OS'}`);
+                btnRenderAction.disabled = false;
+                btnRenderAction.textContent = 'Render Playback Speed';
+                audioCtx.close();
+            });
+
+        } catch (err) {
+            logMessage(`❌ Speed Changer process aborted: ${err.message}`);
+            btnRenderAction.disabled = false;
+            btnRenderAction.textContent = 'Render Playback Speed';
+        }
+    }
+
+    // High performance WAV file encoding helper
+    function bufferToWav(buffer) {
+        const numOfChan = buffer.numberOfChannels,
+              length = buffer.length * numOfChan * 2 + 44,
+              bufferArray = new ArrayBuffer(length),
+              view = new DataView(bufferArray),
+              channels = [],
+              sampleRate = buffer.sampleRate;
+        
+        let i,
+            sample,
+            offset = 0,
+            pos = 0;
+
+        // Write WAV Header
+        setUint32(0x46464952); // "RIFF"
+        setUint32(length - 8); // file length - 8
+        setUint32(0x45564157); // "WAVE"
+
+        setUint32(0x20746d66); // "fmt " chunk
+        setUint32(16);         // chunk size = 16
+        setUint16(1);          // PCM audio format = 1
+        setUint16(numOfChan);
+        setUint32(sampleRate);
+        setUint32(sampleRate * 2 * numOfChan); // byte rate
+        setUint16(numOfChan * 2);              // block align
+        setUint16(16);                         // 16-bit audio depth
+
+        setUint32(0x61746164); // "data" chunk
+        setUint32(length - pos - 4); // chunk length
+
+        for (i = 0; i < buffer.numberOfChannels; i++) {
+            channels.push(buffer.getChannelData(i));
+        }
+
+        while (pos < length) {
+            for (i = 0; i < numOfChan; i++) {
+                sample = Math.max(-1, Math.min(1, channels[i][offset]));
+                sample = (sample < 0 ? sample * 0x8000 : sample * 0x7FFF); // Scale to 16-bit signed integer
+                view.setInt16(pos, sample, true);
+                pos += 2;
+            }
+            offset++;
+        }
+
+        return new Blob([bufferArray], { type: 'audio/wav' });
+
+        function setUint16(data) {
+            view.setUint16(pos, data, true);
+            pos += 2;
+        }
+
+        function setUint32(data) {
+            view.setUint32(pos, data, true);
+            pos += 4;
+        }
+    }
+
+    function resetSpeedState() {
+        if (activeFileUrl) {
+            URL.revokeObjectURL(activeFileUrl);
+            activeFileUrl = null;
+        }
+
+        if (speedBlobUrl) {
+            URL.revokeObjectURL(speedBlobUrl);
+            speedBlobUrl = null;
+        }
+
+        activeAudioFile = null;
+        speedBlob = null;
+
+        fileInfoBox.style.display = 'none';
+        btnRenderAction.disabled = true;
+
+        speedHeader.style.display = 'none';
+        previewBox.style.display = 'none';
+        speedAudioPlayer.src = '';
+    }
+
+    // Convert seconds to MM:SS format
+    function formatTimeCode(totalSeconds) {
+        if (isNaN(totalSeconds) || totalSeconds === Infinity) return "00:00";
+        const mins = Math.floor(totalSeconds / 60);
+        const secs = Math.floor(totalSeconds % 60);
+        return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    }
+
+    function formatSize(bytes) {
+        if (bytes === 0) return '0 Bytes';
+        const k = 1024;
+        const sizes = ['Bytes', 'KB', 'MB'];
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
+        return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+    }
+
+    function logMessage(text) {
+        const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        statusLogPanel.textContent += `\n[${time}] ${text}`;
+        statusLogPanel.scrollTop = statusLogPanel.scrollHeight;
+    }
+});
+</script>
+
+
+
+    
+    <section class="seo-rich-content">
+      <hr class="seo-divider">
+
+      
+
+      
+      
+      <div class="seo-section seo-steps">
+        <h2>How to Use Audio Speed Changer</h2>
+        <ol class="seo-steps-list">
+          
+            <li>
+              <h3>Input your data</h3>
+              <p>Paste, type, or upload your inputs into the input fields at the top of the page.</p>
+            </li>
+            <li>
+              <h3>Configure options</h3>
+              <p>Adjust any available options, dropdowns, checkboxes, or parameters to customize the output.</p>
+            </li>
+            <li>
+              <h3>Get instant results</h3>
+              <p>Our tool processes your input instantly completely offline. Copy the formatted results or download the generated output directly to your device.</p>
+            </li>
+          
+        </ol>
+      </div>
+
+      
+
+      <div class="seo-section seo-technical">
+        <h2>The Technical Details</h2>
+        <div class="seo-technical-content">
+          
+            <p>This interactive web utility is designed to provide quick, reliable, and completely private calculations and data transformations. Modern workflow requirements often call for quick format adjustments, conversions, or math estimations. By executing all logic directly in your browser using client-side JavaScript, this utility ensures that your sensitive inputs are never transmitted across the network, combining modern browser speed with absolute data confidentiality.</p>
+          
+        </div>
+      </div>
+
+      <div class="seo-section seo-faqs">
+        <h2>Frequently Asked Questions</h2>
+        <div class="seo-faq-accordion">
+          
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">Is my data safe and private when using Audio Speed Changer?</summary>
+              <div class="seo-faq-answer">
+                <p>Yes. All operations, conversions, and computations on Audio Speed Changer are performed entirely in your local web browser using client-side JavaScript. None of your data is sent to our servers, logged, or shared with third parties.</p>
+              </div>
+            </details>
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">How much does Audio Speed Changer cost to use?</summary>
+              <div class="seo-faq-answer">
+                <p>This utility is 100% free to use. There are no limits on usage, no subscriptions, no premium paywalls, and no registration required.</p>
+              </div>
+            </details>
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">Can I use Audio Speed Changer offline?</summary>
+              <div class="seo-faq-answer">
+                <p>Yes. Once this page is loaded in your browser, all core functionalities of Audio Speed Changer are executed client-side. You can disconnect from the internet and continue using the utility without any active network connection.</p>
+              </div>
+            </details>
+          
+        </div>
+      </div>
+    </section>
+    
+
+    
+
+    
+    <section class="related-section">
+      <h3>
+        Recommended Multimedia Tools
+      </h3>
+      <p>
+        Try our other free browser-based audio, video, and image utilities:
+      </p>
+      <div class="related-grid">
+        
+        
+        
+        
+        
+          
+          
+          
+            
+              
+              
+              
+              
+                
+                <div class="post-card">
+                  <div class="post-title"><a href="/multimedia/video-frame-extractor/">Video Frame Extractor</a></div>
+                  <p class="post-desc">Extract high-resolution PNG or JPEG frame images from local MP4, WebM, or OGG...</p>
+                </div>
+              
+            
+          
+            
+              
+              
+              
+              
+                
+                <div class="post-card">
+                  <div class="post-title"><a href="/multimedia/gif-maker/">Animated GIF Maker</a></div>
+                  <p class="post-desc">Create and compile custom animated GIFs from your JPEG and PNG images. Re-ord...</p>
+                </div>
+              
+            
+          
+            
+              
+              
+              
+              
+                
+                <div class="post-card">
+                  <div class="post-title"><a href="/multimedia/image-compressor/">Image Compressor</a></div>
+                  <p class="post-desc">Compress JPEG, PNG, and WEBP images completely in your browser, adjust compre...</p>
+                </div>
+              
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+        
+      </div>
+    </section>
+    
+
+    
+
+    
+
+    
+  </main>
+
+  <footer class="site-footer-dark">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h3>Popular Tools</h3>
+      <ul>
+        <li><a href="/tools/json-formatter/">JSON Formatter</a></li>
+        <li><a href="/tools/qr-code-generator/">QR Code Generator</a></li>
+        <li><a href="/tools/base64-encoder-decoder/">Base64 Encoder/Decoder</a></li>
+        <li><a href="/tools/text-compare/">Text Compare</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Calculators & Finance</h3>
+      <ul>
+        <li><a href="/finance/currency-calculator/">Currency Calculator</a></li>
+        <li><a href="/finance/mortgage-calculator/">Mortgage Calculator</a></li>
+        <li><a href="/calculators/ip-subnet-calculator/">IP Subnet Calculator</a></li>
+        <li><a href="/calculators/time-zone-calculator/">Time Zone Calculator</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Quick References</h3>
+      <ul>
+        <li><a href="/cheatsheets/git-commands/">Git Cheatsheet</a></li>
+        <li><a href="/cheatsheets/docker-commands/">Docker Cheatsheet</a></li>
+        <li><a href="/cheatsheets/react-hooks/">React Hooks Cheatsheet</a></li>
+        <li><a href="/cheatsheets/javascript/">JavaScript Cheatsheet</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/shafqatalix" aria-label="LinkedIn">
+        <img src="/images/social-icons/linkedin.svg" alt="LinkedIn">
+      </a>
+      <a href="https://twitter.com/shafqatalix" aria-label="X/Twitter">
+        <img src="/images/social-icons/twitter.svg" alt="X/Twitter">
+      </a>
+      <a href="https://github.com/shafqatalix" aria-label="GitHub">
+        <img src="/images/social-icons/github.svg" alt="GitHub">
+      </a>
+    </div>
+    <div class="footer-copy">&copy; 2026 YORABA. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+
+</html>

@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>Investment Return / ROI Calculator | YORABA</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Investment Return / ROI Calculator" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Calculate your Return on Investment (ROI), Total Return, and Annualized Rate of Return (CAGR) incorporating fees and dividends." />
+<meta name="twitter:description" property="og:description" content="Calculate your Return on Investment (ROI), Total Return, and Annualized Rate of Return (CAGR) incorporating fees and dividends." />
+<link rel="canonical" href="https://yoraba.com/finance/investment-return-roi-calculator/" />
+<meta property="og:url" content="https://yoraba.com/finance/investment-return-roi-calculator/" />
+<meta property="og:site_name" content="YORABA" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-07-23T14:08:42+00:00" />
+<meta property="article:modified_time" content="2026-07-23T14:08:42+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Investment Return / ROI Calculator" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-07-23T14:08:42+00:00","datePublished":"2026-07-23T14:08:42+00:00","description":"Calculate your Return on Investment (ROI), Total Return, and Annualized Rate of Return (CAGR) incorporating fees and dividends.","headline":"Investment Return / ROI Calculator","mainEntityOfPage":{"@type":"WebPage","@id":"https://yoraba.com/finance/investment-return-roi-calculator/"},"url":"https://yoraba.com/finance/investment-return-roi-calculator/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1117">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <script>
+(function() {
+  var saved = localStorage.getItem('theme');
+  var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  document.documentElement.dataset.theme = theme;
+  window.toggleTheme = function() {
+    var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem('theme', next);
+    var frame = document.querySelector('.utterances-frame');
+    if (frame) {
+      frame.contentWindow.postMessage(
+        { type: 'set-theme', theme: next === 'dark' ? 'github-dark' : 'github-light' },
+        'https://utteranc.es'
+      );
+    }
+  };
+})();
+</script>
+
+  <link rel="stylesheet" href="/assets/css/style.css?v=">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+ 
+  <!-- Google tag (gtag.js) -->
+<script async crossorigin="anonymous" src="https://www.googletagmanager.com/gtag/js?id=G-T8BWX5RG3W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T8BWX5RG3W');
+</script>
+
+
+
+<!-- PWA Manifest -->
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register("/sw.js")
+        .then(registration => {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        })
+        .catch(err => {
+          console.error('ServiceWorker registration failed: ', err);
+        });
+    });
+  }
+</script>
+
+<!-- You can set your favicon here -->
+<link rel="shortcut icon" type="image/svg+xml" href="/images/logo.svg">
+
+<!-- end custom head snippets -->
+
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Yoraba Investment Return / ROI Calculator",
+    "operatingSystem": "All",
+    "applicationCategory": "BusinessApplication",
+    "browserRequirements": "Requires JavaScript. Requires HTML5.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Calculate your Return on Investment (ROI), Total Return, and Annualized Rate of Return (CAGR) incorporating fees and dividends.",
+    "author": {
+      "@type": "Person",
+      "name": "Shafqat Ali",
+      "url": "https://yoraba.com/about/"
+    },
+    "dateModified": "2026-07-23"
+  }
+  </script>
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is my data safe and private when using Investment Return / ROI Calculator?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. All operations, conversions, and computations on Investment Return / ROI Calculator are performed entirely in your local web browser using client-side JavaScript. None of your data is sent to our servers, logged, or shared with third parties."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does Investment Return / ROI Calculator cost to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "This utility is 100% free to use. There are no limits on usage, no subscriptions, no premium paywalls, and no registration required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use Investment Return / ROI Calculator offline?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Once this page is loaded in your browser, all core functionalities of Investment Return / ROI Calculator are executed client-side. You can disconnect from the internet and continue using the utility without any active network connection."
+        }
+      }
+    ]
+  }
+  </script>
+  
+
+  
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://yoraba.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Finance",
+        "item": "https://yoraba.com/finance/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Investment Return / ROI Calculator",
+        "item": "https://yoraba.com/finance/investment-return-roi-calculator/"
+      }
+    ]
+  }
+  </script>
+  <meta name="ai-citation" content="Yoraba.com provides free, 100% browser-native tools that process data entirely client-side for maximum privacy." />
+  
+</head>
+
+<body>
+  <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+  <nav class="site-nav">
+  <a class="nav-logo" href="/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+    </svg>
+    YORABA
+  </a>
+  <div class="nav-links" id="nav-links">
+    <a href="/tools">Tools</a>
+    <a href="/finance">Finance</a>
+    <a href="/multimedia">Multimedia</a>
+    <a href="/calculators">Calculators</a>
+    <a href="/cheatsheets">Cheatsheets</a>
+    <a href="/posts">Blogs</a>
+    <a href="/author">Author</a>
+    <a href="/about">About</a>
+  </div>
+  <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </button>
+  <button class="nav-toggle" aria-label="Toggle Menu"
+    onclick="document.getElementById('nav-links').classList.toggle('active')">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
+</nav>
+
+  <header class="page-header" role="banner">
+    <h1 class="project-name">Investment Return / ROI Calculator</h1>
+    <h2 class="project-tagline">Calculate your Return on Investment (ROI), Total Return, and Annualized Rate of Return (CAGR) incorporating fees and dividends.</h2>
+  </header>
+
+  <main id="content" class="main-content" role="main">
+    
+    
+
+    
+    <nav class="breadcrumbs" aria-label="Breadcrumb" style="font-size: 0.85rem; margin-bottom: 1.5rem; color: var(--text-secondary); display: flex; align-items: center; flex-wrap: wrap; gap: 0.25rem;">
+      <a href="/" style="text-decoration: none; color: var(--link);">Home</a>
+      <span style="color: var(--border);">&rarr;</span>
+      
+      
+        
+          <a href="/finance/" style="text-decoration: none; color: var(--link);">Financial Tools</a>
+        
+      
+      
+      
+      
+      <span style="color: var(--border);">&rarr;</span>
+      <span style="color: var(--text-secondary);">Investment Return / ROI Calculator</span>
+    </nav>
+    
+
+    
+
+    
+
+    
+    
+
+    
+    <div class="llm-opt-block">
+      <div class="tldr-summary">
+        <strong>TL;DR:</strong> Yoraba's Investment Return / ROI Calculator is a secure, browser-native utility designed to calculate your return on investment (roi), total return, and annualized rate of return (cagr) incorporating fees and dividends. Fully compatible with offline workflows.
+      </div>
+      <div class="privacy-callout">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="privacy-icon" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        <strong>Privacy First:</strong> This tool runs 100% client-side in your browser. No data is ever uploaded to our servers. Your data never leaves your device.
+      </div>
+      <div class="last-updated-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="privacy-icon" aria-hidden="true" focusable="false" style="margin-right: 6px;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        <span>Last Updated: July 23, 2026</span>
+      </div>
+    </div>
+    
+
+    <p>Measure your financial performance. Calculate your Return on Investment (ROI) and Annualized Rate of Return (CAGR) while factoring in additional transaction fees and investment dividends or income.</p>
+
+<style>
+.tool-container {
+    margin-top: 1.5rem;
+}
+
+.calc-layout {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 1.5rem;
+}
+
+@media (min-width: 48em) {
+    .calc-layout {
+        display: grid;
+        grid-template-columns: 1fr 340px;
+        gap: 2rem;
+    }
+
+    .results-sidebar {
+        position: sticky;
+        top: 2rem;
+        align-self: start;
+    }
+}
+
+.calc-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input-group label {
+    font-weight: 600;
+    color: var(--headings);
+    font-size: 0.95rem;
+}
+
+.input-row {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.input-row .input-group {
+    flex: 1;
+}
+
+.input-with-prefix {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-prefix {
+    position: absolute;
+    left: 0.75rem;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    font-family: inherit;
+    pointer-events: none;
+    user-select: none;
+}
+
+.input-suffix {
+    position: absolute;
+    right: 0.75rem;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    font-family: inherit;
+    pointer-events: none;
+    user-select: none;
+}
+
+.calc-input {
+    width: 100%;
+    padding: 0.65rem 0.75rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875rem;
+    color: var(--code-text);
+    background-color: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.calc-input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(63, 185, 80, 0.3);
+}
+
+.calc-input.has-prefix {
+    padding-left: 1.75rem;
+}
+
+.calc-input.has-suffix {
+    padding-right: 1.75rem;
+}
+
+select.calc-input {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%238b949e' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 12px;
+    padding-right: 2rem;
+}
+
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: 1.25rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+}
+
+.section-title {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--headings);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.4rem;
+    margin: 0 0 0.5rem 0;
+}
+
+.results-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: 1.5rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.results-header {
+    text-align: center;
+}
+
+.results-title {
+    font-weight: 600;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.results-big-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--headings);
+    margin: 0.5rem 0;
+}
+
+.payment-breakdown-bar {
+    display: flex;
+    height: 16px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 1rem 0;
+    background-color: var(--border);
+}
+
+.bar-segment {
+    height: 100%;
+    transition: width 0.3s ease;
+}
+
+.bg-principal { background-color: #58a6ff; }
+.bg-interest { background-color: #7ee787; }
+.bg-negative { background-color: #ff7b72; }
+
+.legend-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.legend-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.825rem;
+    color: var(--text);
+}
+
+.legend-label-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.legend-val {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    color: var(--headings);
+}
+
+.summary-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border-top: 1px solid var(--border);
+    padding-top: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.825rem;
+    color: var(--text-secondary);
+}
+
+.summary-row span:last-child {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.btn-clear {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 0.875rem;
+    background-color: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-clear:hover {
+    background-color: var(--border);
+    color: var(--text);
+}
+</style>
+
+<div class="tool-container">
+    <div class="calc-layout">
+        <!-- Controls on Left -->
+        <div class="calc-controls">
+            <!-- Investment Balances -->
+            <div class="options-container">
+                <h3 class="section-title">Investment Balances</h3>
+                
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="roi-initial">Initial Investment</label>
+                        <div class="input-with-prefix">
+                            <span class="input-prefix">$</span>
+                            <input type="number" id="roi-initial" class="calc-input has-prefix" value="10000" min="1" step="500" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="roi-final">Final Value</label>
+                        <div class="input-with-prefix">
+                            <span class="input-prefix">$</span>
+                            <input type="number" id="roi-final" class="calc-input has-prefix" value="15000" min="0" step="500" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Holding Period -->
+            <div class="options-container">
+                <h3 class="section-title">Holding Period</h3>
+                
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="roi-length">Duration</label>
+                        <div class="input-with-prefix">
+                            <input type="number" id="roi-length" class="calc-input has-suffix" value="3" min="1" max="100" step="1" />
+                            <span class="input-suffix" id="roi-length-unit-label">years</span>
+                        </div>
+                    </div>
+                    <div class="input-group" style="max-width: 120px;">
+                        <label for="roi-unit">Unit</label>
+                        <select id="roi-unit" class="calc-input">
+                            <option value="years" selected="">Years</option>
+                            <option value="months">Months</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Costs and Dividends -->
+            <div class="options-container">
+                <h3 class="section-title">Additional Costs &amp; Income</h3>
+                
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="roi-costs">Transaction Fees / Costs</label>
+                        <div class="input-with-prefix">
+                            <span class="input-prefix">$</span>
+                            <input type="number" id="roi-costs" class="calc-input has-prefix" value="0" min="0" step="10" />
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="roi-income">Dividends / Income Received</label>
+                        <div class="input-with-prefix">
+                            <span class="input-prefix">$</span>
+                            <input type="number" id="roi-income" class="calc-input has-prefix" value="500" min="0" step="50" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar Summary -->
+        <div class="results-sidebar">
+            <div class="results-header">
+                <h4 class="results-title">Return on Investment (ROI)</h4>
+                <div class="results-big-num" id="roi-pct" style="color: var(--accent);">0%</div>
+            </div>
+
+            <!-- Stacked Color Bar -->
+            <div class="payment-breakdown-bar">
+                <div id="roi-bar-capital" class="bar-segment bg-principal" style="width: 60%;"></div>
+                <div id="roi-bar-gain" class="bar-segment bg-interest" style="width: 40%;"></div>
+            </div>
+
+            <!-- Legend/Details -->
+            <ul class="legend-list">
+                <li class="legend-item">
+                    <div class="legend-label-wrapper">
+                        <div class="legend-dot bg-principal"></div>
+                        <span>Invested Capital</span>
+                    </div>
+                    <span id="roi-legend-val-capital" class="legend-val">$0</span>
+                </li>
+                <li class="legend-item" id="legend-row-gain">
+                    <div class="legend-label-wrapper">
+                        <div id="roi-dot-status" class="legend-dot bg-interest"></div>
+                        <span id="roi-label-status">Net Capital Gain</span>
+                    </div>
+                    <span id="roi-legend-val-gain" class="legend-val">$0</span>
+                </li>
+            </ul>
+
+            <!-- Breakdown Details -->
+            <div class="summary-details">
+                <div class="summary-row">
+                    <span>Total Investment Cost</span>
+                    <span id="roi-sum-total-cost">$0</span>
+                </div>
+                <div class="summary-row">
+                    <span>Total Proceeds / Value</span>
+                    <span id="roi-sum-proceeds">$0</span>
+                </div>
+                <div class="summary-row">
+                    <span>Total Investment Profit</span>
+                    <span id="roi-sum-profit">$0</span>
+                </div>
+                <div class="summary-row" id="row-cagr">
+                    <span style="font-weight: bold; color: var(--headings);">Annualized ROI (CAGR)</span>
+                    <span id="roi-sum-cagr" style="font-weight: bold; color: var(--accent);">0%</span>
+                </div>
+            </div>
+
+            <button id="roi-btn-reset" class="calc-input btn-clear">Reset Calculator</button>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Inputs
+    const initialInput = document.getElementById('roi-initial');
+    const finalInput = document.getElementById('roi-final');
+    const lengthInput = document.getElementById('roi-length');
+    const unitSelect = document.getElementById('roi-unit');
+    const costsInput = document.getElementById('roi-costs');
+    const incomeInput = document.getElementById('roi-income');
+    const btnReset = document.getElementById('roi-btn-reset');
+    const lengthUnitLabel = document.getElementById('roi-length-unit-label');
+
+    // Outputs
+    const roiPctOutput = document.getElementById('roi-pct');
+    const legendCapitalOutput = document.getElementById('roi-legend-val-capital');
+    const legendGainOutput = document.getElementById('roi-legend-val-gain');
+    const sumTotalCostOutput = document.getElementById('roi-sum-total-cost');
+    const sumProceedsOutput = document.getElementById('roi-sum-proceeds');
+    const sumProfitOutput = document.getElementById('roi-sum-profit');
+    const sumCagrOutput = document.getElementById('roi-sum-cagr');
+
+    // Bar segments
+    const barCapital = document.getElementById('roi-bar-capital');
+    const barGain = document.getElementById('roi-bar-gain');
+    const dotStatus = document.getElementById('roi-dot-status');
+    const labelStatus = document.getElementById('roi-label-status');
+    const rowCagr = document.getElementById('row-cagr');
+
+    // Format helper
+    function fmtCurrency(val) {
+        const sign = val < 0 ? '-' : '';
+        return sign + '$' + Math.abs(Math.round(val)).toLocaleString();
+    }
+
+    // Add listeners
+    [initialInput, finalInput, lengthInput, unitSelect, costsInput, incomeInput].forEach(elem => {
+        elem.addEventListener('input', calculateROI);
+    });
+
+    unitSelect.addEventListener('change', () => {
+        const isYears = unitSelect.value === 'years';
+        lengthUnitLabel.textContent = isYears ? 'years' : 'months';
+        lengthInput.max = isYears ? 100 : 1200;
+        calculateROI();
+    });
+
+    btnReset.addEventListener('click', () => {
+        initialInput.value = 10000;
+        finalInput.value = 15000;
+        lengthInput.value = 3;
+        unitSelect.value = 'years';
+        lengthUnitLabel.textContent = 'years';
+        costsInput.value = 0;
+        incomeInput.value = 500;
+        calculateROI();
+    });
+
+    function calculateROI() {
+        // Values
+        const initial = parseFloat(initialInput.value) || 0;
+        const finalVal = parseFloat(finalInput.value) || 0;
+        const duration = parseFloat(lengthInput.value) || 0;
+        const isYears = unitSelect.value === 'years';
+        const costs = parseFloat(costsInput.value) || 0;
+        const income = parseFloat(incomeInput.value) || 0;
+
+        const totalCost = initial + costs;
+        const totalProceeds = finalVal + income;
+        const profit = totalProceeds - totalCost;
+
+        if (totalCost <= 0) {
+            roiPctOutput.textContent = '0%';
+            legendCapitalOutput.textContent = '$0';
+            legendGainOutput.textContent = '$0';
+            sumTotalCostOutput.textContent = '$0';
+            sumProceedsOutput.textContent = '$0';
+            sumProfitOutput.textContent = '$0';
+            sumCagrOutput.textContent = '0%';
+            barCapital.style.width = '0%';
+            barGain.style.width = '0%';
+            rowCagr.style.display = 'none';
+            return;
+        }
+
+        const roi = (profit / totalCost) * 100;
+        roiPctOutput.textContent = `${roi.toFixed(2)}%`;
+
+        // Update colors based on positive/negative gain
+        if (profit >= 0) {
+            roiPctOutput.style.color = 'var(--accent)';
+            barGain.className = 'bar-segment bg-interest';
+            dotStatus.className = 'legend-dot bg-interest';
+            labelStatus.textContent = 'Net Capital Gain';
+        } else {
+            roiPctOutput.style.color = '#f85149';
+            barGain.className = 'bar-segment bg-negative';
+            dotStatus.className = 'legend-dot bg-negative';
+            labelStatus.textContent = 'Net Investment Loss';
+        }
+
+        // Calculate CAGR (Annualized ROI)
+        // Holding period in years:
+        const years = isYears ? duration : duration / 12;
+
+        if (years > 0 && totalProceeds > 0 && profit >= -totalCost) {
+            // CAGR is computed if total proceeds > 0. For total losses (proceeds = 0), CAGR is -100%
+            let cagr = 0;
+            if (totalProceeds > 0 && totalCost > 0) {
+                cagr = (Math.pow(totalProceeds / totalCost, 1 / years) - 1) * 100;
+            } else {
+                cagr = -100;
+            }
+
+            sumCagrOutput.textContent = `${cagr.toFixed(2)}%`;
+            sumCagrOutput.style.color = cagr >= 0 ? 'var(--accent)' : '#f85149';
+            rowCagr.style.display = 'flex';
+        } else {
+            rowCagr.style.display = 'none';
+        }
+
+        // Update summaries
+        legendCapitalOutput.textContent = fmtCurrency(totalCost);
+        legendGainOutput.textContent = fmtCurrency(profit);
+        sumTotalCostOutput.textContent = fmtCurrency(totalCost);
+        sumProceedsOutput.textContent = fmtCurrency(totalProceeds);
+        sumProfitOutput.textContent = fmtCurrency(profit);
+
+        // Update breakdown bars
+        if (totalProceeds > 0) {
+            const capitalPct = (totalCost / totalProceeds) * 100;
+            const profitPct = (Math.max(0, profit) / totalProceeds) * 100;
+
+            barCapital.style.width = `${capitalPct}%`;
+            barGain.style.width = `${profitPct}%`;
+
+            barCapital.style.display = totalCost > 0 ? '' : 'none';
+            barGain.style.display = profit > 0 ? '' : 'none';
+        } else {
+            // Full loss
+            barCapital.style.width = '100%';
+            barGain.style.width = '0%';
+            barCapital.style.display = '';
+            barGain.style.display = 'none';
+        }
+    }
+
+    // Initialize
+    calculateROI();
+});
+</script>
+
+
+
+    
+    <section class="seo-rich-content">
+      <hr class="seo-divider">
+
+      
+
+      
+      
+      <div class="seo-section seo-steps">
+        <h2>How to Use Investment Return / ROI Calculator</h2>
+        <ol class="seo-steps-list">
+          
+            <li>
+              <h3>Input your data</h3>
+              <p>Paste, type, or upload your inputs into the input fields at the top of the page.</p>
+            </li>
+            <li>
+              <h3>Configure options</h3>
+              <p>Adjust any available options, dropdowns, checkboxes, or parameters to customize the output.</p>
+            </li>
+            <li>
+              <h3>Get instant results</h3>
+              <p>Our tool processes your input instantly completely offline. Copy the formatted results or download the generated output directly to your device.</p>
+            </li>
+          
+        </ol>
+      </div>
+
+      
+
+      <div class="seo-section seo-technical">
+        <h2>The Technical Details</h2>
+        <div class="seo-technical-content">
+          
+            <p>This interactive web utility is designed to provide quick, reliable, and completely private calculations and data transformations. Modern workflow requirements often call for quick format adjustments, conversions, or math estimations. By executing all logic directly in your browser using client-side JavaScript, this utility ensures that your sensitive inputs are never transmitted across the network, combining modern browser speed with absolute data confidentiality.</p>
+          
+        </div>
+      </div>
+
+      <div class="seo-section seo-faqs">
+        <h2>Frequently Asked Questions</h2>
+        <div class="seo-faq-accordion">
+          
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">Is my data safe and private when using Investment Return / ROI Calculator?</summary>
+              <div class="seo-faq-answer">
+                <p>Yes. All operations, conversions, and computations on Investment Return / ROI Calculator are performed entirely in your local web browser using client-side JavaScript. None of your data is sent to our servers, logged, or shared with third parties.</p>
+              </div>
+            </details>
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">How much does Investment Return / ROI Calculator cost to use?</summary>
+              <div class="seo-faq-answer">
+                <p>This utility is 100% free to use. There are no limits on usage, no subscriptions, no premium paywalls, and no registration required.</p>
+              </div>
+            </details>
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">Can I use Investment Return / ROI Calculator offline?</summary>
+              <div class="seo-faq-answer">
+                <p>Yes. Once this page is loaded in your browser, all core functionalities of Investment Return / ROI Calculator are executed client-side. You can disconnect from the internet and continue using the utility without any active network connection.</p>
+              </div>
+            </details>
+          
+        </div>
+      </div>
+    </section>
+    
+
+    
+
+    
+    <section class="related-section">
+      <h3>
+        Recommended Financial Tools
+        
+      </h3>
+      <p>
+        Try our other free interactive financial, mortgage, and investment calculators:
+        
+      </p>
+      <div class="related-grid">
+        
+        
+        
+        
+        
+          
+          
+          
+            
+              
+              
+              
+              
+                
+                <div class="post-card">
+                  <div class="post-title"><a href="/finance/mortgage-calculator/">Mortgage Calculator</a></div>
+                  <p class="post-desc">Calculate your monthly mortgage payments including principal, interest, taxes...</p>
+                </div>
+              
+            
+          
+            
+              
+              
+              
+              
+                
+                <div class="post-card">
+                  <div class="post-title"><a href="/finance/car-payment-calculator/">Car Payment Calculator</a></div>
+                  <p class="post-desc">Estimate your monthly auto loan payments including interest, principal, sales...</p>
+                </div>
+              
+            
+          
+            
+              
+              
+              
+              
+                
+                <div class="post-card">
+                  <div class="post-title"><a href="/finance/personal-loan-emi-calculator/">Personal Loan EMI Calculator</a></div>
+                  <p class="post-desc">Calculate equated monthly installments (EMI), total interest, and view a year...</p>
+                </div>
+              
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+        
+      </div>
+    </section>
+    
+
+    
+
+    
+
+    
+  </main>
+
+  <footer class="site-footer-dark">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h3>Popular Tools</h3>
+      <ul>
+        <li><a href="/tools/json-formatter/">JSON Formatter</a></li>
+        <li><a href="/tools/qr-code-generator/">QR Code Generator</a></li>
+        <li><a href="/tools/base64-encoder-decoder/">Base64 Encoder/Decoder</a></li>
+        <li><a href="/tools/text-compare/">Text Compare</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Calculators & Finance</h3>
+      <ul>
+        <li><a href="/finance/currency-calculator/">Currency Calculator</a></li>
+        <li><a href="/finance/mortgage-calculator/">Mortgage Calculator</a></li>
+        <li><a href="/calculators/ip-subnet-calculator/">IP Subnet Calculator</a></li>
+        <li><a href="/calculators/time-zone-calculator/">Time Zone Calculator</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Quick References</h3>
+      <ul>
+        <li><a href="/cheatsheets/git-commands/">Git Cheatsheet</a></li>
+        <li><a href="/cheatsheets/docker-commands/">Docker Cheatsheet</a></li>
+        <li><a href="/cheatsheets/react-hooks/">React Hooks Cheatsheet</a></li>
+        <li><a href="/cheatsheets/javascript/">JavaScript Cheatsheet</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/shafqatalix" aria-label="LinkedIn">
+        <img src="/images/social-icons/linkedin.svg" alt="LinkedIn">
+      </a>
+      <a href="https://twitter.com/shafqatalix" aria-label="X/Twitter">
+        <img src="/images/social-icons/twitter.svg" alt="X/Twitter">
+      </a>
+      <a href="https://github.com/shafqatalix" aria-label="GitHub">
+        <img src="/images/social-icons/github.svg" alt="GitHub">
+      </a>
+    </div>
+    <div class="footer-copy">&copy; 2026 YORABA. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+
+</html>

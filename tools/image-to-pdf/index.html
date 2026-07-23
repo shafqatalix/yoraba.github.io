@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>Convert Images to PDF | YORABA</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Convert Images to PDF" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Convert JPEG and PNG images into a single PDF document. Re-order files, customize page sizes, margins, and download completely offline using pdf-lib." />
+<meta name="twitter:description" property="og:description" content="Convert JPEG and PNG images into a single PDF document. Re-order files, customize page sizes, margins, and download completely offline using pdf-lib." />
+<link rel="canonical" href="https://yoraba.com/tools/image-to-pdf/" />
+<meta property="og:url" content="https://yoraba.com/tools/image-to-pdf/" />
+<meta property="og:site_name" content="YORABA" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-07-23T14:08:42+00:00" />
+<meta property="article:modified_time" content="2026-07-23T14:08:42+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Convert Images to PDF" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-07-23T14:08:42+00:00","datePublished":"2026-07-23T14:08:42+00:00","description":"Convert JPEG and PNG images into a single PDF document. Re-order files, customize page sizes, margins, and download completely offline using pdf-lib.","headline":"Convert Images to PDF","mainEntityOfPage":{"@type":"WebPage","@id":"https://yoraba.com/tools/image-to-pdf/"},"url":"https://yoraba.com/tools/image-to-pdf/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1117">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <script>
+(function() {
+  var saved = localStorage.getItem('theme');
+  var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  document.documentElement.dataset.theme = theme;
+  window.toggleTheme = function() {
+    var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem('theme', next);
+    var frame = document.querySelector('.utterances-frame');
+    if (frame) {
+      frame.contentWindow.postMessage(
+        { type: 'set-theme', theme: next === 'dark' ? 'github-dark' : 'github-light' },
+        'https://utteranc.es'
+      );
+    }
+  };
+})();
+</script>
+
+  <link rel="stylesheet" href="/assets/css/style.css?v=">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+ 
+  <!-- Google tag (gtag.js) -->
+<script async crossorigin="anonymous" src="https://www.googletagmanager.com/gtag/js?id=G-T8BWX5RG3W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T8BWX5RG3W');
+</script>
+
+
+
+<!-- PWA Manifest -->
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register("/sw.js")
+        .then(registration => {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        })
+        .catch(err => {
+          console.error('ServiceWorker registration failed: ', err);
+        });
+    });
+  }
+</script>
+
+<!-- You can set your favicon here -->
+<link rel="shortcut icon" type="image/svg+xml" href="/images/logo.svg">
+
+<!-- end custom head snippets -->
+
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Yoraba Convert Images to PDF",
+    "operatingSystem": "All",
+    "applicationCategory": "DeveloperApplication",
+    "browserRequirements": "Requires JavaScript. Requires HTML5.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Convert JPEG and PNG images into a single PDF document. Re-order files, customize page sizes, margins, and download completely offline using pdf-lib.",
+    "author": {
+      "@type": "Person",
+      "name": "Shafqat Ali",
+      "url": "https://yoraba.com/about/"
+    },
+    "dateModified": "2026-07-23"
+  }
+  </script>
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is my data safe and private when using Convert Images to PDF?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. All operations, conversions, and computations on Convert Images to PDF are performed entirely in your local web browser using client-side JavaScript. None of your data is sent to our servers, logged, or shared with third parties."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does Convert Images to PDF cost to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "This utility is 100% free to use. There are no limits on usage, no subscriptions, no premium paywalls, and no registration required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use Convert Images to PDF offline?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Once this page is loaded in your browser, all core functionalities of Convert Images to PDF are executed client-side. You can disconnect from the internet and continue using the utility without any active network connection."
+        }
+      }
+    ]
+  }
+  </script>
+  
+
+  
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://yoraba.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Tools",
+        "item": "https://yoraba.com/tools/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Convert Images to PDF",
+        "item": "https://yoraba.com/tools/image-to-pdf/"
+      }
+    ]
+  }
+  </script>
+  <meta name="ai-citation" content="Yoraba.com provides free, 100% browser-native tools that process data entirely client-side for maximum privacy." />
+  
+</head>
+
+<body>
+  <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+  <nav class="site-nav">
+  <a class="nav-logo" href="/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+    </svg>
+    YORABA
+  </a>
+  <div class="nav-links" id="nav-links">
+    <a href="/tools">Tools</a>
+    <a href="/finance">Finance</a>
+    <a href="/multimedia">Multimedia</a>
+    <a href="/calculators">Calculators</a>
+    <a href="/cheatsheets">Cheatsheets</a>
+    <a href="/posts">Blogs</a>
+    <a href="/author">Author</a>
+    <a href="/about">About</a>
+  </div>
+  <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </button>
+  <button class="nav-toggle" aria-label="Toggle Menu"
+    onclick="document.getElementById('nav-links').classList.toggle('active')">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
+</nav>
+
+  <header class="page-header" role="banner">
+    <h1 class="project-name">Convert Images to PDF</h1>
+    <h2 class="project-tagline">Convert JPEG and PNG images into a single PDF document. Re-order files, customize page sizes, margins, and download completely offline using pdf-lib.</h2>
+  </header>
+
+  <main id="content" class="main-content" role="main">
+    
+    
+
+    
+    <nav class="breadcrumbs" aria-label="Breadcrumb" style="font-size: 0.85rem; margin-bottom: 1.5rem; color: var(--text-secondary); display: flex; align-items: center; flex-wrap: wrap; gap: 0.25rem;">
+      <a href="/" style="text-decoration: none; color: var(--link);">Home</a>
+      <span style="color: var(--border);">&rarr;</span>
+      
+      
+        
+          <a href="/tools/" style="text-decoration: none; color: var(--link);">Developer Tools</a>
+        
+      
+      
+      
+        <span style="color: var(--border);">&rarr;</span>
+        <a href="/tools/images/" style="text-decoration: none; color: var(--link);">Images</a>
+      
+      
+      <span style="color: var(--border);">&rarr;</span>
+      <span style="color: var(--text-secondary);">Convert Images to PDF</span>
+    </nav>
+    
+
+    
+
+    
+
+    
+    
+
+    
+    <div class="llm-opt-block">
+      <div class="tldr-summary">
+        <strong>TL;DR:</strong> Yoraba's Convert Images to PDF is a secure, browser-native utility designed to convert jpeg and png images into a single pdf document re-order files, customize page sizes, margins, and download completely offline using pdf-lib. Fully compatible with offline workflows.
+      </div>
+      <div class="privacy-callout">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="privacy-icon" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        <strong>Privacy First:</strong> This tool runs 100% client-side in your browser. No data is ever uploaded to our servers. Your data never leaves your device.
+      </div>
+      <div class="last-updated-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="privacy-icon" aria-hidden="true" focusable="false" style="margin-right: 6px;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        <span>Last Updated: July 23, 2026</span>
+      </div>
+    </div>
+    
+
+    <p>Convert and compile multiple images (JPEG, PNG) into a single PDF document entirely in your browser. This tool runs <strong>100% locally client-side</strong> using <code class="language-plaintext highlighter-rouge">pdf-lib</code>—ensuring your images are never sent to a server, keeping your sensitive documents completely private and secure.</p>
+
+<!-- Load PDF-Lib from unpkg UMD CDN -->
+<script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+
+<style>
+.converter-container {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.editor-row {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.editor-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.editor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.editor-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--headings);
+}
+
+/* Upload drop-zone styled beautifully */
+.drop-zone {
+    border: 2px dashed var(--border);
+    border-radius: 8px;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    background-color: var(--code-bg);
+    cursor: pointer;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+.drop-zone:hover, .drop-zone.dragover {
+    border-color: var(--accent);
+    background-color: rgba(56, 139, 253, 0.05);
+}
+
+.drop-zone-text {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+}
+
+.drop-zone-sub {
+    font-size: 0.775rem;
+    color: var(--text-secondary);
+}
+
+.file-input-hidden {
+    display: none;
+}
+
+.toolbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.btn-convert {
+    padding: 0.55rem 1.1rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+    border: 1px solid var(--border);
+}
+
+.btn-convert.primary {
+    background-color: #238636;
+    color: #ffffff;
+    border-color: rgba(240, 246, 252, 0.1);
+}
+
+.btn-convert.primary:hover:not(:disabled) {
+    background-color: #2ea043;
+}
+
+.btn-convert.secondary {
+    background-color: transparent;
+    color: var(--text-secondary);
+}
+
+.btn-convert.secondary:hover {
+    background-color: var(--border);
+    color: var(--text);
+}
+
+.btn-convert:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Image arranger queue */
+.images-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.image-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background-color: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    gap: 1rem;
+}
+
+.image-preview-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-width: 0;
+}
+
+.img-thumb {
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    background-color: var(--card-bg);
+    flex-shrink: 0;
+}
+
+.image-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    min-width: 0;
+}
+
+.image-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.image-meta {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.image-actions {
+    display: flex;
+    gap: 0.4rem;
+    flex-shrink: 0;
+}
+
+.action-icon-btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    background-color: var(--card-bg);
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.action-icon-btn:hover {
+    background-color: var(--border);
+    color: var(--text);
+}
+
+.action-icon-btn.remove {
+    color: #ff7b72;
+    border-color: rgba(255, 123, 114, 0.2);
+}
+
+.action-icon-btn.remove:hover {
+    background-color: rgba(255, 123, 114, 0.1);
+}
+
+/* Parameter controls */
+.form-group-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+@media (min-width: 40em) {
+    .form-group-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background-color: var(--code-bg);
+    padding: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+}
+
+.form-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.form-select {
+    padding: 0.55rem;
+    font-size: 0.875rem;
+    background-color: var(--card-bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    outline: none;
+    cursor: pointer;
+}
+
+.status-log {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.775rem;
+    padding: 0.75rem;
+    background-color: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    min-height: 50px;
+    max-height: 150px;
+    overflow-y: auto;
+    color: var(--text-secondary);
+    white-space: pre-wrap;
+    margin-top: 0.5rem;
+}
+
+.empty-state {
+    text-align: center;
+    color: var(--text-secondary);
+    font-style: italic;
+    font-size: 0.875rem;
+    padding: 1.5rem;
+}
+</style>
+
+<div class="converter-container">
+    <!-- Toolbar -->
+    <div class="toolbar-container">
+        <div style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 500;">Client-side Image to PDF Compiler</div>
+        <div class="toolbar-controls" style="margin-left: auto;">
+            <button id="btn-clear-all" class="btn-convert secondary">Clear List</button>
+        </div>
+    </div>
+
+    <div class="editor-row">
+        <!-- Input Images Drop Zone (Top) -->
+        <div class="editor-card">
+            <div class="editor-header">
+                <span class="editor-title">Add Images (JPEG, PNG)</span>
+            </div>
+            
+            <div id="image-drop-zone" class="drop-zone">
+                <div class="drop-zone-text">🖼 Drag &amp; Drop images here</div>
+                <div class="drop-zone-sub">or click to browse from your computer</div>
+                <input type="file" id="image-file-input" class="file-input-hidden" multiple="" accept="image/png, image/jpeg, image/jpg" />
+            </div>
+        </div>
+
+        <!-- Arranger Queue & Parameters (Bottom) -->
+        <div class="editor-card">
+            <div class="editor-header">
+                <span class="editor-title" style="color: #58a6ff;">PDF Document Sizing &amp; Order</span>
+            </div>
+
+            <!-- Image order list -->
+            <div id="images-list-box" class="images-list">
+                <div class="empty-state">No images added yet. Add some above to structure your PDF.</div>
+            </div>
+
+            <!-- Page Options controls -->
+            <div class="form-group-row" style="margin-top: 0.5rem;">
+                <!-- Page size -->
+                <div class="form-group">
+                    <label for="pdf-page-size" class="form-label">Page Size Layout</label>
+                    <select id="pdf-page-size" class="form-select">
+                        <option value="fit" selected="">Fit page to original image size</option>
+                        <option value="a4">Standard A4 Layout</option>
+                        <option value="letter">US Letter Layout</option>
+                    </select>
+                </div>
+
+                <!-- Scaling mode -->
+                <div class="form-group">
+                    <label for="pdf-scale-mode" class="form-label">Sizing Scale Mode</label>
+                    <select id="pdf-scale-mode" class="form-select">
+                        <option value="fill" selected="">Stretch to fill Page margins</option>
+                        <option value="fit">Preserve image aspect ratio</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="editor-header" style="border-bottom: none; margin-bottom: 0; margin-top: 1rem;">
+                <span class="editor-title" style="color: #7ee787;">Compile PDF</span>
+            </div>
+
+            <button id="btn-compile-action" class="btn-convert primary" style="width: 100%; padding: 0.75rem;" disabled="">Convert Images to PDF</button>
+
+            <!-- Status messaging log -->
+            <div id="status-log-panel" class="status-log">Ready: Waiting for images to load...</div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const imageFileInput = document.getElementById('image-file-input');
+    const imageDropZone = document.getElementById('image-drop-zone');
+    const imagesListBox = document.getElementById('images-list-box');
+
+    const pdfPageSize = document.getElementById('pdf-page-size');
+    const pdfScaleMode = document.getElementById('pdf-scale-mode');
+
+    const btnClearAll = document.getElementById('btn-clear-all');
+    const btnCompileAction = document.getElementById('btn-compile-action');
+    const statusLogPanel = document.getElementById('status-log-panel');
+
+    // Queued image files
+    let loadedImages = [];
+
+    // Trigger upload on click
+    imageDropZone.addEventListener('click', () => {
+        imageFileInput.click();
+    });
+
+    // Handle file input changes
+    imageFileInput.addEventListener('change', (e) => {
+        handleImageFiles(e.target.files);
+    });
+
+    // Drag events
+    imageDropZone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        imageDropZone.classList.add('dragover');
+    });
+
+    imageDropZone.addEventListener('dragleave', () => {
+        imageDropZone.classList.remove('dragover');
+    });
+
+    imageDropZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        imageDropZone.classList.remove('dragover');
+        if (e.dataTransfer.files) {
+            handleImageFiles(e.dataTransfer.files);
+        }
+    });
+
+    btnClearAll.addEventListener('click', () => {
+        // Clean memory URLs
+        loadedImages.forEach(img => URL.revokeObjectURL(img.thumbUrl));
+        loadedImages = [];
+        renderImageList();
+        logMessage('Cleared list. Ready to add new files.');
+    });
+
+    btnCompileAction.addEventListener('click', () => {
+        executePDFCompile();
+    });
+
+    async function handleImageFiles(files) {
+        if (!files || files.length === 0) return;
+
+        logMessage(`Loading ${files.length} image file(s)...`);
+
+        for (const file of files) {
+            const lowerName = file.name.toLowerCase();
+            const isPng = lowerName.endsWith('.png') || file.type === 'image/png';
+            const isJpg = lowerName.endsWith('.jpg') || lowerName.endsWith('.jpeg') || file.type === 'image/jpeg' || file.type === 'image/jpg';
+
+            if (!isPng && !isJpg) {
+                logMessage(`⚠️ Skipped unsupported image format: ${file.name} (Only JPEG and PNG are supported)`);
+                continue;
+            }
+
+            try {
+                const arrayBuffer = await file.arrayBuffer();
+                const thumbUrl = URL.createObjectURL(file);
+
+                loadedImages.push({
+                    file: file,
+                    name: file.name,
+                    size: formatSize(file.size),
+                    type: isPng ? 'image/png' : 'image/jpeg',
+                    thumbUrl: thumbUrl,
+                    buffer: arrayBuffer
+                });
+
+                logMessage(`Loaded image: ${file.name}`);
+            } catch (err) {
+                console.error(err);
+                logMessage(`❌ Failed to read image file: ${file.name}`);
+            }
+        }
+
+        renderImageList();
+    }
+
+    function renderImageList() {
+        imagesListBox.innerHTML = '';
+
+        if (loadedImages.length === 0) {
+            imagesListBox.innerHTML = '<div class="empty-state">No images added yet. Add some above to structure your PDF.</div>';
+            btnCompileAction.disabled = true;
+            return;
+        }
+
+        loadedImages.forEach((f, idx) => {
+            const row = document.createElement('div');
+            row.className = 'image-item';
+
+            row.innerHTML = `
+                <div class="image-preview-wrapper">
+                    <img class="img-thumb" src="${f.thumbUrl}">
+                    <div class="image-info">
+                        <span class="image-name" title="${f.name}">${f.name}</span>
+                        <span class="image-meta">Size: ${f.size} | Format: <strong style="color:var(--accent); text-transform:uppercase;">${f.type.split('/')[1]}</strong></span>
+                    </div>
+                </div>
+                <div class="image-actions">
+                    <button class="action-icon-btn up" data-idx="${idx}" title="Move Up">▲</button>
+                    <button class="action-icon-btn down" data-idx="${idx}" title="Move Down">▼</button>
+                    <button class="action-icon-btn remove" data-idx="${idx}" title="Remove image">✕</button>
+                </div>
+            `;
+
+            row.querySelector('.up').addEventListener('click', (e) => {
+                e.stopPropagation();
+                moveItem(idx, -1);
+            });
+
+            row.querySelector('.down').addEventListener('click', (e) => {
+                e.stopPropagation();
+                moveItem(idx, 1);
+            });
+
+            row.querySelector('.remove').addEventListener('click', (e) => {
+                e.stopPropagation();
+                removeItem(idx);
+            });
+
+            imagesListBox.appendChild(row);
+        });
+
+        btnCompileAction.disabled = loadedImages.length === 0;
+    }
+
+    function moveItem(index, direction) {
+        const targetIdx = index + direction;
+        if (targetIdx < 0 || targetIdx >= loadedImages.length) return;
+
+        // Swap entries
+        const temp = loadedImages[index];
+        loadedImages[index] = loadedImages[targetIdx];
+        loadedImages[targetIdx] = temp;
+
+        renderImageList();
+        logMessage(`Re-ordered queue. swapped item ${index + 1} with ${targetIdx + 1}`);
+    }
+
+    function removeItem(index) {
+        logMessage(`Removed image: ${loadedImages[index].name}`);
+        URL.revokeObjectURL(loadedImages[index].thumbUrl);
+        loadedImages.splice(index, 1);
+        renderImageList();
+    }
+
+    async function executePDFCompile() {
+        if (loadedImages.length === 0) return;
+
+        btnCompileAction.disabled = true;
+        btnCompileAction.textContent = 'Compiling PDF...';
+        logMessage('⚡ Creating target PDF container...');
+
+        try {
+            const pdfDoc = await PDFLib.PDFDocument.create();
+
+            const pSizeOption = pdfPageSize.value;
+            const sModeOption = pdfScaleMode.value;
+
+            // Page dimensions helper (points: 72 points per inch)
+            const standardSizes = {
+                a4: { w: 595.28, h: 841.89 },     // 210mm x 297mm
+                letter: { w: 612, h: 792 }       // 8.5" x 11"
+            };
+
+            for (const item of loadedImages) {
+                logMessage(`Embedding image: ${item.name}...`);
+
+                let embeddedImage;
+                if (item.type === 'image/png') {
+                    embeddedImage = await pdfDoc.embedPng(item.buffer);
+                } else {
+                    embeddedImage = await pdfDoc.embedJpg(item.buffer);
+                }
+
+                // Get original image dimensions
+                const { width: imgW, height: imgH } = embeddedImage.scale(1.0);
+
+                let pageWidth = imgW;
+                let pageHeight = imgH;
+
+                if (pSizeOption !== 'fit') {
+                    pageWidth = standardSizes[pSizeOption].w;
+                    pageHeight = standardSizes[pSizeOption].h;
+                }
+
+                // Calculate visual target coordinates and sizes based on scale modes
+                let targetWidth = pageWidth;
+                let targetHeight = pageHeight;
+                let xPos = 0;
+                let yPos = 0;
+
+                if (pSizeOption !== 'fit' && sModeOption === 'fit') {
+                    // Aspect Locked layout scaling
+                    const pageRatio = pageWidth / pageHeight;
+                    const imgRatio = imgW / imgH;
+
+                    if (imgRatio > pageRatio) {
+                        targetWidth = pageWidth;
+                        targetHeight = pageWidth / imgRatio;
+                        yPos = (pageHeight - targetHeight) / 2; // vertically centered
+                    } else {
+                        targetHeight = pageHeight;
+                        targetWidth = pageHeight * imgRatio;
+                        xPos = (pageWidth - targetWidth) / 2; // horizontally centered
+                    }
+                }
+
+                const page = pdfDoc.addPage([pageWidth, pageHeight]);
+                page.drawImage(embeddedImage, {
+                    x: xPos,
+                    y: yPos,
+                    width: targetWidth,
+                    height: targetHeight
+                });
+            }
+
+            logMessage('Saving and formatting document structure...');
+            const compiledBytes = await pdfDoc.save();
+
+            logMessage('✔ Successfully compiled images! Downloading PDF file...');
+            const blob = new Blob([compiledBytes], { type: 'application/pdf' });
+            const url = URL.createObjectURL(blob);
+
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'compiled-images.pdf';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+
+            setTimeout(() => URL.revokeObjectURL(url), 5000);
+        } catch (err) {
+            console.error(err);
+            logMessage(`❌ Compilation failed: ${err.message}`);
+        } finally {
+            btnCompileAction.disabled = false;
+            btnCompileAction.textContent = 'Convert Images to PDF';
+        }
+    }
+
+    function formatSize(bytes) {
+        if (bytes === 0) return '0 Bytes';
+        const k = 1024;
+        const sizes = ['Bytes', 'KB', 'MB'];
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
+        return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+    }
+
+    function logMessage(text) {
+        const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        statusLogPanel.textContent += `\n[${time}] ${text}`;
+        statusLogPanel.scrollTop = statusLogPanel.scrollHeight;
+    }
+});
+</script>
+
+
+
+    
+    <section class="seo-rich-content">
+      <hr class="seo-divider">
+
+      
+
+      
+      
+      <div class="seo-section seo-steps">
+        <h2>How to Use Convert Images to PDF</h2>
+        <ol class="seo-steps-list">
+          
+            <li>
+              <h3>Input your data</h3>
+              <p>Paste, type, or upload your inputs into the input fields at the top of the page.</p>
+            </li>
+            <li>
+              <h3>Configure options</h3>
+              <p>Adjust any available options, dropdowns, checkboxes, or parameters to customize the output.</p>
+            </li>
+            <li>
+              <h3>Get instant results</h3>
+              <p>Our tool processes your input instantly completely offline. Copy the formatted results or download the generated output directly to your device.</p>
+            </li>
+          
+        </ol>
+      </div>
+
+      
+
+      <div class="seo-section seo-technical">
+        <h2>The Technical Details</h2>
+        <div class="seo-technical-content">
+          
+            <p>This interactive web utility is designed to provide quick, reliable, and completely private calculations and data transformations. Modern workflow requirements often call for quick format adjustments, conversions, or math estimations. By executing all logic directly in your browser using client-side JavaScript, this utility ensures that your sensitive inputs are never transmitted across the network, combining modern browser speed with absolute data confidentiality.</p>
+          
+        </div>
+      </div>
+
+      <div class="seo-section seo-faqs">
+        <h2>Frequently Asked Questions</h2>
+        <div class="seo-faq-accordion">
+          
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">Is my data safe and private when using Convert Images to PDF?</summary>
+              <div class="seo-faq-answer">
+                <p>Yes. All operations, conversions, and computations on Convert Images to PDF are performed entirely in your local web browser using client-side JavaScript. None of your data is sent to our servers, logged, or shared with third parties.</p>
+              </div>
+            </details>
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">How much does Convert Images to PDF cost to use?</summary>
+              <div class="seo-faq-answer">
+                <p>This utility is 100% free to use. There are no limits on usage, no subscriptions, no premium paywalls, and no registration required.</p>
+              </div>
+            </details>
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">Can I use Convert Images to PDF offline?</summary>
+              <div class="seo-faq-answer">
+                <p>Yes. Once this page is loaded in your browser, all core functionalities of Convert Images to PDF are executed client-side. You can disconnect from the internet and continue using the utility without any active network connection.</p>
+              </div>
+            </details>
+          
+        </div>
+      </div>
+    </section>
+    
+
+    
+
+    
+    <section class="related-section">
+      <h3>
+        Recommended Developer Tools
+        
+      </h3>
+      <p>
+        Boost your productivity with our other free browser-based developer utilities:
+        
+      </p>
+      <div class="related-grid">
+        
+        
+        
+        
+        
+          
+          
+          
+            
+              
+              
+              
+              
+                
+                <div class="post-card">
+                  <div class="post-title"><a href="/tools/notepad/">Notepad</a></div>
+                  <p class="post-desc">Retro Windows-like Notepad application. Full-screen distraction-free text edi...</p>
+                </div>
+              
+            
+          
+            
+              
+              
+              
+              
+                
+                <div class="post-card">
+                  <div class="post-title"><a href="/tools/jwt-decoder/">JWT Decoder</a></div>
+                  <p class="post-desc">Decode JSON Web Tokens (JWT) in real-time, view headers and payloads, and for...</p>
+                </div>
+              
+            
+          
+            
+              
+              
+              
+              
+                
+                <div class="post-card">
+                  <div class="post-title"><a href="/tools/json-formatter/">JSON Formatter</a></div>
+                  <p class="post-desc">Format, validate, and beautify JSON data with syntax highlighting.</p>
+                </div>
+              
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+        
+      </div>
+    </section>
+    
+
+    
+
+    
+
+    
+  </main>
+
+  <footer class="site-footer-dark">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h3>Popular Tools</h3>
+      <ul>
+        <li><a href="/tools/json-formatter/">JSON Formatter</a></li>
+        <li><a href="/tools/qr-code-generator/">QR Code Generator</a></li>
+        <li><a href="/tools/base64-encoder-decoder/">Base64 Encoder/Decoder</a></li>
+        <li><a href="/tools/text-compare/">Text Compare</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Calculators & Finance</h3>
+      <ul>
+        <li><a href="/finance/currency-calculator/">Currency Calculator</a></li>
+        <li><a href="/finance/mortgage-calculator/">Mortgage Calculator</a></li>
+        <li><a href="/calculators/ip-subnet-calculator/">IP Subnet Calculator</a></li>
+        <li><a href="/calculators/time-zone-calculator/">Time Zone Calculator</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Quick References</h3>
+      <ul>
+        <li><a href="/cheatsheets/git-commands/">Git Cheatsheet</a></li>
+        <li><a href="/cheatsheets/docker-commands/">Docker Cheatsheet</a></li>
+        <li><a href="/cheatsheets/react-hooks/">React Hooks Cheatsheet</a></li>
+        <li><a href="/cheatsheets/javascript/">JavaScript Cheatsheet</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/shafqatalix" aria-label="LinkedIn">
+        <img src="/images/social-icons/linkedin.svg" alt="LinkedIn">
+      </a>
+      <a href="https://twitter.com/shafqatalix" aria-label="X/Twitter">
+        <img src="/images/social-icons/twitter.svg" alt="X/Twitter">
+      </a>
+      <a href="https://github.com/shafqatalix" aria-label="GitHub">
+        <img src="/images/social-icons/github.svg" alt="GitHub">
+      </a>
+    </div>
+    <div class="footer-copy">&copy; 2026 YORABA. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+
+</html>

@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>Linux | YORABA</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Linux" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Comprehensive reference for Linux file commands, process management, networking, permissions, grep, sed, awk, find, tar, curl, and wget." />
+<meta name="twitter:description" property="og:description" content="Comprehensive reference for Linux file commands, process management, networking, permissions, grep, sed, awk, find, tar, curl, and wget." />
+<link rel="canonical" href="https://yoraba.com/cheatsheets/linux/" />
+<meta property="og:url" content="https://yoraba.com/cheatsheets/linux/" />
+<meta property="og:site_name" content="YORABA" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-07-23T14:08:42+00:00" />
+<meta property="article:modified_time" content="2026-07-23T14:08:42+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Linux" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-07-23T14:08:42+00:00","datePublished":"2026-07-23T14:08:42+00:00","description":"Comprehensive reference for Linux file commands, process management, networking, permissions, grep, sed, awk, find, tar, curl, and wget.","headline":"Linux","mainEntityOfPage":{"@type":"WebPage","@id":"https://yoraba.com/cheatsheets/linux/"},"url":"https://yoraba.com/cheatsheets/linux/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1117">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <script>
+(function() {
+  var saved = localStorage.getItem('theme');
+  var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  document.documentElement.dataset.theme = theme;
+  window.toggleTheme = function() {
+    var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem('theme', next);
+    var frame = document.querySelector('.utterances-frame');
+    if (frame) {
+      frame.contentWindow.postMessage(
+        { type: 'set-theme', theme: next === 'dark' ? 'github-dark' : 'github-light' },
+        'https://utteranc.es'
+      );
+    }
+  };
+})();
+</script>
+
+  <link rel="stylesheet" href="/assets/css/style.css?v=">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+ 
+  <!-- Google tag (gtag.js) -->
+<script async crossorigin="anonymous" src="https://www.googletagmanager.com/gtag/js?id=G-T8BWX5RG3W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T8BWX5RG3W');
+</script>
+
+
+
+<!-- PWA Manifest -->
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register("/sw.js")
+        .then(registration => {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        })
+        .catch(err => {
+          console.error('ServiceWorker registration failed: ', err);
+        });
+    });
+  }
+</script>
+
+<!-- You can set your favicon here -->
+<link rel="shortcut icon" type="image/svg+xml" href="/images/logo.svg">
+
+<!-- end custom head snippets -->
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Linux Cheatsheet",
+    "description": "Comprehensive reference for Linux file commands, process management, networking, permissions, grep, sed, awk, find, tar, curl, and wget.",
+    "author": {
+      "@type": "Person",
+      "name": "Shafqat Ali",
+      "url": "https://yoraba.com/about/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "YORABA",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://yoraba.com/images/logo.svg"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://yoraba.com/cheatsheets/linux/"
+    },
+    "inLanguage": "en-US",
+    "dateModified": "2026-07-23"
+  }
+  </script>
+  
+  
+  
+
+  
+  
+  
+</head>
+
+<body>
+  <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+  <nav class="site-nav">
+  <a class="nav-logo" href="/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+    </svg>
+    YORABA
+  </a>
+  <div class="nav-links" id="nav-links">
+    <a href="/tools">Tools</a>
+    <a href="/finance">Finance</a>
+    <a href="/multimedia">Multimedia</a>
+    <a href="/calculators">Calculators</a>
+    <a href="/cheatsheets">Cheatsheets</a>
+    <a href="/posts">Blogs</a>
+    <a href="/author">Author</a>
+    <a href="/about">About</a>
+  </div>
+  <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </button>
+  <button class="nav-toggle" aria-label="Toggle Menu"
+    onclick="document.getElementById('nav-links').classList.toggle('active')">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
+</nav>
+
+  <header class="page-header" role="banner">
+    <h1 class="project-name">Linux</h1>
+    <h2 class="project-tagline">Comprehensive reference for Linux file commands, process management, networking, permissions, grep, sed, awk, find, tar, curl, and wget.</h2>
+  </header>
+
+  <main id="content" class="main-content" role="main">
+    
+    
+
+    
+    <nav class="breadcrumbs" aria-label="Breadcrumb" style="font-size: 0.85rem; margin-bottom: 1.5rem; color: var(--text-secondary); display: flex; align-items: center; flex-wrap: wrap; gap: 0.25rem;">
+      <a href="/" style="text-decoration: none; color: var(--link);">Home</a>
+      <span style="color: var(--border);">&rarr;</span>
+      
+      
+        <a href="/cheatsheets/" style="text-decoration: none; color: var(--link);">Cheatsheets</a>
+      
+      
+      
+      
+      <span style="color: var(--border);">&rarr;</span>
+      <span style="color: var(--text-secondary);">Linux</span>
+    </nav>
+    
+
+    
+
+    
+    <div class="cheatsheet-actions">
+      <button onclick="window.print()" class="btn-pdf">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="8" y1="11" x2="16" y2="11"></line>
+          <text x="12" y="18" font-size="5.5" font-weight="900" fill="currentColor" stroke="none" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">PDF</text>
+        </svg>
+        Export as PDF
+      </button>
+    </div>
+
+    <h1 class="print-title">Linux Cheatsheet</h1>
+    
+
+    
+    
+
+    
+
+    <p>A quick-reference guide for essential and advanced Linux commands, covering file operations, process management, networking, permissions, text processing utilities, archiving, and remote file downloads.</p>
+
+<h2 id="file-commands">File Commands</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ls</span> <span class="nt">-la</span>                        <span class="c"># List files in long format including hidden files (.dotfiles)</span>
+<span class="nb">cd</span> &lt;<span class="nb">dir</span><span class="o">&gt;</span>                      <span class="c"># Change working directory</span>
+<span class="nb">pwd</span>                           <span class="c"># Print current working directory path</span>
+<span class="nb">mkdir</span> <span class="nt">-p</span> &lt;path&gt;               <span class="c"># Create a directory and any missing parent directories</span>
+<span class="nb">rm</span> &lt;file&gt;                     <span class="c"># Delete a file</span>
+<span class="nb">rm</span> <span class="nt">-rf</span> &lt;<span class="nb">dir</span><span class="o">&gt;</span>                  <span class="c"># Force delete a directory recursively (dangerous!)</span>
+<span class="nb">cp</span> &lt;src&gt; &lt;dest&gt;               <span class="c"># Copy a file</span>
+<span class="nb">cp</span> <span class="nt">-r</span> &lt;src_dir&gt; &lt;dest_dir&gt;    <span class="c"># Copy a directory recursively</span>
+<span class="nb">mv</span> &lt;src&gt; &lt;dest&gt;               <span class="c"># Move or rename a file/directory</span>
+<span class="nb">touch</span> &lt;file&gt;                  <span class="c"># Create an empty file or update its modified timestamp</span>
+<span class="nb">cat</span> &lt;file&gt;                    <span class="c"># Output entire file contents to terminal</span>
+<span class="nb">head</span> <span class="nt">-n</span> 20 &lt;file&gt;             <span class="c"># View the first 20 lines of a file</span>
+<span class="nb">tail</span> <span class="nt">-n</span> 20 &lt;file&gt;             <span class="c"># View the last 20 lines of a file</span>
+<span class="nb">tail</span> <span class="nt">-f</span> &lt;file&gt;                <span class="c"># Follow and view append logs to a file in real-time</span>
+less &lt;file&gt;                   <span class="c"># Read a file with interactive paginated scrolling</span>
+</code></pre></div></div>
+
+<h2 id="process-commands">Process Commands</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ps aux                        <span class="c"># View all currently running active processes</span>
+ps aux | <span class="nb">grep</span> &lt;name&gt;          <span class="c"># Find process ID (PID) of a specific process</span>
+top                           <span class="c"># Interactive real-time process monitor</span>
+htop                          <span class="c"># Modern, colorful, interactive process monitor (recommended)</span>
+<span class="nb">kill</span> &lt;PID&gt;                    <span class="c"># Terminate a process gracefully by ID (SIGTERM)</span>
+<span class="nb">kill</span> <span class="nt">-9</span> &lt;PID&gt;                 <span class="c"># Force terminate a process immediately (SIGKILL)</span>
+killall &lt;name&gt;                <span class="c"># Terminate all processes matching a specific name</span>
+pkill &lt;name&gt;                  <span class="c"># Terminate processes matching a partial name</span>
+<span class="nb">bg</span>                            <span class="c"># Resume a suspended process in the background</span>
+<span class="nb">fg</span>                            <span class="c"># Move a background process to the foreground</span>
+<span class="nb">jobs</span>                          <span class="c"># List all active background jobs</span>
+lsof <span class="nt">-i</span> :8080                 <span class="c"># List processes listening on a specific port (e.g. 8080)</span>
+</code></pre></div></div>
+
+<h2 id="networking">Networking</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ping &lt;host&gt;                   <span class="c"># Send ICMP echo requests to verify host connectivity</span>
+ip addr                       <span class="c"># View local network interfaces and IP addresses (modern)</span>
+ifconfig                      <span class="c"># View network interfaces and IP configurations (legacy)</span>
+ss <span class="nt">-tulpn</span>                     <span class="c"># List active listening TCP/UDP sockets with PIDs (modern)</span>
+netstat <span class="nt">-tulpn</span>                <span class="c"># List active TCP/UDP listening connections (legacy)</span>
+traceroute &lt;host&gt;             <span class="c"># Trace route hops to a destination host</span>
+nslookup &lt;domain&gt;             <span class="c"># Lookup IP address of a domain</span>
+dig &lt;domain&gt;                  <span class="c"># Advanced DNS query tool (returns record details)</span>
+nc <span class="nt">-zv</span> &lt;host&gt; &lt;port&gt;          <span class="c"># Scan a port to check if it's open (Netcat)</span>
+</code></pre></div></div>
+
+<h2 id="permissions">Permissions</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># chmod [octal] &lt;file&gt; (Numeric notation)</span>
+<span class="nb">chmod </span>755 script.sh           <span class="c"># Owner: rwx, Group: r-x, Others: r-x</span>
+<span class="nb">chmod </span>644 config.txt          <span class="c"># Owner: rw-, Group: r--, Others: r--</span>
+
+<span class="c"># chmod [symbolic] &lt;file&gt; (Symbolic notation)</span>
+<span class="nb">chmod</span> +x script.sh            <span class="c"># Add execute permission (x) for everyone</span>
+<span class="nb">chmod </span>u+w config.txt          <span class="c"># Add write permission (w) for Owner/User (u)</span>
+<span class="nb">chmod </span>g-w config.txt          <span class="c"># Remove write permission (w) from Group (g)</span>
+<span class="nb">chmod </span>o-r config.txt          <span class="c"># Remove read permission (r) from Others (o)</span>
+
+<span class="c"># Ownership</span>
+<span class="nb">chown</span> &lt;user&gt; &lt;file&gt;           <span class="c"># Change owner of a file</span>
+<span class="nb">chown</span> &lt;user&gt;:&lt;group&gt; &lt;file&gt;   <span class="c"># Change both owner and group of a file</span>
+<span class="nb">chown</span> <span class="nt">-R</span> &lt;user&gt; &lt;<span class="nb">dir</span><span class="o">&gt;</span>         <span class="c"># Change owner of a directory recursively</span>
+<span class="nb">chgrp</span> &lt;group&gt; &lt;file&gt;          <span class="c"># Change group ownership of a file</span>
+</code></pre></div></div>
+
+<h2 id="grep-text-searching">grep (Text Searching)</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">grep</span> <span class="s2">"pattern"</span> file.txt       <span class="c"># Search for a pattern inside a file</span>
+<span class="nb">grep</span> <span class="nt">-i</span> <span class="s2">"pattern"</span> file.txt    <span class="c"># Case-insensitive pattern search</span>
+<span class="nb">grep</span> <span class="nt">-r</span> <span class="s2">"pattern"</span> &lt;<span class="nb">dir</span><span class="o">&gt;</span>       <span class="c"># Recursively search for a pattern in all files under directory</span>
+<span class="nb">grep</span> <span class="nt">-v</span> <span class="s2">"pattern"</span> file.txt    <span class="c"># Invert match: show lines NOT containing the pattern</span>
+<span class="nb">grep</span> <span class="nt">-E</span> <span class="s2">"regex"</span> file.txt      <span class="c"># Search using Extended Regular Expressions (ERE)</span>
+<span class="nb">grep</span> <span class="nt">-n</span> <span class="s2">"pattern"</span> file.txt    <span class="c"># Show line numbers alongside matches</span>
+<span class="nb">grep</span> <span class="nt">-C</span> 3 <span class="s2">"pattern"</span> file.txt  <span class="c"># Show 3 lines of context around each match (A=after, B=before)</span>
+</code></pre></div></div>
+
+<h2 id="sed-stream-editor">sed (Stream Editor)</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sed</span> <span class="s1">'s/old/new/'</span> file.txt     <span class="c"># Replace the first occurrence of 'old' with 'new' per line</span>
+<span class="nb">sed</span> <span class="s1">'s/old/new/g'</span> file.txt    <span class="c"># Replace ALL occurrences of 'old' with 'new' globally in file</span>
+<span class="nb">sed</span> <span class="nt">-i</span> <span class="s1">'s/old/new/g'</span> file.txt <span class="c"># In-place edit: replace and save modifications directly to the file</span>
+<span class="nb">sed</span> <span class="s1">'/pattern/d'</span> file.txt     <span class="c"># Delete lines matching a specific pattern</span>
+<span class="nb">sed</span> <span class="nt">-n</span> <span class="s1">'5,10p'</span> file.txt       <span class="c"># Print only lines 5 through 10 of a file</span>
+</code></pre></div></div>
+
+<h2 id="awk-text-processing">awk (Text Processing)</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">awk</span> <span class="s1">'{print $1}'</span> file.txt     <span class="c"># Print only the first column of every line (whitespace separated)</span>
+<span class="nb">awk</span> <span class="nt">-F</span><span class="s1">','</span> <span class="s1">'{print $2}'</span> f.csv  <span class="c"># Print the second column using a custom comma delimiter (-F)</span>
+<span class="nb">awk</span> <span class="s1">'/pattern/ {print $3}'</span> f  <span class="c"># If a line matches the pattern, print its third column</span>
+<span class="nb">awk</span> <span class="s1">'$3 &gt; 100 {print $1, $3}'</span> <span class="c"># Conditional: print columns 1 and 3 if column 3 exceeds 100</span>
+<span class="nb">awk</span> <span class="s1">'{sum += $1} END {print sum}'</span> f <span class="c"># Sum up all numbers in the first column and output total</span>
+</code></pre></div></div>
+
+<h2 id="find-file-searching">find (File Searching)</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find <span class="nb">.</span> <span class="nt">-name</span> <span class="s2">"*.log"</span>          <span class="c"># Find files ending in .log in current directory and subdirectories</span>
+find /path <span class="nt">-iname</span> <span class="s2">"config*"</span>   <span class="c"># Find files starting with 'config' (case-insensitive)</span>
+find <span class="nb">.</span> <span class="nt">-type</span> d                <span class="c"># Find only directories (-type f for files, -type l for symlinks)</span>
+find <span class="nb">.</span> <span class="nt">-size</span> +100M            <span class="c"># Find files larger than 100 Megabytes</span>
+find <span class="nb">.</span> <span class="nt">-mtime</span> <span class="nt">-7</span>              <span class="c"># Find files modified within the last 7 days</span>
+find <span class="nb">.</span> <span class="nt">-type</span> f <span class="nt">-exec</span> <span class="nb">chmod </span>644 <span class="o">{}</span> <span class="se">\;</span> <span class="c"># Execute action: apply chmod 644 to all found files</span>
+</code></pre></div></div>
+
+<h2 id="tar-archiving">tar (Archiving)</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar</span> <span class="nt">-czvf</span> archive.tar.gz &lt;<span class="nb">dir</span><span class="o">&gt;</span><span class="c"># Compress a directory into a tar.gz archive (c=create, z=gzip, v=verbose, f=file)</span>
+<span class="nb">tar</span> <span class="nt">-xzvf</span> archive.tar.gz      <span class="c"># Extract a tar.gz archive (x=extract)</span>
+<span class="nb">tar</span> <span class="nt">-cjvf</span> archive.tar.bz2 &lt;d&gt; <span class="c"># Compress a directory into a high-ratio tar.bz2 archive (j=bzip2)</span>
+<span class="nb">tar</span> <span class="nt">-xjvf</span> archive.tar.bz2     <span class="c"># Extract a tar.bz2 archive</span>
+<span class="nb">tar</span> <span class="nt">-tf</span> archive.tar           <span class="c"># List the contents of an archive without extracting it</span>
+</code></pre></div></div>
+
+<h2 id="curl-data-transfer">curl (Data Transfer)</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl &lt;url&gt;                    <span class="c"># Output website content/response to the terminal</span>
+curl <span class="nt">-o</span> file.html &lt;url&gt;       <span class="c"># Download URL content and save it to a specific file</span>
+curl <span class="nt">-O</span> &lt;url&gt;                 <span class="c"># Download file and save it using its remote filename</span>
+curl <span class="nt">-I</span> &lt;url&gt;                 <span class="c"># Fetch HTTP response headers only (GET HEAD)</span>
+curl <span class="nt">-H</span> <span class="s2">"Auth: Key"</span> &lt;url&gt;     <span class="c"># Send custom HTTP header with request</span>
+curl <span class="nt">-d</span> <span class="s2">"param1=val"</span> &lt;url&gt;    <span class="c"># Send POST request data (defaults to application/x-www-form-urlencoded)</span>
+curl <span class="nt">-i</span> <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-d</span> <span class="s1">'{"id":1}'</span> &lt;url&gt; <span class="c"># Send JSON POST request</span>
+</code></pre></div></div>
+
+<h2 id="wget-file-downloader">wget (File Downloader)</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget &lt;url&gt;                    <span class="c"># Download a file to the current directory</span>
+wget <span class="nt">-O</span> custom.zip &lt;url&gt;      <span class="c"># Download and save a file using a custom local filename</span>
+wget <span class="nt">-c</span> &lt;url&gt;                 <span class="c"># Resume a partially downloaded file</span>
+wget <span class="nt">-b</span> &lt;url&gt;                 <span class="c"># Download a file in the background (runs in background log)</span>
+wget <span class="nt">--limit-rate</span><span class="o">=</span>500k &lt;url&gt;  <span class="c"># Limit download speed to 500 Kilobytes per second</span>
+wget <span class="nt">-r</span> <span class="nt">--no-parent</span> &lt;url&gt;     <span class="c"># Recursively download a directory/site under a specific URL path</span>
+</code></pre></div></div>
+
+
+    
+
+    
+    <section class="related-section">
+      <h3>Recommended Cheatsheets</h3>
+      <p>Check out our other essential cheatsheets for developers:</p>
+      <div class="related-grid">
+        
+        
+          
+            
+            <div class="post-card">
+              <div class="post-title"><a href="/cheatsheets/browser-shortcuts/">Browser Shortcuts Cheatsheet</a></div>
+              <p class="post-desc">Comprehensive reference for essential web browser keyboard shortcuts, coverin...</p>
+            </div>
+          
+        
+          
+            
+            <div class="post-card">
+              <div class="post-title"><a href="/cheatsheets/css-flexbox/">CSS Flexbox Cheatsheet</a></div>
+              <p class="post-desc">Comprehensive reference for CSS Flexible Box Layout (Flexbox), covering flex ...</p>
+            </div>
+          
+        
+          
+            
+            <div class="post-card">
+              <div class="post-title"><a href="/cheatsheets/css-grid/">CSS Grid Cheatsheet</a></div>
+              <p class="post-desc">Comprehensive reference for CSS Grid Layout, covering grid container properti...</p>
+            </div>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </section>
+    
+
+    
+
+    
+
+    
+
+    
+  </main>
+
+  <footer class="site-footer-dark">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h3>Popular Tools</h3>
+      <ul>
+        <li><a href="/tools/json-formatter/">JSON Formatter</a></li>
+        <li><a href="/tools/qr-code-generator/">QR Code Generator</a></li>
+        <li><a href="/tools/base64-encoder-decoder/">Base64 Encoder/Decoder</a></li>
+        <li><a href="/tools/text-compare/">Text Compare</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Calculators & Finance</h3>
+      <ul>
+        <li><a href="/finance/currency-calculator/">Currency Calculator</a></li>
+        <li><a href="/finance/mortgage-calculator/">Mortgage Calculator</a></li>
+        <li><a href="/calculators/ip-subnet-calculator/">IP Subnet Calculator</a></li>
+        <li><a href="/calculators/time-zone-calculator/">Time Zone Calculator</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Quick References</h3>
+      <ul>
+        <li><a href="/cheatsheets/git-commands/">Git Cheatsheet</a></li>
+        <li><a href="/cheatsheets/docker-commands/">Docker Cheatsheet</a></li>
+        <li><a href="/cheatsheets/react-hooks/">React Hooks Cheatsheet</a></li>
+        <li><a href="/cheatsheets/javascript/">JavaScript Cheatsheet</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/shafqatalix" aria-label="LinkedIn">
+        <img src="/images/social-icons/linkedin.svg" alt="LinkedIn">
+      </a>
+      <a href="https://twitter.com/shafqatalix" aria-label="X/Twitter">
+        <img src="/images/social-icons/twitter.svg" alt="X/Twitter">
+      </a>
+      <a href="https://github.com/shafqatalix" aria-label="GitHub">
+        <img src="/images/social-icons/github.svg" alt="GitHub">
+      </a>
+    </div>
+    <div class="footer-copy">&copy; 2026 YORABA. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+
+</html>

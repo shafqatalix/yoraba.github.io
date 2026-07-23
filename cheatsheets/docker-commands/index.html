@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>Docker &amp; DevOps | YORABA</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Docker &amp; DevOps" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Comprehensive reference for Docker, Docker Compose, Kubernetes kubectl, Helm, Terraform, GitHub Actions, and CI/CD basics." />
+<meta name="twitter:description" property="og:description" content="Comprehensive reference for Docker, Docker Compose, Kubernetes kubectl, Helm, Terraform, GitHub Actions, and CI/CD basics." />
+<link rel="canonical" href="https://yoraba.com/cheatsheets/docker-commands/" />
+<meta property="og:url" content="https://yoraba.com/cheatsheets/docker-commands/" />
+<meta property="og:site_name" content="YORABA" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-07-23T14:08:42+00:00" />
+<meta property="article:modified_time" content="2026-07-23T14:08:42+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Docker &amp; DevOps" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-07-23T14:08:42+00:00","datePublished":"2026-07-23T14:08:42+00:00","description":"Comprehensive reference for Docker, Docker Compose, Kubernetes kubectl, Helm, Terraform, GitHub Actions, and CI/CD basics.","headline":"Docker &amp; DevOps","mainEntityOfPage":{"@type":"WebPage","@id":"https://yoraba.com/cheatsheets/docker-commands/"},"url":"https://yoraba.com/cheatsheets/docker-commands/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1117">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <script>
+(function() {
+  var saved = localStorage.getItem('theme');
+  var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  document.documentElement.dataset.theme = theme;
+  window.toggleTheme = function() {
+    var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem('theme', next);
+    var frame = document.querySelector('.utterances-frame');
+    if (frame) {
+      frame.contentWindow.postMessage(
+        { type: 'set-theme', theme: next === 'dark' ? 'github-dark' : 'github-light' },
+        'https://utteranc.es'
+      );
+    }
+  };
+})();
+</script>
+
+  <link rel="stylesheet" href="/assets/css/style.css?v=">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+ 
+  <!-- Google tag (gtag.js) -->
+<script async crossorigin="anonymous" src="https://www.googletagmanager.com/gtag/js?id=G-T8BWX5RG3W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T8BWX5RG3W');
+</script>
+
+
+
+<!-- PWA Manifest -->
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register("/sw.js")
+        .then(registration => {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        })
+        .catch(err => {
+          console.error('ServiceWorker registration failed: ', err);
+        });
+    });
+  }
+</script>
+
+<!-- You can set your favicon here -->
+<link rel="shortcut icon" type="image/svg+xml" href="/images/logo.svg">
+
+<!-- end custom head snippets -->
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Docker & DevOps Cheatsheet",
+    "description": "Comprehensive reference for Docker, Docker Compose, Kubernetes kubectl, Helm, Terraform, GitHub Actions, and CI/CD basics.",
+    "author": {
+      "@type": "Person",
+      "name": "Shafqat Ali",
+      "url": "https://yoraba.com/about/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "YORABA",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://yoraba.com/images/logo.svg"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://yoraba.com/cheatsheets/docker-commands/"
+    },
+    "inLanguage": "en-US",
+    "dateModified": "2026-07-23"
+  }
+  </script>
+  
+  
+  
+
+  
+  
+  
+</head>
+
+<body>
+  <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+  <nav class="site-nav">
+  <a class="nav-logo" href="/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+    </svg>
+    YORABA
+  </a>
+  <div class="nav-links" id="nav-links">
+    <a href="/tools">Tools</a>
+    <a href="/finance">Finance</a>
+    <a href="/multimedia">Multimedia</a>
+    <a href="/calculators">Calculators</a>
+    <a href="/cheatsheets">Cheatsheets</a>
+    <a href="/posts">Blogs</a>
+    <a href="/author">Author</a>
+    <a href="/about">About</a>
+  </div>
+  <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </button>
+  <button class="nav-toggle" aria-label="Toggle Menu"
+    onclick="document.getElementById('nav-links').classList.toggle('active')">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
+</nav>
+
+  <header class="page-header" role="banner">
+    <h1 class="project-name">Docker & DevOps</h1>
+    <h2 class="project-tagline">Comprehensive reference for Docker, Docker Compose, Kubernetes kubectl, Helm, Terraform, GitHub Actions, and CI/CD basics.</h2>
+  </header>
+
+  <main id="content" class="main-content" role="main">
+    
+    
+
+    
+    <nav class="breadcrumbs" aria-label="Breadcrumb" style="font-size: 0.85rem; margin-bottom: 1.5rem; color: var(--text-secondary); display: flex; align-items: center; flex-wrap: wrap; gap: 0.25rem;">
+      <a href="/" style="text-decoration: none; color: var(--link);">Home</a>
+      <span style="color: var(--border);">&rarr;</span>
+      
+      
+        <a href="/cheatsheets/" style="text-decoration: none; color: var(--link);">Cheatsheets</a>
+      
+      
+      
+      
+      <span style="color: var(--border);">&rarr;</span>
+      <span style="color: var(--text-secondary);">Docker & DevOps</span>
+    </nav>
+    
+
+    
+
+    
+    <div class="cheatsheet-actions">
+      <button onclick="window.print()" class="btn-pdf">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="8" y1="11" x2="16" y2="11"></line>
+          <text x="12" y="18" font-size="5.5" font-weight="900" fill="currentColor" stroke="none" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">PDF</text>
+        </svg>
+        Export as PDF
+      </button>
+    </div>
+
+    <h1 class="print-title">Docker & DevOps Cheatsheet</h1>
+    
+
+    
+    
+
+    
+
+    <p>A comprehensive reference for Docker containers, Docker Compose multi-container services, Kubernetes cluster administration, Helm chart management, Terraform IaC, GitHub Actions CI/CD workflows, and core DevOps pipeline principles.</p>
+
+<h2 id="docker-commands">Docker Commands</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Images (Artifacts)</span>
+docker images                 <span class="c"># List local images</span>
+docker pull &lt;image&gt;            <span class="c"># Pull an image from registry (e.g. Docker Hub)</span>
+docker build <span class="nt">-t</span> &lt;name&gt;:&lt;tag&gt; <span class="nb">.</span> <span class="c"># Build image from Dockerfile in current directory (.)</span>
+docker rmi &lt;image&gt;            <span class="c"># Delete a local image</span>
+docker tag &lt;image&gt; &lt;new_tag&gt;  <span class="c"># Retag an existing image (for pushing/renaming)</span>
+docker push &lt;image&gt;           <span class="c"># Push an image to a remote registry</span>
+
+<span class="c"># Containers (Runtimes)</span>
+docker ps                     <span class="c"># List currently running containers</span>
+docker ps <span class="nt">-a</span>                  <span class="c"># List all containers (running, stopped, crashed)</span>
+docker run <span class="nt">-d</span> <span class="nt">-p</span> 80:80 &lt;img <span class="o">&gt;</span> <span class="c"># Run container in background (detached) with port forwarding (host:container)</span>
+docker run <span class="nt">--name</span> &lt;n&gt; &lt;img <span class="o">&gt;</span>  <span class="c"># Run a container with a custom name</span>
+docker stop &lt;<span class="nb">id</span>/name&gt;         <span class="c"># Stop a running container gracefully</span>
+docker start &lt;<span class="nb">id</span>/name&gt;        <span class="c"># Start a stopped container</span>
+docker <span class="nb">rm</span> &lt;<span class="nb">id</span>/name&gt;           <span class="c"># Delete a container (must be stopped)</span>
+docker <span class="nb">rm</span> <span class="nt">-f</span> <span class="si">$(</span>docker ps <span class="nt">-aq</span><span class="si">)</span> <span class="c"># Force delete ALL local containers!</span>
+
+<span class="c"># Debugging &amp; Management</span>
+docker logs &lt;<span class="nb">id</span>/name&gt;         <span class="c"># View container logs</span>
+docker logs <span class="nt">-f</span> &lt;<span class="nb">id</span>/name&gt;      <span class="c"># Follow and view container logs in real-time</span>
+docker <span class="nb">exec</span> <span class="nt">-it</span> &lt;<span class="nb">id</span>/name&gt; sh  <span class="c"># Execute interactive terminal inside a running container (sh/bash)</span>
+docker inspect &lt;<span class="nb">id</span>/name&gt;      <span class="c"># View detailed low-level JSON metadata of a container or image</span>
+docker stats                  <span class="c"># View real-time resource utilization (CPU, memory, net, disk)</span>
+
+<span class="c"># Volumes &amp; Networks</span>
+docker volume <span class="nb">ls</span>              <span class="c"># List local volumes</span>
+docker volume <span class="nb">rm</span> &lt;name&gt;       <span class="c"># Delete a volume</span>
+docker network <span class="nb">ls</span>             <span class="c"># List container networks</span>
+docker network inspect &lt;net&gt;  <span class="c"># Inspect specific network topology</span>
+
+<span class="c"># Cleanup</span>
+docker system prune           <span class="c"># Delete all unused containers, networks, and dangling images</span>
+docker system prune <span class="nt">-a</span> <span class="nt">--volumes</span> <span class="c"># Deep clean: delete all stopped containers, unused networks, and ALL unused images/volumes!</span>
+</code></pre></div></div>
+
+<h2 id="docker-compose">Docker Compose</h2>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># docker-compose.yml Syntax Basics</span>
+<span class="na">version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">3.8"</span>
+<span class="na">services</span><span class="pi">:</span>
+  <span class="na">web</span><span class="pi">:</span>
+    <span class="na">build</span><span class="pi">:</span> <span class="s">.</span>                  <span class="c1"># Build from local Dockerfile</span>
+    <span class="na">ports</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">80:80"</span>
+    <span class="na">environment</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">NODE_ENV=production</span>
+    <span class="na">volumes</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">db-data:/data</span>
+<span class="na">volumes</span><span class="pi">:</span>
+  <span class="na">db-data</span><span class="pi">:</span>                    <span class="c1"># Named persistent volume</span>
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker compose up             <span class="c"># Build, create, and start all services in foreground</span>
+docker compose up <span class="nt">-d</span>          <span class="c"># Build, create, and start all services in background (detached)</span>
+docker compose down           <span class="c"># Stop and delete containers and networks created by up</span>
+docker compose down <span class="nt">-v</span>        <span class="c"># Stop services and DESTROY all associated persistent volumes!</span>
+docker compose ps             <span class="c"># View status of services managed by Compose file</span>
+docker compose logs <span class="nt">-f</span> &lt;svc&gt;  <span class="c"># Follow and view logs of a specific service</span>
+docker compose <span class="nb">exec</span> &lt;svc&gt; sh  <span class="c"># Open interactive shell inside service container</span>
+docker compose build          <span class="c"># Force rebuild services containing build instructions</span>
+</code></pre></div></div>
+
+<h2 id="kubernetes-kubectl">Kubernetes kubectl</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Basic Queries &amp; Context</span>
+kubectl config get-contexts   <span class="c"># List all configured cluster contexts</span>
+kubectl config use-context &lt;c&gt;# Switch active cluster context
+kubectl get nodes             <span class="c"># List all nodes in cluster</span>
+kubectl get namespaces        <span class="c"># List all namespaces</span>
+kubectl get pods <span class="nt">-n</span> &lt;ns&gt;      <span class="c"># List pods in specific namespace (-A for all namespaces)</span>
+kubectl get services          <span class="c"># List cluster services (with ports/IPs)</span>
+kubectl get deployments       <span class="c"># List deployments and replica sets</span>
+
+<span class="c"># Debugging Pods</span>
+kubectl describe pod &lt;name&gt;   <span class="c"># View comprehensive low-level event logs and configurations of a pod</span>
+kubectl logs &lt;pod-name&gt;       <span class="c"># View output logs of a pod</span>
+kubectl logs <span class="nt">-f</span> &lt;pod-name&gt;    <span class="c"># Follow and view logs of a pod in real-time</span>
+kubectl <span class="nb">exec</span> <span class="nt">-it</span> &lt;pod&gt; <span class="nt">--</span> sh  <span class="c"># Open interactive shell inside a running pod container</span>
+
+<span class="c"># Applying &amp; Changing Resources</span>
+kubectl apply <span class="nt">-f</span> manifest.yaml# Apply or update resources declared <span class="k">in </span>a YAML configuration file
+kubectl delete <span class="nt">-f</span> manifest.yml# Delete resources defined <span class="k">in </span>a YAML configuration file
+kubectl delete pod &lt;pod-name&gt; <span class="c"># Delete a specific pod (replica controller will re-create it)</span>
+kubectl scale deploy &lt;d&gt; <span class="nt">--replicas</span><span class="o">=</span>5 <span class="c"># Scale deployment dynamically to 5 replica pods</span>
+kubectl rollout status deploy &lt;d&gt; <span class="c"># Monitor deployment rollout progress/status</span>
+kubectl rollout undo deploy &lt;d&gt; <span class="c"># Rollback deployment to the previous version</span>
+</code></pre></div></div>
+
+<h2 id="helm-kubernetes-package-manager">Helm (Kubernetes Package Manager)</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Repository Management</span>
+helm repo add &lt;name&gt; &lt;url&gt;    <span class="c"># Add a remote Helm chart repository</span>
+helm repo update              <span class="c"># Fetch and sync the latest charts from all repositories</span>
+helm search repo &lt;keyword&gt;    <span class="c"># Search configured repositories for charts</span>
+
+<span class="c"># Deployments &amp; Releases</span>
+helm list                     <span class="c"># List all releases in the active namespace (-A for all namespaces)</span>
+helm <span class="nb">install</span> &lt;name&gt; &lt;chart&gt;   <span class="c"># Install a chart release on the cluster</span>
+helm <span class="nb">install</span> &lt;name&gt; &lt;chart&gt; <span class="nt">-f</span> values.yaml <span class="c"># Install chart overriding configurations with custom values file</span>
+helm upgrade &lt;name&gt; &lt;chart&gt;   <span class="c"># Upgrade an existing release to a new version or values config</span>
+helm rollback &lt;name&gt; &lt;rev&gt;    <span class="c"># Rollback a release to a specific revision number</span>
+helm uninstall &lt;name&gt;         <span class="c"># Uninstall and delete a release from the cluster</span>
+helm status &lt;name&gt;            <span class="c"># View status details and instructions of a release</span>
+</code></pre></div></div>
+
+<h2 id="terraform-infrastructure-as-code">Terraform (Infrastructure as Code)</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Configuration Lifecycle</span>
+terraform init                <span class="c"># Initialize directory: download providers and backend modules</span>
+terraform validate            <span class="c"># Validate syntax and configuration integrity of TF files</span>
+terraform <span class="nb">fmt</span>                 <span class="c"># Automatically format all TF files according to canonical style</span>
+terraform plan                <span class="c"># Generate and review execution plan: view what will be created/changed/deleted</span>
+terraform plan <span class="nt">-out</span><span class="o">=</span>plan.tfplan <span class="c"># Save execution plan safely to a file</span>
+terraform apply               <span class="c"># Execute plan and provision real infrastructure resources</span>
+terraform apply plan.tfplan   <span class="c"># Apply a pre-generated saved execution plan file</span>
+terraform destroy             <span class="c"># Tear down and destroy all infrastructure provisioned by this folder</span>
+
+<span class="c"># State Management</span>
+terraform state list          <span class="c"># List all tracked resources in active Terraform state</span>
+terraform state show &lt;res&gt;    <span class="c"># Show detailed state metadata of a specific tracked resource</span>
+terraform refresh             <span class="c"># Sync local state file with actual real-world infrastructure</span>
+</code></pre></div></div>
+
+<h2 id="github-actions">GitHub Actions</h2>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># .github/workflows/ci.yml Syntax Basics</span>
+<span class="na">name</span><span class="pi">:</span> <span class="s">CI Pipeline</span>
+<span class="na">on</span><span class="pi">:</span>
+  <span class="na">push</span><span class="pi">:</span>
+    <span class="na">branches</span><span class="pi">:</span> <span class="pi">[</span> <span class="nv">main</span> <span class="pi">]</span>        <span class="c1"># Trigger on pushes to main branch</span>
+  <span class="na">pull_request</span><span class="pi">:</span>
+    <span class="na">branches</span><span class="pi">:</span> <span class="pi">[</span> <span class="nv">main</span> <span class="pi">]</span>        <span class="c1"># Trigger on PRs targeting main branch</span>
+
+<span class="na">jobs</span><span class="pi">:</span>
+  <span class="na">build-and-test</span><span class="pi">:</span>
+    <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>    <span class="c1"># Hosted runner environment</span>
+    <span class="na">steps</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Checkout Code</span>
+        <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v4</span>
+
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Setup Node</span>
+        <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/setup-node@v4</span>
+        <span class="na">with</span><span class="pi">:</span>
+          <span class="na">node-version</span><span class="pi">:</span> <span class="m">18</span>
+
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Install &amp; Test</span>
+        <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
+          <span class="s">npm install</span>
+          <span class="s">npm run test</span>
+        <span class="na">env</span><span class="pi">:</span>
+          <span class="na">DATABASE_URL</span><span class="pi">:</span> <span class="s">$</span> <span class="c1"># Decrypt repository secret variables</span>
+</code></pre></div></div>
+
+<h2 id="cicd-basics">CI/CD Basics</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Continuous Integration (CI)
+<span class="p">-</span> The practice of frequently merging code changes into a shared central repository.
+<span class="p">-</span> Core Goal: Detect bugs early and ensure codebase stability.
+<span class="p">-</span> Core Steps: Automated Checkout -&gt; Dependency Install -&gt; Linter -&gt; Automated Unit Tests -&gt; Build Compilation.
+
+Continuous Delivery (CD)
+<span class="p">-</span> Code is automatically tested, built, and staged for release.
+<span class="p">-</span> Deployment to production requires a manual approval trigger.
+
+Continuous Deployment (CD)
+<span class="p">-</span> Code changes pass through the entire pipeline and are automatically deployed to production with zero manual gates.
+
+Key Indicators &amp; Practices
+<span class="p">-</span> Fast feedback loops (pipelines should complete under 10 minutes).
+<span class="p">-</span> Build artifacts once (use the same container image/archive across Test, Staging, and Production environments).
+<span class="p">-</span> Blue-Green Deployments: Deploying new version to an identical parallel environment (Green) and flipping traffic instantly to avoid downtime.
+<span class="p">-</span> Canary Deployments: Incrementally rolling out updates to a small fraction of users first to mitigate risk.
+</code></pre></div></div>
+
+
+    
+
+    
+    <section class="related-section">
+      <h3>Recommended Cheatsheets</h3>
+      <p>Check out our other essential cheatsheets for developers:</p>
+      <div class="related-grid">
+        
+        
+          
+            
+            <div class="post-card">
+              <div class="post-title"><a href="/cheatsheets/browser-shortcuts/">Browser Shortcuts Cheatsheet</a></div>
+              <p class="post-desc">Comprehensive reference for essential web browser keyboard shortcuts, coverin...</p>
+            </div>
+          
+        
+          
+            
+            <div class="post-card">
+              <div class="post-title"><a href="/cheatsheets/css-flexbox/">CSS Flexbox Cheatsheet</a></div>
+              <p class="post-desc">Comprehensive reference for CSS Flexible Box Layout (Flexbox), covering flex ...</p>
+            </div>
+          
+        
+          
+            
+            <div class="post-card">
+              <div class="post-title"><a href="/cheatsheets/css-grid/">CSS Grid Cheatsheet</a></div>
+              <p class="post-desc">Comprehensive reference for CSS Grid Layout, covering grid container properti...</p>
+            </div>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </section>
+    
+
+    
+
+    
+
+    
+
+    
+  </main>
+
+  <footer class="site-footer-dark">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h3>Popular Tools</h3>
+      <ul>
+        <li><a href="/tools/json-formatter/">JSON Formatter</a></li>
+        <li><a href="/tools/qr-code-generator/">QR Code Generator</a></li>
+        <li><a href="/tools/base64-encoder-decoder/">Base64 Encoder/Decoder</a></li>
+        <li><a href="/tools/text-compare/">Text Compare</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Calculators & Finance</h3>
+      <ul>
+        <li><a href="/finance/currency-calculator/">Currency Calculator</a></li>
+        <li><a href="/finance/mortgage-calculator/">Mortgage Calculator</a></li>
+        <li><a href="/calculators/ip-subnet-calculator/">IP Subnet Calculator</a></li>
+        <li><a href="/calculators/time-zone-calculator/">Time Zone Calculator</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Quick References</h3>
+      <ul>
+        <li><a href="/cheatsheets/git-commands/">Git Cheatsheet</a></li>
+        <li><a href="/cheatsheets/docker-commands/">Docker Cheatsheet</a></li>
+        <li><a href="/cheatsheets/react-hooks/">React Hooks Cheatsheet</a></li>
+        <li><a href="/cheatsheets/javascript/">JavaScript Cheatsheet</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/shafqatalix" aria-label="LinkedIn">
+        <img src="/images/social-icons/linkedin.svg" alt="LinkedIn">
+      </a>
+      <a href="https://twitter.com/shafqatalix" aria-label="X/Twitter">
+        <img src="/images/social-icons/twitter.svg" alt="X/Twitter">
+      </a>
+      <a href="https://github.com/shafqatalix" aria-label="GitHub">
+        <img src="/images/social-icons/github.svg" alt="GitHub">
+      </a>
+    </div>
+    <div class="footer-copy">&copy; 2026 YORABA. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+
+</html>

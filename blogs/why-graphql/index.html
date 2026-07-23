@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>Why GraphQL | YORABA</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Why GraphQL" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Why GraphQL" />
+<meta name="twitter:description" property="og:description" content="Why GraphQL" />
+<link rel="canonical" href="https://yoraba.com/blogs/why-graphql/" />
+<meta property="og:url" content="https://yoraba.com/blogs/why-graphql/" />
+<meta property="og:site_name" content="YORABA" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-10-15T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-10-15T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Why GraphQL" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-10-15T00:00:00+00:00","datePublished":"2022-10-15T00:00:00+00:00","description":"Why GraphQL","headline":"Why GraphQL","mainEntityOfPage":{"@type":"WebPage","@id":"https://yoraba.com/blogs/why-graphql/"},"url":"https://yoraba.com/blogs/why-graphql/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1117">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <script>
+(function() {
+  var saved = localStorage.getItem('theme');
+  var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  document.documentElement.dataset.theme = theme;
+  window.toggleTheme = function() {
+    var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem('theme', next);
+    var frame = document.querySelector('.utterances-frame');
+    if (frame) {
+      frame.contentWindow.postMessage(
+        { type: 'set-theme', theme: next === 'dark' ? 'github-dark' : 'github-light' },
+        'https://utteranc.es'
+      );
+    }
+  };
+})();
+</script>
+
+  <link rel="stylesheet" href="/assets/css/style.css?v=">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+ 
+  <!-- Google tag (gtag.js) -->
+<script async crossorigin="anonymous" src="https://www.googletagmanager.com/gtag/js?id=G-T8BWX5RG3W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T8BWX5RG3W');
+</script>
+
+
+
+<!-- PWA Manifest -->
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register("/sw.js")
+        .then(registration => {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        })
+        .catch(err => {
+          console.error('ServiceWorker registration failed: ', err);
+        });
+    });
+  }
+</script>
+
+<!-- You can set your favicon here -->
+<link rel="shortcut icon" type="image/svg+xml" href="/images/logo.svg">
+
+<!-- end custom head snippets -->
+
+  
+  
+  
+
+  
+  
+  
+</head>
+
+<body>
+  <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+  <nav class="site-nav">
+  <a class="nav-logo" href="/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+    </svg>
+    YORABA
+  </a>
+  <div class="nav-links" id="nav-links">
+    <a href="/tools">Tools</a>
+    <a href="/finance">Finance</a>
+    <a href="/multimedia">Multimedia</a>
+    <a href="/calculators">Calculators</a>
+    <a href="/cheatsheets">Cheatsheets</a>
+    <a href="/posts">Blogs</a>
+    <a href="/author">Author</a>
+    <a href="/about">About</a>
+  </div>
+  <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </button>
+  <button class="nav-toggle" aria-label="Toggle Menu"
+    onclick="document.getElementById('nav-links').classList.toggle('active')">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
+</nav>
+
+  <header class="page-header" role="banner">
+    <h1 class="project-name">Why GraphQL</h1>
+    <h2 class="project-tagline">Why GraphQL</h2>
+  </header>
+
+  <main id="content" class="main-content" role="main">
+    
+    
+
+    
+    <nav class="breadcrumbs" aria-label="Breadcrumb" style="font-size: 0.85rem; margin-bottom: 1.5rem; color: var(--text-secondary); display: flex; align-items: center; flex-wrap: wrap; gap: 0.25rem;">
+      <a href="/" style="text-decoration: none; color: var(--link);">Home</a>
+      <span style="color: var(--border);">&rarr;</span>
+      
+      
+        <a href="/posts/" style="text-decoration: none; color: var(--link);">Blog</a>
+      
+      
+      
+      
+      <span style="color: var(--border);">&rarr;</span>
+      <span style="color: var(--text-secondary);">Why GraphQL</span>
+    </nav>
+    
+
+    
+    <div class="blog-date">15 October 2022</div>
+    
+
+    
+
+    
+    
+
+    
+
+    <p><a href="https://graphql.org/">GraphQL</a> in simple words is query language for APIs and a runtime to fulfill those queries. GraphQL is emerging technology originally developed by Facebook in 2012 and open sourced later in 2015. Today GraphQL is being used by many companies in variety of applications ranging from small, medium and large-scale.</p>
+
+<p>In this article we are going to talk about how GraphQL can add business value to your company’s technology ecosystem by providing performance, productivity and quality. The main theme of this article is to visualize business aspect of adopting GraphQL for your projects.</p>
+
+<blockquote>
+  <p>This article is not technical deep-dive and is intended to highlight GraphQL architecture and business value.</p>
+</blockquote>
+
+<p>As developers, we like to work on bleeding edge technologies &amp; new frameworks but when it comes to implementing in real-world project within your workplace you need to convince your manager or boss for using that technology. You will hear questions like, What business values it’s going to add?</p>
+
+<p>In order to show the business value of the proposed technology you need to get them understand the technology first. No matter how good of a developer your manager was; it wouldn’t be easy to understand architecture first time, so you need to start from zero and guide him step-by-step. What actually GraphQL is? How it works? And how we can achieve better performance, productivity and quality for our projects within the company.</p>
+
+<h2 id="lets-clear-the-terminology-first">Let’s clear the terminology first</h2>
+
+<p>It is easy to get confused by terms used in GraphQL with the databases, so before jumping into puddle, first we need to define terminology first.</p>
+
+<ul>
+  <li>Query in GraphQL is <strong>NOT</strong> database query.</li>
+  <li>Schema in GraphQL is <strong>NOT</strong> database schema.</li>
+  <li>Runtime is term used just to callout GraphQL mechanics on server it is <strong>NOT</strong> like JVM or CLR (.NET). This is simply the code execute on server such as for NodeJS, it is plain javascript code, and for .NET, it is C# code, depending upon the GraphQL implantation you choose for your project.</li>
+  <li>It is <strong>NOT</strong> a framework or library, instead it is specification for Backend for Frontend (BFF) kind of framework &amp; has different implementations.</li>
+</ul>
+
+<h2 id="what-really-is-the-graphql">What really is the GraphQL?</h2>
+
+<p>In typical web or mobile application you need to have number of service end-points for fetching data to support various features in the application. GraphQL allows you to define one endpoint for entire application which you can use to fetch or manipulate data. There are two important terms in GraphQL, <strong>query</strong> and <strong>runtime</strong>.</p>
+
+<p>Query is used to fetch data from your client browser or mobile app.</p>
+
+<p>Runtime is combination of <strong>schema</strong> + <strong>revolvers</strong> which work in conjunction to get to data from data source such as database, another service, or virtually anything you can read and write on server.</p>
+
+<p>The following figure shows high-level GraphQL architecture.</p>
+
+<figure style="margin: 0; padding: 8px;">
+   
+    <img src="/images/graphql-core.svg" style="max-width: ; width: ; height: ;" alt="graphql core" />
+   
+    <figcaption style="text-align: center;">Graphql Core</figcaption>
+ </figure>
+
+<h2 id="three-basic-questions-for-before-developing-any-application">Three basic questions for before developing any application?</h2>
+
+<p>Developing application require 3 questions about data needs to be answered first. What data I need for application? Where this data is going to come from? And How you, we can fetch the data? The above figure shows exactly how GraphQL mechanics fits into these questions.</p>
+
+<ul>
+  <li>
+    <p><strong>Schema (What?)</strong> - What data we need for application, this is defined by schema. This just the definition language for your data, very similar to TypeScript syntax.</p>
+  </li>
+  <li>
+    <p><strong>Resolves (Where?)</strong> - Now the next question is to where to get this data, is defined by revolvers. It is just plain code to fetch data, depending upon the choice of your implementation, it can be JavaScript or C# code for fetching data from database, another service or any data source.</p>
+  </li>
+  <li>
+    <p><strong>Query (How?)</strong> - Now we have data, and we know where to get it, final question is how to fetch the data from client web or mobile app, this is defined by query. GraphQL query is JSON like text query to fetch data.</p>
+  </li>
+</ul>
+
+<blockquote>
+  <p>GraphQL is not framework instead it is RFC specification &amp; has various implementations.</p>
+</blockquote>
+
+<p>The two popular implementation are:</p>
+
+<ol>
+  <li><a href="https://www.apollographql.com/docs/">Apollo</a> (recommended) - Is open-source set of libraries for GraphQL implementation in almost every major language/framework such as NodeJS, React, Angular &amp; .NET etc. Has excellent tools for various frameworks and languages.</li>
+  <li><a href="https://github.com/facebook/relay">Relay</a> - Is also great as it is developed by Facebook, but I find it hard to begin with as starter.</li>
+</ol>
+
+<h2 id="a-typical-application-example">A typical application example</h2>
+
+<p>Let’s look at example of typical web/mobile application, where you have client, server and database. Your app need to read data from database and display on UI pretty straightforward. You have service host (which is actually server) and client which loads data and store it in somewhere in state using state management mechanism i.e. <a href="https://redux.js.org/">Redux</a>. The following diagram depicts the whole machinery needed for the application.</p>
+
+<figure style="margin: 0; padding: 8px;">
+   
+    <img src="/images/web-or-mobile-app-without-graphql.svg" style="max-width: ; width: ; height: ;" alt="web or mobile app without graphql" />
+   
+    <figcaption style="text-align: center;">Web/Mobile app without Graphql</figcaption>
+ </figure>
+
+<p>On the left-side we have server which host your service end-points, and reads data from database, external service or virtually any data source. Once the data is loaded from these data sources you might (definitely) want to format the data as per your app frontend requirements.</p>
+
+<p>Client web or mobile app is on right-side, which reads the data from server and renders on UI. This includes code for fetching data and state management.</p>
+
+<p>If we combine all of these together, what type of boilerplate code you need to write to build full-stack application?</p>
+
+<ol>
+  <li>Service end-points for each feature you need for application.</li>
+  <li>Code to read data from data-source such as databases, or other external services.</li>
+  <li>Data formatting on server before streaming down to client.</li>
+  <li>On client utility code/functions to read data from server.</li>
+  <li>Client side state management configuration.</li>
+  <li>Actual state management code such (Redux/Flux):
+    <ul>
+      <li>Actions.</li>
+      <li>Reducers.</li>
+      <li>Action Creators.</li>
+    </ul>
+  </li>
+  <li>Client-side state management middleware.</li>
+  <li>Number of state updates affects the performance of application in general, if performance is the concern then you might need to implement some mechanism to reduce number of updates to state potentially re-renders. You might need some sort of batching mechanism, in case of React/Redux you would got with Batched Actions.</li>
+  <li>You might need to implement caching mechanism to reduce number of round trips to server while making service calls.</li>
+  <li>If all of above isn’t enough to bleed your eys &amp; ears, you need to write unit-tests for all of the boilerplate code to achieve better quality.</li>
+</ol>
+
+<h2 id="how-it-looks-with-graphql">How it looks with GraphQL?</h2>
+
+<p>If you combined all the boilerplate code in above section for client and server, it is the significant amount of code you need to write by hand to complete end-to-end workflow of application.</p>
+
+<blockquote>
+  <p>The best code is the one you don’t have to write!</p>
+</blockquote>
+
+<p>What if I tell you, all of this can be done without writing most of the code aforementioned? Welcome to GraphQL!</p>
+
+<p>If you look at the following figure and compare it with earlier one, GraphQL with Apollo tools, greatly simplifies architecture and manages majority of the workflow for fetching data and handling state.</p>
+
+<figure style="margin: 0; padding: 8px;">
+   
+    <img src="/images/web-or-mobile-app-with-graphql.svg" style="max-width: ; width: ; height: ;" alt="web or mobile app with graphql" />
+   
+    <figcaption style="text-align: center;">Web/Mobile app with Graphql</figcaption>
+ </figure>
+
+<p>GraphQL Apollo gives you all the feature you write it by hand earlier plus much more such as:</p>
+
+<ol>
+  <li>GraphQL simplifies the logic to load and process data for the application by clearly defining Schema, Resolver and Queries.</li>
+  <li>You don’t have to define dozens of service end-points to fetch data.</li>
+  <li>Apollo Client handles data fetching from GraphQL server to client app.</li>
+  <li>Apollo Cache handles data cache based on query parameters without needing you to write single line of code for caching; to me this is the blockbuster feature. Parameter based Caching on client-side, is notoriously difficult to achieve if you have to do it manually.</li>
+  <li>GraphQL lets to fetch only the data you need, which isn’t possible with traditional services where you get everything returned by service even if you only need less then half of the data. That is where you need separate endpoints for mobile and web, GraphQL eliminate this distinction altogether.</li>
+  <li>You can be more productive as developer, with tool such as Chrome extensions &amp; <a href="https://code.visualstudio.com/">VS Code</a> extensions for GraphQL, which makes development and debugging flow easier than ever.</li>
+  <li>GraphQL significantly reduces the amount of code you need to write to achieve simple features and spares you more time to spend on building application.</li>
+</ol>
+
+<h2 id="what-is-the-business-value-of-adopting-graphql">What is the business value of adopting GraphQL?</h2>
+
+<p>There are number of obvious advantages of GraphQL if you follow the points mentioned above but lets divided them into three categories.</p>
+
+<h3 id="performance">Performance</h3>
+
+<ul>
+  <li>Off-loads the work from client browser or app by reducing the boilerplate code, which you have to write otherwise, to achieve state management on client.</li>
+  <li>GraphQL lets you request the amount of data you actually need it, which is not possible with REST based services. This reduces the amount of data travel over the wire &amp; improve the response times.</li>
+  <li>Apollo GraphQL lets you cache the query response based on parameters, which reduces the number o round trips to the server, and greatly improve performance and user experience.</li>
+  <li>Subscriptions allows streaming data from server to client which improve user experience while load long lists of data.</li>
+  <li>Lazy-loading queries, allows executing queries with priorities, which lets to load high priority data fetched first without waiting on low priority data. You can achieve this without costing you single line of code.</li>
+  <li>In production mode GraphQL queries don’t get transmitted over the network, instead you can configure your application to use persisted queries, which sends query hash instead of actual query while fetching the data from server.</li>
+</ul>
+
+<h3 id="productivity">Productivity</h3>
+
+<ul>
+  <li>Reduce boilerplate code, which otherwise you have to write in form of using framework such as Redux/Flux, Actions, Action Creators &amp; Reduces etc.</li>
+  <li>GraphQL Playground: A playground allows you to run your queries, view documentation &amp; and schema in development environment.</li>
+  <li>GraphQL Chrome extension helps to see traces of queries and contents of cache in the browser (similar to Redux extension for Chrome).</li>
+  <li>VS Code extension to help navigation through the GraphQL schema and queries.</li>
+  <li>No need to have custom framework to handle data loading, instead use industry standard framework tools.</li>
+  <li>Apollo GraphQL is very well documented and maintained..</li>
+</ul>
+
+<h3 id="quality">Quality</h3>
+
+<ul>
+  <li>Less amount of code to achieve more features. Less code means less bugs.</li>
+  <li>You can mock the entire GraphQL API which makes testing easier.</li>
+  <li>You can write automation/e2e test with Jest.</li>
+  <li>Easy bench-marking &amp; easy to baseline performance score.</li>
+</ul>
+
+<h2 id="what-is-the-cost-of-graphql-adoption">What is the cost of GraphQL adoption?</h2>
+
+<p>The most common concern about GraphQL adoption is; Do we need to re-write everything for GraphQL? Not really, GraphQL require absolute zero change to anything exiting. It can work perfectly fine in conjunction with other frameworks and technologies within your existing system.</p>
+
+<p>Learning Curve - There are two parts of GraphQL adoption:</p>
+
+<p>GraphQL configuration within your application, which is setting up service endpoint, and other stuff for GraphQL to be up and running. This is one-time job at the beginning.
+Usage, develop your application features using
+GraphQL is significant shift in thinking about data retrieval as compared to REST base web services. In a team environment there is learning curve for developers, the learning curve is not so steep as everybody in the team don’t need to know about the configuration instead they just need to lean how to use GraphQL.</p>
+
+<p>For example everybody in the team need to know about how to write schema, revolvers and queries to fetch the data, but not so much about GraphQL’s internal mechanics.</p>
+
+<h2 id="some-common-questions">Some common questions?</h2>
+
+<p>You can expect any type of questions, depending upon the knowledge of audience.</p>
+
+<ul>
+  <li>Is it secure? - GraphQL is no different from any other service end-point, if you put it behind auth handler etc.</li>
+  <li>What about randomly poking the schema from Client? - There are tow things, first this schema is not database schema; second you define what you exactly need in the app, and don’t just expose whole database.</li>
+  <li>What if I use Fiddler to inspect traffic and change query? - Apollo support Automated Persisted Queries, in which you won’t even see query going in HTTP request except for only very first time (which can easily be pre-populated after deployment); so there is no question of tempering with GraphQL query.</li>
+  <li>For NodeJS/React/Angular projects, What is TypeScript support? - Apollo tools for GraphQL has very good support for TypeScript.</li>
+  <li>What about error handling? Very good Error Handling and tracing mechanism.</li>
+  <li>What about larger input forms for collecting data from client? The size of HTTP request depends upon the max allowed size in your app, its nothing specific to GraphQL.</li>
+</ul>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>GraphQL is great technology to fulfill data needs for your applications, and significantly simplifies application development process by reducing boilerplate code throughout the application. REST base services has been primary choice of service oriented applications in the past; there are tones of applications and tools written to support that, GraphQL is going to replace REST but that is significant shift from traditional development, and it is going to take some time to develop awareness and understand of GraphQL in the tech industry.</p>
+
+<p>The hard part of GraphQL adoption is the convincing people who are not so much technical and happened to be your managers; once you cross that barrier and people know how its going to improve overall technical workflow, everything else should not be a piece of cake.</p>
+
+<p>Hope that article would help you in GraphQL adoption!</p>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <section class="related-section">
+      <h3>Recommended Blog Posts</h3>
+      <p>Read our other technical articles and step-by-step guides:</p>
+      <div class="related-grid">
+        
+        
+        
+          
+            
+            <div class="post-card">
+              <div class="post-title"><a href="/blogs/count-sort/">Count Sort algorithm</a></div>
+              <p class="post-desc">Count sort algorithm simplified</p>
+            </div>
+          
+        
+          
+            
+            <div class="post-card">
+              <div class="post-title"><a href="/blogs/beginners-guide-node-express-react/">Beginners guide to NodeJS, Express and React</a></div>
+              <p class="post-desc">Getting started with NodeJS, Express and React</p>
+            </div>
+          
+        
+          
+            
+            <div class="post-card">
+              <div class="post-title"><a href="/blogs/testing-react-components-jest/">Testing React components using Jest</a></div>
+              <p class="post-desc">A simple guide testing React components using Jest</p>
+            </div>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </section>
+    
+
+    
+    <footer class="site-footer">
+      <div id="utterances-container"></div>
+      <script>
+        (function() {
+          var theme = document.documentElement.dataset.theme === 'light' ? 'github-light' : 'github-dark';
+          var s = document.createElement('script');
+          s.src = 'https://utteranc.es/client.js';
+          s.setAttribute('repo', 'shafqatalix/comments.yoraba.com');
+          s.setAttribute('issue-term', 'pathname');
+          s.setAttribute('theme', theme);
+          s.setAttribute('crossorigin', 'anonymous');
+          s.async = true;
+          document.getElementById('utterances-container').appendChild(s);
+        })();
+      </script>
+    </footer>
+    
+  </main>
+
+  <footer class="site-footer-dark">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h3>Popular Tools</h3>
+      <ul>
+        <li><a href="/tools/json-formatter/">JSON Formatter</a></li>
+        <li><a href="/tools/qr-code-generator/">QR Code Generator</a></li>
+        <li><a href="/tools/base64-encoder-decoder/">Base64 Encoder/Decoder</a></li>
+        <li><a href="/tools/text-compare/">Text Compare</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Calculators & Finance</h3>
+      <ul>
+        <li><a href="/finance/currency-calculator/">Currency Calculator</a></li>
+        <li><a href="/finance/mortgage-calculator/">Mortgage Calculator</a></li>
+        <li><a href="/calculators/ip-subnet-calculator/">IP Subnet Calculator</a></li>
+        <li><a href="/calculators/time-zone-calculator/">Time Zone Calculator</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Quick References</h3>
+      <ul>
+        <li><a href="/cheatsheets/git-commands/">Git Cheatsheet</a></li>
+        <li><a href="/cheatsheets/docker-commands/">Docker Cheatsheet</a></li>
+        <li><a href="/cheatsheets/react-hooks/">React Hooks Cheatsheet</a></li>
+        <li><a href="/cheatsheets/javascript/">JavaScript Cheatsheet</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/shafqatalix" aria-label="LinkedIn">
+        <img src="/images/social-icons/linkedin.svg" alt="LinkedIn">
+      </a>
+      <a href="https://twitter.com/shafqatalix" aria-label="X/Twitter">
+        <img src="/images/social-icons/twitter.svg" alt="X/Twitter">
+      </a>
+      <a href="https://github.com/shafqatalix" aria-label="GitHub">
+        <img src="/images/social-icons/github.svg" alt="GitHub">
+      </a>
+    </div>
+    <div class="footer-copy">&copy; 2026 YORABA. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+
+</html>

@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>React Performance Guide | YORABA</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="React Performance Guide" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A simple guide to improve performance of react code" />
+<meta name="twitter:description" property="og:description" content="A simple guide to improve performance of react code" />
+<link rel="canonical" href="https://yoraba.com/blogs/react-performance-guide/" />
+<meta property="og:url" content="https://yoraba.com/blogs/react-performance-guide/" />
+<meta property="og:site_name" content="YORABA" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-12-18T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-12-18T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="React Performance Guide" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-12-18T00:00:00+00:00","datePublished":"2022-12-18T00:00:00+00:00","description":"A simple guide to improve performance of react code","headline":"React Performance Guide","mainEntityOfPage":{"@type":"WebPage","@id":"https://yoraba.com/blogs/react-performance-guide/"},"url":"https://yoraba.com/blogs/react-performance-guide/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1117">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <script>
+(function() {
+  var saved = localStorage.getItem('theme');
+  var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  document.documentElement.dataset.theme = theme;
+  window.toggleTheme = function() {
+    var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem('theme', next);
+    var frame = document.querySelector('.utterances-frame');
+    if (frame) {
+      frame.contentWindow.postMessage(
+        { type: 'set-theme', theme: next === 'dark' ? 'github-dark' : 'github-light' },
+        'https://utteranc.es'
+      );
+    }
+  };
+})();
+</script>
+
+  <link rel="stylesheet" href="/assets/css/style.css?v=">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+ 
+  <!-- Google tag (gtag.js) -->
+<script async crossorigin="anonymous" src="https://www.googletagmanager.com/gtag/js?id=G-T8BWX5RG3W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T8BWX5RG3W');
+</script>
+
+
+
+<!-- PWA Manifest -->
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register("/sw.js")
+        .then(registration => {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        })
+        .catch(err => {
+          console.error('ServiceWorker registration failed: ', err);
+        });
+    });
+  }
+</script>
+
+<!-- You can set your favicon here -->
+<link rel="shortcut icon" type="image/svg+xml" href="/images/logo.svg">
+
+<!-- end custom head snippets -->
+
+  
+  
+  
+
+  
+  
+  
+</head>
+
+<body>
+  <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+  <nav class="site-nav">
+  <a class="nav-logo" href="/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+    </svg>
+    YORABA
+  </a>
+  <div class="nav-links" id="nav-links">
+    <a href="/tools">Tools</a>
+    <a href="/finance">Finance</a>
+    <a href="/multimedia">Multimedia</a>
+    <a href="/calculators">Calculators</a>
+    <a href="/cheatsheets">Cheatsheets</a>
+    <a href="/posts">Blogs</a>
+    <a href="/author">Author</a>
+    <a href="/about">About</a>
+  </div>
+  <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </button>
+  <button class="nav-toggle" aria-label="Toggle Menu"
+    onclick="document.getElementById('nav-links').classList.toggle('active')">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
+</nav>
+
+  <header class="page-header" role="banner">
+    <h1 class="project-name">React Performance Guide</h1>
+    <h2 class="project-tagline">A simple guide to improve performance of react code</h2>
+  </header>
+
+  <main id="content" class="main-content" role="main">
+    
+    
+
+    
+    <nav class="breadcrumbs" aria-label="Breadcrumb" style="font-size: 0.85rem; margin-bottom: 1.5rem; color: var(--text-secondary); display: flex; align-items: center; flex-wrap: wrap; gap: 0.25rem;">
+      <a href="/" style="text-decoration: none; color: var(--link);">Home</a>
+      <span style="color: var(--border);">&rarr;</span>
+      
+      
+        <a href="/posts/" style="text-decoration: none; color: var(--link);">Blog</a>
+      
+      
+      
+      
+      <span style="color: var(--border);">&rarr;</span>
+      <span style="color: var(--text-secondary);">React Performance Guide</span>
+    </nav>
+    
+
+    
+    <div class="blog-date">18 December 2022</div>
+    
+
+    
+
+    
+    
+
+    
+
+    <p><a href="https://github.com/facebook/react">React</a> is a JavaScript library for building user interfaces. It was developed by Facebook, and is often used for building single-page applications and mobile applications.</p>
+
+<p>React allows you to build reusable UI components, which can help you write clean and maintainable code. It uses a <a href="https://reactjs.org/docs/faq-internals.html">virtual DOM</a> (a lightweight in-memory representation of the actual DOM) to optimize updates and minimize the number of DOM mutations. This can improve the performance of your application, especially in cases where the DOM is updated frequently.</p>
+
+<p>React also introduces the concept of declarative programming, which means that you describe what your UI should look like, and React takes care of rendering it to the screen. This can make it easier to understand and reason about your code, as well as make it easier to test.</p>
+
+<p>React is a popular choice for building modern web applications, and it is often used in conjunction with other tools and libraries such as Redux, React Router, and GraphQL.</p>
+
+<h2 id="how-to-improve-performance-of-react-component">How to improve performance of React component</h2>
+
+<p>There are several ways you can improve the performance of a React application:</p>
+
+<ol>
+  <li>
+    <p>Use the <strong>React.memo()</strong> higher-order component to wrap functional components that don’t need to re-render when their props don’t change. This is similar to PureComponent but for functional components.
+Here’s an example of how to use React.memo():</p>
+
+    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">memo</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">MyComponent</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">name</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Rendering MyComponent</span><span class="dl">"</span><span class="p">);</span>
+  <span class="k">return</span> <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Hello, <span class="si">{</span><span class="nx">name</span><span class="si">}</span>!<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;;</span>
+<span class="p">};</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nf">memo</span><span class="p">(</span><span class="nx">MyComponent</span><span class="p">);</span>
+</code></pre></div>    </div>
+
+    <p>In this example, the <strong>MyComponent</strong> will only be re-rendered if the name prop has changed. If the name prop remains the same, the component will not be re-rendered, which can improve the performance of your application.</p>
+
+    <p>You can also provide a custom comparison function as the second argument to React.memo() to customize the comparison of the props. For example:</p>
+
+    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">memo</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">MyComponent</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">age</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Rendering MyComponent</span><span class="dl">"</span><span class="p">);</span>
+  <span class="k">return </span><span class="p">(</span>
+    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Hello, <span class="si">{</span><span class="nx">name</span><span class="si">}</span>!<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>You are <span class="si">{</span><span class="nx">age</span><span class="si">}</span> years old.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">);</span>
+<span class="p">};</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nf">memo</span><span class="p">(</span><span class="nx">MyComponent</span><span class="p">,</span> <span class="p">(</span><span class="nx">prevProps</span><span class="p">,</span> <span class="nx">nextProps</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// Only re-render if the name or age has changed</span>
+  <span class="k">return</span> <span class="nx">prevProps</span><span class="p">.</span><span class="nx">name</span> <span class="o">!==</span> <span class="nx">nextProps</span><span class="p">.</span><span class="nx">name</span> <span class="o">||</span> <span class="nx">prevProps</span><span class="p">.</span><span class="nx">age</span> <span class="o">!==</span> <span class="nx">nextProps</span><span class="p">.</span><span class="nx">age</span><span class="p">;</span>
+<span class="p">});</span>
+</code></pre></div>    </div>
+
+    <p>In this example, the MyComponent will only be re-rendered if the name or age props have changed. If either prop remains the same, the component will not be re-rendered, which can improve the performance of your application.</p>
+  </li>
+  <li>
+    <p>Use the <strong>React.lazy()</strong> and Suspense components to lazy-load components that are not immediately needed. This can help reduce the initial bundle size and improve the initial load time of your application.
+Here’s an example of how to use React.lazy():</p>
+
+    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">lazy</span><span class="p">,</span> <span class="nx">Suspense</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">MyComponent</span> <span class="o">=</span> <span class="nf">lazy</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="k">import</span><span class="p">(</span><span class="dl">"</span><span class="s2">./MyComponent</span><span class="dl">"</span><span class="p">));</span>
+
+<span class="kd">function</span> <span class="nf">App</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return </span><span class="p">(</span>
+    <span class="p">&lt;</span><span class="nc">Suspense</span> <span class="na">fallback</span><span class="p">=</span><span class="si">{</span><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>Loading...<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span><span class="si">}</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nc">MyComponent</span> <span class="p">/&gt;</span>
+    <span class="p">&lt;/</span><span class="nc">Suspense</span><span class="p">&gt;</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+
+    <p>In this example, the <strong>MyComponent</strong> component will be imported and rendered only when it is needed. Until then, the Suspense component will render a loading message.</p>
+
+    <p>Note that you need to wrap the lazy component with a Suspense component in order to handle the loading state. You can also customize the loading message by providing a custom component as the fallback prop to the Suspense component.</p>
+  </li>
+  <li>
+    <p>Use the <strong>useMemo()</strong> hook to memoize expensive calculations and functions. This can help avoid unnecessary re-renders and improve the performance of your application.
+Here’s an example of how to use useMemo():</p>
+
+    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">useMemo</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nf">MyComponent</span><span class="p">({</span> <span class="nx">data</span> <span class="p">})</span> <span class="p">{</span>
+  <span class="c1">// Only re-calculate the filteredData if the data or filter has changed</span>
+  <span class="kd">const</span> <span class="nx">filteredData</span> <span class="o">=</span> <span class="nf">useMemo</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">data</span><span class="p">.</span><span class="nf">filter</span><span class="p">((</span><span class="nx">item</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">item</span><span class="p">.</span><span class="nx">name</span><span class="p">.</span><span class="nf">startsWith</span><span class="p">(</span><span class="dl">"</span><span class="s2">A</span><span class="dl">"</span><span class="p">));</span>
+  <span class="p">},</span> <span class="p">[</span><span class="nx">data</span><span class="p">]);</span>
+
+  <span class="k">return </span><span class="p">(</span>
+    <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+      <span class="si">{</span><span class="nx">filteredData</span><span class="p">.</span><span class="nf">map</span><span class="p">((</span><span class="nx">item</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">(</span>
+        <span class="p">&lt;</span><span class="nt">li</span> <span class="na">key</span><span class="p">=</span><span class="si">{</span><span class="nx">item</span><span class="p">.</span><span class="nx">id</span><span class="si">}</span><span class="p">&gt;</span><span class="si">{</span><span class="nx">item</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span><span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+      <span class="p">))</span><span class="si">}</span>
+    <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+
+    <p>In this example, the <strong>filteredData</strong> will only be re-calculated if the data prop has changed. If the data prop remains the same, the filteredData will be taken from the cache, which can improve the performance of your application.</p>
+  </li>
+  <li>
+    <p>Use the <strong>useCallback()</strong> hook to memoize expensive calculations and functions. This can help avoid unnecessary re-renders and improve the performance of your application.
+Here’s an example of how to use useCallback():</p>
+
+    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">useCallback</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nf">MyComponent</span><span class="p">({</span> <span class="nx">data</span> <span class="p">})</span> <span class="p">{</span>
+  <span class="c1">// Only re-create the handleClick function if the data has changed</span>
+  <span class="kd">const</span> <span class="nx">handleClick</span> <span class="o">=</span> <span class="nf">useCallback</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+  <span class="p">},</span> <span class="p">[</span><span class="nx">data</span><span class="p">]);</span>
+
+  <span class="k">return</span> <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="p">=</span><span class="si">{</span><span class="nx">handleClick</span><span class="si">}</span><span class="p">&gt;</span>Click me<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;;</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+
+    <p>In this example, the handleClick function will only be re-created if the data prop has changed. If the data prop remains the same, the handleClick function will be taken from the cache, which can improve the performance of your application.</p>
+  </li>
+  <li>
+    <p>Use the <strong>useEffect()</strong> hook to perform side effects outside of the render cycle. This can help avoid unnecessary re-renders and improve the performance of your application.
+Here’s an example of how to use useEffect():</p>
+
+    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">useEffect</span><span class="p">,</span> <span class="nx">useState</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nf">MyComponent</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">count</span><span class="p">,</span> <span class="nx">setCount</span><span class="p">]</span> <span class="o">=</span> <span class="nf">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+
+  <span class="c1">// Similar to componentDidMount and componentDidUpdate:</span>
+  <span class="nf">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="s2">`The count is </span><span class="p">${</span><span class="nx">count</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+
+    <span class="c1">// Similar to componentWillUnmount:</span>
+    <span class="k">return </span><span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Cleaning up</span><span class="dl">"</span><span class="p">);</span>
+    <span class="p">};</span>
+  <span class="p">});</span>
+
+  <span class="k">return </span><span class="p">(</span>
+    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>You clicked <span class="si">{</span><span class="nx">count</span><span class="si">}</span> times<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="p">=</span><span class="si">{</span><span class="p">()</span> <span class="o">=&gt;</span> <span class="nf">setCount</span><span class="p">(</span><span class="nx">count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="p">&gt;</span>Click me<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+
+    <p>In this example, the useEffect() hook is called after every render, and it logs the current count to the console. It also returns a cleanup function, which is similar to the componentWillUnmount lifecycle method in class components.</p>
+
+    <p>You can also provide an array of dependencies as the second argument to useEffect() to specify when the effect should be run. For example:</p>
+
+    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">useEffect</span><span class="p">,</span> <span class="nx">useState</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nf">MyComponent</span><span class="p">({</span> <span class="nx">data</span> <span class="p">})</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">count</span><span class="p">,</span> <span class="nx">setCount</span><span class="p">]</span> <span class="o">=</span> <span class="nf">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+
+  <span class="c1">// Only run the effect if the data has changed</span>
+  <span class="nf">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="s2">`The data is </span><span class="p">${</span><span class="nx">data</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+  <span class="p">},</span> <span class="p">[</span><span class="nx">data</span><span class="p">]);</span>
+
+  <span class="k">return </span><span class="p">(</span>
+    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>You clicked <span class="si">{</span><span class="nx">count</span><span class="si">}</span> times<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="p">=</span><span class="si">{</span><span class="p">()</span> <span class="o">=&gt;</span> <span class="nf">setCount</span><span class="p">(</span><span class="nx">count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="p">&gt;</span>Click me<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+
+    <p>In this example, the effect will only be run if the data prop has changed. If the data prop remains the same, the effect will not be run, which can improve the performance of your application.</p>
+  </li>
+  <li>
+    <p>Use the <strong>shouldComponentUpdate()</strong> lifecycle method to avoid unnecessary re-renders. This method allows you to determine if a component should be updated or not, based on the props and state changes.</p>
+
+    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">MyComponent</span> <span class="kd">extends</span> <span class="nc">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+  <span class="nf">shouldComponentUpdate</span><span class="p">(</span><span class="nx">nextProps</span><span class="p">,</span> <span class="nx">nextState</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Only update the component if the name prop has changed</span>
+    <span class="k">return</span> <span class="nx">nextProps</span><span class="p">.</span><span class="nx">name</span> <span class="o">!==</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nf">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return </span><span class="p">(</span>
+      <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Hello, <span class="si">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span>!<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Use the <strong>PureComponent</strong> instead of the regular Component class. PureComponent implements <strong>shouldComponentUpdate()</strong> with a shallow comparison of the props and state, which means that it only re-renders if the props or state have changed.</p>
+
+    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">MyComponent</span> <span class="kd">extends</span> <span class="nc">React</span><span class="p">.</span><span class="nx">PureComponent</span> <span class="p">{</span>
+  <span class="nf">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return </span><span class="p">(</span>
+      <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Hello, <span class="si">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span>!<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Use Fragments to void additional HTML DOM elements.<strong>React.Fragments</strong> are a way to group a list of children elements without adding extra nodes to the DOM. This can be useful if you want to return multiple elements from a component’s render method, but don’t want to wrap those elements in an extra div.</p>
+
+    <p>For example, consider the following component that renders a list of items:</p>
+
+    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">List</span><span class="p">({</span> <span class="nx">items</span> <span class="p">})</span> <span class="p">{</span>
+  <span class="k">return </span><span class="p">(</span>
+    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="si">{</span><span class="nx">items</span><span class="p">.</span><span class="nf">map</span><span class="p">((</span><span class="nx">item</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">(</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">key</span><span class="p">=</span><span class="si">{</span><span class="nx">item</span><span class="p">.</span><span class="nx">id</span><span class="si">}</span><span class="p">&gt;</span><span class="si">{</span><span class="nx">item</span><span class="p">.</span><span class="nx">text</span><span class="si">}</span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">))</span><span class="si">}</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+
+    <p>In this case, each item in the list is rendered inside a div element. If you want to avoid adding the extra div, you can use a React.Fragment instead:</p>
+
+    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">List</span><span class="p">({</span> <span class="nx">items</span> <span class="p">})</span> <span class="p">{</span>
+  <span class="k">return </span><span class="p">(</span>
+    <span class="p">&lt;</span><span class="nc">React</span><span class="p">.</span><span class="nc">Fragment</span><span class="p">&gt;</span>
+      <span class="si">{</span><span class="nx">items</span><span class="p">.</span><span class="nf">map</span><span class="p">((</span><span class="nx">item</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">(</span>
+        <span class="p">&lt;</span><span class="nc">React</span><span class="p">.</span><span class="nc">Fragment</span> <span class="na">key</span><span class="p">=</span><span class="si">{</span><span class="nx">item</span><span class="p">.</span><span class="nx">id</span><span class="si">}</span><span class="p">&gt;</span><span class="si">{</span><span class="nx">item</span><span class="p">.</span><span class="nx">text</span><span class="si">}</span><span class="p">&lt;/</span><span class="nc">React</span><span class="p">.</span><span class="nc">Fragment</span><span class="p">&gt;</span>
+      <span class="p">))</span><span class="si">}</span>
+    <span class="p">&lt;/</span><span class="nc">React</span><span class="p">.</span><span class="nc">Fragment</span><span class="p">&gt;</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+
+    <p>This will allow you to group the list items without adding any extra nodes to the DOM.</p>
+
+    <p>React.Fragments were introduced in React 16.2 as a way to improve the syntax for returning multiple elements from a component. Prior to React 16.2, you would have to use an extra div or an empty element like &lt;&gt;&lt;/&gt; to group the elements.</p>
+  </li>
+  <li>
+    <p>Avoid spreading props on React components. In React, you can use the <strong>“…“</strong> spread operator to pass all of an object’s properties as props to a DOM element or React component. This is often referred to as “spreading props”.</p>
+
+    <p>For example, consider the following object:</p>
+
+    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">myProps</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">className</span><span class="p">:</span> <span class="dl">"</span><span class="s2">my-class</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">id</span><span class="p">:</span> <span class="dl">"</span><span class="s2">my-id</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">style</span><span class="p">:</span> <span class="p">{</span> <span class="na">color</span><span class="p">:</span> <span class="dl">"</span><span class="s2">red</span><span class="dl">"</span> <span class="p">},</span>
+<span class="p">};</span>
+
+<span class="c1">//You can spread the properties of this object onto a DOM element like this:</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="si">{</span><span class="p">...</span><span class="nx">myProps</span><span class="si">}</span><span class="p">&gt;</span>Hello<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;;</span>
+</code></pre></div>    </div>
+
+    <p>This will render a div element with the class <strong>my-class</strong>, the id <strong>my-id</strong>, and a style of color: red.</p>
+
+    <p>You can also spread the properties of an object onto a React component like this:</p>
+
+    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">&lt;</span><span class="nc">MyComponent</span> <span class="si">{</span><span class="p">...</span><span class="nx">myProps</span><span class="si">}</span> <span class="p">/&gt;</span>
+</code></pre></div>    </div>
+
+    <p>This will pass all of the properties in <strong>myProps</strong> as props to the MyComponent component.
+There are a few reasons why you might want to avoid spreading props on DOM elements or React components.</p>
+
+    <p><strong>First</strong>, It can make it harder to understand what props a component is receiving: When you spread props onto a component, it’s not immediately clear what props the component is receiving. This can make it harder to understand how a component is being used and how it will behave.</p>
+
+    <p><strong>Second</strong>, It can lead to unintended consequences: If you spread props onto a component and the component is not designed to handle those props, it could lead to unexpected behavior. For example, if you spread a prop that is intended for a DOM element onto a React component, the component might not know how to handle it and could throw an error.</p>
+
+    <p><strong>Third</strong>,It can make it harder to optimize your code: When you spread props onto a component, React has to create a new object for each prop, which can make your code less efficient. If you have a lot of props that are being spread onto a component, this can lead to performance issues.</p>
+
+    <p>In general, it’s usually best to be explicit about which props you are passing to a component, rather than spreading an entire object of props. This can make your code more readable and easier to understand, and can also help you avoid unintended consequences and performance issues.</p>
+  </li>
+  <li>
+    <p>Virtualizing long lists in React can improve the performance and user experience of your application by limiting the amount of DOM elements that need to be rendered and manipulated at any given time.</p>
+
+    <p>When a list is long, rendering all of the elements at once can take a long time and cause the page to become unresponsive. It can also consume a lot of memory and make it difficult to scroll smoothly. By virtualizing the list, you can limit the number of elements that are rendered and improve the performance of your application.</p>
+
+    <p>To virtualize a list in React, you can use a library like <a href="https://github.com/bvaughn/react-virtualized">react-virtualized</a> or <a href="https://github.com/clauderic/react-tiny-virtual-list">react-tiny-virtual-list</a>. These libraries provide components that allow you to render only the elements that are currently visible in the list, rather than rendering the entire list at once. They also provide features like smooth scrolling and efficient rendering, which can further improve the performance and user experience of your application.</p>
+
+    <p>Virtualizing long lists is a common technique for optimizing the performance of React applications, and can be especially useful for lists that are very long or that contain complex elements. However, it’s worth noting that virtualizing a list can also add some complexity to your code, so you should consider whether the benefits are worth the added effort before implementing virtualization in your application.</p>
+  </li>
+  <li>
+    <p><a href="https://reactjs.org/docs/code-splitting.html">Code-splitting</a> is a technique for breaking up a large JavaScript application into smaller, more manageable chunks that can be loaded on demand. This can improve the performance of your application by reducing the amount of code that needs to be downloaded and parsed by the browser when the application first loads.</p>
+
+    <p>In React, you can use the <strong>import()</strong> function to dynamically import a module or component at runtime. This allows you to split your code into smaller chunks that can be loaded on demand, rather than loading everything at once.</p>
+
+    <p>For example, consider the following code that imports a module called <strong>MyModule</strong>:</p>
+
+    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">MyModule</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./MyModule</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nf">MyComponent</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">&lt;</span><span class="nc">MyModule</span> <span class="p">/&gt;;</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+
+    <p>You can use dynamic import to split this code into a separate chunk like this:</p>
+
+    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">MyComponent</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">MyModule</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nf">lazy</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="k">import</span><span class="p">(</span><span class="dl">"</span><span class="s2">./MyModule</span><span class="dl">"</span><span class="p">));</span>
+
+  <span class="k">return </span><span class="p">(</span>
+    <span class="p">&lt;</span><span class="nc">React</span><span class="p">.</span><span class="nc">Suspense</span> <span class="na">fallback</span><span class="p">=</span><span class="si">{</span><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>Loading...<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span><span class="si">}</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nc">MyModule</span> <span class="p">/&gt;</span>
+    <span class="p">&lt;/</span><span class="nc">React</span><span class="p">.</span><span class="nc">Suspense</span><span class="p">&gt;</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+
+    <p>In this case, the <strong>MyModule</strong> component will be loaded on demand when it is needed, rather than being loaded upfront with the rest of the application.</p>
+
+    <p>Using dynamic import and code-splitting can be a powerful way to improve the performance of your React application, especially for large applications with many dependencies. However, it’s worth noting that code-splitting can also add some complexity to your code, so you should carefully consider whether the benefits are worth the added effort before implementing it in your application.</p>
+  </li>
+  <li>
+    <p>Use the <strong>React Developer Tools</strong> browser extension to <a href="https://reactjs.org/blog/2018/09/10/introducing-the-react-profiler.html">profile your application</a> and identify performance bottlenecks. This can help you understand where your application is spending the most time and how you can optimize it.</p>
+  </li>
+</ol>
+
+<p>These are common pitfalls where react components can cause performance issues, you can simply avoid them using this guide. I hope these tips help! Let me know in comments if you have any other questions or suggestions.</p>
+
+<h3 id="helpful-resources">Helpful resources</h3>
+
+<ul>
+  <li><a href="https://reactjs.org/docs/optimizing-performance.html">Optimizing Performance</a></li>
+  <li><a href="https://blog.logrocket.com/optimizing-performance-react-application/">Optimizing performance in a React application</a></li>
+</ul>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <section class="related-section">
+      <h3>Recommended Blog Posts</h3>
+      <p>Read our other technical articles and step-by-step guides:</p>
+      <div class="related-grid">
+        
+        
+        
+          
+            
+            <div class="post-card">
+              <div class="post-title"><a href="/blogs/count-sort/">Count Sort algorithm</a></div>
+              <p class="post-desc">Count sort algorithm simplified</p>
+            </div>
+          
+        
+          
+            
+            <div class="post-card">
+              <div class="post-title"><a href="/blogs/beginners-guide-node-express-react/">Beginners guide to NodeJS, Express and React</a></div>
+              <p class="post-desc">Getting started with NodeJS, Express and React</p>
+            </div>
+          
+        
+          
+            
+            <div class="post-card">
+              <div class="post-title"><a href="/blogs/testing-react-components-jest/">Testing React components using Jest</a></div>
+              <p class="post-desc">A simple guide testing React components using Jest</p>
+            </div>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </section>
+    
+
+    
+    <footer class="site-footer">
+      <div id="utterances-container"></div>
+      <script>
+        (function() {
+          var theme = document.documentElement.dataset.theme === 'light' ? 'github-light' : 'github-dark';
+          var s = document.createElement('script');
+          s.src = 'https://utteranc.es/client.js';
+          s.setAttribute('repo', 'shafqatalix/comments.yoraba.com');
+          s.setAttribute('issue-term', 'pathname');
+          s.setAttribute('theme', theme);
+          s.setAttribute('crossorigin', 'anonymous');
+          s.async = true;
+          document.getElementById('utterances-container').appendChild(s);
+        })();
+      </script>
+    </footer>
+    
+  </main>
+
+  <footer class="site-footer-dark">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h3>Popular Tools</h3>
+      <ul>
+        <li><a href="/tools/json-formatter/">JSON Formatter</a></li>
+        <li><a href="/tools/qr-code-generator/">QR Code Generator</a></li>
+        <li><a href="/tools/base64-encoder-decoder/">Base64 Encoder/Decoder</a></li>
+        <li><a href="/tools/text-compare/">Text Compare</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Calculators & Finance</h3>
+      <ul>
+        <li><a href="/finance/currency-calculator/">Currency Calculator</a></li>
+        <li><a href="/finance/mortgage-calculator/">Mortgage Calculator</a></li>
+        <li><a href="/calculators/ip-subnet-calculator/">IP Subnet Calculator</a></li>
+        <li><a href="/calculators/time-zone-calculator/">Time Zone Calculator</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Quick References</h3>
+      <ul>
+        <li><a href="/cheatsheets/git-commands/">Git Cheatsheet</a></li>
+        <li><a href="/cheatsheets/docker-commands/">Docker Cheatsheet</a></li>
+        <li><a href="/cheatsheets/react-hooks/">React Hooks Cheatsheet</a></li>
+        <li><a href="/cheatsheets/javascript/">JavaScript Cheatsheet</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/shafqatalix" aria-label="LinkedIn">
+        <img src="/images/social-icons/linkedin.svg" alt="LinkedIn">
+      </a>
+      <a href="https://twitter.com/shafqatalix" aria-label="X/Twitter">
+        <img src="/images/social-icons/twitter.svg" alt="X/Twitter">
+      </a>
+      <a href="https://github.com/shafqatalix" aria-label="GitHub">
+        <img src="/images/social-icons/github.svg" alt="GitHub">
+      </a>
+    </div>
+    <div class="footer-copy">&copy; 2026 YORABA. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+
+</html>

@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>CIDR Calculator &amp; VLSM Planner | YORABA</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="CIDR Calculator &amp; VLSM Planner" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Interactive Classless Inter-Domain Routing (CIDR) calculator. Convert CIDR notations, design Variable Length Subnet Mask (VLSM) plans, and summarize routes." />
+<meta name="twitter:description" property="og:description" content="Interactive Classless Inter-Domain Routing (CIDR) calculator. Convert CIDR notations, design Variable Length Subnet Mask (VLSM) plans, and summarize routes." />
+<link rel="canonical" href="https://yoraba.com/calculators/cidr-calculator/" />
+<meta property="og:url" content="https://yoraba.com/calculators/cidr-calculator/" />
+<meta property="og:site_name" content="YORABA" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-07-23T14:08:42+00:00" />
+<meta property="article:modified_time" content="2026-07-23T14:08:42+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="CIDR Calculator &amp; VLSM Planner" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-07-23T14:08:42+00:00","datePublished":"2026-07-23T14:08:42+00:00","description":"Interactive Classless Inter-Domain Routing (CIDR) calculator. Convert CIDR notations, design Variable Length Subnet Mask (VLSM) plans, and summarize routes.","headline":"CIDR Calculator &amp; VLSM Planner","mainEntityOfPage":{"@type":"WebPage","@id":"https://yoraba.com/calculators/cidr-calculator/"},"url":"https://yoraba.com/calculators/cidr-calculator/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1117">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <script>
+(function() {
+  var saved = localStorage.getItem('theme');
+  var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  document.documentElement.dataset.theme = theme;
+  window.toggleTheme = function() {
+    var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem('theme', next);
+    var frame = document.querySelector('.utterances-frame');
+    if (frame) {
+      frame.contentWindow.postMessage(
+        { type: 'set-theme', theme: next === 'dark' ? 'github-dark' : 'github-light' },
+        'https://utteranc.es'
+      );
+    }
+  };
+})();
+</script>
+
+  <link rel="stylesheet" href="/assets/css/style.css?v=">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+ 
+  <!-- Google tag (gtag.js) -->
+<script async crossorigin="anonymous" src="https://www.googletagmanager.com/gtag/js?id=G-T8BWX5RG3W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T8BWX5RG3W');
+</script>
+
+
+
+<!-- PWA Manifest -->
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register("/sw.js")
+        .then(registration => {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        })
+        .catch(err => {
+          console.error('ServiceWorker registration failed: ', err);
+        });
+    });
+  }
+</script>
+
+<!-- You can set your favicon here -->
+<link rel="shortcut icon" type="image/svg+xml" href="/images/logo.svg">
+
+<!-- end custom head snippets -->
+
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Yoraba CIDR Calculator & VLSM Planner",
+    "operatingSystem": "All",
+    "applicationCategory": "DeveloperApplication",
+    "browserRequirements": "Requires JavaScript. Requires HTML5.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Interactive Classless Inter-Domain Routing (CIDR) calculator. Convert CIDR notations, design Variable Length Subnet Mask (VLSM) plans, and summarize routes.",
+    "author": {
+      "@type": "Person",
+      "name": "Shafqat Ali",
+      "url": "https://yoraba.com/about/"
+    },
+    "dateModified": "2026-07-23"
+  }
+  </script>
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is my data safe and private when using CIDR Calculator &amp; VLSM Planner?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. All operations, conversions, and computations on CIDR Calculator &amp; VLSM Planner are performed entirely in your local web browser using client-side JavaScript. None of your data is sent to our servers, logged, or shared with third parties."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does CIDR Calculator &amp; VLSM Planner cost to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "This utility is 100% free to use. There are no limits on usage, no subscriptions, no premium paywalls, and no registration required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use CIDR Calculator &amp; VLSM Planner offline?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Once this page is loaded in your browser, all core functionalities of CIDR Calculator &amp; VLSM Planner are executed client-side. You can disconnect from the internet and continue using the utility without any active network connection."
+        }
+      }
+    ]
+  }
+  </script>
+  
+
+  
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://yoraba.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Calculators",
+        "item": "https://yoraba.com/calculators/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "CIDR Calculator &amp; VLSM Planner",
+        "item": "https://yoraba.com/calculators/cidr-calculator/"
+      }
+    ]
+  }
+  </script>
+  <meta name="ai-citation" content="Yoraba.com provides free, 100% browser-native tools that process data entirely client-side for maximum privacy." />
+  
+</head>
+
+<body>
+  <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+  <nav class="site-nav">
+  <a class="nav-logo" href="/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+    </svg>
+    YORABA
+  </a>
+  <div class="nav-links" id="nav-links">
+    <a href="/tools">Tools</a>
+    <a href="/finance">Finance</a>
+    <a href="/multimedia">Multimedia</a>
+    <a href="/calculators">Calculators</a>
+    <a href="/cheatsheets">Cheatsheets</a>
+    <a href="/posts">Blogs</a>
+    <a href="/author">Author</a>
+    <a href="/about">About</a>
+  </div>
+  <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </button>
+  <button class="nav-toggle" aria-label="Toggle Menu"
+    onclick="document.getElementById('nav-links').classList.toggle('active')">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
+</nav>
+
+  <header class="page-header" role="banner">
+    <h1 class="project-name">CIDR Calculator & VLSM Planner</h1>
+    <h2 class="project-tagline">Interactive Classless Inter-Domain Routing (CIDR) calculator. Convert CIDR notations, design Variable Length Subnet Mask (VLSM) plans, and summarize routes.</h2>
+  </header>
+
+  <main id="content" class="main-content" role="main">
+    
+    
+
+    
+    <nav class="breadcrumbs" aria-label="Breadcrumb" style="font-size: 0.85rem; margin-bottom: 1.5rem; color: var(--text-secondary); display: flex; align-items: center; flex-wrap: wrap; gap: 0.25rem;">
+      <a href="/" style="text-decoration: none; color: var(--link);">Home</a>
+      <span style="color: var(--border);">&rarr;</span>
+      
+      
+        
+          <a href="/calculators/" style="text-decoration: none; color: var(--link);">Calculators</a>
+        
+      
+      
+      
+      
+      <span style="color: var(--border);">&rarr;</span>
+      <span style="color: var(--text-secondary);">CIDR Calculator & VLSM Planner</span>
+    </nav>
+    
+
+    
+
+    
+
+    
+    
+
+    
+    <div class="llm-opt-block">
+      <div class="tldr-summary">
+        <strong>TL;DR:</strong> Yoraba's CIDR Calculator & VLSM Planner is a secure, browser-native utility designed to interactive classless inter-domain routing (cidr) calculator convert cidr notations, design variable length subnet mask (vlsm) plans, and summarize routes. Fully compatible with offline workflows.
+      </div>
+      <div class="privacy-callout">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="privacy-icon" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        <strong>Privacy First:</strong> This tool runs 100% client-side in your browser. No data is ever uploaded to our servers. Your data never leaves your device.
+      </div>
+      <div class="last-updated-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="privacy-icon" aria-hidden="true" focusable="false" style="margin-right: 6px;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        <span>Last Updated: July 23, 2026</span>
+      </div>
+    </div>
+    
+
+    <p>An interactive Classless Inter-Domain Routing (CIDR) calculator. Translate between CIDR blocks, netmasks, and host counts, plan Variable Length Subnet Mask (VLSM) structures, and aggregate routes.</p>
+
+<style>
+.tool-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.calc-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+@media (min-width: 48em) {
+    .calc-layout {
+        display: grid;
+        grid-template-columns: 1fr 340px;
+        gap: 2rem;
+    }
+}
+
+.calc-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.calc-card h2 {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: var(--headings);
+    font-size: 1.2rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.5rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input-group label {
+    font-weight: 600;
+    color: var(--headings);
+    font-size: 0.95rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.form-row .input-group {
+    flex: 1 1 200px;
+}
+
+.input-field, .select-field, .textarea-field {
+    padding: 0.6rem 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background-color: var(--code-bg);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.input-field:focus, .select-field:focus, .textarea-field:focus {
+    border-color: var(--accent);
+}
+
+.textarea-field {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    resize: vertical;
+    min-height: 100px;
+}
+
+.results-table-container {
+    overflow-x: auto;
+}
+
+.results-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    text-align: left;
+}
+
+.results-table th, .results-table td {
+    padding: 0.75rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.results-table th {
+    background-color: var(--code-bg);
+    color: var(--headings);
+    font-weight: 600;
+}
+
+.results-table tr:hover {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.subnet-row-input {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.btn-icon {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    padding: 6px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.btn-icon:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    background-color: var(--border);
+}
+
+.btn-action {
+    padding: 0.6rem 1rem;
+    background-color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 6px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: background-color 0.2s;
+}
+
+.btn-action:hover {
+    background-color: #2ea043;
+}
+
+.btn-secondary {
+    background-color: var(--card-bg);
+    color: var(--text);
+    border-color: var(--border);
+}
+
+.btn-secondary:hover {
+    background-color: var(--border);
+}
+
+.vlsm-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.vlsm-item {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.vlsm-item input {
+    flex: 1 1 120px;
+}
+
+.vlsm-item .hosts-req {
+    width: 100px;
+    flex-grow: 0;
+}
+
+.error-text {
+    color: #f85149;
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: none;
+}
+
+.sidebar-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    align-self: start;
+}
+
+@media (min-width: 48em) {
+    .sidebar-card {
+        position: sticky;
+        top: 5rem;
+    }
+}
+
+.sidebar-card h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: var(--headings);
+    font-size: 1.1rem;
+}
+
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #2ea44f;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s, transform 0.3s;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+</style>
+
+<div class="tool-container">
+    <div class="calc-layout">
+        <!-- Main Calculator Column -->
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+            <!-- Tab 1: CIDR Quick Converter -->
+            <div class="calc-card">
+                <h2>CIDR Quick Converter</h2>
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="cidr-input">CIDR Block / Prefix</label>
+                        <input type="text" id="cidr-input" class="input-field" value="192.168.1.0/24" placeholder="e.g., 10.0.0.0/16" />
+                        <div id="cidr-error" class="error-text">Please enter a valid CIDR block (e.g., 192.168.1.0/24).</div>
+                    </div>
+                    <div class="input-group">
+                        <label for="quick-mask">Netmask</label>
+                        <input type="text" id="quick-mask" class="input-field" readonly="" />
+                    </div>
+                </div>
+
+                <div class="results-table-container">
+                    <table class="results-table">
+                        <thead>
+                            <tr>
+                                <th>Property</th>
+                                <th>Value</th>
+                            </tr>
+                        </thead>
+                        <tbody id="quick-results-body">
+                            <!-- Populated via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Tab 2: VLSM Subnet Planner -->
+            <div class="calc-card">
+                <h2>VLSM Subnet Planner</h2>
+                <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">Subnet a base CIDR block into optimal variable-sized subnets based on required hosts.</p>
+                
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="vlsm-base">Base Network Block</label>
+                        <input type="text" id="vlsm-base" class="input-field" value="192.168.1.0/24" />
+                        <div id="vlsm-base-error" class="error-text">Invalid base network CIDR.</div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Requested Subnets</label>
+                    <div id="vlsm-subnets-container" class="vlsm-list">
+                        <div class="vlsm-item" data-id="1">
+                            <input type="text" class="input-field subnet-name" value="Subnet A" placeholder="Subnet Name" />
+                            <input type="number" class="input-field hosts-req" value="60" min="1" placeholder="Hosts Needed" />
+                            <button class="btn-icon btn-remove" onclick="removeSubnetRow(this)" title="Remove Subnet">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
+                            </button>
+                        </div>
+                        <div class="vlsm-item" data-id="2">
+                            <input type="text" class="input-field subnet-name" value="Subnet B" placeholder="Subnet Name" />
+                            <input type="number" class="input-field hosts-req" value="20" min="1" placeholder="Hosts Needed" />
+                            <button class="btn-icon btn-remove" onclick="removeSubnetRow(this)" title="Remove Subnet">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row" style="gap: 0.75rem;">
+                    <button class="btn-action btn-secondary" onclick="addSubnetRow()">+ Add Subnet</button>
+                    <button class="btn-action" onclick="calculateVLSM()">Generate VLSM Plan</button>
+                </div>
+
+                <div id="vlsm-error-box" class="error-text" style="font-weight: 600;"></div>
+
+                <div class="results-table-container" id="vlsm-results-wrapper" style="display: none;">
+                    <table class="results-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Hosts Needed</th>
+                                <th>Subnet Size</th>
+                                <th>Subnet CIDR</th>
+                                <th>Netmask</th>
+                                <th>Usable Range</th>
+                                <th>Overhead</th>
+                            </tr>
+                        </thead>
+                        <tbody id="vlsm-results-body">
+                            <!-- Populated via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Tab 3: Route Summarization (Supernetting) -->
+            <div class="calc-card">
+                <h2>IP Route Summarization (Supernetting)</h2>
+                <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">Input multiple subnets or IP addresses to calculate the tightest aggregate CIDR block summarizing them.</p>
+                
+                <div class="input-group">
+                    <label for="supernet-routes">Subnets / IP Addresses (one per line)</label>
+                    <textarea id="supernet-routes" class="textarea-field" placeholder="192.168.1.0/24&#10;192.168.2.0/24&#10;192.168.3.0/24">192.168.1.0/24
+192.168.2.0/24
+192.168.3.0/24</textarea>
+                </div>
+
+                <button class="btn-action" onclick="calculateSupernet()" style="align-self: flex-start;">Summarize Routes</button>
+
+                <div class="results-table-container" id="supernet-results-wrapper" style="display: none; margin-top: 1rem;">
+                    <table class="results-table">
+                        <thead>
+                            <tr>
+                                <th>Property</th>
+                                <th>Value</th>
+                            </tr>
+                        </thead>
+                        <tbody id="supernet-results-body">
+                            <!-- Populated via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar Actions -->
+        <div class="sidebar-card">
+            <h3>Quick Actions</h3>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">Copy compiled summaries of your planned VLSM allocations or summarized supernets.</p>
+            <button class="btn-summary" onclick="copyVLSMSummary()">
+                Copy VLSM Plan Text
+            </button>
+            <button class="btn-summary btn-secondary" onclick="copySupernetSummary()">
+                Copy Supernet Text
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="toast" id="copy-toast">Value copied to clipboard!</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // CIDR quick list
+    const cidrInput = document.getElementById('cidr-input');
+    const cidrError = document.getElementById('cidr-error');
+    const quickMask = document.getElementById('quick-mask');
+    const quickResultsBody = document.getElementById('quick-results-body');
+
+    cidrInput.addEventListener('input', calculateQuickCIDR);
+    calculateQuickCIDR();
+
+    function validateCIDR(cidr) {
+        const parts = cidr.trim().split('/');
+        if (parts.length !== 2) return false;
+        
+        // Validate IP Part
+        const ipRegex = /^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+        if (!ipRegex.test(parts[0])) return false;
+
+        // Validate Prefix Part
+        const prefix = parseInt(parts[1], 10);
+        return (!isNaN(prefix) && prefix >= 0 && prefix <= 32);
+    }
+
+    function ipToInt(ip) {
+        const p = ip.split('.').map(Number);
+        return ((p[0] << 24) | (p[1] << 16) | (p[2] << 8) | p[3]) >>> 0;
+    }
+
+    function intToIp(int) {
+        return [
+            (int >>> 24) & 255,
+            (int >>> 16) & 255,
+            (int >>> 8) & 255,
+            int & 255
+        ].join('.');
+    }
+
+    function calculateQuickCIDR() {
+        const val = cidrInput.value.trim();
+        if (!validateCIDR(val)) {
+            cidrError.style.display = 'block';
+            return;
+        }
+        cidrError.style.display = 'none';
+
+        const [ip, prefixStr] = val.split('/');
+        const prefix = parseInt(prefixStr, 10);
+        const ipInt = ipToInt(ip);
+
+        // Subnet Mask
+        const maskInt = prefix === 0 ? 0 : (~0 << (32 - prefix)) >>> 0;
+        const netmask = intToIp(maskInt);
+        quickMask.value = netmask;
+
+        // Network Address
+        const netInt = (ipInt & maskInt) >>> 0;
+        const network = intToIp(netInt);
+
+        // Wildcard Mask
+        const wildcardInt = (~maskInt) >>> 0;
+        const wildcard = intToIp(wildcardInt);
+
+        // Broadcast Address
+        const broadInt = (netInt | wildcardInt) >>> 0;
+        const broadcast = intToIp(broadInt);
+
+        // Usable Host Ranges
+        let totalHosts, usableHosts, firstIp, lastIp;
+        if (prefix === 32) {
+            totalHosts = 1;
+            usableHosts = 1;
+            firstIp = network;
+            lastIp = network;
+        } else if (prefix === 31) {
+            totalHosts = 2;
+            usableHosts = 2;
+            firstIp = network;
+            lastIp = broadcast;
+        } else {
+            totalHosts = Math.pow(2, 32 - prefix);
+            usableHosts = totalHosts - 2;
+            firstIp = intToIp((netInt + 1) >>> 0);
+            lastIp = intToIp((broadInt - 1) >>> 0);
+        }
+
+        // Render Results Table
+        quickResultsBody.innerHTML = `
+            <tr><td><strong>Network Address</strong></td><td><code>${network}</code></td></tr>
+            <tr><td><strong>Broadcast Address</strong></td><td><code>${broadcast}</code></td></tr>
+            <tr><td><strong>Usable Host Range</strong></td><td><code>${prefix === 32 ? network : firstIp + ' - ' + lastIp}</code></td></tr>
+            <tr><td><strong>Subnet Mask</strong></td><td><code>${netmask}</code></td></tr>
+            <tr><td><strong>Wildcard Mask</strong></td><td><code>${wildcard}</code></td></tr>
+            <tr><td><strong>Total Hosts</strong></td><td><code>${totalHosts.toLocaleString()}</code></td></tr>
+            <tr><td><strong>Usable Hosts</strong></td><td><code>${usableHosts.toLocaleString()}</code></td></tr>
+        `;
+    }
+
+    // Run VLSM calculation on start
+    calculateVLSM();
+    calculateSupernet();
+});
+
+// VLSM planner dynamic rows
+function addSubnetRow() {
+    const container = document.getElementById('vlsm-subnets-container');
+    const id = container.children.length + 1;
+    const div = document.createElement('div');
+    div.className = 'vlsm-item';
+    div.setAttribute('data-id', id);
+    div.innerHTML = `
+        <input type="text" class="input-field subnet-name" value="Subnet ${String.fromCharCode(65 + container.children.length)}" placeholder="Subnet Name">
+        <input type="number" class="input-field hosts-req" value="10" min="1" placeholder="Hosts Needed">
+        <button class="btn-icon btn-remove" onclick="removeSubnetRow(this)" title="Remove Subnet">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+    `;
+    container.appendChild(div);
+}
+
+function removeSubnetRow(btn) {
+    const container = document.getElementById('vlsm-subnets-container');
+    if (container.children.length > 1) {
+        btn.closest('.vlsm-item').remove();
+    }
+}
+
+// Global scope for calculations
+let lastVLSMPlanText = '';
+let lastSupernetText = '';
+
+function ipToInt(ip) {
+    const p = ip.split('.').map(Number);
+    return ((p[0] << 24) | (p[1] << 16) | (p[2] << 8) | p[3]) >>> 0;
+}
+
+function intToIp(int) {
+    return [
+        (int >>> 24) & 255,
+        (int >>> 16) & 255,
+        (int >>> 8) & 255,
+        int & 255
+    ].join('.');
+}
+
+function calculateVLSM() {
+    const baseBlock = document.getElementById('vlsm-base').value.trim();
+    const errorBox = document.getElementById('vlsm-error-box');
+    const resultsWrapper = document.getElementById('vlsm-results-wrapper');
+    const resultsBody = document.getElementById('vlsm-results-body');
+
+    errorBox.style.display = 'none';
+    resultsWrapper.style.display = 'none';
+
+    // Parse base block
+    const parts = baseBlock.split('/');
+    if (parts.length !== 2) {
+        errorBox.textContent = "Invalid Base Network format. Please use CIDR notation (e.g., 192.168.1.0/24).";
+        errorBox.style.display = 'block';
+        return;
+    }
+
+    const ipRegex = /^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+    if (!ipRegex.test(parts[0])) {
+        errorBox.textContent = "Invalid base IP address.";
+        errorBox.style.display = 'block';
+        return;
+    }
+
+    const basePrefix = parseInt(parts[1], 10);
+    if (isNaN(basePrefix) || basePrefix < 0 || basePrefix > 30) {
+        errorBox.textContent = "Base prefix must be between /0 and /30 to do VLSM subnetting.";
+        errorBox.style.display = 'block';
+        return;
+    }
+
+    const baseIpInt = ipToInt(parts[0]);
+    const baseMask = basePrefix === 0 ? 0 : (~0 << (32 - basePrefix)) >>> 0;
+    const networkInt = (baseIpInt & baseMask) >>> 0;
+    const baseSize = Math.pow(2, 32 - basePrefix);
+
+    // Read requested subnets
+    const rows = document.querySelectorAll('#vlsm-subnets-container .vlsm-item');
+    let subnets = [];
+    for (let r of rows) {
+        const name = r.querySelector('.subnet-name').value.trim() || 'Unnamed';
+        const reqHosts = parseInt(r.querySelector('.hosts-req').value, 10);
+        if (isNaN(reqHosts) || reqHosts < 1) {
+            errorBox.textContent = `Invalid hosts requirement for ${name}. Must be at least 1.`;
+            errorBox.style.display = 'block';
+            return;
+        }
+        subnets.push({ name, reqHosts });
+    }
+
+    // VLSM Algorithm: Sort subnets by requested host size descending
+    subnets.sort((a, b) => b.reqHosts - a.reqHosts);
+
+    let currentIpInt = networkInt;
+    let planSummary = `VLSM Subnet Allocation Plan (Base Block: ${baseBlock})\n`;
+    let htmlRows = '';
+    let totalAllocatedSize = 0;
+
+    for (let sub of subnets) {
+        // Find smallest power of 2 that fits requested hosts + 2 (network/broadcast addresses)
+        const totalNeeded = sub.reqHosts + 2;
+        let subnetSize = 2;
+        while (subnetSize < totalNeeded) {
+            subnetSize *= 2;
+        }
+
+        const prefix = 32 - Math.log2(subnetSize);
+        const maskInt = (~0 << (32 - prefix)) >>> 0;
+        const netmask = intToIp(maskInt);
+
+        // Check if we exceed base network block boundaries
+        if (currentIpInt + subnetSize > networkInt + baseSize) {
+            errorBox.textContent = "Subnet allocation overflow! The requested subnets require more host addresses than the base block can support.";
+            errorBox.style.display = 'block';
+            return;
+        }
+
+        const subNetAddr = intToIp(currentIpInt);
+        const subBroadAddr = intToIp(currentIpInt + subnetSize - 1);
+        const firstUsable = intToIp(currentIpInt + 1);
+        const lastUsable = intToIp(currentIpInt + subnetSize - 2);
+        const efficiency = ((sub.reqHosts / (subnetSize - 2)) * 100).toFixed(1);
+
+        htmlRows += `
+            <tr>
+                <td><strong>${sub.name}</strong></td>
+                <td><code>${sub.reqHosts}</code></td>
+                <td><code>${subnetSize}</code></td>
+                <td><code>${subNetAddr}/${prefix}</code></td>
+                <td><code>${netmask}</code></td>
+                <td><code>${firstUsable} - ${lastUsable}</code></td>
+                <td><code>${subnetSize - sub.reqHosts - 2} addresses (${100 - efficiency}%)</code></td>
+            </tr>
+        `;
+
+        planSummary += `\nSubnet: ${sub.name}
+  Requested Hosts: ${sub.reqHosts} | Allocated Size: ${subnetSize} (/${prefix})
+  Network Address: ${subNetAddr} | Netmask: ${netmask}
+  Usable Range:    ${firstUsable} - ${lastUsable}
+  Broadcast:       ${subBroadAddr}
+  Address Waste:   ${subnetSize - sub.reqHosts - 2} IPs (${100 - efficiency}%)\n`;
+
+        totalAllocatedSize += subnetSize;
+        currentIpInt += subnetSize;
+    }
+
+    lastVLSMPlanText = planSummary;
+    resultsBody.innerHTML = htmlRows;
+    resultsWrapper.style.display = 'block';
+}
+
+function calculateSupernet() {
+    const text = document.getElementById('supernet-routes').value.trim();
+    const resultsWrapper = document.getElementById('supernet-results-wrapper');
+    const resultsBody = document.getElementById('supernet-results-body');
+
+    resultsWrapper.style.display = 'none';
+
+    if (!text) return;
+
+    const lines = text.split('\n').map(l => l.trim()).filter(Boolean);
+    let ips = [];
+
+    // Parse lines (handles single IPs or CIDR blocks)
+    for (let line of lines) {
+        let ip, prefix = 32;
+        if (line.includes('/')) {
+            [ip, prefix] = line.split('/');
+            prefix = parseInt(prefix, 10);
+        } else {
+            ip = line;
+        }
+
+        const ipRegex = /^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+        if (!ipRegex.test(ip)) continue;
+
+        const ipVal = ipToInt(ip);
+        const maskInt = prefix === 0 ? 0 : (~0 << (32 - prefix)) >>> 0;
+        const netInt = (ipVal & maskInt) >>> 0;
+        const broadInt = (netInt | ~maskInt) >>> 0;
+
+        ips.push({ min: netInt, max: broadInt });
+    }
+
+    if (ips.length === 0) return;
+
+    // Find overall absolute min and max IP integers in pool
+    let absoluteMin = Math.min(...ips.map(item => item.min));
+    let absoluteMax = Math.max(...ips.map(item => item.max));
+
+    // XOR min and max to find difference bits
+    let diff = absoluteMin ^ absoluteMax;
+    let prefix = 32;
+    while (diff > 0) {
+        diff = diff >>> 1;
+        prefix--;
+    }
+
+    // Calculate aggregated supernet network address
+    const superMask = prefix === 0 ? 0 : (~0 << (32 - prefix)) >>> 0;
+    const superNetInt = (absoluteMin & superMask) >>> 0;
+    const supernetIpStr = intToIp(superNetInt);
+    const supernetMaskStr = intToIp(superMask);
+
+    resultsBody.innerHTML = `
+        <tr><td><strong>Aggregate Route (CIDR)</strong></td><td><code>${supernetIpStr}/${prefix}</code></td></tr>
+        <tr><td><strong>Supernet Mask</strong></td><td><code>${supernetMaskStr}</code></td></tr>
+        <tr><td><strong>Aggregated IP Range</strong></td><td><code>${intToIp(absoluteMin)} - ${intToIp(absoluteMax)}</code></td></tr>
+        <tr><td><strong>Total Summarized Routes</strong></td><td><code>${ips.length} input blocks</code></td></tr>
+    `;
+
+    lastSupernetText = `--- IP Route Summarization (Supernet) Summary ---
+Aggregate Route:  ${supernetIpStr}/${prefix}
+Supernet Mask:    ${supernetMaskStr}
+Aggregated Range: ${intToIp(absoluteMin)} - ${intToIp(absoluteMax)}
+Summarized:       ${ips.length} routes`;
+
+    resultsWrapper.style.display = 'block';
+}
+
+// Clipboard copying summaries
+function copyVLSMSummary() {
+    if (!lastVLSMPlanText) {
+        showCopyToast("Generate a VLSM plan first!");
+        return;
+    }
+    navigator.clipboard.writeText(lastVLSMPlanText).then(() => {
+        showCopyToast("VLSM plan summary copied!");
+    });
+}
+
+function copySupernetSummary() {
+    if (!lastSupernetText) {
+        showCopyToast("Summarize routes first!");
+        return;
+    }
+    navigator.clipboard.writeText(lastSupernetText).then(() => {
+        showCopyToast("Supernet summary copied!");
+    });
+}
+
+function showCopyToast(message) {
+    const toast = document.getElementById('copy-toast');
+    toast.textContent = message;
+    toast.classList.add('show');
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 2000);
+}
+</script>
+
+
+
+    
+    <section class="seo-rich-content">
+      <hr class="seo-divider">
+
+      
+
+      
+      
+      <div class="seo-section seo-steps">
+        <h2>How to Use CIDR Calculator & VLSM Planner</h2>
+        <ol class="seo-steps-list">
+          
+            <li>
+              <h3>Input your data</h3>
+              <p>Paste, type, or upload your inputs into the input fields at the top of the page.</p>
+            </li>
+            <li>
+              <h3>Configure options</h3>
+              <p>Adjust any available options, dropdowns, checkboxes, or parameters to customize the output.</p>
+            </li>
+            <li>
+              <h3>Get instant results</h3>
+              <p>Our tool processes your input instantly completely offline. Copy the formatted results or download the generated output directly to your device.</p>
+            </li>
+          
+        </ol>
+      </div>
+
+      
+
+      <div class="seo-section seo-technical">
+        <h2>The Technical Details</h2>
+        <div class="seo-technical-content">
+          
+            <p>This interactive web utility is designed to provide quick, reliable, and completely private calculations and data transformations. Modern workflow requirements often call for quick format adjustments, conversions, or math estimations. By executing all logic directly in your browser using client-side JavaScript, this utility ensures that your sensitive inputs are never transmitted across the network, combining modern browser speed with absolute data confidentiality.</p>
+          
+        </div>
+      </div>
+
+      <div class="seo-section seo-faqs">
+        <h2>Frequently Asked Questions</h2>
+        <div class="seo-faq-accordion">
+          
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">Is my data safe and private when using CIDR Calculator &amp; VLSM Planner?</summary>
+              <div class="seo-faq-answer">
+                <p>Yes. All operations, conversions, and computations on CIDR Calculator &amp; VLSM Planner are performed entirely in your local web browser using client-side JavaScript. None of your data is sent to our servers, logged, or shared with third parties.</p>
+              </div>
+            </details>
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">How much does CIDR Calculator &amp; VLSM Planner cost to use?</summary>
+              <div class="seo-faq-answer">
+                <p>This utility is 100% free to use. There are no limits on usage, no subscriptions, no premium paywalls, and no registration required.</p>
+              </div>
+            </details>
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">Can I use CIDR Calculator &amp; VLSM Planner offline?</summary>
+              <div class="seo-faq-answer">
+                <p>Yes. Once this page is loaded in your browser, all core functionalities of CIDR Calculator &amp; VLSM Planner are executed client-side. You can disconnect from the internet and continue using the utility without any active network connection.</p>
+              </div>
+            </details>
+          
+        </div>
+      </div>
+    </section>
+    
+
+    
+
+    
+    <section class="related-section">
+      <h3>
+        Recommended Calculators
+        
+      </h3>
+      <p>
+        Try our other free interactive math, conversion, and general calculators:
+        
+      </p>
+      <div class="related-grid">
+        
+        
+        
+        
+        
+          
+          
+          
+            
+              
+              
+              
+              
+                
+                <div class="post-card">
+                  <div class="post-title"><a href="/calculators/fuel-cost-mileage-calculator/">Fuel Cost / Mileage Calculator</a></div>
+                  <p class="post-desc">Calculate your estimated fuel cost for a road trip, split expenses among pass...</p>
+                </div>
+              
+            
+          
+            
+              
+              
+              
+              
+                
+                <div class="post-card">
+                  <div class="post-title"><a href="/calculators/time-zone-calculator/">Time Zone Calculator</a></div>
+                  <p class="post-desc">Convert date and time between your Local Time, UTC, PST, EST, GMT, and other ...</p>
+                </div>
+              
+            
+          
+            
+              
+              
+              
+              
+                
+                <div class="post-card">
+                  <div class="post-title"><a href="/calculators/temperature-calculator/">Temperature Calculator</a></div>
+                  <p class="post-desc">Convert temperatures between Celsius, Fahrenheit, and Kelvin with formulas an...</p>
+                </div>
+              
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+        
+      </div>
+    </section>
+    
+
+    
+
+    
+
+    
+  </main>
+
+  <footer class="site-footer-dark">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h3>Popular Tools</h3>
+      <ul>
+        <li><a href="/tools/json-formatter/">JSON Formatter</a></li>
+        <li><a href="/tools/qr-code-generator/">QR Code Generator</a></li>
+        <li><a href="/tools/base64-encoder-decoder/">Base64 Encoder/Decoder</a></li>
+        <li><a href="/tools/text-compare/">Text Compare</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Calculators & Finance</h3>
+      <ul>
+        <li><a href="/finance/currency-calculator/">Currency Calculator</a></li>
+        <li><a href="/finance/mortgage-calculator/">Mortgage Calculator</a></li>
+        <li><a href="/calculators/ip-subnet-calculator/">IP Subnet Calculator</a></li>
+        <li><a href="/calculators/time-zone-calculator/">Time Zone Calculator</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Quick References</h3>
+      <ul>
+        <li><a href="/cheatsheets/git-commands/">Git Cheatsheet</a></li>
+        <li><a href="/cheatsheets/docker-commands/">Docker Cheatsheet</a></li>
+        <li><a href="/cheatsheets/react-hooks/">React Hooks Cheatsheet</a></li>
+        <li><a href="/cheatsheets/javascript/">JavaScript Cheatsheet</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/shafqatalix" aria-label="LinkedIn">
+        <img src="/images/social-icons/linkedin.svg" alt="LinkedIn">
+      </a>
+      <a href="https://twitter.com/shafqatalix" aria-label="X/Twitter">
+        <img src="/images/social-icons/twitter.svg" alt="X/Twitter">
+      </a>
+      <a href="https://github.com/shafqatalix" aria-label="GitHub">
+        <img src="/images/social-icons/github.svg" alt="GitHub">
+      </a>
+    </div>
+    <div class="footer-copy">&copy; 2026 YORABA. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+
+</html>

@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>TypeScript | YORABA</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="TypeScript" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Quick reference guide for modern TypeScript (TS 5.x), covering types, interfaces, classes, generics, utility types, and advanced type patterns." />
+<meta name="twitter:description" property="og:description" content="Quick reference guide for modern TypeScript (TS 5.x), covering types, interfaces, classes, generics, utility types, and advanced type patterns." />
+<link rel="canonical" href="https://yoraba.com/cheatsheets/typescript/" />
+<meta property="og:url" content="https://yoraba.com/cheatsheets/typescript/" />
+<meta property="og:site_name" content="YORABA" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-07-23T14:08:42+00:00" />
+<meta property="article:modified_time" content="2026-07-23T14:08:42+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="TypeScript" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-07-23T14:08:42+00:00","datePublished":"2026-07-23T14:08:42+00:00","description":"Quick reference guide for modern TypeScript (TS 5.x), covering types, interfaces, classes, generics, utility types, and advanced type patterns.","headline":"TypeScript","mainEntityOfPage":{"@type":"WebPage","@id":"https://yoraba.com/cheatsheets/typescript/"},"url":"https://yoraba.com/cheatsheets/typescript/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1117">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <script>
+(function() {
+  var saved = localStorage.getItem('theme');
+  var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  document.documentElement.dataset.theme = theme;
+  window.toggleTheme = function() {
+    var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem('theme', next);
+    var frame = document.querySelector('.utterances-frame');
+    if (frame) {
+      frame.contentWindow.postMessage(
+        { type: 'set-theme', theme: next === 'dark' ? 'github-dark' : 'github-light' },
+        'https://utteranc.es'
+      );
+    }
+  };
+})();
+</script>
+
+  <link rel="stylesheet" href="/assets/css/style.css?v=">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+ 
+  <!-- Google tag (gtag.js) -->
+<script async crossorigin="anonymous" src="https://www.googletagmanager.com/gtag/js?id=G-T8BWX5RG3W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T8BWX5RG3W');
+</script>
+
+
+
+<!-- PWA Manifest -->
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register("/sw.js")
+        .then(registration => {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        })
+        .catch(err => {
+          console.error('ServiceWorker registration failed: ', err);
+        });
+    });
+  }
+</script>
+
+<!-- You can set your favicon here -->
+<link rel="shortcut icon" type="image/svg+xml" href="/images/logo.svg">
+
+<!-- end custom head snippets -->
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "TypeScript Cheatsheet",
+    "description": "Quick reference guide for modern TypeScript (TS 5.x), covering types, interfaces, classes, generics, utility types, and advanced type patterns.",
+    "author": {
+      "@type": "Person",
+      "name": "Shafqat Ali",
+      "url": "https://yoraba.com/about/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "YORABA",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://yoraba.com/images/logo.svg"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://yoraba.com/cheatsheets/typescript/"
+    },
+    "inLanguage": "en-US",
+    "dateModified": "2026-07-23"
+  }
+  </script>
+  
+  
+  
+
+  
+  
+  
+</head>
+
+<body>
+  <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+  <nav class="site-nav">
+  <a class="nav-logo" href="/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+    </svg>
+    YORABA
+  </a>
+  <div class="nav-links" id="nav-links">
+    <a href="/tools">Tools</a>
+    <a href="/finance">Finance</a>
+    <a href="/multimedia">Multimedia</a>
+    <a href="/calculators">Calculators</a>
+    <a href="/cheatsheets">Cheatsheets</a>
+    <a href="/posts">Blogs</a>
+    <a href="/author">Author</a>
+    <a href="/about">About</a>
+  </div>
+  <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </button>
+  <button class="nav-toggle" aria-label="Toggle Menu"
+    onclick="document.getElementById('nav-links').classList.toggle('active')">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
+</nav>
+
+  <header class="page-header" role="banner">
+    <h1 class="project-name">TypeScript</h1>
+    <h2 class="project-tagline">Quick reference guide for modern TypeScript (TS 5.x), covering types, interfaces, classes, generics, utility types, and advanced type patterns.</h2>
+  </header>
+
+  <main id="content" class="main-content" role="main">
+    
+    
+
+    
+    <nav class="breadcrumbs" aria-label="Breadcrumb" style="font-size: 0.85rem; margin-bottom: 1.5rem; color: var(--text-secondary); display: flex; align-items: center; flex-wrap: wrap; gap: 0.25rem;">
+      <a href="/" style="text-decoration: none; color: var(--link);">Home</a>
+      <span style="color: var(--border);">&rarr;</span>
+      
+      
+        <a href="/cheatsheets/" style="text-decoration: none; color: var(--link);">Cheatsheets</a>
+      
+      
+      
+      
+      <span style="color: var(--border);">&rarr;</span>
+      <span style="color: var(--text-secondary);">TypeScript</span>
+    </nav>
+    
+
+    
+
+    
+    <div class="cheatsheet-actions">
+      <button onclick="window.print()" class="btn-pdf">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="8" y1="11" x2="16" y2="11"></line>
+          <text x="12" y="18" font-size="5.5" font-weight="900" fill="currentColor" stroke="none" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">PDF</text>
+        </svg>
+        Export as PDF
+      </button>
+    </div>
+
+    <h1 class="print-title">TypeScript Cheatsheet</h1>
+    
+
+    
+    
+
+    
+
+    <p>A quick reference guide for modern TypeScript (TS 5.x), covering standard types, interfaces, generics, utility types, and advanced type manipulation patterns.</p>
+
+<h2 id="basic--primitive-types">Basic &amp; Primitive Types</h2>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">isDone</span><span class="p">:</span> <span class="nx">boolean</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">score</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">name</span><span class="p">:</span> <span class="kr">string</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Bob</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="c1">// Arrays &amp; Tuples</span>
+<span class="kd">const</span> <span class="nx">list</span><span class="p">:</span> <span class="kr">number</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+<span class="kd">const</span> <span class="nx">listGeneric</span><span class="p">:</span> <span class="nb">Array</span><span class="o">&lt;</span><span class="kr">number</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+<span class="kd">const</span> <span class="nx">tuple</span><span class="p">:</span> <span class="p">[</span><span class="kr">string</span><span class="p">,</span> <span class="kr">number</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">hello</span><span class="dl">"</span><span class="p">,</span> <span class="mi">10</span><span class="p">];</span> <span class="c1">// Fixed length, fixed types</span>
+
+<span class="c1">// Special Types</span>
+<span class="kd">let</span> <span class="nx">random</span><span class="p">:</span> <span class="kr">any</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>                <span class="c1">// Disables all type checking (avoid)</span>
+<span class="kd">let</span> <span class="nx">value</span><span class="p">:</span> <span class="nx">unknown</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">;</span>      <span class="c1">// Type-safe alternative to 'any'. Must narrow type before operations</span>
+<span class="kd">let</span> <span class="nx">unusable</span><span class="p">:</span> <span class="k">void</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span>    <span class="c1">// Represent the absence of any value (commonly function returns)</span>
+<span class="kd">let</span> <span class="nx">neverValue</span><span class="p">:</span> <span class="nx">never</span><span class="p">;</span>              <span class="c1">// Represent values that never occur (e.g. function that throws or infinite loop)</span>
+
+<span class="c1">// Type Assertions (Casts)</span>
+<span class="kd">const</span> <span class="nx">rawData</span><span class="p">:</span> <span class="nx">unknown</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">hello</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">length1</span> <span class="o">=</span> <span class="p">(</span><span class="nx">rawData</span> <span class="kd">as </span><span class="kr">string</span><span class="p">).</span><span class="nx">length</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">length2</span> <span class="o">=</span> <span class="p">(</span><span class="o">&lt;</span><span class="kr">string</span><span class="o">&gt;</span><span class="nx">rawData</span><span class="p">).</span><span class="nx">length</span><span class="p">;</span>   <span class="c1">// Alternative syntax (avoid in JSX/TSX)</span>
+</code></pre></div></div>
+
+<h2 id="functions">Functions</h2>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Typing parameters &amp; return types</span>
+<span class="kd">function</span> <span class="nf">add</span><span class="p">(</span><span class="nx">x</span><span class="p">:</span> <span class="kr">number</span><span class="p">,</span> <span class="nx">y</span><span class="p">:</span> <span class="kr">number</span><span class="p">):</span> <span class="kr">number</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Arrow function typing</span>
+<span class="kd">const</span> <span class="nx">multiply</span> <span class="o">=</span> <span class="p">(</span><span class="nx">x</span><span class="p">:</span> <span class="kr">number</span><span class="p">,</span> <span class="nx">y</span><span class="p">:</span> <span class="kr">number</span><span class="p">):</span> <span class="kr">number</span> <span class="o">=&gt;</span> <span class="nx">x</span> <span class="o">*</span> <span class="nx">y</span><span class="p">;</span>
+
+<span class="c1">// Optional and Default Parameters</span>
+<span class="kd">const</span> <span class="nx">greet</span> <span class="o">=</span> <span class="p">(</span><span class="nx">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">greeting</span><span class="p">?:</span> <span class="kr">string</span><span class="p">):</span> <span class="kr">string</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="s2">`</span><span class="p">${</span><span class="nx">greeting</span> <span class="o">??</span> <span class="dl">"</span><span class="s2">Hello</span><span class="dl">"</span><span class="p">}</span><span class="s2">, </span><span class="p">${</span><span class="nx">name</span><span class="p">}</span><span class="s2">!`</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">// Rest Parameters</span>
+<span class="kd">const</span> <span class="nx">sum</span> <span class="o">=</span> <span class="p">(</span><span class="nx">base</span><span class="p">:</span> <span class="kr">number</span><span class="p">,</span> <span class="p">...</span><span class="nx">numbers</span><span class="p">:</span> <span class="kr">number</span><span class="p">[]):</span> <span class="kr">number</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">base</span> <span class="o">+</span> <span class="nx">numbers</span><span class="p">.</span><span class="nf">reduce</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="c1">// Function Type Signatures</span>
+<span class="kd">type</span> <span class="nx">MathOp</span> <span class="o">=</span> <span class="p">(</span><span class="nx">val1</span><span class="p">:</span> <span class="kr">number</span><span class="p">,</span> <span class="nx">val2</span><span class="p">:</span> <span class="kr">number</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="kr">number</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">divide</span><span class="p">:</span> <span class="nx">MathOp</span> <span class="o">=</span> <span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">a</span> <span class="o">/</span> <span class="nx">b</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="interfaces-vs-type-aliases">Interfaces vs Type Aliases</h2>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Interfaces: Preferred for objects, supports inheritance (extends) and declaration merging</span>
+<span class="kr">interface</span> <span class="nx">User</span> <span class="p">{</span>
+  <span class="k">readonly</span> <span class="nx">id</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>              <span class="c1">// Immutable property</span>
+  <span class="nl">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">email</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>                   <span class="c1">// Optional property</span>
+<span class="p">}</span>
+
+<span class="kr">interface</span> <span class="nx">Admin</span> <span class="kd">extends</span> <span class="nx">User</span> <span class="p">{</span>     <span class="c1">// Inheritance</span>
+  <span class="nl">superUser</span><span class="p">:</span> <span class="nx">boolean</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Type Aliases: Preferred for unions, primitives, tuples, and intersections</span>
+<span class="kd">type</span> <span class="nx">Point</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">x</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>
+  <span class="nl">y</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kd">type</span> <span class="nx">ID</span> <span class="o">=</span> <span class="kr">string</span> <span class="o">|</span> <span class="kr">number</span><span class="p">;</span>          <span class="c1">// Union Type</span>
+<span class="kd">type</span> <span class="nx">Point3D</span> <span class="o">=</span> <span class="nx">Point</span> <span class="o">&amp;</span> <span class="p">{</span> <span class="na">z</span><span class="p">:</span> <span class="kr">number</span> <span class="p">};</span> <span class="c1">// Intersection Type</span>
+
+<span class="c1">// Key Difference: Interfaces can be reopened to add properties (declaration merging)</span>
+<span class="kr">interface</span> <span class="nx">User</span> <span class="p">{</span>
+  <span class="nl">phoneNumber</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="classes--access-modifiers">Classes &amp; Access Modifiers</h2>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Developer</span> <span class="p">{</span>
+  <span class="k">public</span> <span class="nx">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>              <span class="c1">// Accessible anywhere (default)</span>
+  <span class="k">protected</span> <span class="nx">age</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>            <span class="c1">// Accessible within this class and subclasses</span>
+  <span class="k">private</span> <span class="nx">id</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>               <span class="c1">// Accessible only within this class</span>
+
+  <span class="nf">constructor</span><span class="p">(</span><span class="nx">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">age</span><span class="p">:</span> <span class="kr">number</span><span class="p">,</span> <span class="nx">id</span><span class="p">:</span> <span class="kr">number</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">id</span> <span class="o">=</span> <span class="nx">id</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Constructor Parameter Shorthand (Concise alternative)</span>
+<span class="kd">class</span> <span class="nc">CleanDeveloper</span> <span class="p">{</span>
+  <span class="nf">constructor</span><span class="p">(</span>
+    <span class="k">public</span> <span class="nx">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span>
+    <span class="k">protected</span> <span class="nx">age</span><span class="p">:</span> <span class="kr">number</span><span class="p">,</span>
+    <span class="k">private</span> <span class="nx">id</span><span class="p">:</span> <span class="kr">number</span><span class="p">,</span>
+    <span class="k">public</span> <span class="k">readonly</span> <span class="nx">created</span><span class="p">:</span> <span class="nb">Date</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Date</span><span class="p">()</span>
+  <span class="p">)</span> <span class="p">{}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="union-intersection--enums">Union, Intersection &amp; Enums</h2>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Union Types</span>
+<span class="kd">type</span> <span class="nx">NetworkState</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">loading</span><span class="dl">"</span> <span class="o">|</span> <span class="dl">"</span><span class="s2">failed</span><span class="dl">"</span> <span class="o">|</span> <span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="c1">// Intersection Types</span>
+<span class="kr">interface</span> <span class="nx">ErrorState</span> <span class="p">{</span> <span class="nl">error</span><span class="p">:</span> <span class="kr">string</span> <span class="p">}</span>
+<span class="kr">interface</span> <span class="nx">SuccessState</span> <span class="p">{</span> <span class="nl">data</span><span class="p">:</span> <span class="nx">object</span> <span class="p">}</span>
+<span class="kd">type</span> <span class="nx">CombinedState</span> <span class="o">=</span> <span class="nx">ErrorState</span> <span class="o">&amp;</span> <span class="nx">SuccessState</span><span class="p">;</span>
+
+<span class="c1">// Numeric Enums</span>
+<span class="kr">enum</span> <span class="nx">Direction</span> <span class="p">{</span> <span class="nx">Up</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">Down</span><span class="p">,</span> <span class="nx">Left</span><span class="p">,</span> <span class="nx">Right</span> <span class="p">}</span> <span class="c1">// Down = 2, Left = 3, Right = 4</span>
+
+<span class="c1">// String Enums (Recommended over numeric for readability)</span>
+<span class="kr">enum</span> <span class="nx">LogLevel</span> <span class="p">{</span>
+  <span class="nx">Info</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">INFO</span><span class="dl">"</span><span class="p">,</span>
+  <span class="nx">Warn</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">WARN</span><span class="dl">"</span><span class="p">,</span>
+  <span class="nb">Error</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">ERROR</span><span class="dl">"</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="type-guards--narrowing">Type Guards &amp; Narrowing</h2>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 1. typeof (Narrow primitives)</span>
+<span class="kd">function</span> <span class="nf">printId</span><span class="p">(</span><span class="nx">id</span><span class="p">:</span> <span class="kr">string</span> <span class="o">|</span> <span class="kr">number</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if </span><span class="p">(</span><span class="k">typeof</span> <span class="nx">id</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">id</span><span class="p">.</span><span class="nf">toUpperCase</span><span class="p">());</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">id</span><span class="p">.</span><span class="nf">toFixed</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 2. instanceof (Narrow classes)</span>
+<span class="kd">class</span> <span class="nc">FileLogger</span> <span class="p">{</span> <span class="nf">log</span><span class="p">()</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">file</span><span class="dl">"</span><span class="p">);</span> <span class="p">}</span> <span class="p">}</span>
+<span class="kd">class</span> <span class="nc">DBLogger</span> <span class="p">{</span> <span class="nf">log</span><span class="p">()</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">db</span><span class="dl">"</span><span class="p">);</span> <span class="p">}</span> <span class="p">}</span>
+
+<span class="kd">function</span> <span class="nf">executeLog</span><span class="p">(</span><span class="nx">logger</span><span class="p">:</span> <span class="nx">FileLogger</span> <span class="o">|</span> <span class="nx">DBLogger</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if </span><span class="p">(</span><span class="nx">logger</span> <span class="k">instanceof</span> <span class="nx">FileLogger</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">logger</span><span class="p">.</span><span class="nf">log</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 3. 'in' Operator (Narrow structures)</span>
+<span class="kd">type</span> <span class="nx">Fish</span> <span class="o">=</span> <span class="p">{</span> <span class="na">swim</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span> <span class="p">};</span>
+<span class="kd">type</span> <span class="nx">Bird</span> <span class="o">=</span> <span class="p">{</span> <span class="na">fly</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span> <span class="p">};</span>
+
+<span class="kd">function</span> <span class="nf">move</span><span class="p">(</span><span class="nx">animal</span><span class="p">:</span> <span class="nx">Fish</span> <span class="o">|</span> <span class="nx">Bird</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if </span><span class="p">(</span><span class="dl">"</span><span class="s2">swim</span><span class="dl">"</span> <span class="k">in</span> <span class="nx">animal</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">animal</span><span class="p">.</span><span class="nf">swim</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 4. Custom Type Guard (User-defined type predicates)</span>
+<span class="kd">function</span> <span class="nf">isFish</span><span class="p">(</span><span class="nx">animal</span><span class="p">:</span> <span class="nx">Fish</span> <span class="o">|</span> <span class="nx">Bird</span><span class="p">):</span> <span class="nx">animal</span> <span class="k">is</span> <span class="nx">Fish</span> <span class="p">{</span>
+  <span class="k">return </span><span class="p">(</span><span class="nx">animal</span> <span class="kd">as </span><span class="nx">Fish</span><span class="p">).</span><span class="nx">swim</span> <span class="o">!==</span> <span class="kc">undefined</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="generics">Generics</h2>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Generic Functions</span>
+<span class="kd">function</span> <span class="nf">identity</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">arg</span><span class="p">:</span> <span class="nx">T</span><span class="p">):</span> <span class="nx">T</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">arg</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kd">const</span> <span class="nx">output</span> <span class="o">=</span> <span class="nx">identity</span><span class="o">&lt;</span><span class="kr">string</span><span class="o">&gt;</span><span class="p">(</span><span class="dl">"</span><span class="s2">myString</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="c1">// Generic Interfaces</span>
+<span class="kr">interface</span> <span class="nx">KeyValuePair</span><span class="o">&lt;</span><span class="nx">K</span><span class="p">,</span> <span class="nx">V</span><span class="o">&gt;</span> <span class="p">{</span>
+  <span class="na">key</span><span class="p">:</span> <span class="nx">K</span><span class="p">;</span>
+  <span class="nl">value</span><span class="p">:</span> <span class="nx">V</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kd">const</span> <span class="nx">kv</span><span class="p">:</span> <span class="nx">KeyValuePair</span><span class="o">&lt;</span><span class="kr">number</span><span class="p">,</span> <span class="kr">string</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">{</span> <span class="na">key</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">value</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Node</span><span class="dl">"</span> <span class="p">};</span>
+
+<span class="c1">// Generic Constraints</span>
+<span class="kr">interface</span> <span class="nx">Lengthwise</span> <span class="p">{</span>
+  <span class="nl">length</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kd">function</span> <span class="nf">loggingIdentity</span><span class="o">&lt;</span><span class="nx">T</span> <span class="kd">extends</span> <span class="nx">Lengthwise</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">arg</span><span class="p">:</span> <span class="nx">T</span><span class="p">):</span> <span class="nx">T</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">arg</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// Safe: we know T has a .length property</span>
+  <span class="k">return</span> <span class="nx">arg</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="built-in-utility-types">Built-in Utility Types</h2>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nx">Todo</span> <span class="p">{</span>
+  <span class="nl">title</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">description</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">completed</span><span class="p">:</span> <span class="nx">boolean</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Partial&lt;T&gt;: Makes all properties optional</span>
+<span class="kd">const</span> <span class="nx">updateTodo</span> <span class="o">=</span> <span class="p">(</span><span class="nx">todo</span><span class="p">:</span> <span class="nx">Todo</span><span class="p">,</span> <span class="nx">fieldsToUpdate</span><span class="p">:</span> <span class="nb">Partial</span><span class="o">&lt;</span><span class="nx">Todo</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">({</span> <span class="p">...</span><span class="nx">todo</span><span class="p">,</span> <span class="p">...</span><span class="nx">fieldsToUpdate</span> <span class="p">});</span>
+
+<span class="c1">// Required&lt;T&gt;: Makes all properties required</span>
+<span class="kd">type</span> <span class="nx">StrictTodo</span> <span class="o">=</span> <span class="nb">Required</span><span class="o">&lt;</span><span class="nx">Todo</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="c1">// Readonly&lt;T&gt;: Makes all properties immutable</span>
+<span class="kd">const</span> <span class="nx">myTodo</span><span class="p">:</span> <span class="nb">Readonly</span><span class="o">&lt;</span><span class="nx">Todo</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">{</span> <span class="na">title</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Test</span><span class="dl">"</span><span class="p">,</span> <span class="na">description</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Desc</span><span class="dl">"</span><span class="p">,</span> <span class="na">completed</span><span class="p">:</span> <span class="kc">false</span> <span class="p">};</span>
+<span class="c1">// myTodo.title = "New"; // Error: Cannot assign to 'title' because it is a read-only property</span>
+
+<span class="c1">// Record&lt;K, T&gt;: Creates an object type with keys K and value type T</span>
+<span class="kd">const</span> <span class="nx">roles</span><span class="p">:</span> <span class="nb">Record</span><span class="o">&lt;</span><span class="kr">string</span><span class="p">,</span> <span class="kr">string</span><span class="p">[]</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">admin</span><span class="p">:</span> <span class="p">[</span><span class="dl">"</span><span class="s2">create</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">delete</span><span class="dl">"</span><span class="p">],</span>
+  <span class="na">user</span><span class="p">:</span> <span class="p">[</span><span class="dl">"</span><span class="s2">read</span><span class="dl">"</span><span class="p">]</span>
+<span class="p">};</span>
+
+<span class="c1">// Pick&lt;T, K&gt;: Extracts a subset of properties K from T</span>
+<span class="kd">type</span> <span class="nx">TodoPreview</span> <span class="o">=</span> <span class="nb">Pick</span><span class="o">&lt;</span><span class="nx">Todo</span><span class="p">,</span> <span class="dl">"</span><span class="s2">title</span><span class="dl">"</span> <span class="o">|</span> <span class="dl">"</span><span class="s2">completed</span><span class="dl">"</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="c1">// Omit&lt;T, K&gt;: Removes a subset of properties K from T</span>
+<span class="kd">type</span> <span class="nx">TodoInfo</span> <span class="o">=</span> <span class="nb">Omit</span><span class="o">&lt;</span><span class="nx">Todo</span><span class="p">,</span> <span class="dl">"</span><span class="s2">completed</span><span class="dl">"</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="c1">// ReturnType&lt;T&gt;: Obtains the return type of a function type</span>
+<span class="kd">const</span> <span class="nx">makeUser</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">({</span> <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Alice</span><span class="dl">"</span><span class="p">,</span> <span class="na">id</span><span class="p">:</span> <span class="mi">10</span> <span class="p">});</span>
+<span class="kd">type</span> <span class="nx">UserObject</span> <span class="o">=</span> <span class="nb">ReturnType</span><span class="o">&lt;</span><span class="k">typeof</span> <span class="nx">makeUser</span><span class="o">&gt;</span><span class="p">;</span> <span class="c1">// { name: string, id: number }</span>
+</code></pre></div></div>
+
+<h2 id="advanced-type-operators">Advanced Type Operators</h2>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nx">Car</span> <span class="p">{</span>
+  <span class="nl">make</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">model</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">year</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// keyof: Creates a union of object keys</span>
+<span class="kd">type</span> <span class="nx">CarKeys</span> <span class="o">=</span> <span class="kr">keyof</span> <span class="nx">Car</span><span class="p">;</span> <span class="c1">// "make" | "model" | "year"</span>
+
+<span class="c1">// Lookup Types (Indexed Access)</span>
+<span class="kd">type</span> <span class="nx">YearType</span> <span class="o">=</span> <span class="nx">Car</span><span class="p">[</span><span class="dl">"</span><span class="s2">year</span><span class="dl">"</span><span class="p">];</span> <span class="c1">// number</span>
+
+<span class="c1">// Mapped Types</span>
+<span class="kd">type</span> <span class="nx">ReadOnlyMapped</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="k">readonly</span> <span class="p">[</span><span class="nx">P</span> <span class="k">in</span> <span class="kr">keyof</span> <span class="nx">T</span><span class="p">]:</span> <span class="nx">T</span><span class="p">[</span><span class="nx">P</span><span class="p">];</span>
+<span class="p">};</span>
+<span class="kd">type</span> <span class="nx">ReadOnlyCar</span> <span class="o">=</span> <span class="nx">ReadOnlyMapped</span><span class="o">&lt;</span><span class="nx">Car</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="c1">// Conditional Types</span>
+<span class="kd">type</span> <span class="nx">IsString</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nx">T</span> <span class="kd">extends</span> <span class="kr">string</span> <span class="p">?</span> <span class="kc">true</span> <span class="p">:</span> <span class="kc">false</span><span class="p">;</span>
+<span class="kd">type</span> <span class="nx">A</span> <span class="o">=</span> <span class="nx">IsString</span><span class="o">&lt;</span><span class="kr">string</span><span class="o">&gt;</span><span class="p">;</span> <span class="c1">// true</span>
+<span class="kd">type</span> <span class="nx">B</span> <span class="o">=</span> <span class="nx">IsString</span><span class="o">&lt;</span><span class="kr">number</span><span class="o">&gt;</span><span class="p">;</span> <span class="c1">// false</span>
+
+<span class="c1">// Template Literal Types</span>
+<span class="kd">type</span> <span class="nx">EventName</span><span class="o">&lt;</span><span class="nx">T</span> <span class="kd">extends</span> <span class="kr">string</span><span class="o">&gt;</span> <span class="o">=</span> <span class="s2">`on</span><span class="p">${</span><span class="nb">Capitalize</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
+<span class="kd">type</span> <span class="nx">ClickEvent</span> <span class="o">=</span> <span class="nx">EventName</span><span class="o">&lt;</span><span class="dl">"</span><span class="s2">click</span><span class="dl">"</span><span class="o">&gt;</span><span class="p">;</span> <span class="c1">// "onClick"</span>
+</code></pre></div></div>
+
+
+    
+
+    
+    <section class="related-section">
+      <h3>Recommended Cheatsheets</h3>
+      <p>Check out our other essential cheatsheets for developers:</p>
+      <div class="related-grid">
+        
+        
+          
+            
+            <div class="post-card">
+              <div class="post-title"><a href="/cheatsheets/browser-shortcuts/">Browser Shortcuts Cheatsheet</a></div>
+              <p class="post-desc">Comprehensive reference for essential web browser keyboard shortcuts, coverin...</p>
+            </div>
+          
+        
+          
+            
+            <div class="post-card">
+              <div class="post-title"><a href="/cheatsheets/css-flexbox/">CSS Flexbox Cheatsheet</a></div>
+              <p class="post-desc">Comprehensive reference for CSS Flexible Box Layout (Flexbox), covering flex ...</p>
+            </div>
+          
+        
+          
+            
+            <div class="post-card">
+              <div class="post-title"><a href="/cheatsheets/css-grid/">CSS Grid Cheatsheet</a></div>
+              <p class="post-desc">Comprehensive reference for CSS Grid Layout, covering grid container properti...</p>
+            </div>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </section>
+    
+
+    
+
+    
+
+    
+
+    
+  </main>
+
+  <footer class="site-footer-dark">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h3>Popular Tools</h3>
+      <ul>
+        <li><a href="/tools/json-formatter/">JSON Formatter</a></li>
+        <li><a href="/tools/qr-code-generator/">QR Code Generator</a></li>
+        <li><a href="/tools/base64-encoder-decoder/">Base64 Encoder/Decoder</a></li>
+        <li><a href="/tools/text-compare/">Text Compare</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Calculators & Finance</h3>
+      <ul>
+        <li><a href="/finance/currency-calculator/">Currency Calculator</a></li>
+        <li><a href="/finance/mortgage-calculator/">Mortgage Calculator</a></li>
+        <li><a href="/calculators/ip-subnet-calculator/">IP Subnet Calculator</a></li>
+        <li><a href="/calculators/time-zone-calculator/">Time Zone Calculator</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Quick References</h3>
+      <ul>
+        <li><a href="/cheatsheets/git-commands/">Git Cheatsheet</a></li>
+        <li><a href="/cheatsheets/docker-commands/">Docker Cheatsheet</a></li>
+        <li><a href="/cheatsheets/react-hooks/">React Hooks Cheatsheet</a></li>
+        <li><a href="/cheatsheets/javascript/">JavaScript Cheatsheet</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/shafqatalix" aria-label="LinkedIn">
+        <img src="/images/social-icons/linkedin.svg" alt="LinkedIn">
+      </a>
+      <a href="https://twitter.com/shafqatalix" aria-label="X/Twitter">
+        <img src="/images/social-icons/twitter.svg" alt="X/Twitter">
+      </a>
+      <a href="https://github.com/shafqatalix" aria-label="GitHub">
+        <img src="/images/social-icons/github.svg" alt="GitHub">
+      </a>
+    </div>
+    <div class="footer-copy">&copy; 2026 YORABA. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+
+</html>

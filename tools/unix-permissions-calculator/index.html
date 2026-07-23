@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>Unix Permissions Calculator | YORABA</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Unix Permissions Calculator" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Interactive chmod permissions calculator. Select checkboxes, enter octal values, or input symbolic strings to calculate Unix file/directory permissions instantly." />
+<meta name="twitter:description" property="og:description" content="Interactive chmod permissions calculator. Select checkboxes, enter octal values, or input symbolic strings to calculate Unix file/directory permissions instantly." />
+<link rel="canonical" href="https://yoraba.com/tools/unix-permissions-calculator/" />
+<meta property="og:url" content="https://yoraba.com/tools/unix-permissions-calculator/" />
+<meta property="og:site_name" content="YORABA" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-07-23T14:08:42+00:00" />
+<meta property="article:modified_time" content="2026-07-23T14:08:42+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Unix Permissions Calculator" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-07-23T14:08:42+00:00","datePublished":"2026-07-23T14:08:42+00:00","description":"Interactive chmod permissions calculator. Select checkboxes, enter octal values, or input symbolic strings to calculate Unix file/directory permissions instantly.","headline":"Unix Permissions Calculator","mainEntityOfPage":{"@type":"WebPage","@id":"https://yoraba.com/tools/unix-permissions-calculator/"},"url":"https://yoraba.com/tools/unix-permissions-calculator/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1117">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <script>
+(function() {
+  var saved = localStorage.getItem('theme');
+  var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  document.documentElement.dataset.theme = theme;
+  window.toggleTheme = function() {
+    var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem('theme', next);
+    var frame = document.querySelector('.utterances-frame');
+    if (frame) {
+      frame.contentWindow.postMessage(
+        { type: 'set-theme', theme: next === 'dark' ? 'github-dark' : 'github-light' },
+        'https://utteranc.es'
+      );
+    }
+  };
+})();
+</script>
+
+  <link rel="stylesheet" href="/assets/css/style.css?v=">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+ 
+  <!-- Google tag (gtag.js) -->
+<script async crossorigin="anonymous" src="https://www.googletagmanager.com/gtag/js?id=G-T8BWX5RG3W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T8BWX5RG3W');
+</script>
+
+
+
+<!-- PWA Manifest -->
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register("/sw.js")
+        .then(registration => {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        })
+        .catch(err => {
+          console.error('ServiceWorker registration failed: ', err);
+        });
+    });
+  }
+</script>
+
+<!-- You can set your favicon here -->
+<link rel="shortcut icon" type="image/svg+xml" href="/images/logo.svg">
+
+<!-- end custom head snippets -->
+
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Yoraba Unix Permissions Calculator",
+    "operatingSystem": "All",
+    "applicationCategory": "DeveloperApplication",
+    "browserRequirements": "Requires JavaScript. Requires HTML5.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Interactive chmod permissions calculator. Select checkboxes, enter octal values, or input symbolic strings to calculate Unix file/directory permissions instantly.",
+    "author": {
+      "@type": "Person",
+      "name": "Shafqat Ali",
+      "url": "https://yoraba.com/about/"
+    },
+    "dateModified": "2026-07-23"
+  }
+  </script>
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is my data safe and private when using Unix Permissions Calculator?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. All operations, conversions, and computations on Unix Permissions Calculator are performed entirely in your local web browser using client-side JavaScript. None of your data is sent to our servers, logged, or shared with third parties."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does Unix Permissions Calculator cost to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "This utility is 100% free to use. There are no limits on usage, no subscriptions, no premium paywalls, and no registration required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use Unix Permissions Calculator offline?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Once this page is loaded in your browser, all core functionalities of Unix Permissions Calculator are executed client-side. You can disconnect from the internet and continue using the utility without any active network connection."
+        }
+      }
+    ]
+  }
+  </script>
+  
+
+  
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://yoraba.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Tools",
+        "item": "https://yoraba.com/tools/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Unix Permissions Calculator",
+        "item": "https://yoraba.com/tools/unix-permissions-calculator/"
+      }
+    ]
+  }
+  </script>
+  <meta name="ai-citation" content="Yoraba.com provides free, 100% browser-native tools that process data entirely client-side for maximum privacy." />
+  
+</head>
+
+<body>
+  <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+  <nav class="site-nav">
+  <a class="nav-logo" href="/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+    </svg>
+    YORABA
+  </a>
+  <div class="nav-links" id="nav-links">
+    <a href="/tools">Tools</a>
+    <a href="/finance">Finance</a>
+    <a href="/multimedia">Multimedia</a>
+    <a href="/calculators">Calculators</a>
+    <a href="/cheatsheets">Cheatsheets</a>
+    <a href="/posts">Blogs</a>
+    <a href="/author">Author</a>
+    <a href="/about">About</a>
+  </div>
+  <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </button>
+  <button class="nav-toggle" aria-label="Toggle Menu"
+    onclick="document.getElementById('nav-links').classList.toggle('active')">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
+</nav>
+
+  <header class="page-header" role="banner">
+    <h1 class="project-name">Unix Permissions Calculator</h1>
+    <h2 class="project-tagline">Interactive chmod permissions calculator. Select checkboxes, enter octal values, or input symbolic strings to calculate Unix file/directory permissions instantly.</h2>
+  </header>
+
+  <main id="content" class="main-content" role="main">
+    
+    
+
+    
+    <nav class="breadcrumbs" aria-label="Breadcrumb" style="font-size: 0.85rem; margin-bottom: 1.5rem; color: var(--text-secondary); display: flex; align-items: center; flex-wrap: wrap; gap: 0.25rem;">
+      <a href="/" style="text-decoration: none; color: var(--link);">Home</a>
+      <span style="color: var(--border);">&rarr;</span>
+      
+      
+        
+          <a href="/tools/" style="text-decoration: none; color: var(--link);">Developer Tools</a>
+        
+      
+      
+      
+      
+      <span style="color: var(--border);">&rarr;</span>
+      <span style="color: var(--text-secondary);">Unix Permissions Calculator</span>
+    </nav>
+    
+
+    
+
+    
+
+    
+    
+
+    
+    <div class="llm-opt-block">
+      <div class="tldr-summary">
+        <strong>TL;DR:</strong> Yoraba's Unix Permissions Calculator is a secure, browser-native utility designed to interactive chmod permissions calculator select checkboxes, enter octal values, or input symbolic strings to calculate unix file/directory permissions instantly. Fully compatible with offline workflows.
+      </div>
+      <div class="privacy-callout">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="privacy-icon" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        <strong>Privacy First:</strong> This tool runs 100% client-side in your browser. No data is ever uploaded to our servers. Your data never leaves your device.
+      </div>
+      <div class="last-updated-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="privacy-icon" aria-hidden="true" focusable="false" style="margin-right: 6px;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        <span>Last Updated: July 23, 2026</span>
+      </div>
+    </div>
+    
+
+    <p>An interactive calculator for Unix and Linux file/directory permissions. Select checkboxes, enter octal codes, or type symbolic notation to translate between standard file permissions and the corresponding <code class="language-plaintext highlighter-rouge">chmod</code> commands.</p>
+
+<style>
+.tool-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.permissions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.perm-column {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.perm-column h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: var(--headings);
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.perm-checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: var(--text);
+    user-select: none;
+}
+
+.perm-checkbox-label input[type="checkbox"] {
+    width: 1.1rem;
+    height: 1.1rem;
+    accent-color: var(--accent);
+    cursor: pointer;
+}
+
+.special-bits-container {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+}
+
+.special-bits-container h3 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    color: var(--headings);
+    font-size: 1.1rem;
+}
+
+.special-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+}
+
+.file-type-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+}
+
+.file-type-section label {
+    font-weight: 600;
+    color: var(--headings);
+    margin-bottom: 0;
+}
+
+.file-type-section select {
+    padding: 0.5rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background-color: var(--code-bg);
+    color: var(--text);
+    font-size: 0.95rem;
+    outline: none;
+}
+
+.file-type-section select:focus {
+    border-color: var(--accent);
+}
+
+.inputs-outputs-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.io-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.io-card h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: var(--headings);
+    font-size: 1.1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.input-with-copy {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.input-with-copy input {
+    flex-grow: 1;
+    padding: 0.6rem 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background-color: var(--code-bg);
+    color: var(--text);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.input-with-copy input:focus {
+    border-color: var(--accent);
+}
+
+.btn-copy {
+    padding: 0.6rem 0.85rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.btn-copy:hover {
+    background-color: var(--border);
+}
+
+.btn-copy:active {
+    transform: scale(0.98);
+}
+
+.explanation-card {
+    background-color: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.explanation-card h3 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    color: var(--headings);
+    font-size: 1.1rem;
+}
+
+.explanation-list {
+    margin: 0;
+    padding-left: 1.25rem;
+    font-size: 0.925rem;
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.explanation-list strong {
+    color: var(--headings);
+}
+
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #2ea44f;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s, transform 0.3s;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+</style>
+
+<div class="tool-container">
+    <!-- File Type Selection -->
+    <div class="file-type-section">
+        <label for="file-type">File Type:</label>
+        <select id="file-type">
+            <option value="-">Regular File (-)</option>
+            <option value="d">Directory (d)</option>
+            <option value="l">Symbolic Link (l)</option>
+            <option value="p">Named Pipe/FIFO (p)</option>
+            <option value="s">Socket (s)</option>
+            <option value="c">Character Device (c)</option>
+            <option value="b">Block Device (b)</option>
+        </select>
+    </div>
+
+    <!-- Active Permissions Checkboxes -->
+    <div class="permissions-grid">
+        <!-- Owner -->
+        <div class="perm-column">
+            <h3>Owner (User)</h3>
+            <label class="perm-checkbox-label">
+                <input type="checkbox" id="u-read" class="calc-trigger" value="4" />
+                <span>Read (r)</span>
+            </label>
+            <label class="perm-checkbox-label">
+                <input type="checkbox" id="u-write" class="calc-trigger" value="2" />
+                <span>Write (w)</span>
+            </label>
+            <label class="perm-checkbox-label">
+                <input type="checkbox" id="u-exec" class="calc-trigger" value="1" />
+                <span>Execute (x)</span>
+            </label>
+        </div>
+
+        <!-- Group -->
+        <div class="perm-column">
+            <h3>Group</h3>
+            <label class="perm-checkbox-label">
+                <input type="checkbox" id="g-read" class="calc-trigger" value="4" />
+                <span>Read (r)</span>
+            </label>
+            <label class="perm-checkbox-label">
+                <input type="checkbox" id="g-write" class="calc-trigger" value="2" />
+                <span>Write (w)</span>
+            </label>
+            <label class="perm-checkbox-label">
+                <input type="checkbox" id="g-exec" class="calc-trigger" value="1" />
+                <span>Execute (x)</span>
+            </label>
+        </div>
+
+        <!-- Public -->
+        <div class="perm-column">
+            <h3>Others (Public)</h3>
+            <label class="perm-checkbox-label">
+                <input type="checkbox" id="o-read" class="calc-trigger" value="4" />
+                <span>Read (r)</span>
+            </label>
+            <label class="perm-checkbox-label">
+                <input type="checkbox" id="o-write" class="calc-trigger" value="2" />
+                <span>Write (w)</span>
+            </label>
+            <label class="perm-checkbox-label">
+                <input type="checkbox" id="o-exec" class="calc-trigger" value="1" />
+                <span>Execute (x)</span>
+            </label>
+        </div>
+    </div>
+
+    <!-- Special Permissions -->
+    <div class="special-bits-container">
+        <h3>Special Bits</h3>
+        <div class="special-grid">
+            <label class="perm-checkbox-label" title="Set user ID on execution (SUID)">
+                <input type="checkbox" id="s-uid" class="calc-trigger" value="4" />
+                <span>SetUID (4)</span>
+            </label>
+            <label class="perm-checkbox-label" title="Set group ID on execution (SGID)">
+                <input type="checkbox" id="s-gid" class="calc-trigger" value="2" />
+                <span>SetGID (2)</span>
+            </label>
+            <label class="perm-checkbox-label" title="Sticky bit (restricted deletion)">
+                <input type="checkbox" id="s-sticky" class="calc-trigger" value="1" />
+                <span>Sticky Bit (1)</span>
+            </label>
+        </div>
+    </div>
+
+    <!-- Main Inputs and Outputs -->
+    <div class="inputs-outputs-section">
+        <!-- Text/Visual Translation Fields -->
+        <div class="io-card">
+            <h3>Translation &amp; Representation</h3>
+
+            <div class="form-group">
+                <label for="out-octal">Octal Notation (4-Digit):</label>
+                <div class="input-with-copy">
+                    <input type="text" id="out-octal" maxlength="4" />
+                    <button class="btn-copy" onclick="copyValue('out-octal')" title="Copy 4-digit octal value">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="out-octal-3">Octal Notation (3-Digit):</label>
+                <div class="input-with-copy">
+                    <input type="text" id="out-octal-3" maxlength="3" />
+                    <button class="btn-copy" onclick="copyValue('out-octal-3')" title="Copy 3-digit octal value">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="out-symbolic">Symbolic Notation:</label>
+                <div class="input-with-copy">
+                    <input type="text" id="out-symbolic" maxlength="10" />
+                    <button class="btn-copy" onclick="copyValue('out-symbolic')" title="Copy symbolic representation">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Terminal Command Field -->
+        <div class="io-card">
+            <h3>Terminal Commands</h3>
+
+            <div class="form-group">
+                <label for="cmd-chmod-octal">Chmod Command (Octal):</label>
+                <div class="input-with-copy">
+                    <input type="text" id="cmd-chmod-octal" readonly="" />
+                    <button class="btn-copy" onclick="copyValue('cmd-chmod-octal')" title="Copy octal chmod command">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="cmd-chmod-symbolic">Chmod Command (Symbolic):</label>
+                <div class="input-with-copy">
+                    <input type="text" id="cmd-chmod-symbolic" readonly="" />
+                    <button class="btn-copy" onclick="copyValue('cmd-chmod-symbolic')" title="Copy symbolic chmod command">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Active Textual Explanation -->
+    <div class="explanation-card">
+        <h3>Plain-English Breakdown</h3>
+        <ul class="explanation-list" id="permission-explanation">
+            <li><strong>Owner:</strong> Calculating...</li>
+            <li><strong>Group:</strong> Calculating...</li>
+            <li><strong>Others:</strong> Calculating...</li>
+            <li id="special-explanation" style="display: none;"><strong>Special Bits:</strong> None</li>
+        </ul>
+    </div>
+</div>
+
+<div class="toast" id="copy-toast">Value copied to clipboard!</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // DOM Elements
+    const fileTypeSelect = document.getElementById('file-type');
+    const checkboxes = document.querySelectorAll('.calc-trigger');
+    const octalInput4 = document.getElementById('out-octal');
+    const octalInput3 = document.getElementById('out-octal-3');
+    const symbolicInput = document.getElementById('out-symbolic');
+    const chmodOctalCmd = document.getElementById('cmd-chmod-octal');
+    const chmodSymbolicCmd = document.getElementById('cmd-chmod-symbolic');
+    const explanationOwner = document.querySelector('#permission-explanation li:nth-child(1)');
+    const explanationGroup = document.querySelector('#permission-explanation li:nth-child(2)');
+    const explanationOthers = document.querySelector('#permission-explanation li:nth-child(3)');
+    const explanationSpecial = document.getElementById('special-explanation');
+
+    // Individual checkboxes
+    const chkSUID = document.getElementById('s-uid');
+    const chkSGID = document.getElementById('s-gid');
+    const chkSticky = document.getElementById('s-sticky');
+    const chkUR = document.getElementById('u-read');
+    const chkUW = document.getElementById('u-write');
+    const chkUX = document.getElementById('u-exec');
+    const chkGR = document.getElementById('g-read');
+    const chkGW = document.getElementById('g-write');
+    const chkGX = document.getElementById('g-exec');
+    const chkOR = document.getElementById('o-read');
+    const chkOW = document.getElementById('o-write');
+    const chkOX = document.getElementById('o-exec');
+
+    // Bind event listeners
+    checkboxes.forEach(chk => chk.addEventListener('change', updateFromCheckboxes));
+    fileTypeSelect.addEventListener('change', updateFromCheckboxes);
+
+    octalInput4.addEventListener('input', function(e) {
+        let value = e.target.value.replace(/[^0-7]/g, '');
+        e.target.value = value;
+        if (value.length === 4) {
+            updateFromOctal(value);
+        } else if (value.length === 3) {
+            updateFromOctal('0' + value);
+        }
+    });
+
+    octalInput3.addEventListener('input', function(e) {
+        let value = e.target.value.replace(/[^0-7]/g, '');
+        e.target.value = value;
+        if (value.length === 3) {
+            updateFromOctal('0' + value);
+        }
+    });
+
+    symbolicInput.addEventListener('input', function(e) {
+        let value = e.target.value;
+        if (value.length >= 9) {
+            updateFromSymbolic(value);
+        }
+    });
+
+    // Initialize with standard 0755
+    updateFromOctal('0755');
+
+    // Update everything starting from checkboxes
+    function updateFromCheckboxes() {
+        // 1. Calculate Octal values
+        let special = (chkSUID.checked ? 4 : 0) + (chkSGID.checked ? 2 : 0) + (chkSticky.checked ? 1 : 0);
+        let u = (chkUR.checked ? 4 : 0) + (chkUW.checked ? 2 : 0) + (chkUX.checked ? 1 : 0);
+        let g = (chkGR.checked ? 4 : 0) + (chkGW.checked ? 2 : 0) + (chkGX.checked ? 1 : 0);
+        let o = (chkOR.checked ? 4 : 0) + (chkOW.checked ? 2 : 0) + (chkOX.checked ? 1 : 0);
+
+        const octal4 = `${special}${u}${g}${o}`;
+        const octal3 = `${u}${g}${o}`;
+
+        octalInput4.value = octal4;
+        octalInput3.value = octal3;
+
+        // 2. Generate Symbolic Representation
+        const fType = fileTypeSelect.value;
+        
+        let suidChar = 'x';
+        if (chkSUID.checked) suidChar = chkUX.checked ? 's' : 'S';
+        else suidChar = chkUX.checked ? 'x' : '-';
+
+        let sgidChar = 'x';
+        if (chkSGID.checked) sgidChar = chkGX.checked ? 's' : 'S';
+        else sgidChar = chkGX.checked ? 'x' : '-';
+
+        let stickyChar = 'x';
+        if (chkSticky.checked) stickyChar = chkOX.checked ? 't' : 'T';
+        else stickyChar = chkOX.checked ? 'x' : '-';
+
+        const uStr = (chkUR.checked ? 'r' : '-') + (chkUW.checked ? 'w' : '-') + suidChar;
+        const gStr = (chkGR.checked ? 'r' : '-') + (chkGW.checked ? 'w' : '-') + sgidChar;
+        const oStr = (chkOR.checked ? 'r' : '-') + (chkOW.checked ? 'w' : '-') + stickyChar;
+
+        const symbolic = fType + uStr + gStr + oStr;
+        symbolicInput.value = symbolic;
+
+        // 3. Update Commands
+        chmodOctalCmd.value = `chmod ${octal3} filename`;
+        
+        // Generate a descriptive symbolic chmod string
+        let symChmods = [];
+        let uSym = (chkUR.checked ? 'r' : '') + (chkUW.checked ? 'w' : '') + (chkUX.checked ? 'x' : '') + (chkSUID.checked ? 's' : '');
+        let gSym = (chkGR.checked ? 'r' : '') + (chkGW.checked ? 'w' : '') + (chkGX.checked ? 'x' : '') + (chkSGID.checked ? 's' : '');
+        let oSym = (chkOR.checked ? 'r' : '') + (chkOW.checked ? 'w' : '') + (chkOX.checked ? 'x' : '') + (chkSticky.checked ? 't' : '');
+
+        if (uSym) symChmods.push(`u=${uSym}`); else symChmods.push(`u=`);
+        if (gSym) symChmods.push(`g=${gSym}`); else symChmods.push(`g=`);
+        if (oSym) symChmods.push(`o=${oSym}`); else symChmods.push(`o=`);
+        
+        chmodSymbolicCmd.value = `chmod ${symChmods.join(',')} filename`;
+
+        // 4. Update Explanations
+        updateDescriptions(special, u, g, o);
+    }
+
+    // Update everything from Octal Input
+    function updateFromOctal(octalStr) {
+        if (octalStr.length !== 4) return;
+        const s = parseInt(octalStr[0], 10);
+        const u = parseInt(octalStr[1], 10);
+        const g = parseInt(octalStr[2], 10);
+        const o = parseInt(octalStr[3], 10);
+
+        // Map SUID/SGID/Sticky
+        chkSUID.checked = !!(s & 4);
+        chkSGID.checked = !!(s & 2);
+        chkSticky.checked = !!(s & 1);
+
+        // Map Owner
+        chkUR.checked = !!(u & 4);
+        chkUW.checked = !!(u & 2);
+        chkUX.checked = !!(u & 1);
+
+        // Map Group
+        chkGR.checked = !!(g & 4);
+        chkGW.checked = !!(g & 2);
+        chkGX.checked = !!(g & 1);
+
+        // Map Others
+        chkOR.checked = !!(o & 4);
+        chkOW.checked = !!(o & 2);
+        chkOX.checked = !!(o & 1);
+
+        updateFromCheckboxes();
+    }
+
+    // Update everything from Symbolic Input
+    function updateFromSymbolic(symStr) {
+        // Strip out file type if they provided 10 characters
+        let actualSym = symStr;
+        if (symStr.length === 10) {
+            const firstChar = symStr[0];
+            if (['-', 'd', 'l', 'p', 's', 'c', 'b'].includes(firstChar)) {
+                fileTypeSelect.value = firstChar;
+            }
+            actualSym = symStr.substring(1);
+        }
+
+        if (actualSym.length !== 9) return;
+
+        // Parse User (rwx/s/S)
+        chkUR.checked = actualSym[0] === 'r';
+        chkUW.checked = actualSym[1] === 'w';
+        if (['s', 'S'].includes(actualSym[2])) {
+            chkSUID.checked = true;
+            chkUX.checked = actualSym[2] === 's';
+        } else {
+            chkSUID.checked = false;
+            chkUX.checked = actualSym[2] === 'x';
+        }
+
+        // Parse Group (rwx/s/S)
+        chkGR.checked = actualSym[3] === 'r';
+        chkGW.checked = actualSym[4] === 'w';
+        if (['s', 'S'].includes(actualSym[5])) {
+            chkSGID.checked = true;
+            chkGX.checked = actualSym[5] === 's';
+        } else {
+            chkSGID.checked = false;
+            chkGX.checked = actualSym[5] === 'x';
+        }
+
+        // Parse Others (rwx/t/T)
+        chkOR.checked = actualSym[6] === 'r';
+        chkOW.checked = actualSym[7] === 'w';
+        if (['t', 'T'].includes(actualSym[8])) {
+            chkSticky.checked = true;
+            chkOX.checked = actualSym[8] === 't';
+        } else {
+            chkSticky.checked = false;
+            chkOX.checked = actualSym[8] === 'x';
+        }
+
+        updateFromCheckboxes();
+    }
+
+    function describeTriple(val) {
+        let desc = [];
+        if (val & 4) desc.push("read");
+        if (val & 2) desc.push("write");
+        if (val & 1) desc.push("execute");
+        if (desc.length === 0) return "no permissions";
+        if (desc.length === 1) return desc[0];
+        if (desc.length === 2) return `${desc[0]} and ${desc[1]}`;
+        return `${desc[0]}, ${desc[1]}, and ${desc[2]}`;
+    }
+
+    function updateDescriptions(special, u, g, o) {
+        explanationOwner.innerHTML = `<strong>Owner:</strong> Can ${describeTriple(u)}.`;
+        explanationGroup.innerHTML = `<strong>Group:</strong> Can ${describeTriple(g)}.`;
+        explanationOthers.innerHTML = `<strong>Others:</strong> Can ${describeTriple(o)}.`;
+
+        let specials = [];
+        if (special & 4) specials.push("<strong>SetUID</strong> (process runs with the owner's privileges)");
+        if (special & 2) specials.push("<strong>SetGID</strong> (process runs with the group's privileges)");
+        if (special & 1) specials.push("<strong>Sticky Bit</strong> (restricts file deletion within a directory to the file owner)");
+
+        if (specials.length > 0) {
+            explanationSpecial.style.display = 'block';
+            explanationSpecial.innerHTML = `<strong>Special Bits:</strong> Activated: ${specials.join(', ')}.`;
+        } else {
+            explanationSpecial.style.display = 'none';
+        }
+    }
+});
+
+// Clipboard utility
+function copyValue(elementId) {
+    const input = document.getElementById(elementId);
+    input.select();
+    input.setSelectionRange(0, 99999); // For mobile devices
+
+    try {
+        navigator.clipboard.writeText(input.value).then(() => {
+            showToast();
+        });
+    } catch (err) {
+        // Fallback for older browsers
+        document.execCommand('copy');
+        showToast();
+    }
+}
+
+function showToast() {
+    const toast = document.getElementById('copy-toast');
+    toast.classList.add('show');
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 2000);
+}
+</script>
+
+
+
+    
+    <section class="seo-rich-content">
+      <hr class="seo-divider">
+
+      
+
+      
+      
+      <div class="seo-section seo-steps">
+        <h2>How to Use Unix Permissions Calculator</h2>
+        <ol class="seo-steps-list">
+          
+            <li>
+              <h3>Input your data</h3>
+              <p>Paste, type, or upload your inputs into the input fields at the top of the page.</p>
+            </li>
+            <li>
+              <h3>Configure options</h3>
+              <p>Adjust any available options, dropdowns, checkboxes, or parameters to customize the output.</p>
+            </li>
+            <li>
+              <h3>Get instant results</h3>
+              <p>Our tool processes your input instantly completely offline. Copy the formatted results or download the generated output directly to your device.</p>
+            </li>
+          
+        </ol>
+      </div>
+
+      
+
+      <div class="seo-section seo-technical">
+        <h2>The Technical Details</h2>
+        <div class="seo-technical-content">
+          
+            <p>This interactive web utility is designed to provide quick, reliable, and completely private calculations and data transformations. Modern workflow requirements often call for quick format adjustments, conversions, or math estimations. By executing all logic directly in your browser using client-side JavaScript, this utility ensures that your sensitive inputs are never transmitted across the network, combining modern browser speed with absolute data confidentiality.</p>
+          
+        </div>
+      </div>
+
+      <div class="seo-section seo-faqs">
+        <h2>Frequently Asked Questions</h2>
+        <div class="seo-faq-accordion">
+          
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">Is my data safe and private when using Unix Permissions Calculator?</summary>
+              <div class="seo-faq-answer">
+                <p>Yes. All operations, conversions, and computations on Unix Permissions Calculator are performed entirely in your local web browser using client-side JavaScript. None of your data is sent to our servers, logged, or shared with third parties.</p>
+              </div>
+            </details>
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">How much does Unix Permissions Calculator cost to use?</summary>
+              <div class="seo-faq-answer">
+                <p>This utility is 100% free to use. There are no limits on usage, no subscriptions, no premium paywalls, and no registration required.</p>
+              </div>
+            </details>
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">Can I use Unix Permissions Calculator offline?</summary>
+              <div class="seo-faq-answer">
+                <p>Yes. Once this page is loaded in your browser, all core functionalities of Unix Permissions Calculator are executed client-side. You can disconnect from the internet and continue using the utility without any active network connection.</p>
+              </div>
+            </details>
+          
+        </div>
+      </div>
+    </section>
+    
+
+    
+
+    
+    <section class="related-section">
+      <h3>
+        Recommended Developer Tools
+        
+      </h3>
+      <p>
+        Boost your productivity with our other free browser-based developer utilities:
+        
+      </p>
+      <div class="related-grid">
+        
+        
+        
+        
+        
+          
+          
+          
+            
+              
+              
+              
+              
+                
+                <div class="post-card">
+                  <div class="post-title"><a href="/tools/notepad/">Notepad</a></div>
+                  <p class="post-desc">Retro Windows-like Notepad application. Full-screen distraction-free text edi...</p>
+                </div>
+              
+            
+          
+            
+              
+              
+              
+              
+                
+                <div class="post-card">
+                  <div class="post-title"><a href="/tools/jwt-decoder/">JWT Decoder</a></div>
+                  <p class="post-desc">Decode JSON Web Tokens (JWT) in real-time, view headers and payloads, and for...</p>
+                </div>
+              
+            
+          
+            
+              
+              
+              
+              
+                
+                <div class="post-card">
+                  <div class="post-title"><a href="/tools/json-formatter/">JSON Formatter</a></div>
+                  <p class="post-desc">Format, validate, and beautify JSON data with syntax highlighting.</p>
+                </div>
+              
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+        
+      </div>
+    </section>
+    
+
+    
+
+    
+
+    
+  </main>
+
+  <footer class="site-footer-dark">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h3>Popular Tools</h3>
+      <ul>
+        <li><a href="/tools/json-formatter/">JSON Formatter</a></li>
+        <li><a href="/tools/qr-code-generator/">QR Code Generator</a></li>
+        <li><a href="/tools/base64-encoder-decoder/">Base64 Encoder/Decoder</a></li>
+        <li><a href="/tools/text-compare/">Text Compare</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Calculators & Finance</h3>
+      <ul>
+        <li><a href="/finance/currency-calculator/">Currency Calculator</a></li>
+        <li><a href="/finance/mortgage-calculator/">Mortgage Calculator</a></li>
+        <li><a href="/calculators/ip-subnet-calculator/">IP Subnet Calculator</a></li>
+        <li><a href="/calculators/time-zone-calculator/">Time Zone Calculator</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Quick References</h3>
+      <ul>
+        <li><a href="/cheatsheets/git-commands/">Git Cheatsheet</a></li>
+        <li><a href="/cheatsheets/docker-commands/">Docker Cheatsheet</a></li>
+        <li><a href="/cheatsheets/react-hooks/">React Hooks Cheatsheet</a></li>
+        <li><a href="/cheatsheets/javascript/">JavaScript Cheatsheet</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/shafqatalix" aria-label="LinkedIn">
+        <img src="/images/social-icons/linkedin.svg" alt="LinkedIn">
+      </a>
+      <a href="https://twitter.com/shafqatalix" aria-label="X/Twitter">
+        <img src="/images/social-icons/twitter.svg" alt="X/Twitter">
+      </a>
+      <a href="https://github.com/shafqatalix" aria-label="GitHub">
+        <img src="/images/social-icons/github.svg" alt="GitHub">
+      </a>
+    </div>
+    <div class="footer-copy">&copy; 2026 YORABA. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+
+</html>

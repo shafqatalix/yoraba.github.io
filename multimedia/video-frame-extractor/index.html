@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>Video Frame Extractor | YORABA</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Video Frame Extractor" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Extract high-resolution PNG or JPEG frame images from local MP4, WebM, or OGG video files. Seek to exact milliseconds, step frame-by-frame, and download offline." />
+<meta name="twitter:description" property="og:description" content="Extract high-resolution PNG or JPEG frame images from local MP4, WebM, or OGG video files. Seek to exact milliseconds, step frame-by-frame, and download offline." />
+<link rel="canonical" href="https://yoraba.com/multimedia/video-frame-extractor/" />
+<meta property="og:url" content="https://yoraba.com/multimedia/video-frame-extractor/" />
+<meta property="og:site_name" content="YORABA" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-07-23T14:08:42+00:00" />
+<meta property="article:modified_time" content="2026-07-23T14:08:42+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Video Frame Extractor" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-07-23T14:08:42+00:00","datePublished":"2026-07-23T14:08:42+00:00","description":"Extract high-resolution PNG or JPEG frame images from local MP4, WebM, or OGG video files. Seek to exact milliseconds, step frame-by-frame, and download offline.","headline":"Video Frame Extractor","mainEntityOfPage":{"@type":"WebPage","@id":"https://yoraba.com/multimedia/video-frame-extractor/"},"url":"https://yoraba.com/multimedia/video-frame-extractor/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1117">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <script>
+(function() {
+  var saved = localStorage.getItem('theme');
+  var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  document.documentElement.dataset.theme = theme;
+  window.toggleTheme = function() {
+    var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem('theme', next);
+    var frame = document.querySelector('.utterances-frame');
+    if (frame) {
+      frame.contentWindow.postMessage(
+        { type: 'set-theme', theme: next === 'dark' ? 'github-dark' : 'github-light' },
+        'https://utteranc.es'
+      );
+    }
+  };
+})();
+</script>
+
+  <link rel="stylesheet" href="/assets/css/style.css?v=">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+ 
+  <!-- Google tag (gtag.js) -->
+<script async crossorigin="anonymous" src="https://www.googletagmanager.com/gtag/js?id=G-T8BWX5RG3W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T8BWX5RG3W');
+</script>
+
+
+
+<!-- PWA Manifest -->
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register("/sw.js")
+        .then(registration => {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        })
+        .catch(err => {
+          console.error('ServiceWorker registration failed: ', err);
+        });
+    });
+  }
+</script>
+
+<!-- You can set your favicon here -->
+<link rel="shortcut icon" type="image/svg+xml" href="/images/logo.svg">
+
+<!-- end custom head snippets -->
+
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Yoraba Video Frame Extractor",
+    "operatingSystem": "All",
+    "applicationCategory": "MultimediaApplication",
+    "browserRequirements": "Requires JavaScript. Requires HTML5.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Extract high-resolution PNG or JPEG frame images from local MP4, WebM, or OGG video files. Seek to exact milliseconds, step frame-by-frame, and download offline.",
+    "author": {
+      "@type": "Person",
+      "name": "Shafqat Ali",
+      "url": "https://yoraba.com/about/"
+    },
+    "dateModified": "2026-07-23"
+  }
+  </script>
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is my data safe and private when using Video Frame Extractor?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. All operations, conversions, and computations on Video Frame Extractor are performed entirely in your local web browser using client-side JavaScript. None of your data is sent to our servers, logged, or shared with third parties."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does Video Frame Extractor cost to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "This utility is 100% free to use. There are no limits on usage, no subscriptions, no premium paywalls, and no registration required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use Video Frame Extractor offline?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Once this page is loaded in your browser, all core functionalities of Video Frame Extractor are executed client-side. You can disconnect from the internet and continue using the utility without any active network connection."
+        }
+      }
+    ]
+  }
+  </script>
+  
+
+  
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://yoraba.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Multimedia",
+        "item": "https://yoraba.com/multimedia/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Video Frame Extractor",
+        "item": "https://yoraba.com/multimedia/video-frame-extractor/"
+      }
+    ]
+  }
+  </script>
+  <meta name="ai-citation" content="Yoraba.com provides free, 100% browser-native tools that process data entirely client-side for maximum privacy." />
+  
+</head>
+
+<body>
+  <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+  <nav class="site-nav">
+  <a class="nav-logo" href="/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+    </svg>
+    YORABA
+  </a>
+  <div class="nav-links" id="nav-links">
+    <a href="/tools">Tools</a>
+    <a href="/finance">Finance</a>
+    <a href="/multimedia">Multimedia</a>
+    <a href="/calculators">Calculators</a>
+    <a href="/cheatsheets">Cheatsheets</a>
+    <a href="/posts">Blogs</a>
+    <a href="/author">Author</a>
+    <a href="/about">About</a>
+  </div>
+  <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </button>
+  <button class="nav-toggle" aria-label="Toggle Menu"
+    onclick="document.getElementById('nav-links').classList.toggle('active')">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
+</nav>
+
+  <header class="page-header" role="banner">
+    <h1 class="project-name">Video Frame Extractor</h1>
+    <h2 class="project-tagline">Extract high-resolution PNG or JPEG frame images from local MP4, WebM, or OGG video files. Seek to exact milliseconds, step frame-by-frame, and download offline.</h2>
+  </header>
+
+  <main id="content" class="main-content" role="main">
+    
+    
+
+    
+    <nav class="breadcrumbs" aria-label="Breadcrumb" style="font-size: 0.85rem; margin-bottom: 1.5rem; color: var(--text-secondary); display: flex; align-items: center; flex-wrap: wrap; gap: 0.25rem;">
+      <a href="/" style="text-decoration: none; color: var(--link);">Home</a>
+      <span style="color: var(--border);">&rarr;</span>
+      
+      
+        
+          <a href="/multimedia/" style="text-decoration: none; color: var(--link);">Multimedia Tools</a>
+        
+      
+      
+      
+      
+      <span style="color: var(--border);">&rarr;</span>
+      <span style="color: var(--text-secondary);">Video Frame Extractor</span>
+    </nav>
+    
+
+    
+
+    
+
+    
+    
+
+    
+    <div class="llm-opt-block">
+      <div class="tldr-summary">
+        <strong>TL;DR:</strong> Yoraba's Video Frame Extractor is a secure, browser-native utility designed to extract high-resolution png or jpeg frame images from local mp4, webm, or ogg video files seek to exact milliseconds, step frame-by-frame, and download offline. Fully compatible with offline workflows.
+      </div>
+      <div class="privacy-callout">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="privacy-icon" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        <strong>Privacy First:</strong> This tool runs 100% client-side in your browser. No data is ever uploaded to our servers. Your data never leaves your device.
+      </div>
+      <div class="last-updated-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="privacy-icon" aria-hidden="true" focusable="false" style="margin-right: 6px;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        <span>Last Updated: July 23, 2026</span>
+      </div>
+    </div>
+    
+
+    <p>Extract pixel-perfect, high-resolution frame images from your video files completely in your browser. This tool runs <strong>100% locally client-side</strong> using standard browser APIs—meaning your video is processed entirely on your computer, guaranteeing absolute privacy, confidentiality, and high-performance offline captures.</p>
+
+<style>
+.extractor-container {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.editor-row {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.editor-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.editor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.editor-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--headings);
+}
+
+/* Upload drop-zone styled beautifully */
+.drop-zone {
+    border: 2px dashed var(--border);
+    border-radius: 8px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    background-color: var(--code-bg);
+    cursor: pointer;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+.drop-zone:hover, .drop-zone.dragover {
+    border-color: var(--accent);
+    background-color: rgba(56, 139, 253, 0.05);
+}
+
+.drop-zone-text {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+}
+
+.drop-zone-sub {
+    font-size: 0.775rem;
+    color: var(--text-secondary);
+}
+
+.file-input-hidden {
+    display: none;
+}
+
+.toolbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.btn-convert {
+    padding: 0.55rem 1.1rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+    border: 1px solid var(--border);
+}
+
+.btn-convert.primary {
+    background-color: #238636;
+    color: #ffffff;
+    border-color: rgba(240, 246, 252, 0.1);
+}
+
+.btn-convert.primary:hover:not(:disabled) {
+    background-color: #2ea043;
+}
+
+.btn-convert.secondary {
+    background-color: transparent;
+    color: var(--text-secondary);
+}
+
+.btn-convert.secondary:hover {
+    background-color: var(--border);
+    color: var(--text);
+}
+
+.btn-convert:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Video Player Display */
+.video-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.preview-video {
+    max-width: 100%;
+    max-height: 400px;
+    display: block;
+}
+
+/* Controls Grid */
+.player-controls-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    background-color: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1rem;
+}
+
+.timeline-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.slider-input {
+    flex-grow: 1;
+    cursor: pointer;
+    accent-color: var(--accent);
+}
+
+.time-display {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--text);
+    background-color: var(--card-bg);
+    padding: 0.25rem 0.5rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+.controls-button-group {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.step-btn {
+    padding: 0.35rem 0.75rem;
+    font-size: 0.775rem;
+    font-weight: 600;
+    background-color: var(--card-bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.step-btn:hover {
+    background-color: var(--border);
+}
+
+/* Capture Action Area */
+.capture-settings-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+@media (min-width: 40em) {
+    .capture-settings-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background-color: var(--code-bg);
+    padding: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+}
+
+.form-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.form-select, .form-input {
+    padding: 0.55rem;
+    font-family: inherit;
+    font-size: 0.875rem;
+    background-color: var(--card-bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    outline: none;
+}
+
+/* Gallery layout */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1rem;
+}
+
+@media (min-width: 48em) {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
+}
+
+.gallery-item {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.gallery-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.gallery-thumb {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    background-color: #000;
+    border-bottom: 1px solid var(--border);
+}
+
+.gallery-info {
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.gallery-meta {
+    font-size: 0.7rem;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.gallery-actions {
+    display: flex;
+    gap: 0.25rem;
+    margin-top: 0.25rem;
+}
+
+.gallery-btn {
+    flex-grow: 1;
+    padding: 0.25rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 1px solid var(--border);
+    background-color: var(--card-bg);
+    color: var(--text);
+    transition: background-color 0.2s;
+}
+
+.gallery-btn:hover {
+    background-color: var(--border);
+}
+
+.gallery-btn.download {
+    background-color: #238636;
+    color: #ffffff;
+    border-color: rgba(240, 246, 252, 0.1);
+}
+
+.gallery-btn.download:hover {
+    background-color: #2ea043;
+}
+
+.gallery-btn.delete {
+    color: #ff7b72;
+    border-color: rgba(255, 123, 114, 0.2);
+}
+
+.gallery-btn.delete:hover {
+    background-color: rgba(255, 123, 114, 0.1);
+}
+
+.status-log {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.775rem;
+    padding: 0.75rem;
+    background-color: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    min-height: 50px;
+    max-height: 120px;
+    overflow-y: auto;
+    color: var(--text-secondary);
+    white-space: pre-wrap;
+    margin-top: 0.5rem;
+}
+
+.empty-state {
+    text-align: center;
+    color: var(--text-secondary);
+    font-style: italic;
+    font-size: 0.875rem;
+    padding: 1.5rem;
+}
+</style>
+
+<div class="extractor-container">
+    <!-- Toolbar -->
+    <div class="toolbar-container">
+        <div style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 500;">Client-Side HTML5 Video Frame Capture Engine</div>
+        <div class="toolbar-controls" style="margin-left: auto;">
+            <button id="btn-clear-all" class="btn-convert secondary">Clear Project</button>
+        </div>
+    </div>
+
+    <div class="editor-row">
+        <!-- Input Drop Zone (Top) -->
+        <div class="editor-card">
+            <div class="editor-header">
+                <span class="editor-title">Load Video File (MP4, WebM, OGG)</span>
+            </div>
+            
+            <div id="video-drop-zone" class="drop-zone">
+                <div class="drop-zone-text">🎬 Drag &amp; Drop your video file here</div>
+                <div class="drop-zone-sub">Supports standard container video files (Max recommended: 100MB for optimal browser speed)</div>
+                <input type="file" id="video-file-input" class="file-input-hidden" accept="video/mp4, video/webm, video/ogg" />
+            </div>
+        </div>
+
+        <!-- Video Player View (Middle) - Hidden until loaded -->
+        <div id="player-card-panel" class="editor-card" style="display: none;">
+            <div class="editor-header">
+                <span class="editor-title" style="color: #58a6ff;" id="lbl-video-filename">Active Video Player</span>
+                <span id="lbl-video-resolution" style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--text-secondary);">0x0</span>
+            </div>
+
+            <div class="video-wrapper">
+                <video id="player-video-element" class="preview-video" preload="auto"></video>
+            </div>
+
+            <!-- Controller timeline and step buttons -->
+            <div class="player-controls-panel">
+                <div class="timeline-row">
+                    <button id="btn-play-pause" class="step-btn" style="padding: 0.4rem 0.9rem; font-size: 0.85rem;">Play ▶</button>
+                    <input type="range" id="video-timeline" class="slider-input" min="0" max="100" value="0" step="any" />
+                    <span id="video-time-indicator" class="time-display">00:00:00.000 / 00:00:00.000</span>
+                </div>
+
+                <div class="controls-button-group">
+                    <button class="step-btn" data-sec="-5">-5s</button>
+                    <button class="step-btn" data-sec="-1">-1s</button>
+                    <button class="step-btn" data-sec="-0.033" title="Step backward 1 frame (~30fps)">-1 Frame (33ms)</button>
+                    <button class="step-btn" data-sec="0.033" title="Step forward 1 frame (~30fps)">+1 Frame (33ms)</button>
+                    <button class="step-btn" data-sec="1">+1s</button>
+                    <button class="step-btn" data-sec="5">+5s</button>
+                </div>
+            </div>
+
+            <!-- Extraction Capture Panel -->
+            <div class="capture-settings-grid">
+                <div class="form-group">
+                    <label for="capture-format" class="form-label">Capture Output Format</label>
+                    <select id="capture-format" class="form-select">
+                        <option value="image/png" selected="">PNG (Lossless, perfect fidelity)</option>
+                        <option value="image/jpeg">JPEG (Compressed, adjust quality below)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="capture-quality" class="form-label" id="lbl-quality-val">JPEG Compression Quality (90%)</label>
+                    <input type="range" id="capture-quality" class="slider-input" min="10" max="100" value="90" />
+                </div>
+            </div>
+
+            <button id="btn-capture-action" class="btn-convert primary" style="padding: 0.85rem; font-size: 0.95rem;">📸 Capture Current Frame</button>
+        </div>
+
+        <!-- Extraction Gallery (Bottom) -->
+        <div class="editor-card">
+            <div class="editor-header">
+                <span class="editor-title" style="color: #7ee787;">Extracted Frames Gallery</span>
+                <button id="btn-download-all" class="btn-convert primary" style="padding: 0.35rem 0.75rem; font-size: 0.75rem; display: none;">Download All Captures</button>
+            </div>
+
+            <div id="gallery-container" class="gallery-grid">
+                <div class="empty-state" id="gallery-empty-state">No frames extracted yet. Seek and capture frames above.</div>
+            </div>
+
+            <!-- Status messaging log -->
+            <div id="status-log-panel" class="status-log">Ready: Waiting for video load...</div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const videoFileInput = document.getElementById('video-file-input');
+    const videoDropZone = document.getElementById('video-drop-zone');
+    
+    const playerCardPanel = document.getElementById('player-card-panel');
+    const lblVideoFilename = document.getElementById('lbl-video-filename');
+    const lblVideoResolution = document.getElementById('lbl-video-resolution');
+    const playerVideoElement = document.getElementById('player-video-element');
+    
+    const btnPlayPause = document.getElementById('btn-play-pause');
+    const videoTimeline = document.getElementById('video-timeline');
+    const videoTimeIndicator = document.getElementById('video-time-indicator');
+    
+    const captureFormat = document.getElementById('capture-format');
+    const captureQuality = document.getElementById('capture-quality');
+    const lblQualityVal = document.getElementById('lbl-quality-val');
+    const btnCaptureAction = document.getElementById('btn-capture-action');
+
+    const btnClearAll = document.getElementById('btn-clear-all');
+    const btnDownloadAll = document.getElementById('btn-download-all');
+    const galleryContainer = document.getElementById('gallery-container');
+    const galleryEmptyState = document.getElementById('gallery-empty-state');
+    const statusLogPanel = document.getElementById('status-log-panel');
+
+    // State Variables
+    let activeVideoUrl = null;
+    let extractedFrames = [];
+
+    // Trigger upload on click
+    videoDropZone.addEventListener('click', () => {
+        videoFileInput.click();
+    });
+
+    // Handle file input changes
+    videoFileInput.addEventListener('change', (e) => {
+        handleVideoFile(e.target.files[0]);
+    });
+
+    // Drag events
+    videoDropZone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        videoDropZone.classList.add('dragover');
+    });
+
+    videoDropZone.addEventListener('dragleave', () => {
+        videoDropZone.classList.remove('dragover');
+    });
+
+    videoDropZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        videoDropZone.classList.remove('dragover');
+        if (e.dataTransfer.files) {
+            handleVideoFile(e.dataTransfer.files[0]);
+        }
+    });
+
+    // Play Pause Button
+    btnPlayPause.addEventListener('click', () => {
+        if (playerVideoElement.paused || playerVideoElement.ended) {
+            playerVideoElement.play();
+            btnPlayPause.textContent = 'Pause ❚❚';
+        } else {
+            playerVideoElement.pause();
+            btnPlayPause.textContent = 'Play ▶';
+        }
+    });
+
+    // Step buttons handler
+    document.querySelectorAll('.step-btn[data-sec]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            playerVideoElement.pause();
+            btnPlayPause.textContent = 'Play ▶';
+            const offset = parseFloat(btn.getAttribute('data-sec'));
+            let targetTime = playerVideoElement.currentTime + offset;
+            
+            // Boundary checks
+            if (targetTime < 0) targetTime = 0;
+            if (targetTime > playerVideoElement.duration) targetTime = playerVideoElement.duration;
+            
+            playerVideoElement.currentTime = targetTime;
+            logMessage(`Stepped timeline by ${offset > 0 ? '+' : ''}${offset}s`);
+        });
+    });
+
+    // Seek Timeline updates
+    videoTimeline.addEventListener('input', () => {
+        playerVideoElement.pause();
+        btnPlayPause.textContent = 'Play ▶';
+        const percent = parseFloat(videoTimeline.value);
+        playerVideoElement.currentTime = (percent / 100) * playerVideoElement.duration;
+    });
+
+    // Update timeline as video plays
+    playerVideoElement.addEventListener('timeupdate', () => {
+        updateTimelineDisplay();
+    });
+
+    // When metadata loads
+    playerVideoElement.addEventListener('loadedmetadata', () => {
+        lblVideoResolution.textContent = `${playerVideoElement.videoWidth} x ${playerVideoElement.videoHeight}`;
+        videoTimeline.value = 0;
+        updateTimelineDisplay();
+        logMessage(`✔ Metadata loaded. Resolution: ${playerVideoElement.videoWidth}x${playerVideoElement.videoHeight} | Duration: ${formatTimeCode(playerVideoElement.duration)}`);
+    });
+
+    // Quality slider text updates
+    captureQuality.addEventListener('input', () => {
+        lblQualityVal.textContent = `JPEG Compression Quality (${captureQuality.value}%)`;
+    });
+
+    // Trigger Frame capture
+    btnCaptureAction.addEventListener('click', () => {
+        captureCurrentFrame();
+    });
+
+    btnClearAll.addEventListener('click', () => {
+        // Revoke previews URLs
+        extractedFrames.forEach(f => URL.revokeObjectURL(f.blobUrl));
+        extractedFrames = [];
+        renderGallery();
+        
+        if (activeVideoUrl) {
+            URL.revokeObjectURL(activeVideoUrl);
+            activeVideoUrl = null;
+        }
+
+        playerVideoElement.src = '';
+        playerCardPanel.style.display = 'none';
+        logMessage('Cleared current video and extracted queue. Environment reset.');
+    });
+
+    btnDownloadAll.addEventListener('click', () => {
+        logMessage('Triggering download for all extracted frames...');
+        extractedFrames.forEach((f, idx) => {
+            setTimeout(() => {
+                const a = document.createElement('a');
+                a.href = f.blobUrl;
+                a.download = f.name;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            }, idx * 150); // Small delay staggered to prevent browser download locks
+        });
+    });
+
+    function handleVideoFile(file) {
+        if (!file) return;
+
+        const lowerName = file.name.toLowerCase();
+        const isMp4 = lowerName.endsWith('.mp4') || file.type === 'video/mp4';
+        const isWebm = lowerName.endsWith('.webm') || file.type === 'video/webm';
+        const isOgg = lowerName.endsWith('.ogg') || file.type === 'video/ogg';
+
+        if (!isMp4 && !isWebm && !isOgg) {
+            logMessage(`❌ Unsupported video format: ${file.name}. Please upload MP4, WebM, or OGG.`);
+            return;
+        }
+
+        logMessage(`Loading video file: ${file.name} (${formatSize(file.size)})...`);
+
+        if (activeVideoUrl) {
+            URL.revokeObjectURL(activeVideoUrl);
+        }
+
+        activeVideoUrl = URL.createObjectURL(file);
+        playerVideoElement.src = activeVideoUrl;
+        
+        lblVideoFilename.textContent = file.name;
+        playerCardPanel.style.display = 'flex';
+        btnPlayPause.textContent = 'Play ▶';
+
+        // Load the video source pipeline
+        playerVideoElement.load();
+    }
+
+    function updateTimelineDisplay() {
+        const current = playerVideoElement.currentTime;
+        const duration = playerVideoElement.duration || 0;
+        
+        if (duration > 0) {
+            videoTimeline.value = (current / duration) * 100;
+        } else {
+            videoTimeline.value = 0;
+        }
+
+        videoTimeIndicator.textContent = `${formatTimeCode(current)} / ${formatTimeCode(duration)}`;
+    }
+
+    function captureCurrentFrame() {
+        if (!playerVideoElement.src) return;
+
+        logMessage('Capturing current active video frame...');
+
+        const canvas = document.createElement('canvas');
+        canvas.width = playerVideoElement.videoWidth;
+        canvas.height = playerVideoElement.videoHeight;
+        
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(playerVideoElement, 0, 0, canvas.width, canvas.height);
+
+        const format = captureFormat.value;
+        const quality = parseInt(captureQuality.value) / 100;
+
+        canvas.toBlob((blob) => {
+            if (!blob) {
+                logMessage('❌ Frame extraction canvas serialization failed!');
+                return;
+            }
+
+            const timestamp = playerVideoElement.currentTime.toFixed(3);
+            const blobUrl = URL.createObjectURL(blob);
+            const ext = format === 'image/png' ? 'png' : 'jpg';
+            const filename = `frame_${timestamp.replace('.', '_')}.${ext}`;
+
+            extractedFrames.push({
+                blobUrl: blobUrl,
+                blob: blob,
+                name: filename,
+                timeCode: formatTimeCode(playerVideoElement.currentTime),
+                size: formatSize(blob.size),
+                width: canvas.width,
+                height: canvas.height
+            });
+
+            renderGallery();
+            logMessage(`✔ Successfully captured frame at timestamp: ${formatTimeCode(playerVideoElement.currentTime)} (${canvas.width}x${canvas.height})`);
+        }, format, format === 'image/jpeg' ? quality : undefined);
+    }
+
+    function renderGallery() {
+        // Clear children except empty state
+        const items = galleryContainer.querySelectorAll('.gallery-item');
+        items.forEach(el => el.remove());
+
+        if (extractedFrames.length === 0) {
+            galleryEmptyState.style.display = 'block';
+            btnDownloadAll.style.display = 'none';
+            return;
+        }
+
+        galleryEmptyState.style.display = 'none';
+        btnDownloadAll.style.display = 'inline-block';
+
+        extractedFrames.forEach((f, idx) => {
+            const card = document.createElement('div');
+            card.className = 'gallery-item';
+
+            card.innerHTML = `
+                <img class="gallery-thumb" src="${f.blobUrl}" alt="Extracted frame">
+                <div class="gallery-info">
+                    <span class="gallery-meta" style="font-weight: 600; color: var(--text);">Capture #${idx + 1}</span>
+                    <span class="gallery-meta">Time: ${f.timeCode}</span>
+                    <span class="gallery-meta">Dim: ${f.width}x${f.height}</span>
+                    <span class="gallery-meta">Size: ${f.size}</span>
+                    <div class="gallery-actions">
+                        <button class="gallery-btn download">Down</button>
+                        <button class="gallery-btn delete">Del</button>
+                    </div>
+                </div>
+            `;
+
+            // Download Trigger
+            card.querySelector('.download').addEventListener('click', () => {
+                const a = document.createElement('a');
+                a.href = f.blobUrl;
+                a.download = f.name;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            });
+
+            // Delete Trigger
+            card.querySelector('.delete').addEventListener('click', () => {
+                URL.revokeObjectURL(f.blobUrl);
+                extractedFrames.splice(idx, 1);
+                renderGallery();
+                logMessage(`Deleted captured frame #${idx + 1}`);
+            });
+
+            galleryContainer.appendChild(card);
+        });
+    }
+
+    // Convert seconds to HH:MM:SS.mmm format
+    function formatTimeCode(totalSeconds) {
+        if (isNaN(totalSeconds) || totalSeconds === Infinity) return "00:00:00.000";
+        
+        const hrs = Math.floor(totalSeconds / 3600);
+        const mins = Math.floor((totalSeconds % 3600) / 60);
+        const secs = Math.floor(totalSeconds % 60);
+        const ms = Math.floor((totalSeconds % 1) * 1000);
+
+        const formatHr = hrs.toString().padStart(2, '0');
+        const formatMin = mins.toString().padStart(2, '0');
+        const formatSec = secs.toString().padStart(2, '0');
+        const formatMs = ms.toString().padStart(3, '0');
+
+        return `${formatHr}:${formatMin}:${formatSec}.${formatMs}`;
+    }
+
+    function formatSize(bytes) {
+        if (bytes === 0) return '0 Bytes';
+        const k = 1024;
+        const sizes = ['Bytes', 'KB', 'MB'];
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
+        return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+    }
+
+    function logMessage(text) {
+        const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        statusLogPanel.textContent += `\n[${time}] ${text}`;
+        statusLogPanel.scrollTop = statusLogPanel.scrollHeight;
+    }
+});
+</script>
+
+
+
+    
+    <section class="seo-rich-content">
+      <hr class="seo-divider">
+
+      
+
+      
+      
+      <div class="seo-section seo-steps">
+        <h2>How to Use Video Frame Extractor</h2>
+        <ol class="seo-steps-list">
+          
+            <li>
+              <h3>Input your data</h3>
+              <p>Paste, type, or upload your inputs into the input fields at the top of the page.</p>
+            </li>
+            <li>
+              <h3>Configure options</h3>
+              <p>Adjust any available options, dropdowns, checkboxes, or parameters to customize the output.</p>
+            </li>
+            <li>
+              <h3>Get instant results</h3>
+              <p>Our tool processes your input instantly completely offline. Copy the formatted results or download the generated output directly to your device.</p>
+            </li>
+          
+        </ol>
+      </div>
+
+      
+
+      <div class="seo-section seo-technical">
+        <h2>The Technical Details</h2>
+        <div class="seo-technical-content">
+          
+            <p>This interactive web utility is designed to provide quick, reliable, and completely private calculations and data transformations. Modern workflow requirements often call for quick format adjustments, conversions, or math estimations. By executing all logic directly in your browser using client-side JavaScript, this utility ensures that your sensitive inputs are never transmitted across the network, combining modern browser speed with absolute data confidentiality.</p>
+          
+        </div>
+      </div>
+
+      <div class="seo-section seo-faqs">
+        <h2>Frequently Asked Questions</h2>
+        <div class="seo-faq-accordion">
+          
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">Is my data safe and private when using Video Frame Extractor?</summary>
+              <div class="seo-faq-answer">
+                <p>Yes. All operations, conversions, and computations on Video Frame Extractor are performed entirely in your local web browser using client-side JavaScript. None of your data is sent to our servers, logged, or shared with third parties.</p>
+              </div>
+            </details>
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">How much does Video Frame Extractor cost to use?</summary>
+              <div class="seo-faq-answer">
+                <p>This utility is 100% free to use. There are no limits on usage, no subscriptions, no premium paywalls, and no registration required.</p>
+              </div>
+            </details>
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">Can I use Video Frame Extractor offline?</summary>
+              <div class="seo-faq-answer">
+                <p>Yes. Once this page is loaded in your browser, all core functionalities of Video Frame Extractor are executed client-side. You can disconnect from the internet and continue using the utility without any active network connection.</p>
+              </div>
+            </details>
+          
+        </div>
+      </div>
+    </section>
+    
+
+    
+
+    
+    <section class="related-section">
+      <h3>
+        Recommended Multimedia Tools
+      </h3>
+      <p>
+        Try our other free browser-based audio, video, and image utilities:
+      </p>
+      <div class="related-grid">
+        
+        
+        
+          
+            
+              
+              
+              
+              
+                <div class="post-card">
+                  <div class="post-title"><a href="/multimedia/image-compressor/">Image Compressor</a></div>
+                  <p class="post-desc">Compress JPEG, PNG, and WEBP images completely in your browser, adjust compre...</p>
+                </div>
+              
+            
+          
+            
+              
+              
+              
+              
+                <div class="post-card">
+                  <div class="post-title"><a href="/multimedia/image-converter/">Image Format Converter</a></div>
+                  <p class="post-desc">Convert images between PNG, JPEG, WEBP, BMP, and ICO formats instantly in you...</p>
+                </div>
+              
+            
+          
+        
+        
+        
+          
+          
+          
+            
+          
+            
+              
+              
+              
+              
+                
+                <div class="post-card">
+                  <div class="post-title"><a href="/multimedia/gif-maker/">Animated GIF Maker</a></div>
+                  <p class="post-desc">Create and compile custom animated GIFs from your JPEG and PNG images. Re-ord...</p>
+                </div>
+              
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+        
+      </div>
+    </section>
+    
+
+    
+
+    
+
+    
+  </main>
+
+  <footer class="site-footer-dark">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h3>Popular Tools</h3>
+      <ul>
+        <li><a href="/tools/json-formatter/">JSON Formatter</a></li>
+        <li><a href="/tools/qr-code-generator/">QR Code Generator</a></li>
+        <li><a href="/tools/base64-encoder-decoder/">Base64 Encoder/Decoder</a></li>
+        <li><a href="/tools/text-compare/">Text Compare</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Calculators & Finance</h3>
+      <ul>
+        <li><a href="/finance/currency-calculator/">Currency Calculator</a></li>
+        <li><a href="/finance/mortgage-calculator/">Mortgage Calculator</a></li>
+        <li><a href="/calculators/ip-subnet-calculator/">IP Subnet Calculator</a></li>
+        <li><a href="/calculators/time-zone-calculator/">Time Zone Calculator</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Quick References</h3>
+      <ul>
+        <li><a href="/cheatsheets/git-commands/">Git Cheatsheet</a></li>
+        <li><a href="/cheatsheets/docker-commands/">Docker Cheatsheet</a></li>
+        <li><a href="/cheatsheets/react-hooks/">React Hooks Cheatsheet</a></li>
+        <li><a href="/cheatsheets/javascript/">JavaScript Cheatsheet</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/shafqatalix" aria-label="LinkedIn">
+        <img src="/images/social-icons/linkedin.svg" alt="LinkedIn">
+      </a>
+      <a href="https://twitter.com/shafqatalix" aria-label="X/Twitter">
+        <img src="/images/social-icons/twitter.svg" alt="X/Twitter">
+      </a>
+      <a href="https://github.com/shafqatalix" aria-label="GitHub">
+        <img src="/images/social-icons/github.svg" alt="GitHub">
+      </a>
+    </div>
+    <div class="footer-copy">&copy; 2026 YORABA. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+
+</html>

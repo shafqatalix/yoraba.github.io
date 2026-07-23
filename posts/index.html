@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>Blog Posts | YORABA</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Blog Posts" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Informative articles on software development, web performance, and modern frameworks." />
+<meta name="twitter:description" property="og:description" content="Informative articles on software development, web performance, and modern frameworks." />
+<link rel="canonical" href="https://yoraba.com/posts/" />
+<meta property="og:url" content="https://yoraba.com/posts/" />
+<meta property="og:site_name" content="YORABA" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Blog Posts" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Informative articles on software development, web performance, and modern frameworks.","headline":"Blog Posts","url":"https://yoraba.com/posts/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1117">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <script>
+(function() {
+  var saved = localStorage.getItem('theme');
+  var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  document.documentElement.dataset.theme = theme;
+  window.toggleTheme = function() {
+    var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem('theme', next);
+    var frame = document.querySelector('.utterances-frame');
+    if (frame) {
+      frame.contentWindow.postMessage(
+        { type: 'set-theme', theme: next === 'dark' ? 'github-dark' : 'github-light' },
+        'https://utteranc.es'
+      );
+    }
+  };
+})();
+</script>
+
+  <link rel="stylesheet" href="/assets/css/style.css?v=">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+ 
+  <!-- Google tag (gtag.js) -->
+<script async crossorigin="anonymous" src="https://www.googletagmanager.com/gtag/js?id=G-T8BWX5RG3W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T8BWX5RG3W');
+</script>
+
+
+
+<!-- PWA Manifest -->
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register("/sw.js")
+        .then(registration => {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        })
+        .catch(err => {
+          console.error('ServiceWorker registration failed: ', err);
+        });
+    });
+  }
+</script>
+
+<!-- You can set your favicon here -->
+<link rel="shortcut icon" type="image/svg+xml" href="/images/logo.svg">
+
+<!-- end custom head snippets -->
+
+</head>
+
+<body>
+  <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+  <nav class="site-nav">
+  <a class="nav-logo" href="/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+    </svg>
+    YORABA
+  </a>
+  <div class="nav-links" id="nav-links">
+    <a href="/tools">Tools</a>
+    <a href="/finance">Finance</a>
+    <a href="/multimedia">Multimedia</a>
+    <a href="/calculators">Calculators</a>
+    <a href="/cheatsheets">Cheatsheets</a>
+    <a href="/posts">Blogs</a>
+    <a href="/author">Author</a>
+    <a href="/about">About</a>
+  </div>
+  <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </button>
+  <button class="nav-toggle" aria-label="Toggle Menu"
+    onclick="document.getElementById('nav-links').classList.toggle('active')">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
+</nav>
+
+  <header class="page-header" role="banner">
+    <h1 class="project-name">YORABA</h1>
+    <h2 class="project-tagline">Your Software Engineering Hub</h2>
+  </header>
+
+  
+
+  <main id="content" class="main-content" role="main">
+    <h2 id="blog-posts">Blog Posts</h2>
+
+<p><input type="text" id="post-search" class="search-input" placeholder="Search blog posts..." aria-label="Search blog posts" /></p>
+
+<ul class="collection-list" id="posts-list">
+
+
+  <li class="post-item">
+    <div class="post-card">
+      <div class="post-date">December 18, 2022</div>
+      <div class="post-title"><a href="/blogs/react-performance-guide/">React Performance Guide</a></div>
+      <p class="post-desc">A simple guide to improve performance of react code</p>
+    </div>
+  </li>
+
+  <li class="post-item">
+    <div class="post-card">
+      <div class="post-date">December 20, 2022</div>
+      <div class="post-title"><a href="/blogs/react-hooks-simplified/">React Hooks Simplified</a></div>
+      <p class="post-desc">A simple guide to React Hooks</p>
+    </div>
+  </li>
+
+  <li class="post-item">
+    <div class="post-card">
+      <div class="post-date">October 15, 2022</div>
+      <div class="post-title"><a href="/blogs/why-graphql/">Why GraphQL</a></div>
+      <p class="post-desc">Why GraphQL</p>
+    </div>
+  </li>
+
+  <li class="post-item">
+    <div class="post-card">
+      <div class="post-date">December 23, 2022</div>
+      <div class="post-title"><a href="/blogs/beginners-guide-node-express-react/">Beginners guide to NodeJS, Express and React</a></div>
+      <p class="post-desc">Getting started with NodeJS, Express and React</p>
+    </div>
+  </li>
+
+  <li class="post-item">
+    <div class="post-card">
+      <div class="post-date">November 15, 2022</div>
+      <div class="post-title"><a href="/blogs/ghost-blog-sqlite/">Create blog with Ghost CMS, SQLite and Github comments</a></div>
+      <p class="post-desc">Setup blog using Ghost CMS, SQLite and Github comments</p>
+    </div>
+  </li>
+
+  <li class="post-item">
+    <div class="post-card">
+      <div class="post-date">December 16, 2022</div>
+      <div class="post-title"><a href="/blogs/simple-guide-docker-containers/">Simple Guide to Docker containers</a></div>
+      <p class="post-desc">Simple Guide to Docker containers</p>
+    </div>
+  </li>
+
+  <li class="post-item">
+    <div class="post-card">
+      <div class="post-date">December 22, 2022</div>
+      <div class="post-title"><a href="/blogs/testing-react-components-jest/">Testing React components using Jest</a></div>
+      <p class="post-desc">A simple guide testing React components using Jest</p>
+    </div>
+  </li>
+
+  <li class="post-item">
+    <div class="post-card">
+      <div class="post-date">February 26, 2024</div>
+      <div class="post-title"><a href="/blogs/count-sort/">Count Sort algorithm</a></div>
+      <p class="post-desc">Count sort algorithm simplified</p>
+    </div>
+  </li>
+
+</ul>
+
+<p class="no-results" id="no-results">No posts found matching your search.</p>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var searchInput = document.getElementById('post-search');
+  var postsList = document.getElementById('posts-list');
+  var postItems = postsList.querySelectorAll('.post-item');
+  var noResults = document.getElementById('no-results');
+
+  searchInput.addEventListener('input', function(e) {
+    var query = e.target.value.toLowerCase();
+    var visibleCount = 0;
+
+    postItems.forEach(function(item) {
+      var title = item.querySelector('.post-title').textContent.toLowerCase();
+      var desc = item.querySelector('.post-desc') ? item.querySelector('.post-desc').textContent.toLowerCase() : '';
+
+      if (title.includes(query) || desc.includes(query)) {
+        item.style.display = '';
+        visibleCount++;
+      } else {
+        item.style.display = 'none';
+      }
+    });
+
+    noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+  });
+});
+</script>
+
+
+  </main>
+  
+
+  <footer class="site-footer-dark">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h3>Popular Tools</h3>
+      <ul>
+        <li><a href="/tools/json-formatter/">JSON Formatter</a></li>
+        <li><a href="/tools/qr-code-generator/">QR Code Generator</a></li>
+        <li><a href="/tools/base64-encoder-decoder/">Base64 Encoder/Decoder</a></li>
+        <li><a href="/tools/text-compare/">Text Compare</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Calculators & Finance</h3>
+      <ul>
+        <li><a href="/finance/currency-calculator/">Currency Calculator</a></li>
+        <li><a href="/finance/mortgage-calculator/">Mortgage Calculator</a></li>
+        <li><a href="/calculators/ip-subnet-calculator/">IP Subnet Calculator</a></li>
+        <li><a href="/calculators/time-zone-calculator/">Time Zone Calculator</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Quick References</h3>
+      <ul>
+        <li><a href="/cheatsheets/git-commands/">Git Cheatsheet</a></li>
+        <li><a href="/cheatsheets/docker-commands/">Docker Cheatsheet</a></li>
+        <li><a href="/cheatsheets/react-hooks/">React Hooks Cheatsheet</a></li>
+        <li><a href="/cheatsheets/javascript/">JavaScript Cheatsheet</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/shafqatalix" aria-label="LinkedIn">
+        <img src="/images/social-icons/linkedin.svg" alt="LinkedIn">
+      </a>
+      <a href="https://twitter.com/shafqatalix" aria-label="X/Twitter">
+        <img src="/images/social-icons/twitter.svg" alt="X/Twitter">
+      </a>
+      <a href="https://github.com/shafqatalix" aria-label="GitHub">
+        <img src="/images/social-icons/github.svg" alt="GitHub">
+      </a>
+    </div>
+    <div class="footer-copy">&copy; 2026 YORABA. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+
+</html>

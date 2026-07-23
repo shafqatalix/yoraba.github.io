@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>Simple Guide to Docker containers | YORABA</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Simple Guide to Docker containers" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Simple Guide to Docker containers" />
+<meta name="twitter:description" property="og:description" content="Simple Guide to Docker containers" />
+<link rel="canonical" href="https://yoraba.com/blogs/simple-guide-docker-containers/" />
+<meta property="og:url" content="https://yoraba.com/blogs/simple-guide-docker-containers/" />
+<meta property="og:site_name" content="YORABA" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-12-16T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-12-16T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Simple Guide to Docker containers" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-12-16T00:00:00+00:00","datePublished":"2022-12-16T00:00:00+00:00","description":"Simple Guide to Docker containers","headline":"Simple Guide to Docker containers","mainEntityOfPage":{"@type":"WebPage","@id":"https://yoraba.com/blogs/simple-guide-docker-containers/"},"url":"https://yoraba.com/blogs/simple-guide-docker-containers/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1117">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <script>
+(function() {
+  var saved = localStorage.getItem('theme');
+  var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  document.documentElement.dataset.theme = theme;
+  window.toggleTheme = function() {
+    var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem('theme', next);
+    var frame = document.querySelector('.utterances-frame');
+    if (frame) {
+      frame.contentWindow.postMessage(
+        { type: 'set-theme', theme: next === 'dark' ? 'github-dark' : 'github-light' },
+        'https://utteranc.es'
+      );
+    }
+  };
+})();
+</script>
+
+  <link rel="stylesheet" href="/assets/css/style.css?v=">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+ 
+  <!-- Google tag (gtag.js) -->
+<script async crossorigin="anonymous" src="https://www.googletagmanager.com/gtag/js?id=G-T8BWX5RG3W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T8BWX5RG3W');
+</script>
+
+
+
+<!-- PWA Manifest -->
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register("/sw.js")
+        .then(registration => {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        })
+        .catch(err => {
+          console.error('ServiceWorker registration failed: ', err);
+        });
+    });
+  }
+</script>
+
+<!-- You can set your favicon here -->
+<link rel="shortcut icon" type="image/svg+xml" href="/images/logo.svg">
+
+<!-- end custom head snippets -->
+
+  
+  
+  
+
+  
+  
+  
+</head>
+
+<body>
+  <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+  <nav class="site-nav">
+  <a class="nav-logo" href="/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+    </svg>
+    YORABA
+  </a>
+  <div class="nav-links" id="nav-links">
+    <a href="/tools">Tools</a>
+    <a href="/finance">Finance</a>
+    <a href="/multimedia">Multimedia</a>
+    <a href="/calculators">Calculators</a>
+    <a href="/cheatsheets">Cheatsheets</a>
+    <a href="/posts">Blogs</a>
+    <a href="/author">Author</a>
+    <a href="/about">About</a>
+  </div>
+  <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </button>
+  <button class="nav-toggle" aria-label="Toggle Menu"
+    onclick="document.getElementById('nav-links').classList.toggle('active')">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
+</nav>
+
+  <header class="page-header" role="banner">
+    <h1 class="project-name">Simple Guide to Docker containers</h1>
+    <h2 class="project-tagline">Simple Guide to Docker containers</h2>
+  </header>
+
+  <main id="content" class="main-content" role="main">
+    
+    
+
+    
+    <nav class="breadcrumbs" aria-label="Breadcrumb" style="font-size: 0.85rem; margin-bottom: 1.5rem; color: var(--text-secondary); display: flex; align-items: center; flex-wrap: wrap; gap: 0.25rem;">
+      <a href="/" style="text-decoration: none; color: var(--link);">Home</a>
+      <span style="color: var(--border);">&rarr;</span>
+      
+      
+        <a href="/posts/" style="text-decoration: none; color: var(--link);">Blog</a>
+      
+      
+      
+      
+      <span style="color: var(--border);">&rarr;</span>
+      <span style="color: var(--text-secondary);">Simple Guide to Docker containers</span>
+    </nav>
+    
+
+    
+    <div class="blog-date">16 December 2022</div>
+    
+
+    
+
+    
+    
+
+    
+
+    <p><a href="https://www.docker.com/">Docker</a> is a popular tool for creating, deploying, and running applications in containers. A container is a lightweight, standalone, and executable package that contains everything an application needs to run, including the application code, libraries, dependencies, and runtime.</p>
+
+<p>Using containers allows developers to package their applications and all of their dependencies into a single, portable package, making it easy to deploy and run applications in any environment. This is particularly useful when working with complex applications that have many dependencies or when working with teams of developers who need to work on the same codebase.</p>
+
+<p>One of the main benefits of using Docker is that it provides a consistent and repeatable environment for building, testing, and deploying applications. Because all of the dependencies are bundled with the application in the container, there is no need to worry about conflicts or inconsistencies between different environments. This makes it easier to develop, test, and deploy applications, especially in larger organizations where multiple teams may be working on the same codebase.</p>
+
+<p>Another advantage of using Docker is that it allows developers to easily scale their applications. Because containers are lightweight and portable, they can be easily moved between different hosts and run on multiple machines. This makes it easy to scale applications up or down as needed, without the need to provision new hardware or reconfigure existing infrastructure.</p>
+
+<blockquote>
+  <p>💡 <strong>Need Docker command reference?</strong> Check out our quick-reference <strong><a href="/cheatsheets/docker-commands/">Docker &amp; DevOps Cheatsheet</a></strong> for essential commands, container management, and compose workflows.</p>
+</blockquote>
+
+<p>Here is a simple diagram illustrating the basic architecture of Docker:</p>
+
+<figure style="margin: 0; padding: 8px;">
+    <a href="https://github.com/shafqatalix"> 
+    <img src="/images/docker-architecture.svg" style="max-width: ; width: ; height: ;" alt="docker architecture" />
+     </a> 
+    <figcaption style="text-align: center;">Docker Architecture</figcaption>
+ </figure>
+
+<p>In this diagram:</p>
+
+<ul>
+  <li>
+    <p>The Docker Engine is the core component of Docker, responsible for running containers and managing their lifecycle. It is typically installed on a host machine, and it communicates with other Docker components through APIs.</p>
+  </li>
+  <li>
+    <p>The Docker Client is a command-line interface that allows users to interact with the Docker Engine. It allows users to build, run, and manage containers, as well as manage images and volumes.</p>
+  </li>
+  <li>
+    <p>The Docker Registry is a storage location for Docker images. It can be either a public registry, such as Docker Hub, or a private registry that is managed by an organization.The Docker Hub is a public registry that allows users to search for and download Docker images. It is hosted by Docker and is the default registry for the Docker Client.</p>
+  </li>
+  <li>
+    <p>The Docker Host is a machine that is running the Docker Engine and is used to host containers. It can be a physical machine or a virtual machine, and it can run on various operating systems, including Linux, Windows, and macOS.</p>
+  </li>
+</ul>
+
+<p>This is just a basic overview of the Docker architecture, and there are many other components and features that are not included in this diagram. However, this should give you a general idea of how Docker works and how the various components fit together.</p>
+
+<h2 id="simple-react-and-nodejs-application-using-docker-containers">Simple React and NodeJS application using Docker containers</h2>
+
+<p>To create a React app with a Docker container, you will need to follow these steps:</p>
+
+<h3 id="1-install-docker-on-your-machine">1. Install Docker on your machine:</h3>
+
+<p>Before you can use Docker, you will need to install it on your machine. You can download the latest version of Docker from the official website (https://www.docker.com/). Once you have downloaded and installed Docker, you should be able to run the docker command from the terminal.</p>
+
+<blockquote>
+  <p>Docker Desktop is GUI tool for running docker as service on your operating system, if you are on Mac or Linux <a href="https://github.com/abiosoft/colima">Colima</a> is a great open-source alternative to paid Docker Desktop.</p>
+</blockquote>
+
+<h3 id="2-create-a-new-react-app">2. Create a new React app:</h3>
+
+<p>To create a new React app, you will need to have the create-react-app package installed. If you don’t have it already, you can install it using the following command:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm <span class="nb">install</span> <span class="nt">-g</span> create-react-app
+</code></pre></div></div>
+
+<p>Once you have create-react-app installed, you can create a new React app using the following command:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>create-react-app my-app
+</code></pre></div></div>
+
+<p>This will create a new React app with the name my-app in a new directory with the same name.</p>
+
+<h3 id="3-create-a-dockerfile">3. Create a Dockerfile:</h3>
+
+<p>A Dockerfile is a text file that contains instructions for building a Docker image. To create a Docker image for your React app, you will need to create a Dockerfile in the root directory of your app.</p>
+
+<p>Here is an example of a Dockerfile for a React app:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>FROM node:18
+
+WORKDIR /app
+
+COPY package.json /app/package.json
+
+COPY package-lock.json /app/package-lock.json
+
+RUN npm <span class="nb">install
+
+</span>COPY <span class="nb">.</span> /app
+
+EXPOSE 3000
+
+CMD <span class="o">[</span><span class="s2">"npm"</span>, <span class="s2">"start"</span><span class="o">]</span>
+
+</code></pre></div></div>
+
+<p>This Dockerfile specifies the base image (<a href="https://nodejs.org/en/">node:18</a>) that the image will be built on top of, as well as the instructions for copying the necessary files and running the app.</p>
+
+<h3 id="4-build-the-docker-image">4. Build the Docker image</h3>
+
+<p>To build the Docker image, you will need to run the docker build command from the terminal, passing in the path to the Dockerfile as an argument. For example:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker build <span class="nt">-t</span> my-app <span class="nb">.</span>
+</code></pre></div></div>
+
+<p>This will build the Docker image for your app and give it the tag my-app.</p>
+
+<h3 id="5-run-the-docker-container">5. Run the Docker container</h3>
+
+<p>Once the Docker image has been built, you can run it as a Docker container using the docker run command. For example:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run <span class="nt">-p</span> 3000:3000 my-app
+</code></pre></div></div>
+
+<p>This will start the Docker container and bind it to port 3000 on your local machine. You should now be able to access your React app by visiting http://localhost:3000 in your web browser.</p>
+
+<p>That’s it! You should now have a React app running in a Docker container. You can modify the app and rebuild the Docker image as needed, and the changes will be reflected in the running container.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>A Docker container is a lightweight, standalone, and executable package that includes everything an application needs to run, including the application code, libraries, dependencies, and runtime. Containers are isolated from one another and bundle their own tools, libraries, and configuration files, making them portable and easy to deploy.</p>
+
+<p>Overall, Docker is a powerful tool that allows developers to easily build, deploy, and run applications in containers. Its lightweight, portable nature makes it ideal for creating consistent and scalable environments for application development and deployment.</p>
+
+<h3 id="helpful-resources">Helpful resources</h3>
+
+<ul>
+  <li><a href="https://docs.docker.com/engine/reference/commandline/cli/">Docker CLI</a></li>
+  <li><a href="https://aws.amazon.com/docker/">What is Docker - AWS</a></li>
+  <li><a href="https://github.com/abiosoft/colima#readme">Colima Docs</a></li>
+</ul>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <section class="related-section">
+      <h3>Recommended Blog Posts</h3>
+      <p>Read our other technical articles and step-by-step guides:</p>
+      <div class="related-grid">
+        
+        
+        
+          
+            
+            <div class="post-card">
+              <div class="post-title"><a href="/blogs/count-sort/">Count Sort algorithm</a></div>
+              <p class="post-desc">Count sort algorithm simplified</p>
+            </div>
+          
+        
+          
+            
+            <div class="post-card">
+              <div class="post-title"><a href="/blogs/beginners-guide-node-express-react/">Beginners guide to NodeJS, Express and React</a></div>
+              <p class="post-desc">Getting started with NodeJS, Express and React</p>
+            </div>
+          
+        
+          
+            
+            <div class="post-card">
+              <div class="post-title"><a href="/blogs/testing-react-components-jest/">Testing React components using Jest</a></div>
+              <p class="post-desc">A simple guide testing React components using Jest</p>
+            </div>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </section>
+    
+
+    
+    <footer class="site-footer">
+      <div id="utterances-container"></div>
+      <script>
+        (function() {
+          var theme = document.documentElement.dataset.theme === 'light' ? 'github-light' : 'github-dark';
+          var s = document.createElement('script');
+          s.src = 'https://utteranc.es/client.js';
+          s.setAttribute('repo', 'shafqatalix/comments.yoraba.com');
+          s.setAttribute('issue-term', 'pathname');
+          s.setAttribute('theme', theme);
+          s.setAttribute('crossorigin', 'anonymous');
+          s.async = true;
+          document.getElementById('utterances-container').appendChild(s);
+        })();
+      </script>
+    </footer>
+    
+  </main>
+
+  <footer class="site-footer-dark">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h3>Popular Tools</h3>
+      <ul>
+        <li><a href="/tools/json-formatter/">JSON Formatter</a></li>
+        <li><a href="/tools/qr-code-generator/">QR Code Generator</a></li>
+        <li><a href="/tools/base64-encoder-decoder/">Base64 Encoder/Decoder</a></li>
+        <li><a href="/tools/text-compare/">Text Compare</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Calculators & Finance</h3>
+      <ul>
+        <li><a href="/finance/currency-calculator/">Currency Calculator</a></li>
+        <li><a href="/finance/mortgage-calculator/">Mortgage Calculator</a></li>
+        <li><a href="/calculators/ip-subnet-calculator/">IP Subnet Calculator</a></li>
+        <li><a href="/calculators/time-zone-calculator/">Time Zone Calculator</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Quick References</h3>
+      <ul>
+        <li><a href="/cheatsheets/git-commands/">Git Cheatsheet</a></li>
+        <li><a href="/cheatsheets/docker-commands/">Docker Cheatsheet</a></li>
+        <li><a href="/cheatsheets/react-hooks/">React Hooks Cheatsheet</a></li>
+        <li><a href="/cheatsheets/javascript/">JavaScript Cheatsheet</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/shafqatalix" aria-label="LinkedIn">
+        <img src="/images/social-icons/linkedin.svg" alt="LinkedIn">
+      </a>
+      <a href="https://twitter.com/shafqatalix" aria-label="X/Twitter">
+        <img src="/images/social-icons/twitter.svg" alt="X/Twitter">
+      </a>
+      <a href="https://github.com/shafqatalix" aria-label="GitHub">
+        <img src="/images/social-icons/github.svg" alt="GitHub">
+      </a>
+    </div>
+    <div class="footer-copy">&copy; 2026 YORABA. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+
+</html>

@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>HTTP Status Codes | YORABA</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="HTTP Status Codes" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Comprehensive reference for HTTP response status codes, categorized by 1xx, 2xx, 3xx, 4xx, and 5xx classes." />
+<meta name="twitter:description" property="og:description" content="Comprehensive reference for HTTP response status codes, categorized by 1xx, 2xx, 3xx, 4xx, and 5xx classes." />
+<link rel="canonical" href="https://yoraba.com/cheatsheets/http-status-codes/" />
+<meta property="og:url" content="https://yoraba.com/cheatsheets/http-status-codes/" />
+<meta property="og:site_name" content="YORABA" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-07-23T14:08:42+00:00" />
+<meta property="article:modified_time" content="2026-07-23T14:08:42+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="HTTP Status Codes" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-07-23T14:08:42+00:00","datePublished":"2026-07-23T14:08:42+00:00","description":"Comprehensive reference for HTTP response status codes, categorized by 1xx, 2xx, 3xx, 4xx, and 5xx classes.","headline":"HTTP Status Codes","mainEntityOfPage":{"@type":"WebPage","@id":"https://yoraba.com/cheatsheets/http-status-codes/"},"url":"https://yoraba.com/cheatsheets/http-status-codes/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1117">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <script>
+(function() {
+  var saved = localStorage.getItem('theme');
+  var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  document.documentElement.dataset.theme = theme;
+  window.toggleTheme = function() {
+    var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem('theme', next);
+    var frame = document.querySelector('.utterances-frame');
+    if (frame) {
+      frame.contentWindow.postMessage(
+        { type: 'set-theme', theme: next === 'dark' ? 'github-dark' : 'github-light' },
+        'https://utteranc.es'
+      );
+    }
+  };
+})();
+</script>
+
+  <link rel="stylesheet" href="/assets/css/style.css?v=">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+ 
+  <!-- Google tag (gtag.js) -->
+<script async crossorigin="anonymous" src="https://www.googletagmanager.com/gtag/js?id=G-T8BWX5RG3W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T8BWX5RG3W');
+</script>
+
+
+
+<!-- PWA Manifest -->
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register("/sw.js")
+        .then(registration => {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        })
+        .catch(err => {
+          console.error('ServiceWorker registration failed: ', err);
+        });
+    });
+  }
+</script>
+
+<!-- You can set your favicon here -->
+<link rel="shortcut icon" type="image/svg+xml" href="/images/logo.svg">
+
+<!-- end custom head snippets -->
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "HTTP Status Codes Cheatsheet",
+    "description": "Comprehensive reference for HTTP response status codes, categorized by 1xx, 2xx, 3xx, 4xx, and 5xx classes.",
+    "author": {
+      "@type": "Person",
+      "name": "Shafqat Ali",
+      "url": "https://yoraba.com/about/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "YORABA",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://yoraba.com/images/logo.svg"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://yoraba.com/cheatsheets/http-status-codes/"
+    },
+    "inLanguage": "en-US",
+    "dateModified": "2026-07-23"
+  }
+  </script>
+  
+  
+  
+
+  
+  
+  
+</head>
+
+<body>
+  <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+  <nav class="site-nav">
+  <a class="nav-logo" href="/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+    </svg>
+    YORABA
+  </a>
+  <div class="nav-links" id="nav-links">
+    <a href="/tools">Tools</a>
+    <a href="/finance">Finance</a>
+    <a href="/multimedia">Multimedia</a>
+    <a href="/calculators">Calculators</a>
+    <a href="/cheatsheets">Cheatsheets</a>
+    <a href="/posts">Blogs</a>
+    <a href="/author">Author</a>
+    <a href="/about">About</a>
+  </div>
+  <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </button>
+  <button class="nav-toggle" aria-label="Toggle Menu"
+    onclick="document.getElementById('nav-links').classList.toggle('active')">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
+</nav>
+
+  <header class="page-header" role="banner">
+    <h1 class="project-name">HTTP Status Codes</h1>
+    <h2 class="project-tagline">Comprehensive reference for HTTP response status codes, categorized by 1xx, 2xx, 3xx, 4xx, and 5xx classes.</h2>
+  </header>
+
+  <main id="content" class="main-content" role="main">
+    
+    
+
+    
+    <nav class="breadcrumbs" aria-label="Breadcrumb" style="font-size: 0.85rem; margin-bottom: 1.5rem; color: var(--text-secondary); display: flex; align-items: center; flex-wrap: wrap; gap: 0.25rem;">
+      <a href="/" style="text-decoration: none; color: var(--link);">Home</a>
+      <span style="color: var(--border);">&rarr;</span>
+      
+      
+        <a href="/cheatsheets/" style="text-decoration: none; color: var(--link);">Cheatsheets</a>
+      
+      
+      
+      
+      <span style="color: var(--border);">&rarr;</span>
+      <span style="color: var(--text-secondary);">HTTP Status Codes</span>
+    </nav>
+    
+
+    
+
+    
+    <div class="cheatsheet-actions">
+      <button onclick="window.print()" class="btn-pdf">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="8" y1="11" x2="16" y2="11"></line>
+          <text x="12" y="18" font-size="5.5" font-weight="900" fill="currentColor" stroke="none" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">PDF</text>
+        </svg>
+        Export as PDF
+      </button>
+    </div>
+
+    <h1 class="print-title">HTTP Status Codes Cheatsheet</h1>
+    
+
+    
+    
+
+    
+
+    <p>A quick-reference guide for standard Hypertext Transfer Protocol (HTTP) response status codes, categorized by class ranges from informational requests to server crashes.</p>
+
+<h2 id="class-range-summary">Class Range Summary</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Class</th>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">General Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><strong>1xx</strong></td>
+      <td style="text-align: left">Informational</td>
+      <td style="text-align: left">Request received, continuing process</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>2xx</strong></td>
+      <td style="text-align: left">Success</td>
+      <td style="text-align: left">The action was successfully received, understood, and accepted</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>3xx</strong></td>
+      <td style="text-align: left">Redirection</td>
+      <td style="text-align: left">Further action must be taken in order to complete the request</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>4xx</strong></td>
+      <td style="text-align: left">Client Error</td>
+      <td style="text-align: left">The request contains bad syntax or cannot be fulfilled by the client</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>5xx</strong></td>
+      <td style="text-align: left">Server Error</td>
+      <td style="text-align: left">The server failed to fulfill an apparently valid request</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="1xx-informational">1xx Informational</h2>
+
+<p>The request has been received, and the server is continuing the process.</p>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">100 Continue</code></strong>: The server has received the request headers, and the client should proceed to send the request body.</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">101 Switching Protocols</code></strong>: The requester has asked the server to switch protocols (e.g. switching from HTTP/1.1 to WebSockets).</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">102 Processing</code></strong>: The server has received and is processing the request, but no response is available yet.</li>
+</ul>
+
+<hr />
+
+<h2 id="2xx-success">2xx Success</h2>
+
+<p>The action requested by the client was successfully received, understood, and accepted.</p>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">200 OK</code></strong>: Standard success response. The actual response depends on the request method (GET, POST, PUT, DELETE, etc.).</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">201 Created</code></strong>: The request has been fulfilled, and a new resource has been successfully created.</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">202 Accepted</code></strong>: The request has been accepted for processing, but the processing has not been completed yet (useful for asynchronous operations).</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">204 No Content</code></strong>: The server successfully processed the request, but is not returning any content (commonly used for DELETE or PUT requests).</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">206 Partial Content</code></strong>: The server is delivering only part of the resource due to a range header sent by the client (used for segmented file downloads/streams).</li>
+</ul>
+
+<hr />
+
+<h2 id="3xx-redirection">3xx Redirection</h2>
+
+<p>The client must take additional action to complete the request.</p>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">301 Moved Permanently</code></strong>: This and all future requests should be directed to the given URI (permanent redirection, SEO-friendly).</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">302 Found</code></strong>: The resource resides temporarily under a different URI (temporary redirection, should not be cached).</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">304 Not Modified</code></strong>: The resource has not been modified since the version specified by the cache headers. The client can load its cached copy (saves bandwidth).</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">307 Temporary Redirect</code></strong>: The request should be repeated with another URI; however, future requests should still use the original URI.</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">308 Permanent Redirect</code></strong>: The request and all future requests should be repeated using another URI. Similar to <code class="language-plaintext highlighter-rouge">301</code>, but does not allow changing the request method (e.g. POST to GET).</li>
+</ul>
+
+<hr />
+
+<h2 id="4xx-client-errors">4xx Client Errors</h2>
+
+<p>The request contains bad syntax or cannot be fulfilled by the client.</p>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">400 Bad Request</code></strong>: The server cannot process the request due to a client-side error (e.g., malformed request syntax, invalid size, size bounds overflow).</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">401 Unauthorized</code></strong>: Semantically means <em>unauthenticated</em>. The user must log in or provide valid credentials to obtain the requested response.</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">403 Forbidden</code></strong>: The client is authenticated but does not have access permissions for the resource (e.g., a standard user trying to access admin files).</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">404 Not Found</code></strong>: The requested resource could not be found on the server.</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">405 Method Not Allowed</code></strong>: The request method is known but has been disabled for this resource (e.g., trying to POST to a read-only endpoint).</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">406 Not Acceptable</code></strong>: The requested resource is capable of generating only content not acceptable according to the Accept headers sent in the request.</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">408 Request Timeout</code></strong>: The server timed out waiting for the client to complete the request.</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">409 Conflict</code></strong>: The request could not be completed due to a conflict with the current state of the resource (e.g., database unique constraint failures, duplicate registrations).</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">415 Unsupported Media Type</code></strong>: The request entity has a media type which the server or resource does not support (e.g., uploading an SVG to an endpoint expecting JPEG).</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">422 Unprocessable Entity</code></strong>: The request was well-formed but has semantic errors or failed backend validations (e.g., fields missing in a JSON payload).</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">429 Too Many Requests</code></strong>: The user has sent too many requests in a given amount of time (rate limiting threshold exceeded).</li>
+</ul>
+
+<hr />
+
+<h2 id="5xx-server-errors">5xx Server Errors</h2>
+
+<p>The server failed to fulfill an apparently valid request.</p>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">500 Internal Server Error</code></strong>: A generic error message, given when an unexpected condition was encountered on the server (e.g. uncaught backend crashes).</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">501 Not Implemented</code></strong>: The server either does not recognize the request method, or lacks the ability to fulfill the request.</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">502 Bad Gateway</code></strong>: The server, while acting as a gateway or proxy, received an invalid response from the upstream server.</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">503 Service Unavailable</code></strong>: The server is temporarily down, commonly due to maintenance or handling high-volume traffic overloads.</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">504 Gateway Timeout</code></strong>: The server, while acting as a gateway or proxy, did not receive a timely response from the upstream server.</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">505 HTTP Version Not Supported</code></strong>: The server does not support the HTTP protocol version used in the request.
+```
+—</li>
+</ul>
+
+
+    
+
+    
+    <section class="related-section">
+      <h3>Recommended Cheatsheets</h3>
+      <p>Check out our other essential cheatsheets for developers:</p>
+      <div class="related-grid">
+        
+        
+          
+            
+            <div class="post-card">
+              <div class="post-title"><a href="/cheatsheets/browser-shortcuts/">Browser Shortcuts Cheatsheet</a></div>
+              <p class="post-desc">Comprehensive reference for essential web browser keyboard shortcuts, coverin...</p>
+            </div>
+          
+        
+          
+            
+            <div class="post-card">
+              <div class="post-title"><a href="/cheatsheets/css-flexbox/">CSS Flexbox Cheatsheet</a></div>
+              <p class="post-desc">Comprehensive reference for CSS Flexible Box Layout (Flexbox), covering flex ...</p>
+            </div>
+          
+        
+          
+            
+            <div class="post-card">
+              <div class="post-title"><a href="/cheatsheets/css-grid/">CSS Grid Cheatsheet</a></div>
+              <p class="post-desc">Comprehensive reference for CSS Grid Layout, covering grid container properti...</p>
+            </div>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </section>
+    
+
+    
+
+    
+
+    
+
+    
+  </main>
+
+  <footer class="site-footer-dark">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h3>Popular Tools</h3>
+      <ul>
+        <li><a href="/tools/json-formatter/">JSON Formatter</a></li>
+        <li><a href="/tools/qr-code-generator/">QR Code Generator</a></li>
+        <li><a href="/tools/base64-encoder-decoder/">Base64 Encoder/Decoder</a></li>
+        <li><a href="/tools/text-compare/">Text Compare</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Calculators & Finance</h3>
+      <ul>
+        <li><a href="/finance/currency-calculator/">Currency Calculator</a></li>
+        <li><a href="/finance/mortgage-calculator/">Mortgage Calculator</a></li>
+        <li><a href="/calculators/ip-subnet-calculator/">IP Subnet Calculator</a></li>
+        <li><a href="/calculators/time-zone-calculator/">Time Zone Calculator</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Quick References</h3>
+      <ul>
+        <li><a href="/cheatsheets/git-commands/">Git Cheatsheet</a></li>
+        <li><a href="/cheatsheets/docker-commands/">Docker Cheatsheet</a></li>
+        <li><a href="/cheatsheets/react-hooks/">React Hooks Cheatsheet</a></li>
+        <li><a href="/cheatsheets/javascript/">JavaScript Cheatsheet</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/shafqatalix" aria-label="LinkedIn">
+        <img src="/images/social-icons/linkedin.svg" alt="LinkedIn">
+      </a>
+      <a href="https://twitter.com/shafqatalix" aria-label="X/Twitter">
+        <img src="/images/social-icons/twitter.svg" alt="X/Twitter">
+      </a>
+      <a href="https://github.com/shafqatalix" aria-label="GitHub">
+        <img src="/images/social-icons/github.svg" alt="GitHub">
+      </a>
+    </div>
+    <div class="footer-copy">&copy; 2026 YORABA. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+
+</html>

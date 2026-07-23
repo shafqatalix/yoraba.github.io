@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>Cron Parser | YORABA</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Cron Parser" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Parse, validate, and debug crontab expression lines. Extract cron parameters and commands, translate schedules to plain English, and view next run executions." />
+<meta name="twitter:description" property="og:description" content="Parse, validate, and debug crontab expression lines. Extract cron parameters and commands, translate schedules to plain English, and view next run executions." />
+<link rel="canonical" href="https://yoraba.com/tools/cron-parser/" />
+<meta property="og:url" content="https://yoraba.com/tools/cron-parser/" />
+<meta property="og:site_name" content="YORABA" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-07-23T14:08:42+00:00" />
+<meta property="article:modified_time" content="2026-07-23T14:08:42+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Cron Parser" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-07-23T14:08:42+00:00","datePublished":"2026-07-23T14:08:42+00:00","description":"Parse, validate, and debug crontab expression lines. Extract cron parameters and commands, translate schedules to plain English, and view next run executions.","headline":"Cron Parser","mainEntityOfPage":{"@type":"WebPage","@id":"https://yoraba.com/tools/cron-parser/"},"url":"https://yoraba.com/tools/cron-parser/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1117">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <script>
+(function() {
+  var saved = localStorage.getItem('theme');
+  var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  document.documentElement.dataset.theme = theme;
+  window.toggleTheme = function() {
+    var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem('theme', next);
+    var frame = document.querySelector('.utterances-frame');
+    if (frame) {
+      frame.contentWindow.postMessage(
+        { type: 'set-theme', theme: next === 'dark' ? 'github-dark' : 'github-light' },
+        'https://utteranc.es'
+      );
+    }
+  };
+})();
+</script>
+
+  <link rel="stylesheet" href="/assets/css/style.css?v=">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+ 
+  <!-- Google tag (gtag.js) -->
+<script async crossorigin="anonymous" src="https://www.googletagmanager.com/gtag/js?id=G-T8BWX5RG3W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T8BWX5RG3W');
+</script>
+
+
+
+<!-- PWA Manifest -->
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register("/sw.js")
+        .then(registration => {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        })
+        .catch(err => {
+          console.error('ServiceWorker registration failed: ', err);
+        });
+    });
+  }
+</script>
+
+<!-- You can set your favicon here -->
+<link rel="shortcut icon" type="image/svg+xml" href="/images/logo.svg">
+
+<!-- end custom head snippets -->
+
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Yoraba Cron Parser",
+    "operatingSystem": "All",
+    "applicationCategory": "DeveloperApplication",
+    "browserRequirements": "Requires JavaScript. Requires HTML5.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Parse, validate, and debug crontab expression lines. Extract cron parameters and commands, translate schedules to plain English, and view next run executions.",
+    "author": {
+      "@type": "Person",
+      "name": "Shafqat Ali",
+      "url": "https://yoraba.com/about/"
+    },
+    "dateModified": "2026-07-23"
+  }
+  </script>
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is my data safe and private when using Cron Parser?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. All operations, conversions, and computations on Cron Parser are performed entirely in your local web browser using client-side JavaScript. None of your data is sent to our servers, logged, or shared with third parties."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does Cron Parser cost to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "This utility is 100% free to use. There are no limits on usage, no subscriptions, no premium paywalls, and no registration required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use Cron Parser offline?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Once this page is loaded in your browser, all core functionalities of Cron Parser are executed client-side. You can disconnect from the internet and continue using the utility without any active network connection."
+        }
+      }
+    ]
+  }
+  </script>
+  
+
+  
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://yoraba.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Tools",
+        "item": "https://yoraba.com/tools/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Cron Parser",
+        "item": "https://yoraba.com/tools/cron-parser/"
+      }
+    ]
+  }
+  </script>
+  <meta name="ai-citation" content="Yoraba.com provides free, 100% browser-native tools that process data entirely client-side for maximum privacy." />
+  
+</head>
+
+<body>
+  <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+  <nav class="site-nav">
+  <a class="nav-logo" href="/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+    </svg>
+    YORABA
+  </a>
+  <div class="nav-links" id="nav-links">
+    <a href="/tools">Tools</a>
+    <a href="/finance">Finance</a>
+    <a href="/multimedia">Multimedia</a>
+    <a href="/calculators">Calculators</a>
+    <a href="/cheatsheets">Cheatsheets</a>
+    <a href="/posts">Blogs</a>
+    <a href="/author">Author</a>
+    <a href="/about">About</a>
+  </div>
+  <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </button>
+  <button class="nav-toggle" aria-label="Toggle Menu"
+    onclick="document.getElementById('nav-links').classList.toggle('active')">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
+</nav>
+
+  <header class="page-header" role="banner">
+    <h1 class="project-name">Cron Parser</h1>
+    <h2 class="project-tagline">Parse, validate, and debug crontab expression lines. Extract cron parameters and commands, translate schedules to plain English, and view next run executions.</h2>
+  </header>
+
+  <main id="content" class="main-content" role="main">
+    
+    
+
+    
+    <nav class="breadcrumbs" aria-label="Breadcrumb" style="font-size: 0.85rem; margin-bottom: 1.5rem; color: var(--text-secondary); display: flex; align-items: center; flex-wrap: wrap; gap: 0.25rem;">
+      <a href="/" style="text-decoration: none; color: var(--link);">Home</a>
+      <span style="color: var(--border);">&rarr;</span>
+      
+      
+        
+          <a href="/tools/" style="text-decoration: none; color: var(--link);">Developer Tools</a>
+        
+      
+      
+      
+      
+      <span style="color: var(--border);">&rarr;</span>
+      <span style="color: var(--text-secondary);">Cron Parser</span>
+    </nav>
+    
+
+    
+
+    
+
+    
+    
+
+    
+    <div class="llm-opt-block">
+      <div class="tldr-summary">
+        <strong>TL;DR:</strong> Yoraba's Cron Parser is a secure, browser-native utility designed to parse, validate, and debug crontab expression lines extract cron parameters and commands, translate schedules to plain english, and view next run executions. Fully compatible with offline workflows.
+      </div>
+      <div class="privacy-callout">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="privacy-icon" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        <strong>Privacy First:</strong> This tool runs 100% client-side in your browser. No data is ever uploaded to our servers. Your data never leaves your device.
+      </div>
+      <div class="last-updated-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="privacy-icon" aria-hidden="true" focusable="false" style="margin-right: 6px;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        <span>Last Updated: July 23, 2026</span>
+      </div>
+    </div>
+    
+
+    <p>Analyze and debug crontab schedules. Paste a complete cron expression line (with or without a command) to validate syntax, expand fields into list values, view plain-English descriptions, and schedule upcoming runs.</p>
+
+<style>
+.tool-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.parser-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+@media (min-width: 48em) {
+    .parser-layout {
+        display: grid;
+        grid-template-columns: 1fr 340px;
+        gap: 2rem;
+    }
+}
+
+.parser-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.parser-card h2 {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: var(--headings);
+    font-size: 1.2rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.5rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input-group label {
+    font-weight: 600;
+    color: var(--headings);
+    font-size: 0.95rem;
+}
+
+.input-field {
+    padding: 0.65rem 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background-color: var(--code-bg);
+    color: var(--text);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.input-field:focus {
+    border-color: var(--accent);
+}
+
+.error-container {
+    background-color: rgba(248, 81, 73, 0.1);
+    border: 1px solid rgba(248, 81, 73, 0.4);
+    color: #f85149;
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: none;
+}
+
+.results-table-container {
+    overflow-x: auto;
+}
+
+.results-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    text-align: left;
+}
+
+.results-table th, .results-table td {
+    padding: 0.75rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.results-table th {
+    background-color: var(--code-bg);
+    color: var(--headings);
+    font-weight: 600;
+}
+
+.results-table tr:hover {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.badge-item {
+    display: inline-block;
+    background-color: var(--code-bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    margin: 2px;
+}
+
+.sidebar-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    align-self: start;
+}
+
+@media (min-width: 48em) {
+    .sidebar-card {
+        position: sticky;
+        top: 5rem;
+    }
+}
+
+.sidebar-card h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: var(--headings);
+    font-size: 1.1rem;
+}
+
+.english-translation {
+    font-size: 0.95rem;
+    color: var(--text);
+    line-height: 1.4;
+    background-color: var(--code-bg);
+    border-left: 3px solid var(--accent);
+    padding: 0.5rem 0.75rem;
+    border-radius: 0 6px 6px 0;
+}
+
+.schedule-runs-list {
+    margin: 0;
+    padding-left: 1.25rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-family: 'JetBrains Mono', monospace;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.btn-copy {
+    padding: 0.65rem 1rem;
+    background-color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 6px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: background-color 0.2s;
+    width: 100%;
+}
+
+.btn-copy:hover {
+    background-color: #2ea043;
+}
+
+.btn-copy:active {
+    transform: scale(0.98);
+}
+
+.btn-secondary {
+    background-color: var(--card-bg);
+    color: var(--text);
+    border-color: var(--border);
+}
+
+.btn-secondary:hover {
+    background-color: var(--border);
+}
+
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #2ea44f;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s, transform 0.3s;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+</style>
+
+<div class="tool-container">
+    <div class="parser-layout">
+        <!-- Main Controls Column -->
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+            <!-- Inputs -->
+            <div class="parser-card">
+                <h2>Cron Input</h2>
+                <div class="input-group">
+                    <label for="cron-line-input">Crontab Expression Line</label>
+                    <input type="text" id="cron-line-input" class="input-field" value="*/15 9-17 * * 1-5 /usr/bin/backup-script.sh" placeholder="e.g., 0 0 * * * /path/to/command.sh" />
+                </div>
+                <div id="parser-error" class="error-container"></div>
+            </div>
+
+            <!-- Parsed Fields Grid -->
+            <div class="parser-card" id="parser-results-card">
+                <h2>Field Expansion Breakdown</h2>
+                <div class="results-table-container">
+                    <table class="results-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 140px;">Field</th>
+                                <th style="width: 120px;">Raw Value</th>
+                                <th>Allowed Range</th>
+                                <th>Active Matched Values</th>
+                            </tr>
+                        </thead>
+                        <tbody id="parsed-fields-body">
+                            <!-- Populated via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar Output & Schedule Runs -->
+        <div class="sidebar-card">
+            <h3>Parser Diagnostics</h3>
+            
+            <div class="input-group">
+                <label>Plain English Schedule</label>
+                <div class="english-translation" id="cron-description">Every 15 minutes between 09:00 and 17:00 on weekdays</div>
+            </div>
+
+            <div class="input-group" id="extracted-command-group">
+                <label>Extracted Command</label>
+                <div class="english-translation" id="cron-command" style="border-left-color: var(--border); font-family: 'JetBrains Mono', monospace; font-size: 0.85rem;">/usr/bin/backup-script.sh</div>
+            </div>
+
+            <div class="input-group">
+                <label>Next 5 Execution Runs</label>
+                <ol class="schedule-runs-list" id="cron-runs-list">
+                    <!-- Populated via JS -->
+                </ol>
+            </div>
+
+            <button class="btn-copy" onclick="copyParsedJson()">
+                Copy Parsed JSON Summary
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="toast" id="copy-toast">Value copied!</div>
+
+<script>
+const MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const DAY_NAMES = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+document.addEventListener('DOMContentLoaded', function() {
+    const cronInput = document.getElementById('cron-line-input');
+    cronInput.addEventListener('input', parseCronLine);
+
+    // Initial parse
+    parseCronLine();
+});
+
+let lastParsedJSON = '';
+
+function parseCronLine() {
+    const rawVal = document.getElementById('cron-line-input').value.trim();
+    const errorContainer = document.getElementById('parser-error');
+    const resultsTable = document.getElementById('parsed-fields-body');
+    const resultsCard = document.getElementById('parser-results-card');
+    const descEl = document.getElementById('cron-description');
+    const cmdEl = document.getElementById('cron-command');
+    const cmdGroup = document.getElementById('extracted-command-group');
+    const runsList = document.getElementById('cron-runs-list');
+
+    errorContainer.style.display = 'none';
+    resultsCard.style.opacity = '1';
+
+    if (!rawVal) {
+        resultsCard.style.opacity = '0.5';
+        descEl.textContent = 'Please enter a cron expression.';
+        cmdGroup.style.display = 'none';
+        runsList.innerHTML = '';
+        return;
+    }
+
+    // Split parts, handles multiple spaces or tabs
+    const parts = rawVal.split(/\s+/);
+    if (parts.length < 5) {
+        errorContainer.textContent = 'Error: A valid crontab expression requires at least 5 parameter fields (Minutes, Hours, Day of Month, Months, Day of Week).';
+        errorContainer.style.display = 'block';
+        resultsCard.style.opacity = '0.5';
+        return;
+    }
+
+    const cronParts = parts.slice(0, 5);
+    const commandPart = parts.slice(5).join(' ');
+
+    if (commandPart) {
+        cmdGroup.style.display = 'block';
+        cmdEl.textContent = commandPart;
+    } else {
+        cmdGroup.style.display = 'none';
+    }
+
+    // Strict Field Validations
+    const validations = [
+        validateField(cronParts[0], 0, 59, 'Minute'),
+        validateField(cronParts[1], 0, 23, 'Hour'),
+        validateField(cronParts[2], 1, 31, 'Day of Month'),
+        validateField(cronParts[3], 1, 12, 'Month'),
+        validateField(cronParts[4], 0, 7, 'Day of Week') // 0 and 7 are both Sunday
+    ];
+
+    const failed = validations.find(v => !v.valid);
+    if (failed) {
+        errorContainer.textContent = `Syntax Error: ${failed.error}`;
+        errorContainer.style.display = 'block';
+        resultsCard.style.opacity = '0.5';
+        runsList.innerHTML = '';
+        return;
+    }
+
+    // Expand active values
+    const minutes = expandCronField(cronParts[0], 0, 59);
+    const hours = expandCronField(cronParts[1], 0, 23);
+    const doms = expandCronField(cronParts[2], 1, 31);
+    const months = expandCronField(cronParts[3], 1, 12);
+    const dows = expandCronField(cronParts[4], 0, 6); // Normalized to 0-6 internally
+
+    // Populate expanded lists
+    resultsTable.innerHTML = `
+        <tr>
+            <td><strong>Minutes</strong></td>
+            <td><code>${cronParts[0]}</code></td>
+            <td><code>0 - 59</code></td>
+            <td>${renderBadges(minutes, i => i.toString().padStart(2, '0'))}</td>
+        </tr>
+        <tr>
+            <td><strong>Hours</strong></td>
+            <td><code>${cronParts[1]}</code></td>
+            <td><code>0 - 23</code></td>
+            <td>${renderBadges(hours, i => i.toString().padStart(2, '0'))}</td>
+        </tr>
+        <tr>
+            <td><strong>Day of Month</strong></td>
+            <td><code>${cronParts[2]}</code></td>
+            <td><code>1 - 31</code></td>
+            <td>${renderBadges(doms, i => i.toString())}</td>
+        </tr>
+        <tr>
+            <td><strong>Months</strong></td>
+            <td><code>${cronParts[3]}</code></td>
+            <td><code>1 - 12</code></td>
+            <td>${renderBadges(months, i => MONTH_NAMES[i-1])}</td>
+        </tr>
+        <tr>
+            <td><strong>Day of Week</strong></td>
+            <td><code>${cronParts[4]}</code></td>
+            <td><code>0 - 6 (Sun-Sat)</code></td>
+            <td>${renderBadges(dows, i => DAY_NAMES[i])}</td>
+        </tr>
+    `;
+
+    // English Translation
+    const translation = translateCronToEnglish(cronParts);
+    descEl.textContent = translation;
+
+    // Next 5 scheduled runs
+    calculateRuns(minutes, hours, doms, months, dows);
+
+    // Prepare JSON copy summary
+    lastParsedJSON = JSON.stringify({
+        expression: cronParts.join(' '),
+        command: commandPart || null,
+        description: translation,
+        expanded: {
+            minutes,
+            hours,
+            daysOfMonth: doms,
+            months: months.map(m => MONTH_NAMES[m-1]),
+            daysOfWeek: dows.map(d => DAY_NAMES[d])
+        }
+    }, null, 2);
+}
+
+function renderBadges(values, formatter) {
+    if (values.length === 0) return '<span style="color: var(--text-secondary)">None</span>';
+    if (values.length >= 40) return `<span class="badge-item">All (${values.length} values)</span>`;
+    return values.map(v => `<span class="badge-item">${formatter(v)}</span>`).join('');
+}
+
+function validateField(field, min, max, name) {
+    if (field === '*') return { valid: true };
+    const parts = field.split(',');
+    for (let part of parts) {
+        if (part.includes('/')) {
+            const [range, stepStr] = part.split('/');
+            const step = parseInt(stepStr, 10);
+            if (isNaN(step) || step <= 0) {
+                return { valid: false, error: `Invalid step divisor "${stepStr}" in ${name} field.` };
+            }
+            if (range !== '*') {
+                const rVal = validateRange(range, min, max, name);
+                if (!rVal.valid) return rVal;
+            }
+        } else {
+            const rVal = validateRange(part, min, max, name);
+            if (!rVal.valid) return rVal;
+        }
+    }
+    return { valid: true };
+}
+
+function validateRange(part, min, max, name) {
+    if (part.includes('-')) {
+        const [startStr, endStr] = part.split('-');
+        const start = parseInt(startStr, 10);
+        const end = parseInt(endStr, 10);
+        if (isNaN(start) || isNaN(end) || start < min || end > max || start > end) {
+            return { valid: false, error: `Invalid range "${part}" in ${name} field. Value out of bounds (${min}-${max}).` };
+        }
+    } else {
+        const val = parseInt(part, 10);
+        if (isNaN(val) || val < min || val > max) {
+            return { valid: false, error: `Invalid value "${part}" in ${name} field. Value out of bounds (${min}-${max}).` };
+        }
+    }
+    return { valid: true };
+}
+
+function expandCronField(field, min, max) {
+    const values = new Set();
+    const parts = field.split(',');
+    for (let part of parts) {
+        if (part.includes('/')) {
+            const [range, stepStr] = part.split('/');
+            const step = parseInt(stepStr, 10);
+            let start = min, end = max;
+            if (range !== '*') {
+                if (range.includes('-')) {
+                    const [s, e] = range.split('-').map(Number);
+                    start = s; end = e;
+                } else {
+                    start = parseInt(range, 10);
+                }
+            }
+            for (let i = start; i <= end; i += step) {
+                if (i >= min && i <= max) values.add(normalizeVal(i, min, max));
+            }
+        } else if (part.includes('-')) {
+            const [start, end] = part.split('-').map(Number);
+            for (let i = start; i <= end; i++) {
+                if (i >= min && i <= max) values.add(normalizeVal(i, min, max));
+            }
+        } else {
+            const val = parseInt(part, 10);
+            if (!isNaN(val) && val >= min && val <= max) values.add(normalizeVal(val, min, max));
+        }
+    }
+    return Array.from(values).sort((a,b) => a-b);
+}
+
+function normalizeVal(val, min, max) {
+    // Normalizes Day of Week 7 to 0 (Sunday)
+    if (min === 0 && max === 7 && val === 7) return 0;
+    return val;
+}
+
+// Next execution runtimes calculator
+function calculateRuns(minSet, hourSet, domSet, monthSet, dowSet) {
+    const runsList = document.getElementById('cron-runs-list');
+    runsList.innerHTML = '';
+
+    const nextRuns = [];
+    let iterDate = new Date();
+    iterDate.setSeconds(0);
+    iterDate.setMilliseconds(0);
+    iterDate.setMinutes(iterDate.getMinutes() + 1);
+
+    let safetyCount = 0;
+    while (nextRuns.length < 5 && safetyCount < 600000) {
+        const min = iterDate.getMinutes();
+        const hour = iterDate.getHours();
+        const dom = iterDate.getDate();
+        const month = iterDate.getMonth() + 1;
+        const dow = iterDate.getDay();
+
+        const match = minSet.includes(min) &&
+                      hourSet.includes(hour) &&
+                      domSet.includes(dom) &&
+                      monthSet.includes(month) &&
+                      (dowSet.includes(dow) || (dowSet.includes(7) && dow === 0));
+
+        if (match) {
+            nextRuns.push(new Date(iterDate));
+        }
+
+        iterDate.setMinutes(iterDate.getMinutes() + 1);
+        safetyCount++;
+    }
+
+    if (nextRuns.length === 0) {
+        runsList.innerHTML = '<li>No upcoming execution runs found in the next 12 months.</li>';
+        return;
+    }
+
+    nextRuns.forEach(d => {
+        const li = document.createElement('li');
+        li.textContent = d.toLocaleString('en-US', {
+            weekday: 'short',
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+        runsList.appendChild(li);
+    });
+}
+
+function translateCronToEnglish(parts) {
+    const [m, h, dom, mon, dow] = parts;
+
+    if (m === '*' && h === '*' && dom === '*' && mon === '*' && dow === '*') {
+        return 'Every minute';
+    }
+
+    let minDesc = '', hourDesc = '', domDesc = '', monDesc = '', dowDesc = '';
+
+    // Translate minutes
+    if (m === '*') minDesc = 'every minute';
+    else if (m === '0') minDesc = 'at the start of the hour';
+    else if (m.includes('*/')) minDesc = `every ${m.split('/')[1]} minutes`;
+    else minDesc = `at minute ${m}`;
+
+    // Translate hours
+    if (h === '*') hourDesc = 'every hour';
+    else if (h.includes('*/')) hourDesc = `every ${h.split('/')[1]} hours`;
+    else {
+        const times = h.split(',').map(hour => `${hour.padStart(2, '0')}:00`);
+        hourDesc = `at ${times.join(', ')}`;
+    }
+
+    // Translate Day of Month
+    if (dom === '*') domDesc = '';
+    else if (dom.includes('*/')) domDesc = `on every ${dom.split('/')[1]}th day of month`;
+    else domDesc = `on day ${dom}`;
+
+    // Translate Months
+    if (mon === '*') monDesc = '';
+    else {
+        const months = mon.split(',').map(mo => {
+            if (mo.includes('-')) {
+                const [start, end] = mo.split('-').map(Number);
+                return `${MONTH_NAMES[start-1]} to ${MONTH_NAMES[end-1]}`;
+            }
+            return MONTH_NAMES[parseInt(mo, 10) - 1];
+        });
+        monDesc = `in ${months.join(', ')}`;
+    }
+
+    // Translate Day of Week
+    if (dow === '*') dowDesc = '';
+    else {
+        const days = dow.split(',').map(d => {
+            if (d.includes('-')) {
+                const [start, end] = d.split('-').map(Number);
+                return `${DAY_NAMES[start]} to ${DAY_NAMES[end]}`;
+            }
+            return DAY_NAMES[parseInt(d, 10)];
+        });
+        dowDesc = `on ${days.join(', ')}`;
+    }
+
+    // Combine nicely
+    let desc = '';
+    if (h !== '*' && m !== '*' && !m.includes('/') && !h.includes('/')) {
+        const formatTime = (hour, minute) => `${hour.padStart(2, '0')}:${minute.padStart(2, '0')}`;
+        desc = `At ${formatTime(h, m)}`;
+    } else {
+        desc = `During ${minDesc}, ${hourDesc}`;
+    }
+
+    if (domDesc) desc += ` ${domDesc}`;
+    if (dowDesc) desc += ` ${dowDesc}`;
+    if (monDesc) desc += ` ${monDesc}`;
+
+    return desc.trim().replace(/\s+/g, ' ');
+}
+
+// Copy parsed results as JSON summary
+function copyParsedJson() {
+    if (!lastParsedJSON) return;
+    navigator.clipboard.writeText(lastParsedJSON).then(() => {
+        showCopyToast();
+    });
+}
+
+function showCopyToast() {
+    const toast = document.getElementById('copy-toast');
+    toast.classList.add('show');
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 2000);
+}
+</script>
+
+
+
+    
+    <section class="seo-rich-content">
+      <hr class="seo-divider">
+
+      
+
+      
+      
+      <div class="seo-section seo-steps">
+        <h2>How to Use Cron Parser</h2>
+        <ol class="seo-steps-list">
+          
+            <li>
+              <h3>Input your data</h3>
+              <p>Paste, type, or upload your inputs into the input fields at the top of the page.</p>
+            </li>
+            <li>
+              <h3>Configure options</h3>
+              <p>Adjust any available options, dropdowns, checkboxes, or parameters to customize the output.</p>
+            </li>
+            <li>
+              <h3>Get instant results</h3>
+              <p>Our tool processes your input instantly completely offline. Copy the formatted results or download the generated output directly to your device.</p>
+            </li>
+          
+        </ol>
+      </div>
+
+      
+
+      <div class="seo-section seo-technical">
+        <h2>The Technical Details</h2>
+        <div class="seo-technical-content">
+          
+            <p>This interactive web utility is designed to provide quick, reliable, and completely private calculations and data transformations. Modern workflow requirements often call for quick format adjustments, conversions, or math estimations. By executing all logic directly in your browser using client-side JavaScript, this utility ensures that your sensitive inputs are never transmitted across the network, combining modern browser speed with absolute data confidentiality.</p>
+          
+        </div>
+      </div>
+
+      <div class="seo-section seo-faqs">
+        <h2>Frequently Asked Questions</h2>
+        <div class="seo-faq-accordion">
+          
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">Is my data safe and private when using Cron Parser?</summary>
+              <div class="seo-faq-answer">
+                <p>Yes. All operations, conversions, and computations on Cron Parser are performed entirely in your local web browser using client-side JavaScript. None of your data is sent to our servers, logged, or shared with third parties.</p>
+              </div>
+            </details>
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">How much does Cron Parser cost to use?</summary>
+              <div class="seo-faq-answer">
+                <p>This utility is 100% free to use. There are no limits on usage, no subscriptions, no premium paywalls, and no registration required.</p>
+              </div>
+            </details>
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">Can I use Cron Parser offline?</summary>
+              <div class="seo-faq-answer">
+                <p>Yes. Once this page is loaded in your browser, all core functionalities of Cron Parser are executed client-side. You can disconnect from the internet and continue using the utility without any active network connection.</p>
+              </div>
+            </details>
+          
+        </div>
+      </div>
+    </section>
+    
+
+    
+
+    
+    <section class="related-section">
+      <h3>
+        Recommended Developer Tools
+        
+      </h3>
+      <p>
+        Boost your productivity with our other free browser-based developer utilities:
+        
+      </p>
+      <div class="related-grid">
+        
+        
+        
+        
+        
+          
+          
+          
+            
+              
+              
+              
+              
+                
+                <div class="post-card">
+                  <div class="post-title"><a href="/tools/notepad/">Notepad</a></div>
+                  <p class="post-desc">Retro Windows-like Notepad application. Full-screen distraction-free text edi...</p>
+                </div>
+              
+            
+          
+            
+              
+              
+              
+              
+                
+                <div class="post-card">
+                  <div class="post-title"><a href="/tools/jwt-decoder/">JWT Decoder</a></div>
+                  <p class="post-desc">Decode JSON Web Tokens (JWT) in real-time, view headers and payloads, and for...</p>
+                </div>
+              
+            
+          
+            
+              
+              
+              
+              
+                
+                <div class="post-card">
+                  <div class="post-title"><a href="/tools/json-formatter/">JSON Formatter</a></div>
+                  <p class="post-desc">Format, validate, and beautify JSON data with syntax highlighting.</p>
+                </div>
+              
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+        
+      </div>
+    </section>
+    
+
+    
+
+    
+
+    
+  </main>
+
+  <footer class="site-footer-dark">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h3>Popular Tools</h3>
+      <ul>
+        <li><a href="/tools/json-formatter/">JSON Formatter</a></li>
+        <li><a href="/tools/qr-code-generator/">QR Code Generator</a></li>
+        <li><a href="/tools/base64-encoder-decoder/">Base64 Encoder/Decoder</a></li>
+        <li><a href="/tools/text-compare/">Text Compare</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Calculators & Finance</h3>
+      <ul>
+        <li><a href="/finance/currency-calculator/">Currency Calculator</a></li>
+        <li><a href="/finance/mortgage-calculator/">Mortgage Calculator</a></li>
+        <li><a href="/calculators/ip-subnet-calculator/">IP Subnet Calculator</a></li>
+        <li><a href="/calculators/time-zone-calculator/">Time Zone Calculator</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Quick References</h3>
+      <ul>
+        <li><a href="/cheatsheets/git-commands/">Git Cheatsheet</a></li>
+        <li><a href="/cheatsheets/docker-commands/">Docker Cheatsheet</a></li>
+        <li><a href="/cheatsheets/react-hooks/">React Hooks Cheatsheet</a></li>
+        <li><a href="/cheatsheets/javascript/">JavaScript Cheatsheet</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/shafqatalix" aria-label="LinkedIn">
+        <img src="/images/social-icons/linkedin.svg" alt="LinkedIn">
+      </a>
+      <a href="https://twitter.com/shafqatalix" aria-label="X/Twitter">
+        <img src="/images/social-icons/twitter.svg" alt="X/Twitter">
+      </a>
+      <a href="https://github.com/shafqatalix" aria-label="GitHub">
+        <img src="/images/social-icons/github.svg" alt="GitHub">
+      </a>
+    </div>
+    <div class="footer-copy">&copy; 2026 YORABA. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+
+</html>

@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>Testing React components using Jest | YORABA</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Testing React components using Jest" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A simple guide testing React components using Jest" />
+<meta name="twitter:description" property="og:description" content="A simple guide testing React components using Jest" />
+<link rel="canonical" href="https://yoraba.com/blogs/testing-react-components-jest/" />
+<meta property="og:url" content="https://yoraba.com/blogs/testing-react-components-jest/" />
+<meta property="og:site_name" content="YORABA" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-12-22T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-12-22T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Testing React components using Jest" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-12-22T00:00:00+00:00","datePublished":"2022-12-22T00:00:00+00:00","description":"A simple guide testing React components using Jest","headline":"Testing React components using Jest","mainEntityOfPage":{"@type":"WebPage","@id":"https://yoraba.com/blogs/testing-react-components-jest/"},"url":"https://yoraba.com/blogs/testing-react-components-jest/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1117">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <script>
+(function() {
+  var saved = localStorage.getItem('theme');
+  var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  document.documentElement.dataset.theme = theme;
+  window.toggleTheme = function() {
+    var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem('theme', next);
+    var frame = document.querySelector('.utterances-frame');
+    if (frame) {
+      frame.contentWindow.postMessage(
+        { type: 'set-theme', theme: next === 'dark' ? 'github-dark' : 'github-light' },
+        'https://utteranc.es'
+      );
+    }
+  };
+})();
+</script>
+
+  <link rel="stylesheet" href="/assets/css/style.css?v=">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+ 
+  <!-- Google tag (gtag.js) -->
+<script async crossorigin="anonymous" src="https://www.googletagmanager.com/gtag/js?id=G-T8BWX5RG3W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T8BWX5RG3W');
+</script>
+
+
+
+<!-- PWA Manifest -->
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register("/sw.js")
+        .then(registration => {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        })
+        .catch(err => {
+          console.error('ServiceWorker registration failed: ', err);
+        });
+    });
+  }
+</script>
+
+<!-- You can set your favicon here -->
+<link rel="shortcut icon" type="image/svg+xml" href="/images/logo.svg">
+
+<!-- end custom head snippets -->
+
+  
+  
+  
+
+  
+  
+  
+</head>
+
+<body>
+  <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+  <nav class="site-nav">
+  <a class="nav-logo" href="/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+    </svg>
+    YORABA
+  </a>
+  <div class="nav-links" id="nav-links">
+    <a href="/tools">Tools</a>
+    <a href="/finance">Finance</a>
+    <a href="/multimedia">Multimedia</a>
+    <a href="/calculators">Calculators</a>
+    <a href="/cheatsheets">Cheatsheets</a>
+    <a href="/posts">Blogs</a>
+    <a href="/author">Author</a>
+    <a href="/about">About</a>
+  </div>
+  <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </button>
+  <button class="nav-toggle" aria-label="Toggle Menu"
+    onclick="document.getElementById('nav-links').classList.toggle('active')">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
+</nav>
+
+  <header class="page-header" role="banner">
+    <h1 class="project-name">Testing React components using Jest</h1>
+    <h2 class="project-tagline">A simple guide testing React components using Jest</h2>
+  </header>
+
+  <main id="content" class="main-content" role="main">
+    
+    
+
+    
+    <nav class="breadcrumbs" aria-label="Breadcrumb" style="font-size: 0.85rem; margin-bottom: 1.5rem; color: var(--text-secondary); display: flex; align-items: center; flex-wrap: wrap; gap: 0.25rem;">
+      <a href="/" style="text-decoration: none; color: var(--link);">Home</a>
+      <span style="color: var(--border);">&rarr;</span>
+      
+      
+        <a href="/posts/" style="text-decoration: none; color: var(--link);">Blog</a>
+      
+      
+      
+      
+      <span style="color: var(--border);">&rarr;</span>
+      <span style="color: var(--text-secondary);">Testing React components using Jest</span>
+    </nav>
+    
+
+    
+    <div class="blog-date">22 December 2022</div>
+    
+
+    
+
+    
+    
+
+    
+
+    <p>Testing is a crucial part of the software development process, as it helps ensure that code is working correctly and meets the requirements of the project. <a href="https://jestjs.io/">Jest</a> is a popular JavaScript testing framework that makes it easy to test JavaScript code in a variety of environments. In this article, we’ll explore how to use Jest to test your code and improve the reliability and quality of your software.</p>
+
+<p>To get started with Jest, you’ll need to install it using npm or yarn:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># npm</span>
+npm <span class="nb">install</span> <span class="nt">--save-dev</span> jest enzyme
+
+<span class="c"># yarn</span>
+yarn add <span class="nt">--dev</span> jest enzyme
+
+</code></pre></div></div>
+
+<p>Once Jest is installed, you’ll need to configure it to run your tests. You can do this by adding a jest field to your package.json file:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"jest"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"testEnvironment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsdom"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>This configuration tells Jest to use the <strong>jsdom</strong> test environment, which allows you to run your tests in a simulated browser environment.</p>
+
+<p>In order to run jest from command line you need to add this to your package.json:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="nl">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"test"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jest"</span><span class="w">
+  </span><span class="p">}</span><span class="err">,</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Now if you run jest tests with this command:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn <span class="nb">test</span>
+</code></pre></div></div>
+
+<h2 id="testing-plain-javascript-code">Testing Plain JavaScript code</h2>
+
+<p>With Jest installed and configured, you’re ready to start writing tests. Jest uses a syntax similar to describe and it from the Mocha testing framework. Here’s an example of a simple test using Jest:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">describe</span><span class="p">(</span><span class="dl">"</span><span class="s2">my test suite</span><span class="dl">"</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nf">it</span><span class="p">(</span><span class="dl">"</span><span class="s2">passes this test</span><span class="dl">"</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nf">expect</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">).</span><span class="nf">toBe</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nf">it</span><span class="p">(</span><span class="dl">"</span><span class="s2">fails this test</span><span class="dl">"</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nf">expect</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">).</span><span class="nf">toBe</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>In this example, we have a test suite called “my test suite” with two tests inside of it. The first test passes, as it correctly expects that 1 + 1 is equal to 2. The second test fails, as it expects that 1 + 1 is equal to 3.</p>
+
+<p>Jest also provides a number of utility functions that you can use to structure your tests and make them easier to read and maintain. For example, you can use beforeEach and afterEach to run code before and after each test in a suite:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">describe</span><span class="p">(</span><span class="dl">"</span><span class="s2">my test suite</span><span class="dl">"</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">foo</span><span class="p">;</span>
+
+  <span class="nf">beforeEach</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">foo</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">bar</span><span class="dl">"</span><span class="p">;</span>
+  <span class="p">});</span>
+
+  <span class="nf">it</span><span class="p">(</span><span class="dl">"</span><span class="s2">has the correct value for foo</span><span class="dl">"</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nf">expect</span><span class="p">(</span><span class="nx">foo</span><span class="p">).</span><span class="nf">toBe</span><span class="p">(</span><span class="dl">"</span><span class="s2">bar</span><span class="dl">"</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nf">it</span><span class="p">(</span><span class="dl">"</span><span class="s2">can change the value of foo</span><span class="dl">"</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">foo</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">baz</span><span class="dl">"</span><span class="p">;</span>
+    <span class="nf">expect</span><span class="p">(</span><span class="nx">foo</span><span class="p">).</span><span class="nf">toBe</span><span class="p">(</span><span class="dl">"</span><span class="s2">baz</span><span class="dl">"</span><span class="p">);</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>In this example, the value of foo is set to <strong>‘bar’</strong> before each test is run. This means that both tests have access to the same initial state, and you don’t have to repeat the same setup code in each test.</p>
+
+<p>Jest also provides a number of matchers that you can use to make your tests more expressive and easier to read. For example, you can use the toBe matcher to check that two values are strictly equal:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">it</span><span class="p">(</span><span class="dl">"</span><span class="s2">checks for strict equality</span><span class="dl">"</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nf">expect</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="nf">toBe</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+  <span class="nf">expect</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="nx">not</span><span class="p">.</span><span class="nf">toBe</span><span class="p">(</span><span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>In this example, the first test passes because the value of 1 is strictly equal to the value of 1. The second test passes because the value of 1 is not strictly equal to the string ‘1’. There are many other matchers available in Jest, including <strong>toEqual</strong>, <strong>toBeNull</strong>, <strong>toBeUndefined</strong>, and many others.</p>
+
+<h2 id="testing-react-components">Testing React Components</h2>
+
+<p>Unit testing React components with Jest is a straightforward process. First, you’ll need to make sure that you have Jest installed and configured in your project, i.e. above tests work.</p>
+
+<p>To test a React component with Jest, you’ll need to import the component and render it using the ReactDOM.render function. You can then use Jest’s expect function to make assertions about the component’s output. Here’s an example of a simple test for a React component:</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">ReactDOM</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react-dom</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">MyComponent</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./MyComponent</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="nf">it</span><span class="p">(</span><span class="dl">"</span><span class="s2">renders without crashing</span><span class="dl">"</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">div</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">createElement</span><span class="p">(</span><span class="dl">"</span><span class="s2">div</span><span class="dl">"</span><span class="p">);</span>
+  <span class="nx">ReactDOM</span><span class="p">.</span><span class="nf">render</span><span class="p">(&lt;</span><span class="nc">MyComponent</span> <span class="p">/&gt;,</span> <span class="nx">div</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>In this example, we’re importing the <strong>MyComponent</strong> component and rendering it to a DOM element using <strong>ReactDOM.render</strong>. We’re then using Jest’s <strong>expect</strong> function to check that the component renders without crashing.</p>
+
+<h3 id="snapshot-testing">Snapshot testing</h3>
+
+<p>You can also use Jest’s snapshot testing feature to test the output of your React components. Snapshot testing allows you to take a “snapshot” of the component’s output and compare it to the snapshot in future test runs. If the output changes, the snapshot will fail, alerting you to the change. Here’s an example of how to use snapshot testing with a React component:</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">MyComponent</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./MyComponent</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">renderer</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react-test-renderer</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="nf">it</span><span class="p">(</span><span class="dl">"</span><span class="s2">renders correctly</span><span class="dl">"</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">tree</span> <span class="o">=</span> <span class="nx">renderer</span><span class="p">.</span><span class="nf">create</span><span class="p">(&lt;</span><span class="nc">MyComponent</span> <span class="p">/&gt;).</span><span class="nf">toJSON</span><span class="p">();</span>
+  <span class="nf">expect</span><span class="p">(</span><span class="nx">tree</span><span class="p">).</span><span class="nf">toMatchSnapshot</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>In this example, we’re using the <a href="https://reactjs.org/docs/test-renderer.html">react-test-renderer</a> library to render the <strong>MyComponent</strong> component to a JSON tree. We then use Jest’s <strong>toMatchSnapshot</strong> function to compare the tree to the snapshot stored in the <strong>snapshots</strong> directory.</p>
+
+<h3 id="testing-function-invokes">Testing function invokes</h3>
+
+<p>You can use Jest’s <strong>mock</strong> function to create mock functions and modules for testing. This is useful when you want to test a component that depends on external APIs or other untestable code. Here’s an example of how to use Jest mocks in a React component test:</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">MyComponent</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./MyComponent</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">api</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./api</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="nx">jest</span><span class="p">.</span><span class="nf">mock</span><span class="p">(</span><span class="dl">"</span><span class="s2">./api</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="nf">it</span><span class="p">(</span><span class="dl">"</span><span class="s2">calls the API when mounted</span><span class="dl">"</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">spy</span> <span class="o">=</span> <span class="nx">jest</span><span class="p">.</span><span class="nf">spyOn</span><span class="p">(</span><span class="nx">api</span><span class="p">,</span> <span class="dl">"</span><span class="s2">getData</span><span class="dl">"</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">wrapper</span> <span class="o">=</span> <span class="nf">mount</span><span class="p">(&lt;</span><span class="nc">MyComponent</span> <span class="p">/&gt;);</span>
+  <span class="nf">expect</span><span class="p">(</span><span class="nx">spy</span><span class="p">).</span><span class="nf">toHaveBeenCalled</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>In this example, we’re using Jest’s <strong>mock</strong> function to mock the api.</p>
+
+<h3 id="testing-events">Testing events</h3>
+
+<p>To test a click event handler in a React component using Jest, you can use the simulate method provided by the react-test-renderer library. This method allows you to simulate a DOM event and make assertions about the component’s behavior as a result.</p>
+
+<p>Here’s an example of how you might test a click event handler in a React component:</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">shallow</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">enzyme</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">MyComponent</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./MyComponent</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="nf">it</span><span class="p">(</span><span class="dl">"</span><span class="s2">calls the click event handler when the button is clicked</span><span class="dl">"</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">mockClickHandler</span> <span class="o">=</span> <span class="nx">jest</span><span class="p">.</span><span class="nf">fn</span><span class="p">();</span>
+  <span class="kd">const</span> <span class="nx">wrapper</span> <span class="o">=</span> <span class="nf">shallow</span><span class="p">(&lt;</span><span class="nc">MyComponent</span> <span class="na">onClick</span><span class="p">=</span><span class="si">{</span><span class="nx">mockClickHandler</span><span class="si">}</span> <span class="p">/&gt;);</span>
+  <span class="nx">wrapper</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="dl">"</span><span class="s2">button</span><span class="dl">"</span><span class="p">).</span><span class="nf">simulate</span><span class="p">(</span><span class="dl">"</span><span class="s2">click</span><span class="dl">"</span><span class="p">);</span>
+  <span class="nf">expect</span><span class="p">(</span><span class="nx">mockClickHandler</span><span class="p">).</span><span class="nf">toHaveBeenCalled</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>In this example, we’re using the <strong>shallow</strong> method from the <strong>enzyme</strong> library to render a shallow version of the <strong>MyComponent</strong> component. We’re then using the simulate method to <strong>simulate</strong> a click event on the <strong>button</strong> element inside the component. Finally, we’re using Jest’s <strong>toHaveBeenCalled</strong> function to make an assertion that the mock click handler function was called when the button was clicked.</p>
+
+<p>You can also use the <strong>simulate</strong> method to test other DOM events, such as <strong>focus</strong>, <strong>blur</strong>, <strong>submit</strong>, and many others. For example, you could test a <strong>submit</strong> event handler like this:</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">shallow</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">enzyme</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">MyComponent</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./MyComponent</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="nf">it</span><span class="p">(</span><span class="dl">"</span><span class="s2">calls the submit event handler when the form is submitted</span><span class="dl">"</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">mockSubmitHandler</span> <span class="o">=</span> <span class="nx">jest</span><span class="p">.</span><span class="nf">fn</span><span class="p">();</span>
+  <span class="kd">const</span> <span class="nx">wrapper</span> <span class="o">=</span> <span class="nf">shallow</span><span class="p">(&lt;</span><span class="nc">MyComponent</span> <span class="na">onSubmit</span><span class="p">=</span><span class="si">{</span><span class="nx">mockSubmitHandler</span><span class="si">}</span> <span class="p">/&gt;);</span>
+  <span class="nx">wrapper</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="dl">"</span><span class="s2">form</span><span class="dl">"</span><span class="p">).</span><span class="nf">simulate</span><span class="p">(</span><span class="dl">"</span><span class="s2">submit</span><span class="dl">"</span><span class="p">);</span>
+  <span class="nf">expect</span><span class="p">(</span><span class="nx">mockSubmitHandler</span><span class="p">).</span><span class="nf">toHaveBeenCalled</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>In this example, we’re simulating a submit event on the form element inside the component and making an assertion that the mock submit handler function was called.</p>
+
+<h3 id="helpful-resources">Helpful resources</h3>
+
+<ul>
+  <li><a href="https://jestjs.io/docs/tutorial-react">Testing React Apps</a></li>
+</ul>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <section class="related-section">
+      <h3>Recommended Blog Posts</h3>
+      <p>Read our other technical articles and step-by-step guides:</p>
+      <div class="related-grid">
+        
+        
+        
+          
+            
+            <div class="post-card">
+              <div class="post-title"><a href="/blogs/count-sort/">Count Sort algorithm</a></div>
+              <p class="post-desc">Count sort algorithm simplified</p>
+            </div>
+          
+        
+          
+            
+            <div class="post-card">
+              <div class="post-title"><a href="/blogs/beginners-guide-node-express-react/">Beginners guide to NodeJS, Express and React</a></div>
+              <p class="post-desc">Getting started with NodeJS, Express and React</p>
+            </div>
+          
+        
+          
+        
+          
+            
+            <div class="post-card">
+              <div class="post-title"><a href="/blogs/react-hooks-simplified/">React Hooks Simplified</a></div>
+              <p class="post-desc">A simple guide to React Hooks</p>
+            </div>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </section>
+    
+
+    
+    <footer class="site-footer">
+      <div id="utterances-container"></div>
+      <script>
+        (function() {
+          var theme = document.documentElement.dataset.theme === 'light' ? 'github-light' : 'github-dark';
+          var s = document.createElement('script');
+          s.src = 'https://utteranc.es/client.js';
+          s.setAttribute('repo', 'shafqatalix/comments.yoraba.com');
+          s.setAttribute('issue-term', 'pathname');
+          s.setAttribute('theme', theme);
+          s.setAttribute('crossorigin', 'anonymous');
+          s.async = true;
+          document.getElementById('utterances-container').appendChild(s);
+        })();
+      </script>
+    </footer>
+    
+  </main>
+
+  <footer class="site-footer-dark">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h3>Popular Tools</h3>
+      <ul>
+        <li><a href="/tools/json-formatter/">JSON Formatter</a></li>
+        <li><a href="/tools/qr-code-generator/">QR Code Generator</a></li>
+        <li><a href="/tools/base64-encoder-decoder/">Base64 Encoder/Decoder</a></li>
+        <li><a href="/tools/text-compare/">Text Compare</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Calculators & Finance</h3>
+      <ul>
+        <li><a href="/finance/currency-calculator/">Currency Calculator</a></li>
+        <li><a href="/finance/mortgage-calculator/">Mortgage Calculator</a></li>
+        <li><a href="/calculators/ip-subnet-calculator/">IP Subnet Calculator</a></li>
+        <li><a href="/calculators/time-zone-calculator/">Time Zone Calculator</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Quick References</h3>
+      <ul>
+        <li><a href="/cheatsheets/git-commands/">Git Cheatsheet</a></li>
+        <li><a href="/cheatsheets/docker-commands/">Docker Cheatsheet</a></li>
+        <li><a href="/cheatsheets/react-hooks/">React Hooks Cheatsheet</a></li>
+        <li><a href="/cheatsheets/javascript/">JavaScript Cheatsheet</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/shafqatalix" aria-label="LinkedIn">
+        <img src="/images/social-icons/linkedin.svg" alt="LinkedIn">
+      </a>
+      <a href="https://twitter.com/shafqatalix" aria-label="X/Twitter">
+        <img src="/images/social-icons/twitter.svg" alt="X/Twitter">
+      </a>
+      <a href="https://github.com/shafqatalix" aria-label="GitHub">
+        <img src="/images/social-icons/github.svg" alt="GitHub">
+      </a>
+    </div>
+    <div class="footer-copy">&copy; 2026 YORABA. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+
+</html>

@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>Cheatsheets | YORABA</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Cheatsheets" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Quick reference guides for developers." />
+<meta name="twitter:description" property="og:description" content="Quick reference guides for developers." />
+<link rel="canonical" href="https://yoraba.com/cheatsheets/" />
+<meta property="og:url" content="https://yoraba.com/cheatsheets/" />
+<meta property="og:site_name" content="YORABA" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Cheatsheets" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Quick reference guides for developers.","headline":"Cheatsheets","url":"https://yoraba.com/cheatsheets/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1117">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <script>
+(function() {
+  var saved = localStorage.getItem('theme');
+  var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  document.documentElement.dataset.theme = theme;
+  window.toggleTheme = function() {
+    var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem('theme', next);
+    var frame = document.querySelector('.utterances-frame');
+    if (frame) {
+      frame.contentWindow.postMessage(
+        { type: 'set-theme', theme: next === 'dark' ? 'github-dark' : 'github-light' },
+        'https://utteranc.es'
+      );
+    }
+  };
+})();
+</script>
+
+  <link rel="stylesheet" href="/assets/css/style.css?v=">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+ 
+  <!-- Google tag (gtag.js) -->
+<script async crossorigin="anonymous" src="https://www.googletagmanager.com/gtag/js?id=G-T8BWX5RG3W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T8BWX5RG3W');
+</script>
+
+
+
+<!-- PWA Manifest -->
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register("/sw.js")
+        .then(registration => {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        })
+        .catch(err => {
+          console.error('ServiceWorker registration failed: ', err);
+        });
+    });
+  }
+</script>
+
+<!-- You can set your favicon here -->
+<link rel="shortcut icon" type="image/svg+xml" href="/images/logo.svg">
+
+<!-- end custom head snippets -->
+
+</head>
+
+<body>
+  <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+  <nav class="site-nav">
+  <a class="nav-logo" href="/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+    </svg>
+    YORABA
+  </a>
+  <div class="nav-links" id="nav-links">
+    <a href="/tools">Tools</a>
+    <a href="/finance">Finance</a>
+    <a href="/multimedia">Multimedia</a>
+    <a href="/calculators">Calculators</a>
+    <a href="/cheatsheets">Cheatsheets</a>
+    <a href="/posts">Blogs</a>
+    <a href="/author">Author</a>
+    <a href="/about">About</a>
+  </div>
+  <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </button>
+  <button class="nav-toggle" aria-label="Toggle Menu"
+    onclick="document.getElementById('nav-links').classList.toggle('active')">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
+</nav>
+
+  <header class="page-header" role="banner">
+    <h1 class="project-name">YORABA</h1>
+    <h2 class="project-tagline">Your Software Engineering Hub</h2>
+  </header>
+
+  
+
+  <main id="content" class="main-content" role="main">
+    <h2 id="cheatsheets">Cheatsheets</h2>
+
+<p><input type="text" id="cheatsheet-search" class="search-input" placeholder="Search cheatsheets..." aria-label="Search cheatsheets" /></p>
+
+<ul class="collection-list" id="cheatsheets-list">
+
+
+  <li class="cheatsheet-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/cheatsheets/javascript/">JavaScript</a></div>
+      <p class="post-desc">Quick reference guide for modern JavaScript (ES6+), async patterns, DOM manipulation, and essential web APIs.</p>
+    </div>
+  </li>
+
+  <li class="cheatsheet-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/cheatsheets/typescript/">TypeScript</a></div>
+      <p class="post-desc">Quick reference guide for modern TypeScript (TS 5.x), covering types, interfaces, classes, generics, utility types, and advanced type patterns.</p>
+    </div>
+  </li>
+
+  <li class="cheatsheet-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/cheatsheets/python/">Python</a></div>
+      <p class="post-desc">Quick reference guide for modern Python (3.10+), covering core syntax, data structures, OOP, file handling, and idiomatic Pythonic patterns.</p>
+    </div>
+  </li>
+
+  <li class="cheatsheet-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/cheatsheets/javascript-array-methods/">JavaScript Array Methods</a></div>
+      <p class="post-desc">Quick reference for JavaScript array methods.</p>
+    </div>
+  </li>
+
+  <li class="cheatsheet-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/cheatsheets/git-commands/">Git Commands</a></div>
+      <p class="post-desc">Comprehensive reference for Git basic commands, branching, merging, rebasing, stashing, cherry-picking, resets, reflog recovery, and GitHub Flow.</p>
+    </div>
+  </li>
+
+  <li class="cheatsheet-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/cheatsheets/docker-commands/">Docker &amp; DevOps</a></div>
+      <p class="post-desc">Comprehensive reference for Docker, Docker Compose, Kubernetes kubectl, Helm, Terraform, GitHub Actions, and CI/CD basics.</p>
+    </div>
+  </li>
+
+  <li class="cheatsheet-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/cheatsheets/linux/">Linux</a></div>
+      <p class="post-desc">Comprehensive reference for Linux file commands, process management, networking, permissions, grep, sed, awk, find, tar, curl, and wget.</p>
+    </div>
+  </li>
+
+  <li class="cheatsheet-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/cheatsheets/rust/">Rust</a></div>
+      <p class="post-desc">Comprehensive reference for Rust syntax, ownership, borrowing, structs, enums, error handling, traits, smart pointers, and Cargo.</p>
+    </div>
+  </li>
+
+  <li class="cheatsheet-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/cheatsheets/go/">Go</a></div>
+      <p class="post-desc">Comprehensive reference for Go (Golang) variables, slices, maps, pointers, structs, interfaces, concurrency (Goroutines/Channels), error handling, and CLI.</p>
+    </div>
+  </li>
+
+  <li class="cheatsheet-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/cheatsheets/markdown/">Markdown</a></div>
+      <p class="post-desc">Comprehensive reference for Markdown basic syntax, tables, task lists, syntax-highlighted code blocks, and GitHub Flavored Markdown (GFM).</p>
+    </div>
+  </li>
+
+  <li class="cheatsheet-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/cheatsheets/react-hooks/">React Hooks</a></div>
+      <p class="post-desc">Comprehensive reference for React Hooks (v18+), including useState, useEffect, useContext, useRef, useMemo, useCallback, useReducer, and custom hooks.</p>
+    </div>
+  </li>
+
+  <li class="cheatsheet-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/cheatsheets/css-flexbox/">CSS Flexbox</a></div>
+      <p class="post-desc">Comprehensive reference for CSS Flexible Box Layout (Flexbox), covering flex container properties, flex item properties, and common layout patterns.</p>
+    </div>
+  </li>
+
+  <li class="cheatsheet-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/cheatsheets/css-grid/">CSS Grid</a></div>
+      <p class="post-desc">Comprehensive reference for CSS Grid Layout, covering grid container properties, grid item placement, and responsive layout patterns.</p>
+    </div>
+  </li>
+
+  <li class="cheatsheet-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/cheatsheets/html-tags/">HTML Tags</a></div>
+      <p class="post-desc">Comprehensive reference for HTML5 tags, structural layout, forms, media embeds, tables, and global attributes.</p>
+    </div>
+  </li>
+
+  <li class="cheatsheet-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/cheatsheets/http-status-codes/">HTTP Status Codes</a></div>
+      <p class="post-desc">Comprehensive reference for HTTP response status codes, categorized by 1xx, 2xx, 3xx, 4xx, and 5xx classes.</p>
+    </div>
+  </li>
+
+  <li class="cheatsheet-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/cheatsheets/regex-patterns/">Regex Patterns</a></div>
+      <p class="post-desc">Comprehensive reference for regular expressions (Regex), covering character classes, anchors, quantifiers, lookarounds, flags, and common pattern examples.</p>
+    </div>
+  </li>
+
+  <li class="cheatsheet-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/cheatsheets/sql-commands/">SQL Commands</a></div>
+      <p class="post-desc">Comprehensive reference for SQL queries (DQL), manipulations (DML), definitions (DDL), JOINs, aggregations, transactions, and indexing.</p>
+    </div>
+  </li>
+
+  <li class="cheatsheet-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/cheatsheets/windows-shortcuts/">Windows Shortcuts</a></div>
+      <p class="post-desc">Comprehensive reference for essential Windows keyboard shortcuts, desktop navigation, window snapping, virtual desktops, and File Explorer.</p>
+    </div>
+  </li>
+
+  <li class="cheatsheet-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/cheatsheets/macos-shortcuts/">macOS Shortcuts</a></div>
+      <p class="post-desc">Comprehensive reference for essential macOS keyboard shortcuts, Spotlight, Mission Control, Finder navigation, and keyboard symbols.</p>
+    </div>
+  </li>
+
+  <li class="cheatsheet-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/cheatsheets/browser-shortcuts/">Browser Shortcuts</a></div>
+      <p class="post-desc">Comprehensive reference for essential web browser keyboard shortcuts, covering tab management, navigation, address bar features, zoom, and developer tools across Chrome, Safari, Edge, and Firefox.</p>
+    </div>
+  </li>
+
+  <li class="cheatsheet-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/cheatsheets/kubernetes/">Kubernetes</a></div>
+      <p class="post-desc">Comprehensive reference for Kubernetes kubectl commands, covering context management, namespace operations, pods, deployments, services, secrets, debugging, scaling, and cluster administration.</p>
+    </div>
+  </li>
+
+</ul>
+
+<p class="no-results" id="no-results">No cheatsheets found matching your search.</p>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var searchInput = document.getElementById('cheatsheet-search');
+  var sheetsList = document.getElementById('cheatsheets-list');
+  var sheetItems = sheetsList.querySelectorAll('.cheatsheet-item');
+  var noResults = document.getElementById('no-results');
+
+  searchInput.addEventListener('input', function(e) {
+    var query = e.target.value.toLowerCase();
+    var visibleCount = 0;
+
+    sheetItems.forEach(function(item) {
+      var title = item.querySelector('.post-title').textContent.toLowerCase();
+      var desc = item.querySelector('.post-desc') ? item.querySelector('.post-desc').textContent.toLowerCase() : '';
+
+      if (title.includes(query) || desc.includes(query)) {
+        item.style.display = '';
+        visibleCount++;
+      } else {
+        item.style.display = 'none';
+      }
+    });
+
+    noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+  });
+});
+</script>
+
+
+  </main>
+  
+
+  <footer class="site-footer-dark">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h3>Popular Tools</h3>
+      <ul>
+        <li><a href="/tools/json-formatter/">JSON Formatter</a></li>
+        <li><a href="/tools/qr-code-generator/">QR Code Generator</a></li>
+        <li><a href="/tools/base64-encoder-decoder/">Base64 Encoder/Decoder</a></li>
+        <li><a href="/tools/text-compare/">Text Compare</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Calculators & Finance</h3>
+      <ul>
+        <li><a href="/finance/currency-calculator/">Currency Calculator</a></li>
+        <li><a href="/finance/mortgage-calculator/">Mortgage Calculator</a></li>
+        <li><a href="/calculators/ip-subnet-calculator/">IP Subnet Calculator</a></li>
+        <li><a href="/calculators/time-zone-calculator/">Time Zone Calculator</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Quick References</h3>
+      <ul>
+        <li><a href="/cheatsheets/git-commands/">Git Cheatsheet</a></li>
+        <li><a href="/cheatsheets/docker-commands/">Docker Cheatsheet</a></li>
+        <li><a href="/cheatsheets/react-hooks/">React Hooks Cheatsheet</a></li>
+        <li><a href="/cheatsheets/javascript/">JavaScript Cheatsheet</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/shafqatalix" aria-label="LinkedIn">
+        <img src="/images/social-icons/linkedin.svg" alt="LinkedIn">
+      </a>
+      <a href="https://twitter.com/shafqatalix" aria-label="X/Twitter">
+        <img src="/images/social-icons/twitter.svg" alt="X/Twitter">
+      </a>
+      <a href="https://github.com/shafqatalix" aria-label="GitHub">
+        <img src="/images/social-icons/github.svg" alt="GitHub">
+      </a>
+    </div>
+    <div class="footer-copy">&copy; 2026 YORABA. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+
+</html>

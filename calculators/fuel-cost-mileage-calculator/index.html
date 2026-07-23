@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>Fuel Cost / Mileage Calculator | YORABA</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Fuel Cost / Mileage Calculator" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Calculate your estimated fuel cost for a road trip, split expenses among passengers, and find out how much gas you need." />
+<meta name="twitter:description" property="og:description" content="Calculate your estimated fuel cost for a road trip, split expenses among passengers, and find out how much gas you need." />
+<link rel="canonical" href="https://yoraba.com/calculators/fuel-cost-mileage-calculator/" />
+<meta property="og:url" content="https://yoraba.com/calculators/fuel-cost-mileage-calculator/" />
+<meta property="og:site_name" content="YORABA" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-07-23T14:08:42+00:00" />
+<meta property="article:modified_time" content="2026-07-23T14:08:42+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Fuel Cost / Mileage Calculator" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-07-23T14:08:42+00:00","datePublished":"2026-07-23T14:08:42+00:00","description":"Calculate your estimated fuel cost for a road trip, split expenses among passengers, and find out how much gas you need.","headline":"Fuel Cost / Mileage Calculator","mainEntityOfPage":{"@type":"WebPage","@id":"https://yoraba.com/calculators/fuel-cost-mileage-calculator/"},"url":"https://yoraba.com/calculators/fuel-cost-mileage-calculator/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1117">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <script>
+(function() {
+  var saved = localStorage.getItem('theme');
+  var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  document.documentElement.dataset.theme = theme;
+  window.toggleTheme = function() {
+    var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem('theme', next);
+    var frame = document.querySelector('.utterances-frame');
+    if (frame) {
+      frame.contentWindow.postMessage(
+        { type: 'set-theme', theme: next === 'dark' ? 'github-dark' : 'github-light' },
+        'https://utteranc.es'
+      );
+    }
+  };
+})();
+</script>
+
+  <link rel="stylesheet" href="/assets/css/style.css?v=">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+ 
+  <!-- Google tag (gtag.js) -->
+<script async crossorigin="anonymous" src="https://www.googletagmanager.com/gtag/js?id=G-T8BWX5RG3W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T8BWX5RG3W');
+</script>
+
+
+
+<!-- PWA Manifest -->
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register("/sw.js")
+        .then(registration => {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        })
+        .catch(err => {
+          console.error('ServiceWorker registration failed: ', err);
+        });
+    });
+  }
+</script>
+
+<!-- You can set your favicon here -->
+<link rel="shortcut icon" type="image/svg+xml" href="/images/logo.svg">
+
+<!-- end custom head snippets -->
+
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Yoraba Fuel Cost / Mileage Calculator",
+    "operatingSystem": "All",
+    "applicationCategory": "DeveloperApplication",
+    "browserRequirements": "Requires JavaScript. Requires HTML5.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Calculate your estimated fuel cost for a road trip, split expenses among passengers, and find out how much gas you need.",
+    "author": {
+      "@type": "Person",
+      "name": "Shafqat Ali",
+      "url": "https://yoraba.com/about/"
+    },
+    "dateModified": "2026-07-23"
+  }
+  </script>
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is my data safe and private when using Fuel Cost / Mileage Calculator?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. All operations, conversions, and computations on Fuel Cost / Mileage Calculator are performed entirely in your local web browser using client-side JavaScript. None of your data is sent to our servers, logged, or shared with third parties."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does Fuel Cost / Mileage Calculator cost to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "This utility is 100% free to use. There are no limits on usage, no subscriptions, no premium paywalls, and no registration required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use Fuel Cost / Mileage Calculator offline?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Once this page is loaded in your browser, all core functionalities of Fuel Cost / Mileage Calculator are executed client-side. You can disconnect from the internet and continue using the utility without any active network connection."
+        }
+      }
+    ]
+  }
+  </script>
+  
+
+  
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://yoraba.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Calculators",
+        "item": "https://yoraba.com/calculators/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Fuel Cost / Mileage Calculator",
+        "item": "https://yoraba.com/calculators/fuel-cost-mileage-calculator/"
+      }
+    ]
+  }
+  </script>
+  <meta name="ai-citation" content="Yoraba.com provides free, 100% browser-native tools that process data entirely client-side for maximum privacy." />
+  
+</head>
+
+<body>
+  <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+  <nav class="site-nav">
+  <a class="nav-logo" href="/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+    </svg>
+    YORABA
+  </a>
+  <div class="nav-links" id="nav-links">
+    <a href="/tools">Tools</a>
+    <a href="/finance">Finance</a>
+    <a href="/multimedia">Multimedia</a>
+    <a href="/calculators">Calculators</a>
+    <a href="/cheatsheets">Cheatsheets</a>
+    <a href="/posts">Blogs</a>
+    <a href="/author">Author</a>
+    <a href="/about">About</a>
+  </div>
+  <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </button>
+  <button class="nav-toggle" aria-label="Toggle Menu"
+    onclick="document.getElementById('nav-links').classList.toggle('active')">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
+</nav>
+
+  <header class="page-header" role="banner">
+    <h1 class="project-name">Fuel Cost / Mileage Calculator</h1>
+    <h2 class="project-tagline">Calculate your estimated fuel cost for a road trip, split expenses among passengers, and find out how much gas you need.</h2>
+  </header>
+
+  <main id="content" class="main-content" role="main">
+    
+    
+
+    
+    <nav class="breadcrumbs" aria-label="Breadcrumb" style="font-size: 0.85rem; margin-bottom: 1.5rem; color: var(--text-secondary); display: flex; align-items: center; flex-wrap: wrap; gap: 0.25rem;">
+      <a href="/" style="text-decoration: none; color: var(--link);">Home</a>
+      <span style="color: var(--border);">&rarr;</span>
+      
+      
+        
+          <a href="/calculators/" style="text-decoration: none; color: var(--link);">Calculators</a>
+        
+      
+      
+      
+      
+      <span style="color: var(--border);">&rarr;</span>
+      <span style="color: var(--text-secondary);">Fuel Cost / Mileage Calculator</span>
+    </nav>
+    
+
+    
+
+    
+
+    
+    
+
+    
+    <div class="llm-opt-block">
+      <div class="tldr-summary">
+        <strong>TL;DR:</strong> Yoraba's Fuel Cost / Mileage Calculator is a secure, browser-native utility designed to calculate your estimated fuel cost for a road trip, split expenses among passengers, and find out how much gas you need. Fully compatible with offline workflows.
+      </div>
+      <div class="privacy-callout">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="privacy-icon" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        <strong>Privacy First:</strong> This tool runs 100% client-side in your browser. No data is ever uploaded to our servers. Your data never leaves your device.
+      </div>
+      <div class="last-updated-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="privacy-icon" aria-hidden="true" focusable="false" style="margin-right: 6px;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        <span>Last Updated: July 23, 2026</span>
+      </div>
+    </div>
+    
+
+    <p>Calculate your estimated fuel cost for a road trip. Adjust the travel distance, fuel efficiency, gas price, tolls, and the number of passengers to split the cost and see how much fuel you’ll need.</p>
+
+<style>
+.tool-container {
+    margin-top: 1.5rem;
+}
+
+.calc-layout {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 1.5rem;
+}
+
+@media (min-width: 48em) {
+    .calc-layout {
+        display: grid;
+        grid-template-columns: 1fr 340px;
+        gap: 2rem;
+    }
+
+    .results-sidebar {
+        position: sticky;
+        top: 2rem;
+        align-self: start;
+    }
+}
+
+.calc-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input-group label {
+    font-weight: 600;
+    color: var(--headings);
+    font-size: 0.95rem;
+}
+
+.input-row {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.input-row .input-group {
+    flex: 1;
+}
+
+.input-with-prefix {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-prefix {
+    position: absolute;
+    left: 0.75rem;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    font-family: inherit;
+    pointer-events: none;
+    user-select: none;
+}
+
+.input-suffix {
+    position: absolute;
+    right: 0.75rem;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    font-family: inherit;
+    pointer-events: none;
+    user-select: none;
+}
+
+.calc-input {
+    width: 100%;
+    padding: 0.65rem 0.75rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875rem;
+    color: var(--code-text);
+    background-color: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.calc-input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(63, 185, 80, 0.3);
+}
+
+.calc-input.has-prefix {
+    padding-left: 1.75rem;
+}
+
+.calc-input.has-suffix {
+    padding-right: 3.25rem;
+}
+
+select.calc-input {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%238b949e' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 12px;
+    padding-right: 2rem;
+}
+
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: 1.25rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+}
+
+.section-title {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--headings);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.4rem;
+    margin: 0 0 0.5rem 0;
+}
+
+.results-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: 1.5rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.results-header {
+    text-align: center;
+}
+
+.results-title {
+    font-weight: 600;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.results-big-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--headings);
+    margin: 0.5rem 0;
+}
+
+.payment-breakdown-bar {
+    display: flex;
+    height: 16px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 1rem 0;
+    background-color: var(--border);
+}
+
+.bar-segment {
+    height: 100%;
+    transition: width 0.3s ease;
+}
+
+.bg-fuel { background-color: #58a6ff; }
+.bg-tolls { background-color: #7ee787; }
+
+.legend-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.legend-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.825rem;
+    color: var(--text);
+}
+
+.legend-label-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.legend-val {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    color: var(--headings);
+}
+
+.summary-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border-top: 1px solid var(--border);
+    padding-top: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.825rem;
+    color: var(--text-secondary);
+}
+
+.summary-row span:last-child {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.btn-clear {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 0.875rem;
+    background-color: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-clear:hover {
+    background-color: var(--border);
+    color: var(--text);
+}
+</style>
+
+<div class="tool-container">
+    <div class="calc-layout">
+        <!-- Controls on Left -->
+        <div class="calc-controls">
+            <!-- Trip Basics -->
+            <div class="options-container">
+                <h3 class="section-title">Trip Parameters</h3>
+                
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="trip-distance">Distance</label>
+                        <div class="input-with-prefix">
+                            <input type="number" id="trip-distance" class="calc-input has-suffix" value="300" min="0" step="10" />
+                            <span class="input-suffix">miles</span>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="trip-efficiency">Fuel Efficiency</label>
+                        <div class="input-with-prefix">
+                            <input type="number" id="trip-efficiency" class="calc-input has-suffix" value="25" min="1" step="1" />
+                            <span class="input-suffix">MPG</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="trip-type">Trip Type</label>
+                        <select id="trip-type" class="calc-input">
+                            <option value="1">One-Way</option>
+                            <option value="2" selected="">Round Trip</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pricing & People -->
+            <div class="options-container">
+                <h3 class="section-title">Fuel Price, Tolls &amp; People</h3>
+                
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="fuel-price">Gas Price</label>
+                        <div class="input-with-prefix">
+                            <span class="input-prefix">$</span>
+                            <input type="number" id="fuel-price" class="calc-input has-prefix" value="3.50" min="0" step="0.1" max="100" />
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="trip-tolls">Tolls &amp; Fees</label>
+                        <div class="input-with-prefix">
+                            <span class="input-prefix">$</span>
+                            <input type="number" id="trip-tolls" class="calc-input has-prefix" value="15" min="0" step="5" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="passengers-count">Split Among</label>
+                        <div class="input-with-prefix">
+                            <input type="number" id="passengers-count" class="calc-input has-suffix" value="1" min="1" step="1" max="100" />
+                            <span class="input-suffix">people</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar Summary & Breakdown -->
+        <div class="results-sidebar">
+            <div class="results-header">
+                <h4 class="results-title">Est. Trip Cost</h4>
+                <div class="results-big-num" id="trip-total-cost">$0</div>
+            </div>
+
+            <!-- Stacked Color Bar -->
+            <div class="payment-breakdown-bar">
+                <div id="trip-bar-fuel" class="bar-segment bg-fuel" style="width: 75%;"></div>
+                <div id="trip-bar-tolls" class="bar-segment bg-tolls" style="width: 25%;"></div>
+            </div>
+
+            <!-- Legend/Details -->
+            <ul class="legend-list">
+                <li class="legend-item">
+                    <div class="legend-label-wrapper">
+                        <div class="legend-dot bg-fuel"></div>
+                        <span>Fuel Cost</span>
+                    </div>
+                    <span id="trip-legend-val-fuel" class="legend-val">$0</span>
+                </li>
+                <li class="legend-item">
+                    <div class="legend-label-wrapper">
+                        <div class="legend-dot bg-tolls"></div>
+                        <span>Tolls &amp; Fees</span>
+                    </div>
+                    <span id="trip-legend-val-tolls" class="legend-val">$0</span>
+                </li>
+            </ul>
+
+            <!-- Calculation Summary -->
+            <div class="summary-details">
+                <div class="summary-row">
+                    <span>Total Fuel Required</span>
+                    <span id="trip-sum-fuel-qty">0 gallons</span>
+                </div>
+                <div class="summary-row">
+                    <span>Cost Per Person</span>
+                    <span id="trip-sum-cost-per-person">$0</span>
+                </div>
+            </div>
+
+            <button id="trip-btn-reset" class="btn-clear">Reset Calculator</button>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Inputs
+    const distanceInput = document.getElementById('trip-distance');
+    const efficiencyInput = document.getElementById('trip-efficiency');
+    const tripTypeSelect = document.getElementById('trip-type');
+    const fuelPriceInput = document.getElementById('fuel-price');
+    const tollsInput = document.getElementById('trip-tolls');
+    const passengersInput = document.getElementById('passengers-count');
+    const btnReset = document.getElementById('trip-btn-reset');
+
+    // Outputs
+    const totalCostOutput = document.getElementById('trip-total-cost');
+    const fuelValOutput = document.getElementById('trip-legend-val-fuel');
+    const tollsValOutput = document.getElementById('trip-legend-val-tolls');
+    const fuelQtyOutput = document.getElementById('trip-sum-fuel-qty');
+    const costPerPersonOutput = document.getElementById('trip-sum-cost-per-person');
+
+    // Bar segments
+    const barFuel = document.getElementById('trip-bar-fuel');
+    const barTolls = document.getElementById('trip-bar-tolls');
+
+    // Format helper
+    function fmtCurrency(val) {
+        return '$' + val.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+    }
+
+    // Add listeners
+    [distanceInput, efficiencyInput, tripTypeSelect, fuelPriceInput, tollsInput, passengersInput].forEach(elem => {
+        elem.addEventListener('input', calculateFuelTrip);
+    });
+
+    btnReset.addEventListener('click', () => {
+        distanceInput.value = 300;
+        efficiencyInput.value = 25;
+        tripTypeSelect.value = 2;
+        fuelPriceInput.value = 3.50;
+        tollsInput.value = 15;
+        passengersInput.value = 1;
+        calculateFuelTrip();
+    });
+
+    function calculateFuelTrip() {
+        // Parse Inputs
+        const distance = parseFloat(distanceInput.value) || 0;
+        const efficiency = parseFloat(efficiencyInput.value) || 1; // prevent divide by zero
+        const multiplier = parseFloat(tripTypeSelect.value) || 1;
+        const price = parseFloat(fuelPriceInput.value) || 0;
+        const tolls = parseFloat(tollsInput.value) || 0;
+        const people = Math.max(1, parseInt(passengersInput.value) || 1); // prevent divide by zero or < 1
+
+        // Calculations
+        const effectiveDistance = distance * multiplier;
+        const totalFuelQty = efficiency > 0 ? (effectiveDistance / efficiency) : 0;
+        const fuelCost = totalFuelQty * price;
+        const totalTripCost = fuelCost + tolls;
+        const costPerPerson = totalTripCost / people;
+
+        // Update Text Outputs
+        totalCostOutput.textContent = fmtCurrency(totalTripCost);
+        fuelValOutput.textContent = fmtCurrency(fuelCost);
+        tollsValOutput.textContent = fmtCurrency(tolls);
+        fuelQtyOutput.textContent = totalFuelQty.toFixed(1) + ' gallons';
+        costPerPersonOutput.textContent = fmtCurrency(costPerPerson);
+
+        // Update Breakdown bar
+        if (totalTripCost > 0) {
+            const fuelPct = (fuelCost / totalTripCost) * 100;
+            const tollsPct = (tolls / totalTripCost) * 100;
+            barFuel.style.width = `${fuelPct}%`;
+            barTolls.style.width = `${tollsPct}%`;
+        } else {
+            barFuel.style.width = '0%';
+            barTolls.style.width = '0%';
+        }
+    }
+
+    // Initialize
+    calculateFuelTrip();
+});
+</script>
+
+
+
+    
+    <section class="seo-rich-content">
+      <hr class="seo-divider">
+
+      
+
+      
+      
+      <div class="seo-section seo-steps">
+        <h2>How to Use Fuel Cost / Mileage Calculator</h2>
+        <ol class="seo-steps-list">
+          
+            <li>
+              <h3>Input your data</h3>
+              <p>Paste, type, or upload your inputs into the input fields at the top of the page.</p>
+            </li>
+            <li>
+              <h3>Configure options</h3>
+              <p>Adjust any available options, dropdowns, checkboxes, or parameters to customize the output.</p>
+            </li>
+            <li>
+              <h3>Get instant results</h3>
+              <p>Our tool processes your input instantly completely offline. Copy the formatted results or download the generated output directly to your device.</p>
+            </li>
+          
+        </ol>
+      </div>
+
+      
+
+      <div class="seo-section seo-technical">
+        <h2>The Technical Details</h2>
+        <div class="seo-technical-content">
+          
+            <p>This interactive web utility is designed to provide quick, reliable, and completely private calculations and data transformations. Modern workflow requirements often call for quick format adjustments, conversions, or math estimations. By executing all logic directly in your browser using client-side JavaScript, this utility ensures that your sensitive inputs are never transmitted across the network, combining modern browser speed with absolute data confidentiality.</p>
+          
+        </div>
+      </div>
+
+      <div class="seo-section seo-faqs">
+        <h2>Frequently Asked Questions</h2>
+        <div class="seo-faq-accordion">
+          
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">Is my data safe and private when using Fuel Cost / Mileage Calculator?</summary>
+              <div class="seo-faq-answer">
+                <p>Yes. All operations, conversions, and computations on Fuel Cost / Mileage Calculator are performed entirely in your local web browser using client-side JavaScript. None of your data is sent to our servers, logged, or shared with third parties.</p>
+              </div>
+            </details>
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">How much does Fuel Cost / Mileage Calculator cost to use?</summary>
+              <div class="seo-faq-answer">
+                <p>This utility is 100% free to use. There are no limits on usage, no subscriptions, no premium paywalls, and no registration required.</p>
+              </div>
+            </details>
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">Can I use Fuel Cost / Mileage Calculator offline?</summary>
+              <div class="seo-faq-answer">
+                <p>Yes. Once this page is loaded in your browser, all core functionalities of Fuel Cost / Mileage Calculator are executed client-side. You can disconnect from the internet and continue using the utility without any active network connection.</p>
+              </div>
+            </details>
+          
+        </div>
+      </div>
+    </section>
+    
+
+    
+
+    
+    <section class="related-section">
+      <h3>
+        Recommended Calculators
+        
+      </h3>
+      <p>
+        Try our other free interactive math, conversion, and general calculators:
+        
+      </p>
+      <div class="related-grid">
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+            
+              
+              
+              
+              
+                
+                <div class="post-card">
+                  <div class="post-title"><a href="/calculators/time-zone-calculator/">Time Zone Calculator</a></div>
+                  <p class="post-desc">Convert date and time between your Local Time, UTC, PST, EST, GMT, and other ...</p>
+                </div>
+              
+            
+          
+            
+              
+              
+              
+              
+                
+                <div class="post-card">
+                  <div class="post-title"><a href="/calculators/temperature-calculator/">Temperature Calculator</a></div>
+                  <p class="post-desc">Convert temperatures between Celsius, Fahrenheit, and Kelvin with formulas an...</p>
+                </div>
+              
+            
+          
+            
+              
+              
+              
+              
+                
+                <div class="post-card">
+                  <div class="post-title"><a href="/calculators/date-difference-calculator/">Date Difference Calculator</a></div>
+                  <p class="post-desc">Calculate the exact number of days, weeks, months, years, and hours between a...</p>
+                </div>
+              
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+        
+      </div>
+    </section>
+    
+
+    
+
+    
+
+    
+  </main>
+
+  <footer class="site-footer-dark">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h3>Popular Tools</h3>
+      <ul>
+        <li><a href="/tools/json-formatter/">JSON Formatter</a></li>
+        <li><a href="/tools/qr-code-generator/">QR Code Generator</a></li>
+        <li><a href="/tools/base64-encoder-decoder/">Base64 Encoder/Decoder</a></li>
+        <li><a href="/tools/text-compare/">Text Compare</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Calculators & Finance</h3>
+      <ul>
+        <li><a href="/finance/currency-calculator/">Currency Calculator</a></li>
+        <li><a href="/finance/mortgage-calculator/">Mortgage Calculator</a></li>
+        <li><a href="/calculators/ip-subnet-calculator/">IP Subnet Calculator</a></li>
+        <li><a href="/calculators/time-zone-calculator/">Time Zone Calculator</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Quick References</h3>
+      <ul>
+        <li><a href="/cheatsheets/git-commands/">Git Cheatsheet</a></li>
+        <li><a href="/cheatsheets/docker-commands/">Docker Cheatsheet</a></li>
+        <li><a href="/cheatsheets/react-hooks/">React Hooks Cheatsheet</a></li>
+        <li><a href="/cheatsheets/javascript/">JavaScript Cheatsheet</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/shafqatalix" aria-label="LinkedIn">
+        <img src="/images/social-icons/linkedin.svg" alt="LinkedIn">
+      </a>
+      <a href="https://twitter.com/shafqatalix" aria-label="X/Twitter">
+        <img src="/images/social-icons/twitter.svg" alt="X/Twitter">
+      </a>
+      <a href="https://github.com/shafqatalix" aria-label="GitHub">
+        <img src="/images/social-icons/github.svg" alt="GitHub">
+      </a>
+    </div>
+    <div class="footer-copy">&copy; 2026 YORABA. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+
+</html>

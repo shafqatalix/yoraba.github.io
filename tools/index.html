@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>Tools | YORABA</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Tools" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Developer tools for everyday tasks." />
+<meta name="twitter:description" property="og:description" content="Developer tools for everyday tasks." />
+<link rel="canonical" href="https://yoraba.com/tools/" />
+<meta property="og:url" content="https://yoraba.com/tools/" />
+<meta property="og:site_name" content="YORABA" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Tools" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Developer tools for everyday tasks.","headline":"Tools","url":"https://yoraba.com/tools/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1117">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <script>
+(function() {
+  var saved = localStorage.getItem('theme');
+  var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  document.documentElement.dataset.theme = theme;
+  window.toggleTheme = function() {
+    var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem('theme', next);
+    var frame = document.querySelector('.utterances-frame');
+    if (frame) {
+      frame.contentWindow.postMessage(
+        { type: 'set-theme', theme: next === 'dark' ? 'github-dark' : 'github-light' },
+        'https://utteranc.es'
+      );
+    }
+  };
+})();
+</script>
+
+  <link rel="stylesheet" href="/assets/css/style.css?v=">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+ 
+  <!-- Google tag (gtag.js) -->
+<script async crossorigin="anonymous" src="https://www.googletagmanager.com/gtag/js?id=G-T8BWX5RG3W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T8BWX5RG3W');
+</script>
+
+
+
+<!-- PWA Manifest -->
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register("/sw.js")
+        .then(registration => {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        })
+        .catch(err => {
+          console.error('ServiceWorker registration failed: ', err);
+        });
+    });
+  }
+</script>
+
+<!-- You can set your favicon here -->
+<link rel="shortcut icon" type="image/svg+xml" href="/images/logo.svg">
+
+<!-- end custom head snippets -->
+
+</head>
+
+<body>
+  <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+  <nav class="site-nav">
+  <a class="nav-logo" href="/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+    </svg>
+    YORABA
+  </a>
+  <div class="nav-links" id="nav-links">
+    <a href="/tools">Tools</a>
+    <a href="/finance">Finance</a>
+    <a href="/multimedia">Multimedia</a>
+    <a href="/calculators">Calculators</a>
+    <a href="/cheatsheets">Cheatsheets</a>
+    <a href="/posts">Blogs</a>
+    <a href="/author">Author</a>
+    <a href="/about">About</a>
+  </div>
+  <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </button>
+  <button class="nav-toggle" aria-label="Toggle Menu"
+    onclick="document.getElementById('nav-links').classList.toggle('active')">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
+</nav>
+
+  <header class="page-header" role="banner">
+    <h1 class="project-name">YORABA</h1>
+    <h2 class="project-tagline">Your Software Engineering Hub</h2>
+  </header>
+
+  
+
+  <main id="content" class="main-content" role="main">
+    <h2 id="tools">Tools</h2>
+
+<p><input type="text" id="tool-search" class="search-input" placeholder="Search tools..." aria-label="Search tools" /></p>
+
+<ul class="collection-list" id="tools-list">
+
+
+  <li class="tool-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/tools/notepad/">Notepad</a></div>
+      <p class="post-desc">Retro Windows-like Notepad application. Full-screen distraction-free text editor with multi-tab support, offline file picker, Word Wrap, and localStorage state persistence.</p>
+    </div>
+  </li>
+
+  <li class="tool-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/tools/jwt-decoder/">JWT Decoder</a></div>
+      <p class="post-desc">Decode JSON Web Tokens (JWT) in real-time, view headers and payloads, and format token timestamps into human-readable local dates.</p>
+    </div>
+  </li>
+
+  <li class="tool-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/tools/json-formatter/">JSON Formatter</a></div>
+      <p class="post-desc">Format, validate, and beautify JSON data with syntax highlighting.</p>
+    </div>
+  </li>
+
+  <li class="tool-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/tools/text-compare/">Text Compare</a></div>
+      <p class="post-desc">Compare two blocks of text side-by-side or inline and highlight differences.</p>
+    </div>
+  </li>
+
+  <li class="tool-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/tools/qr-code-generator/">QR Code Generator</a></div>
+      <p class="post-desc">Create custom QR codes as high-quality PNG images or vector SVGs with custom colors, margins, and sizes.</p>
+    </div>
+  </li>
+
+  <li class="tool-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/tools/yaml-json-converter/">YAML ↔ JSON Converter</a></div>
+      <p class="post-desc">Convert YAML data to JSON and JSON data to YAML in real-time with syntax validation, minification, and copy features.</p>
+    </div>
+  </li>
+
+  <li class="tool-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/tools/csv-json-converter/">CSV ↔ JSON Converter</a></div>
+      <p class="post-desc">Convert CSV data to JSON and JSON data to CSV in real-time with custom delimiters, formatting, and copy features.</p>
+    </div>
+  </li>
+
+  <li class="tool-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/tools/regex-tester/">Regex Tester</a></div>
+      <p class="post-desc">Test and debug regular expressions with live matching.</p>
+    </div>
+  </li>
+
+  <li class="tool-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/tools/text-analyzer/">Text Counter &amp; Analyzer</a></div>
+      <p class="post-desc">Live word, character, and line counter with tools to sort lines, remove duplicates, and reverse text.</p>
+    </div>
+  </li>
+
+  <li class="tool-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/tools/barcode-generator/">Barcode Generator</a></div>
+      <p class="post-desc">Create custom, high-resolution vector barcodes in formats like Code 128, Code 39, EAN, and UPC with real-time downloads.</p>
+    </div>
+  </li>
+
+  <li class="tool-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/tools/html-encoder-decoder/">HTML Encoder/Decoder</a></div>
+      <p class="post-desc">Encode and decode HTML entities, format numeric or named entities, and prevent HTML/XSS injection.</p>
+    </div>
+  </li>
+
+  <li class="tool-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/tools/xml-json-converter/">XML ↔ JSON Converter</a></div>
+      <p class="post-desc">Convert XML data to JSON and JSON data to XML in real-time with syntax validation, formatting, and copy features.</p>
+    </div>
+  </li>
+
+  <li class="tool-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/tools/url-encoder-decoder/">URL Encoder/Decoder</a></div>
+      <p class="post-desc">Encode and decode URL strings quickly and safely.</p>
+    </div>
+  </li>
+
+  <li class="tool-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/tools/url-parser/">URL Parser</a></div>
+      <p class="post-desc">Parse and analyze URLs in real-time, inspect protocols, hostnames, and paths, and interactively edit query parameters to rebuild URLs instantly.</p>
+    </div>
+  </li>
+
+  <li class="tool-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/tools/base64-encoder-decoder/">Base64 Encoder/Decoder</a></div>
+      <p class="post-desc">Encode and decode Base64 strings quickly and securely in your browser.</p>
+    </div>
+  </li>
+
+  <li class="tool-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/tools/jwt-inspector/">JWT Inspector</a></div>
+      <p class="post-desc">Decode, inspect, edit, and cryptographically re-sign JSON Web Tokens (JWT) in real-time with signature verification.</p>
+    </div>
+  </li>
+
+  <li class="tool-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/tools/text-case-converter/">Text Case Converter</a></div>
+      <p class="post-desc">Convert text between camelCase, snake_case, UPPER CASE, and more.</p>
+    </div>
+  </li>
+
+  <li class="tool-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/tools/color-picker/">Color Picker &amp; Converter</a></div>
+      <p class="post-desc">Convert color spaces between HEX, RGB, HSL, and HSV in real-time, pick custom colors, and generate harmonic palettes.</p>
+    </div>
+  </li>
+
+  <li class="tool-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/tools/hash-generator/">Cryptographic Hash Generator</a></div>
+      <p class="post-desc">Generate secure cryptographic checksums (MD5, SHA-1, SHA-256, SHA-384, SHA-512), DES symmetric encryptions, and RSA-2048 digital signatures in real-time.</p>
+    </div>
+  </li>
+
+  <li class="tool-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/tools/xml-formatter/">XML Formatter</a></div>
+      <p class="post-desc">Format, minify, and validate XML data with syntax highlighting.</p>
+    </div>
+  </li>
+
+  <li class="tool-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/tools/markdown-playground/">Markdown Playground</a></div>
+      <p class="post-desc">Write, edit, and preview Markdown formatting in real-time. Use standard formatting helpers, observe the live compiled rich-text output, and copy the compiled HTML directly to your clipboard.</p>
+    </div>
+  </li>
+
+  <li class="tool-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/tools/css-playground/">CSS Playground</a></div>
+      <p class="post-desc">Write, edit, and experiment with HTML and CSS in real-time. Build components, test layouts, and instantly visualize standard web styles in a responsive live preview sandbox.</p>
+    </div>
+  </li>
+
+  <li class="tool-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/tools/html-playground/">HTML Playground</a></div>
+      <p class="post-desc">Write, test, and run self-contained HTML templates directly in your browser. Design layouts, embed CSS styles, and handle JavaScript interactions in a dual-pane live preview workspace.</p>
+    </div>
+  </li>
+
+  <li class="tool-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/tools/javascript-playground/">JavaScript Playground</a></div>
+      <p class="post-desc">Write, test, and run pure JavaScript code directly in your browser. Experiment with calculations, loops, functions, and string operations in a dual-pane live compiler workspace with built-in output console logs.</p>
+    </div>
+  </li>
+
+  <li class="tool-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/tools/typescript-playground/">TypeScript Playground</a></div>
+      <p class="post-desc">Write, compile, and run TypeScript code directly in your browser. Experiment with types, generics, and interfaces in a dual-pane live compiler workspace with built-in output console logs.</p>
+    </div>
+  </li>
+
+  <li class="tool-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/tools/vin-decoder/">Vehicle VIN Decoder</a></div>
+      <p class="post-desc">Decode any 17-digit Vehicle Identification Number (VIN) in real-time, inspect country of origin, model year, manufacturer, and verify the mathematical check digit checksum.</p>
+    </div>
+  </li>
+
+  <li class="tool-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/tools/country-code-lookup/">Country Code Lookup</a></div>
+      <p class="post-desc">Search and lookup ISO country codes (Alpha-2, Alpha-3, Numeric), international dial codes, capitals, currencies, and flags in real-time.</p>
+    </div>
+  </li>
+
+  <li class="tool-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/tools/isbn-validator/">Book ISBN Validator</a></div>
+      <p class="post-desc">Mathematically validate ISBN-10 and ISBN-13 book codes, verify check digits, and lookup real-time book metadata via Open Library.</p>
+    </div>
+  </li>
+
+  <li class="tool-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/tools/morse-code-converter/">Morse Code Converter</a></div>
+      <p class="post-desc">Convert text to Morse code and Morse code to text in real-time, and synthesize real Morse audio beeps using native Web Audio.</p>
+    </div>
+  </li>
+
+  <li class="tool-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/tools/nato-alphabet-converter/">NATO Phonetic Alphabet Converter</a></div>
+      <p class="post-desc">Convert text into the official NATO phonetic radio spelling alphabet with pronunciation guides and speech synthesis.</p>
+    </div>
+  </li>
+
+  <li class="tool-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/tools/phone-number-formatter/">Phone Number Formatter</a></div>
+      <p class="post-desc">Format phone numbers into standard National, International, E.164, and TEL URI formats in real-time with country-specific rules.</p>
+    </div>
+  </li>
+
+  <li class="tool-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/tools/merge-pdfs/">Merge PDFs</a></div>
+      <p class="post-desc">Merge and combine multiple PDF files in your browser completely offline using pdf-lib. No server uploads, total privacy.</p>
+    </div>
+  </li>
+
+  <li class="tool-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/tools/split-pdf/">Split PDF</a></div>
+      <p class="post-desc">Split PDF files into individual pages, split in half, or extract custom page ranges completely offline in your browser using pdf-lib.</p>
+    </div>
+  </li>
+
+  <li class="tool-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/tools/rotate-pdf/">Rotate PDF</a></div>
+      <p class="post-desc">Rotate PDF files 90, 180, or 270 degrees clockwise. Select individual pages, odd/even pages, or the entire document to rotate and download offline.</p>
+    </div>
+  </li>
+
+  <li class="tool-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/tools/extract-pdf-pages/">Extract PDF Pages</a></div>
+      <p class="post-desc">Extract specific pages or page ranges from any PDF document, or invert selection to delete pages, completely offline using pdf-lib.</p>
+    </div>
+  </li>
+
+  <li class="tool-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/tools/image-to-pdf/">Convert Images to PDF</a></div>
+      <p class="post-desc">Convert JPEG and PNG images into a single PDF document. Re-order files, customize page sizes, margins, and download completely offline using pdf-lib.</p>
+    </div>
+  </li>
+
+  <li class="tool-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/tools/pdf-to-images/">Convert PDF to Images</a></div>
+      <p class="post-desc">Convert PDF documents into high-quality PNG or JPEG images completely in your browser. Render crisp page canvases and download them offline.</p>
+    </div>
+  </li>
+
+  <li class="tool-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/tools/pdf-viewer/">Interactive PDF Viewer</a></div>
+      <p class="post-desc">View and read PDF documents directly in your browser with complete privacy. Features page navigation, zoom controls, and fit-to-width rendering completely offline.</p>
+    </div>
+  </li>
+
+  <li class="tool-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/tools/zip-creator/">ZIP File Creator</a></div>
+      <p class="post-desc">Create, package, and compress multiple files and folders into a downloadable ZIP archive completely offline in your browser using JSZip.</p>
+    </div>
+  </li>
+
+  <li class="tool-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/tools/zip-extractor/">ZIP File Extractor</a></div>
+      <p class="post-desc">Extract, inspect, and preview the contents of any ZIP archive completely offline in your browser. Download individual files or extract all.</p>
+    </div>
+  </li>
+
+  <li class="tool-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/tools/mac-address-formatter/">MAC Address Formatter</a></div>
+      <p class="post-desc">Format, sanitize, and validate MAC addresses (MAC-48, EUI-64) into IEEE colon, hyphen, Cisco dot, binary, or raw hex, with client-side OUI vendor lookup.</p>
+    </div>
+  </li>
+
+  <li class="tool-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/tools/unix-permissions-calculator/">Unix Permissions Calculator</a></div>
+      <p class="post-desc">Interactive chmod permissions calculator. Select checkboxes, enter octal values, or input symbolic strings to calculate Unix file/directory permissions instantly.</p>
+    </div>
+  </li>
+
+  <li class="tool-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/tools/cron-expression-builder/">Cron Expression Builder</a></div>
+      <p class="post-desc">Interactive Cron expression builder. Select presets, toggle interactive crontab parameters, translate schedules to plain English, and calculate next execution runs instantly.</p>
+    </div>
+  </li>
+
+  <li class="tool-item">
+    <div class="post-card">
+      <div class="post-title"><a href="/tools/cron-parser/">Cron Parser</a></div>
+      <p class="post-desc">Parse, validate, and debug crontab expression lines. Extract cron parameters and commands, translate schedules to plain English, and view next run executions.</p>
+    </div>
+  </li>
+
+</ul>
+
+<p class="no-results" id="no-results">No tools found matching your search.</p>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var searchInput = document.getElementById('tool-search');
+  var toolsList = document.getElementById('tools-list');
+  var toolItems = toolsList.querySelectorAll('.tool-item');
+  var noResults = document.getElementById('no-results');
+
+  searchInput.addEventListener('input', function(e) {
+    var query = e.target.value.toLowerCase();
+    var visibleCount = 0;
+
+    toolItems.forEach(function(item) {
+      var title = item.querySelector('.post-title').textContent.toLowerCase();
+      var desc = item.querySelector('.post-desc') ? item.querySelector('.post-desc').textContent.toLowerCase() : '';
+
+      if (title.includes(query) || desc.includes(query)) {
+        item.style.display = '';
+        visibleCount++;
+      } else {
+        item.style.display = 'none';
+      }
+    });
+
+    noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+  });
+});
+</script>
+
+
+  </main>
+  
+
+  <footer class="site-footer-dark">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h3>Popular Tools</h3>
+      <ul>
+        <li><a href="/tools/json-formatter/">JSON Formatter</a></li>
+        <li><a href="/tools/qr-code-generator/">QR Code Generator</a></li>
+        <li><a href="/tools/base64-encoder-decoder/">Base64 Encoder/Decoder</a></li>
+        <li><a href="/tools/text-compare/">Text Compare</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Calculators & Finance</h3>
+      <ul>
+        <li><a href="/finance/currency-calculator/">Currency Calculator</a></li>
+        <li><a href="/finance/mortgage-calculator/">Mortgage Calculator</a></li>
+        <li><a href="/calculators/ip-subnet-calculator/">IP Subnet Calculator</a></li>
+        <li><a href="/calculators/time-zone-calculator/">Time Zone Calculator</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Quick References</h3>
+      <ul>
+        <li><a href="/cheatsheets/git-commands/">Git Cheatsheet</a></li>
+        <li><a href="/cheatsheets/docker-commands/">Docker Cheatsheet</a></li>
+        <li><a href="/cheatsheets/react-hooks/">React Hooks Cheatsheet</a></li>
+        <li><a href="/cheatsheets/javascript/">JavaScript Cheatsheet</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/shafqatalix" aria-label="LinkedIn">
+        <img src="/images/social-icons/linkedin.svg" alt="LinkedIn">
+      </a>
+      <a href="https://twitter.com/shafqatalix" aria-label="X/Twitter">
+        <img src="/images/social-icons/twitter.svg" alt="X/Twitter">
+      </a>
+      <a href="https://github.com/shafqatalix" aria-label="GitHub">
+        <img src="/images/social-icons/github.svg" alt="GitHub">
+      </a>
+    </div>
+    <div class="footer-copy">&copy; 2026 YORABA. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+
+</html>

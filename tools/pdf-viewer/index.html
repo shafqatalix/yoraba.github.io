@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>Interactive PDF Viewer | YORABA</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Interactive PDF Viewer" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="View and read PDF documents directly in your browser with complete privacy. Features page navigation, zoom controls, and fit-to-width rendering completely offline." />
+<meta name="twitter:description" property="og:description" content="View and read PDF documents directly in your browser with complete privacy. Features page navigation, zoom controls, and fit-to-width rendering completely offline." />
+<link rel="canonical" href="https://yoraba.com/tools/pdf-viewer/" />
+<meta property="og:url" content="https://yoraba.com/tools/pdf-viewer/" />
+<meta property="og:site_name" content="YORABA" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-07-23T14:08:42+00:00" />
+<meta property="article:modified_time" content="2026-07-23T14:08:42+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Interactive PDF Viewer" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-07-23T14:08:42+00:00","datePublished":"2026-07-23T14:08:42+00:00","description":"View and read PDF documents directly in your browser with complete privacy. Features page navigation, zoom controls, and fit-to-width rendering completely offline.","headline":"Interactive PDF Viewer","mainEntityOfPage":{"@type":"WebPage","@id":"https://yoraba.com/tools/pdf-viewer/"},"url":"https://yoraba.com/tools/pdf-viewer/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1117">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <script>
+(function() {
+  var saved = localStorage.getItem('theme');
+  var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  document.documentElement.dataset.theme = theme;
+  window.toggleTheme = function() {
+    var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem('theme', next);
+    var frame = document.querySelector('.utterances-frame');
+    if (frame) {
+      frame.contentWindow.postMessage(
+        { type: 'set-theme', theme: next === 'dark' ? 'github-dark' : 'github-light' },
+        'https://utteranc.es'
+      );
+    }
+  };
+})();
+</script>
+
+  <link rel="stylesheet" href="/assets/css/style.css?v=">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+ 
+  <!-- Google tag (gtag.js) -->
+<script async crossorigin="anonymous" src="https://www.googletagmanager.com/gtag/js?id=G-T8BWX5RG3W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T8BWX5RG3W');
+</script>
+
+
+
+<!-- PWA Manifest -->
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register("/sw.js")
+        .then(registration => {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        })
+        .catch(err => {
+          console.error('ServiceWorker registration failed: ', err);
+        });
+    });
+  }
+</script>
+
+<!-- You can set your favicon here -->
+<link rel="shortcut icon" type="image/svg+xml" href="/images/logo.svg">
+
+<!-- end custom head snippets -->
+
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Yoraba Interactive PDF Viewer",
+    "operatingSystem": "All",
+    "applicationCategory": "DeveloperApplication",
+    "browserRequirements": "Requires JavaScript. Requires HTML5.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "View and read PDF documents directly in your browser with complete privacy. Features page navigation, zoom controls, and fit-to-width rendering completely offline.",
+    "author": {
+      "@type": "Person",
+      "name": "Shafqat Ali",
+      "url": "https://yoraba.com/about/"
+    },
+    "dateModified": "2026-07-23"
+  }
+  </script>
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is my data safe and private when using Interactive PDF Viewer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. All operations, conversions, and computations on Interactive PDF Viewer are performed entirely in your local web browser using client-side JavaScript. None of your data is sent to our servers, logged, or shared with third parties."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does Interactive PDF Viewer cost to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "This utility is 100% free to use. There are no limits on usage, no subscriptions, no premium paywalls, and no registration required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use Interactive PDF Viewer offline?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Once this page is loaded in your browser, all core functionalities of Interactive PDF Viewer are executed client-side. You can disconnect from the internet and continue using the utility without any active network connection."
+        }
+      }
+    ]
+  }
+  </script>
+  
+
+  
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://yoraba.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Tools",
+        "item": "https://yoraba.com/tools/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Interactive PDF Viewer",
+        "item": "https://yoraba.com/tools/pdf-viewer/"
+      }
+    ]
+  }
+  </script>
+  <meta name="ai-citation" content="Yoraba.com provides free, 100% browser-native tools that process data entirely client-side for maximum privacy." />
+  
+</head>
+
+<body>
+  <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+  <nav class="site-nav">
+  <a class="nav-logo" href="/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+    </svg>
+    YORABA
+  </a>
+  <div class="nav-links" id="nav-links">
+    <a href="/tools">Tools</a>
+    <a href="/finance">Finance</a>
+    <a href="/multimedia">Multimedia</a>
+    <a href="/calculators">Calculators</a>
+    <a href="/cheatsheets">Cheatsheets</a>
+    <a href="/posts">Blogs</a>
+    <a href="/author">Author</a>
+    <a href="/about">About</a>
+  </div>
+  <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </button>
+  <button class="nav-toggle" aria-label="Toggle Menu"
+    onclick="document.getElementById('nav-links').classList.toggle('active')">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
+</nav>
+
+  <header class="page-header" role="banner">
+    <h1 class="project-name">Interactive PDF Viewer</h1>
+    <h2 class="project-tagline">View and read PDF documents directly in your browser with complete privacy. Features page navigation, zoom controls, and fit-to-width rendering completely offline.</h2>
+  </header>
+
+  <main id="content" class="main-content" role="main">
+    
+    
+
+    
+    <nav class="breadcrumbs" aria-label="Breadcrumb" style="font-size: 0.85rem; margin-bottom: 1.5rem; color: var(--text-secondary); display: flex; align-items: center; flex-wrap: wrap; gap: 0.25rem;">
+      <a href="/" style="text-decoration: none; color: var(--link);">Home</a>
+      <span style="color: var(--border);">&rarr;</span>
+      
+      
+        
+          <a href="/tools/" style="text-decoration: none; color: var(--link);">Developer Tools</a>
+        
+      
+      
+      
+      
+      <span style="color: var(--border);">&rarr;</span>
+      <span style="color: var(--text-secondary);">Interactive PDF Viewer</span>
+    </nav>
+    
+
+    
+
+    
+
+    
+    
+
+    
+    <div class="llm-opt-block">
+      <div class="tldr-summary">
+        <strong>TL;DR:</strong> Yoraba's Interactive PDF Viewer is a secure, browser-native utility designed to view and read pdf documents directly in your browser with complete privacy features page navigation, zoom controls, and fit-to-width rendering completely offline. Fully compatible with offline workflows.
+      </div>
+      <div class="privacy-callout">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="privacy-icon" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        <strong>Privacy First:</strong> This tool runs 100% client-side in your browser. No data is ever uploaded to our servers. Your data never leaves your device.
+      </div>
+      <div class="last-updated-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="privacy-icon" aria-hidden="true" focusable="false" style="margin-right: 6px;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        <span>Last Updated: July 23, 2026</span>
+      </div>
+    </div>
+    
+
+    <p>Open, view, and read PDF documents directly inside your browser. This viewer runs <strong>100% locally client-side</strong> using Mozilla's <code class="language-plaintext highlighter-rouge">PDF.js</code>—meaning your documents are never uploaded to any server, guaranteeing absolute confidentiality, speed, and privacy.</p>
+
+<!-- Load Mozilla PDF.js from cdnjs -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+<style>
+.converter-container {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.editor-row {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.editor-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.editor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.editor-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--headings);
+}
+
+/* Upload drop-zone styled beautifully */
+.drop-zone {
+    border: 2px dashed var(--border);
+    border-radius: 8px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    background-color: var(--code-bg);
+    cursor: pointer;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+.drop-zone:hover, .drop-zone.dragover {
+    border-color: var(--accent);
+    background-color: rgba(56, 139, 253, 0.05);
+}
+
+.drop-zone-text {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+}
+
+.drop-zone-sub {
+    font-size: 0.775rem;
+    color: var(--text-secondary);
+}
+
+.file-input-hidden {
+    display: none;
+}
+
+.file-info-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background-color: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 0.875rem;
+}
+
+/* PDF Navigation Control bar */
+.pdf-control-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background-color: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.pdf-controls-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.pdf-control-btn {
+    padding: 0.4rem 0.65rem;
+    font-size: 0.825rem;
+    font-weight: 600;
+    background-color: var(--card-bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.pdf-control-btn:hover:not(:disabled) {
+    background-color: var(--border);
+}
+
+.pdf-control-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.page-num-field {
+    width: 45px;
+    padding: 0.3rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.825rem;
+    text-align: center;
+    background-color: var(--card-bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    outline: none;
+}
+
+.page-total-lbl {
+    font-size: 0.825rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* Document render viewport canvas wrapper */
+.pdf-render-viewport {
+    display: flex;
+    justify-content: center;
+    overflow: auto;
+    padding: 1.5rem;
+    background-color: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    min-height: 400px;
+    max-height: 800px;
+}
+
+.pdf-canvas {
+    max-width: 100%;
+    height: auto !important;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    border: 1px solid #d0d7de;
+}
+
+.status-log {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.775rem;
+    padding: 0.75rem;
+    background-color: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    min-height: 50px;
+    max-height: 120px;
+    overflow-y: auto;
+    color: var(--text-secondary);
+    white-space: pre-wrap;
+    margin-top: 0.5rem;
+}
+</style>
+
+<div class="converter-container">
+    <!-- Toolbar -->
+    <div class="toolbar-container">
+        <div style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 500;">Mozilla PDF.js Engine Core</div>
+        <div class="toolbar-controls" style="margin-left: auto;">
+            <button id="btn-clear-all" class="btn-convert secondary">Reset Document</button>
+        </div>
+    </div>
+
+    <div class="editor-row">
+        <!-- Input Drop zone (Top) -->
+        <div class="editor-card">
+            <div class="editor-header">
+                <span class="editor-title">Upload Target Document</span>
+            </div>
+            
+            <div id="pdf-drop-zone" class="drop-zone">
+                <div class="drop-zone-text">📄 Drag &amp; Drop a PDF document here</div>
+                <div class="drop-zone-sub">or click to browse from your computer</div>
+                <input type="file" id="pdf-file-input" class="file-input-hidden" accept="application/pdf" />
+            </div>
+
+            <!-- Active file details banner -->
+            <div id="file-info-box" class="file-info-banner" style="display: none;">
+                <span id="file-info-name" style="font-weight: 600; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">-</span>
+                <span id="file-info-meta" style="color: var(--text-secondary); font-size: 0.8rem; flex-shrink: 0; margin-left: 1rem;">Pages: <strong id="lbl-total-pages" style="color: var(--accent);">0</strong></span>
+            </div>
+        </div>
+
+        <!-- Document Viewer Area (Bottom) -->
+        <div class="editor-card">
+            <div class="editor-header" style="border-bottom: none; margin-bottom: 0;">
+                <span class="editor-title" style="color: #58a6ff;">Document Render Window</span>
+            </div>
+
+            <!-- Navigation toolbar -->
+            <div class="pdf-control-bar">
+                <!-- Page Navigation -->
+                <div class="pdf-controls-group">
+                    <button id="btn-prev-page" class="pdf-control-btn" disabled="">◀ Prev</button>
+                    <input type="text" id="inp-current-page" class="page-num-field" value="1" disabled="" />
+                    <span id="lbl-total-pages-nav" class="page-total-lbl">of 0</span>
+                    <button id="btn-next-page" class="pdf-control-btn" disabled="">Next ▶</button>
+                </div>
+
+                <!-- Zooming scale -->
+                <div class="pdf-controls-group">
+                    <button id="btn-zoom-out" class="pdf-control-btn" disabled="">➖ Zoom Out</button>
+                    <span id="lbl-zoom-scale" class="page-total-lbl" style="font-family: 'JetBrains Mono', monospace; font-weight: bold; width: 45px; text-align: center;">100%</span>
+                    <button id="btn-zoom-in" class="pdf-control-btn" disabled="">Zoom In ➕</button>
+                    <button id="btn-fit-width" class="pdf-control-btn" disabled="">Fit Width</button>
+                </div>
+            </div>
+
+            <!-- Scrollable canvas viewport -->
+            <div class="pdf-render-viewport">
+                <canvas id="pdf-viewer-canvas" class="pdf-canvas" style="display: none;"></canvas>
+                <div id="lbl-viewport-empty" style="display: flex; align-items: center; justify-content: center; color: var(--text-secondary); font-style: italic; font-size: 0.875rem;">
+                    Load a PDF document above to open page rendering view
+                </div>
+            </div>
+
+            <!-- Status messaging log -->
+            <div id="status-log-panel" class="status-log">Ready: Waiting for document file...</div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Configure Mozilla PDF.js Global worker
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+    const pdfFileInput = document.getElementById('pdf-file-input');
+    const pdfDropZone = document.getElementById('pdf-drop-zone');
+    
+    const fileInfoBox = document.getElementById('file-info-box');
+    const fileInfoName = document.getElementById('file-info-name');
+    const lblTotalPages = document.getElementById('lbl-total-pages');
+
+    const btnPrevPage = document.getElementById('btn-prev-page');
+    const btnNextPage = document.getElementById('btn-next-page');
+    const inpCurrentPage = document.getElementById('inp-current-page');
+    const lblTotalPagesNav = document.getElementById('lbl-total-pages-nav');
+
+    const btnZoomOut = document.getElementById('btn-zoom-out');
+    const btnZoomIn = document.getElementById('btn-zoom-in');
+    const btnFitWidth = document.getElementById('btn-fit-width');
+    const lblZoomScale = document.getElementById('lbl-zoom-scale');
+
+    const pdfViewerCanvas = document.getElementById('pdf-viewer-canvas');
+    const lblViewportEmpty = document.getElementById('lbl-viewport-empty');
+
+    const btnClearAll = document.getElementById('btn-clear-all');
+    const statusLogPanel = document.getElementById('status-log-panel');
+
+    // State parameters
+    let pdfDocInstance = null;
+    let activeFile = null;
+    let currentPageNum = 1;
+    let totalPagesCount = 0;
+    let zoomScale = 1.25; // 125% default scale ratio
+    let isRendering = false;
+    let renderTaskInstance = null; // tracking task cancel state safety
+
+    // Trigger upload on click
+    pdfDropZone.addEventListener('click', () => {
+        pdfFileInput.click();
+    });
+
+    // Handle file input changes
+    pdfFileInput.addEventListener('change', (e) => {
+        handleSingleFile(e.target.files[0]);
+    });
+
+    // Drag events
+    pdfDropZone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        pdfDropZone.classList.add('dragover');
+    });
+
+    pdfDropZone.addEventListener('dragleave', () => {
+        pdfDropZone.classList.remove('dragover');
+    });
+
+    pdfDropZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        pdfDropZone.classList.remove('dragover');
+        if (e.dataTransfer.files) {
+            handleSingleFile(e.dataTransfer.files[0]);
+        }
+    });
+
+    btnClearAll.addEventListener('click', () => {
+        resetState();
+        logMessage('Reset complete. Ready to load another PDF.');
+    });
+
+    // Navigation triggers
+    btnPrevPage.addEventListener('click', () => {
+        if (currentPageNum <= 1 || isRendering) return;
+        changePage(currentPageNum - 1);
+    });
+
+    btnNextPage.addEventListener('click', () => {
+        if (currentPageNum >= totalPagesCount || isRendering) return;
+        changePage(currentPageNum + 1);
+    });
+
+    inpCurrentPage.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            let num = parseInt(inpCurrentPage.value);
+            if (!isNaN(num) && num >= 1 && num <= totalPagesCount) {
+                changePage(num);
+            } else {
+                inpCurrentPage.value = currentPageNum;
+            }
+        }
+    });
+
+    // Zooming triggers
+    btnZoomIn.addEventListener('click', () => {
+        if (zoomScale >= 3.0 || isRendering) return;
+        adjustZoom(0.25);
+    });
+
+    btnZoomOut.addEventListener('click', () => {
+        if (zoomScale <= 0.5 || isRendering) return;
+        adjustZoom(-0.25);
+    });
+
+    btnFitWidth.addEventListener('click', () => {
+        if (!pdfDocInstance || isRendering) return;
+        
+        // Calculate fit scale based on viewport width
+        pdfDocInstance.getPage(currentPageNum).then(page => {
+            const viewport = page.getViewport({ scale: 1.0 });
+            const parentWidth = pdfViewerCanvas.parentElement.clientWidth - 48; // padding margins offset
+            zoomScale = parseFloat((parentWidth / viewport.width).toFixed(2));
+            
+            updateZoomLabels();
+            renderActivePage();
+        });
+    });
+
+    function resetState() {
+        if (renderTaskInstance) {
+            renderTaskInstance.cancel();
+        }
+
+        pdfDocInstance = null;
+        activeFile = null;
+        currentPageNum = 1;
+        totalPagesCount = 0;
+        zoomScale = 1.25;
+        isRendering = false;
+
+        fileInfoBox.style.display = 'none';
+        pdfDropZone.style.display = 'block';
+
+        pdfViewerCanvas.style.display = 'none';
+        lblViewportEmpty.style.display = 'flex';
+
+        // Disable navigation
+        toggleNavControls(false);
+    }
+
+    async function handleSingleFile(file) {
+        if (!file) return;
+
+        if (file.type !== 'application/pdf' && !file.name.toLowerCase().endsWith('.pdf')) {
+            logMessage('❌ Refused file: Only PDF documents are supported.');
+            return;
+        }
+
+        logMessage(`Loading PDF: ${file.name}...`);
+        
+        try {
+            const arrayBuffer = await file.arrayBuffer();
+            
+            // Query total pages using PDF.js
+            const loadingTask = pdfjsLib.getDocument({ data: arrayBuffer });
+            pdfDocInstance = await loadingTask.promise;
+            totalPagesCount = pdfDocInstance.numPages;
+
+            activeFile = file;
+            currentPageNum = 1;
+
+            // Toggle views
+            pdfDropZone.style.display = 'none';
+            fileInfoName.textContent = file.name;
+            lblTotalPages.textContent = totalPagesCount;
+            fileInfoBox.style.display = 'flex';
+
+            lblViewportEmpty.style.display = 'none';
+            pdfViewerCanvas.style.display = 'block';
+
+            // Enable navigation
+            toggleNavControls(true);
+            lblTotalPagesNav.textContent = `of ${totalPagesCount}`;
+
+            logMessage(`Successfully parsed "${file.name}" | Total Pages: ${totalPagesCount}`);
+            renderActivePage();
+        } catch (err) {
+            console.error(err);
+            logMessage(`❌ Parser Error: Unable to read PDF document. (${err.message})`);
+            resetState();
+        }
+    }
+
+    async function renderActivePage() {
+        if (!pdfDocInstance || isRendering) return;
+
+        isRendering = true;
+        logMessage(`Rendering page ${currentPageNum}...`);
+
+        try {
+            const page = await pdfDocInstance.getPage(currentPageNum);
+            
+            // Set viewport scale
+            const viewport = page.getViewport({ scale: zoomScale });
+            
+            // Set canvas element dimensions
+            const canvas = pdfViewerCanvas;
+            canvas.width = viewport.width;
+            canvas.height = viewport.height;
+            const ctx = canvas.getContext('2d');
+
+            const renderContext = {
+                canvasContext: ctx,
+                viewport: viewport
+            };
+
+            // Safely render the page context
+            renderTaskInstance = page.render(renderContext);
+            await renderTaskInstance.promise;
+
+            logMessage(`✔ Page ${currentPageNum} rendered successfully.`);
+        } catch (err) {
+            if (err.name === 'RenderingCancelledException') {
+                logMessage('Rendering task cancelled (page switch).');
+            } else {
+                console.error(err);
+                logMessage(`❌ Rendering failed: ${err.message}`);
+            }
+        } finally {
+            isRendering = false;
+            renderTaskInstance = null;
+            updateNavigationState();
+        }
+    }
+
+    function changePage(num) {
+        if (num < 1 || num > totalPagesCount || isRendering) return;
+        
+        // Cancel ongoing render safely to prevent thread collision
+        if (renderTaskInstance) {
+            renderTaskInstance.cancel();
+        }
+
+        currentPageNum = num;
+        inpCurrentPage.value = num;
+        
+        // Re-render
+        setTimeout(() => {
+            renderActivePage();
+        }, 50);
+    }
+
+    function adjustZoom(delta) {
+        zoomScale = Math.max(0.5, Math.min(3.0, zoomScale + delta));
+        updateZoomLabels();
+        renderActivePage();
+    }
+
+    function updateZoomLabels() {
+        lblZoomScale.textContent = `${Math.round(zoomScale * 100)}%`;
+    }
+
+    function updateNavigationState() {
+        inpCurrentPage.value = currentPageNum;
+        btnPrevPage.disabled = currentPageNum <= 1;
+        btnNextPage.disabled = currentPageNum >= totalPagesCount;
+    }
+
+    function toggleNavControls(enabled) {
+        btnPrevPage.disabled = !enabled;
+        btnNextPage.disabled = !enabled;
+        inpCurrentPage.disabled = !enabled;
+        btnZoomIn.disabled = !enabled;
+        btnZoomOut.disabled = !enabled;
+        btnFitWidth.disabled = !enabled;
+
+        if (!enabled) {
+            inpCurrentPage.value = '1';
+            lblTotalPagesNav.textContent = 'of 0';
+            lblZoomScale.textContent = '100%';
+        }
+    }
+
+    function logMessage(text) {
+        const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        statusLogPanel.textContent += `\n[${time}] ${text}`;
+        statusLogPanel.scrollTop = statusLogPanel.scrollHeight;
+    }
+});
+</script>
+
+
+
+    
+    <section class="seo-rich-content">
+      <hr class="seo-divider">
+
+      
+
+      
+      
+      <div class="seo-section seo-steps">
+        <h2>How to Use Interactive PDF Viewer</h2>
+        <ol class="seo-steps-list">
+          
+            <li>
+              <h3>Input your data</h3>
+              <p>Paste, type, or upload your inputs into the input fields at the top of the page.</p>
+            </li>
+            <li>
+              <h3>Configure options</h3>
+              <p>Adjust any available options, dropdowns, checkboxes, or parameters to customize the output.</p>
+            </li>
+            <li>
+              <h3>Get instant results</h3>
+              <p>Our tool processes your input instantly completely offline. Copy the formatted results or download the generated output directly to your device.</p>
+            </li>
+          
+        </ol>
+      </div>
+
+      
+
+      <div class="seo-section seo-technical">
+        <h2>The Technical Details</h2>
+        <div class="seo-technical-content">
+          
+            <p>This interactive web utility is designed to provide quick, reliable, and completely private calculations and data transformations. Modern workflow requirements often call for quick format adjustments, conversions, or math estimations. By executing all logic directly in your browser using client-side JavaScript, this utility ensures that your sensitive inputs are never transmitted across the network, combining modern browser speed with absolute data confidentiality.</p>
+          
+        </div>
+      </div>
+
+      <div class="seo-section seo-faqs">
+        <h2>Frequently Asked Questions</h2>
+        <div class="seo-faq-accordion">
+          
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">Is my data safe and private when using Interactive PDF Viewer?</summary>
+              <div class="seo-faq-answer">
+                <p>Yes. All operations, conversions, and computations on Interactive PDF Viewer are performed entirely in your local web browser using client-side JavaScript. None of your data is sent to our servers, logged, or shared with third parties.</p>
+              </div>
+            </details>
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">How much does Interactive PDF Viewer cost to use?</summary>
+              <div class="seo-faq-answer">
+                <p>This utility is 100% free to use. There are no limits on usage, no subscriptions, no premium paywalls, and no registration required.</p>
+              </div>
+            </details>
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">Can I use Interactive PDF Viewer offline?</summary>
+              <div class="seo-faq-answer">
+                <p>Yes. Once this page is loaded in your browser, all core functionalities of Interactive PDF Viewer are executed client-side. You can disconnect from the internet and continue using the utility without any active network connection.</p>
+              </div>
+            </details>
+          
+        </div>
+      </div>
+    </section>
+    
+
+    
+
+    
+    <section class="related-section">
+      <h3>
+        Recommended Developer Tools
+        
+      </h3>
+      <p>
+        Boost your productivity with our other free browser-based developer utilities:
+        
+      </p>
+      <div class="related-grid">
+        
+        
+        
+        
+        
+          
+          
+          
+            
+              
+              
+              
+              
+                
+                <div class="post-card">
+                  <div class="post-title"><a href="/tools/notepad/">Notepad</a></div>
+                  <p class="post-desc">Retro Windows-like Notepad application. Full-screen distraction-free text edi...</p>
+                </div>
+              
+            
+          
+            
+              
+              
+              
+              
+                
+                <div class="post-card">
+                  <div class="post-title"><a href="/tools/jwt-decoder/">JWT Decoder</a></div>
+                  <p class="post-desc">Decode JSON Web Tokens (JWT) in real-time, view headers and payloads, and for...</p>
+                </div>
+              
+            
+          
+            
+              
+              
+              
+              
+                
+                <div class="post-card">
+                  <div class="post-title"><a href="/tools/json-formatter/">JSON Formatter</a></div>
+                  <p class="post-desc">Format, validate, and beautify JSON data with syntax highlighting.</p>
+                </div>
+              
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+        
+      </div>
+    </section>
+    
+
+    
+
+    
+
+    
+  </main>
+
+  <footer class="site-footer-dark">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h3>Popular Tools</h3>
+      <ul>
+        <li><a href="/tools/json-formatter/">JSON Formatter</a></li>
+        <li><a href="/tools/qr-code-generator/">QR Code Generator</a></li>
+        <li><a href="/tools/base64-encoder-decoder/">Base64 Encoder/Decoder</a></li>
+        <li><a href="/tools/text-compare/">Text Compare</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Calculators & Finance</h3>
+      <ul>
+        <li><a href="/finance/currency-calculator/">Currency Calculator</a></li>
+        <li><a href="/finance/mortgage-calculator/">Mortgage Calculator</a></li>
+        <li><a href="/calculators/ip-subnet-calculator/">IP Subnet Calculator</a></li>
+        <li><a href="/calculators/time-zone-calculator/">Time Zone Calculator</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Quick References</h3>
+      <ul>
+        <li><a href="/cheatsheets/git-commands/">Git Cheatsheet</a></li>
+        <li><a href="/cheatsheets/docker-commands/">Docker Cheatsheet</a></li>
+        <li><a href="/cheatsheets/react-hooks/">React Hooks Cheatsheet</a></li>
+        <li><a href="/cheatsheets/javascript/">JavaScript Cheatsheet</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/shafqatalix" aria-label="LinkedIn">
+        <img src="/images/social-icons/linkedin.svg" alt="LinkedIn">
+      </a>
+      <a href="https://twitter.com/shafqatalix" aria-label="X/Twitter">
+        <img src="/images/social-icons/twitter.svg" alt="X/Twitter">
+      </a>
+      <a href="https://github.com/shafqatalix" aria-label="GitHub">
+        <img src="/images/social-icons/github.svg" alt="GitHub">
+      </a>
+    </div>
+    <div class="footer-copy">&copy; 2026 YORABA. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+
+</html>

@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>JWT Inspector | YORABA</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="JWT Inspector" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Decode, inspect, edit, and cryptographically re-sign JSON Web Tokens (JWT) in real-time with signature verification." />
+<meta name="twitter:description" property="og:description" content="Decode, inspect, edit, and cryptographically re-sign JSON Web Tokens (JWT) in real-time with signature verification." />
+<link rel="canonical" href="https://yoraba.com/tools/jwt-inspector/" />
+<meta property="og:url" content="https://yoraba.com/tools/jwt-inspector/" />
+<meta property="og:site_name" content="YORABA" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-07-23T14:08:42+00:00" />
+<meta property="article:modified_time" content="2026-07-23T14:08:42+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="JWT Inspector" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-07-23T14:08:42+00:00","datePublished":"2026-07-23T14:08:42+00:00","description":"Decode, inspect, edit, and cryptographically re-sign JSON Web Tokens (JWT) in real-time with signature verification.","headline":"JWT Inspector","mainEntityOfPage":{"@type":"WebPage","@id":"https://yoraba.com/tools/jwt-inspector/"},"url":"https://yoraba.com/tools/jwt-inspector/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1117">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <script>
+(function() {
+  var saved = localStorage.getItem('theme');
+  var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  document.documentElement.dataset.theme = theme;
+  window.toggleTheme = function() {
+    var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem('theme', next);
+    var frame = document.querySelector('.utterances-frame');
+    if (frame) {
+      frame.contentWindow.postMessage(
+        { type: 'set-theme', theme: next === 'dark' ? 'github-dark' : 'github-light' },
+        'https://utteranc.es'
+      );
+    }
+  };
+})();
+</script>
+
+  <link rel="stylesheet" href="/assets/css/style.css?v=">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+ 
+  <!-- Google tag (gtag.js) -->
+<script async crossorigin="anonymous" src="https://www.googletagmanager.com/gtag/js?id=G-T8BWX5RG3W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T8BWX5RG3W');
+</script>
+
+
+
+<!-- PWA Manifest -->
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register("/sw.js")
+        .then(registration => {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        })
+        .catch(err => {
+          console.error('ServiceWorker registration failed: ', err);
+        });
+    });
+  }
+</script>
+
+<!-- You can set your favicon here -->
+<link rel="shortcut icon" type="image/svg+xml" href="/images/logo.svg">
+
+<!-- end custom head snippets -->
+
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Yoraba JWT Inspector",
+    "operatingSystem": "All",
+    "applicationCategory": "DeveloperApplication",
+    "browserRequirements": "Requires JavaScript. Requires HTML5.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Decode, inspect, edit, and cryptographically re-sign JSON Web Tokens (JWT) in real-time with signature verification.",
+    "author": {
+      "@type": "Person",
+      "name": "Shafqat Ali",
+      "url": "https://yoraba.com/about/"
+    },
+    "dateModified": "2026-07-23"
+  }
+  </script>
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is my data safe and private when using JWT Inspector?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. All operations, conversions, and computations on JWT Inspector are performed entirely in your local web browser using client-side JavaScript. None of your data is sent to our servers, logged, or shared with third parties."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does JWT Inspector cost to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "This utility is 100% free to use. There are no limits on usage, no subscriptions, no premium paywalls, and no registration required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use JWT Inspector offline?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Once this page is loaded in your browser, all core functionalities of JWT Inspector are executed client-side. You can disconnect from the internet and continue using the utility without any active network connection."
+        }
+      }
+    ]
+  }
+  </script>
+  
+
+  
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://yoraba.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Tools",
+        "item": "https://yoraba.com/tools/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "JWT Inspector",
+        "item": "https://yoraba.com/tools/jwt-inspector/"
+      }
+    ]
+  }
+  </script>
+  <meta name="ai-citation" content="Yoraba.com provides free, 100% browser-native tools that process data entirely client-side for maximum privacy." />
+  
+</head>
+
+<body>
+  <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+  <nav class="site-nav">
+  <a class="nav-logo" href="/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+    </svg>
+    YORABA
+  </a>
+  <div class="nav-links" id="nav-links">
+    <a href="/tools">Tools</a>
+    <a href="/finance">Finance</a>
+    <a href="/multimedia">Multimedia</a>
+    <a href="/calculators">Calculators</a>
+    <a href="/cheatsheets">Cheatsheets</a>
+    <a href="/posts">Blogs</a>
+    <a href="/author">Author</a>
+    <a href="/about">About</a>
+  </div>
+  <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </button>
+  <button class="nav-toggle" aria-label="Toggle Menu"
+    onclick="document.getElementById('nav-links').classList.toggle('active')">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
+</nav>
+
+  <header class="page-header" role="banner">
+    <h1 class="project-name">JWT Inspector</h1>
+    <h2 class="project-tagline">Decode, inspect, edit, and cryptographically re-sign JSON Web Tokens (JWT) in real-time with signature verification.</h2>
+  </header>
+
+  <main id="content" class="main-content" role="main">
+    
+    
+
+    
+    <nav class="breadcrumbs" aria-label="Breadcrumb" style="font-size: 0.85rem; margin-bottom: 1.5rem; color: var(--text-secondary); display: flex; align-items: center; flex-wrap: wrap; gap: 0.25rem;">
+      <a href="/" style="text-decoration: none; color: var(--link);">Home</a>
+      <span style="color: var(--border);">&rarr;</span>
+      
+      
+        
+          <a href="/tools/" style="text-decoration: none; color: var(--link);">Developer Tools</a>
+        
+      
+      
+      
+        <span style="color: var(--border);">&rarr;</span>
+        <a href="/tools/security/" style="text-decoration: none; color: var(--link);">Security</a>
+      
+      
+      <span style="color: var(--border);">&rarr;</span>
+      <span style="color: var(--text-secondary);">JWT Inspector</span>
+    </nav>
+    
+
+    
+
+    
+
+    
+    
+
+    
+    <div class="llm-opt-block">
+      <div class="tldr-summary">
+        <strong>TL;DR:</strong> Yoraba's JWT Inspector is a secure, browser-native utility designed to decode, inspect, edit, and cryptographically re-sign json web tokens (jwt) in real-time with signature verification. Fully compatible with offline workflows.
+      </div>
+      <div class="privacy-callout">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="privacy-icon" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        <strong>Privacy First:</strong> This tool runs 100% client-side in your browser. No data is ever uploaded to our servers. Your data never leaves your device.
+      </div>
+      <div class="last-updated-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="privacy-icon" aria-hidden="true" focusable="false" style="margin-right: 6px;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        <span>Last Updated: July 23, 2026</span>
+      </div>
+    </div>
+    
+
+    <p>Inspect and debug JSON Web Tokens (JWT) in real-time. Unlike a simple decoder, the JWT Inspector allows you to <strong>edit header and payload properties</strong> directly to automatically generate new tokens, and <strong>verify signatures</strong> using cryptographic secret keys.</p>
+
+<!-- Load CryptoJS library via CDN for client-side HMAC signing -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<style>
+.converter-container {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.editor-row {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.editor-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.editor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.editor-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--headings);
+}
+
+.editor-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.editor-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.375rem;
+    padding: 0.35rem 0.65rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background-color: var(--code-bg);
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.editor-btn svg {
+    flex-shrink: 0;
+}
+
+.editor-btn:hover {
+    background-color: var(--border);
+    color: var(--text);
+}
+
+.editor-btn.primary {
+    background-color: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+}
+
+.editor-btn.primary:hover {
+    background-color: #2ea043;
+}
+
+.editor-textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: 0.75rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.825rem;
+    color: var(--code-text);
+    background-color: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    resize: vertical;
+    outline: none;
+    transition: border-color 0.2s;
+    word-break: break-all;
+}
+
+.editor-textarea:focus {
+    border-color: var(--accent);
+}
+
+.validation-msg {
+    font-size: 0.775rem;
+    padding: 0.5rem;
+    border-radius: 4px;
+    display: none;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.validation-msg.error {
+    display: block;
+    background-color: rgba(255, 123, 114, 0.1);
+    color: #ff7b72;
+    border: 1px solid rgba(255, 123, 114, 0.2);
+}
+
+.validation-msg.success {
+    display: block;
+    background-color: rgba(56, 139, 253, 0.1);
+    color: #58a6ff;
+    border: 1px solid rgba(56, 139, 253, 0.2);
+}
+
+.validation-msg.verified {
+    display: block;
+    background-color: rgba(56, 185, 80, 0.1);
+    color: #56b950;
+    border: 1px solid rgba(56, 185, 80, 0.2);
+    font-weight: 600;
+}
+
+.toolbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.toolbar-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.toolbar-label {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.toolbar-input {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.825rem;
+    background-color: var(--code-bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    outline: none;
+    font-family: 'JetBrains Mono', monospace;
+    width: 200px;
+}
+
+.toolbar-input:focus {
+    border-color: var(--accent);
+}
+
+.btn-convert {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.55rem 1.1rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.btn-convert svg {
+    flex-shrink: 0;
+}
+
+.btn-convert.secondary {
+    background-color: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+}
+
+.btn-convert.secondary:hover {
+    background-color: var(--border);
+    color: var(--text);
+}
+</style>
+
+<div class="converter-container">
+    <!-- Configuration Toolbar -->
+    <div class="toolbar-container">
+        <div class="toolbar-controls">
+            <span class="toolbar-label">HMAC Verify Secret:</span>
+            <input type="password" id="jwt-secret" class="toolbar-input" value="your-256-bit-secret" placeholder="Enter secret key..." />
+            <label class="checkbox-control" style="cursor: pointer; display: flex; align-items: center; gap: 0.25rem; font-size: 0.825rem; color: var(--text-secondary); user-select: none;">
+                <input type="checkbox" id="show-secret" style="width: 14px; height: 14px; accent-color: var(--accent);" />
+                <span>Show</span>
+            </label>
+        </div>
+        <div class="toolbar-controls">
+            <button id="btn-load-sample" class="btn-convert secondary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" /><polyline points="10 9 9 9 8 9" /></svg>
+                <span>Load Sample</span>
+            </button>
+            <button id="btn-clear-all" class="btn-convert secondary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6" /><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /><line x1="10" y1="11" x2="10" y2="17" /><line x1="14" y1="11" x2="14" y2="17" /></svg>
+                <span>Clear</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Editors Stacked Vertically -->
+    <div class="editor-row">
+        <!-- 1. Encoded JWT Area -->
+        <div class="editor-card">
+            <div class="editor-header">
+                <span class="editor-title">Encoded Token (Edit or View)</span>
+                <div class="editor-actions">
+                    <button id="btn-copy-token" class="editor-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></svg>
+                        <span>Copy Token</span>
+                    </button>
+                </div>
+            </div>
+            <textarea id="editor-token" class="editor-textarea" style="min-height: 100px; color: #ff7b72;" placeholder="Paste or edit encoded JWT here..."></textarea>
+            <div id="status-signature" class="validation-msg">Signature verification status</div>
+        </div>
+
+        <!-- 2. Header Editor -->
+        <div class="editor-card">
+            <div class="editor-header">
+                <span class="editor-title" style="color: #ff7b72;">Header (Decoded &amp; Editable JSON)</span>
+                <div class="editor-actions">
+                    <button id="btn-copy-header" class="editor-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></svg>
+                        <span>Copy</span>
+                    </button>
+                </div>
+            </div>
+            <textarea id="editor-header" class="editor-textarea" placeholder="Header JSON here..."></textarea>
+            <div id="status-header" class="validation-msg">Header Status</div>
+        </div>
+
+        <!-- 3. Payload Editor -->
+        <div class="editor-card">
+            <div class="editor-header">
+                <span class="editor-title" style="color: #58a6ff;">Payload (Decoded &amp; Editable JSON)</span>
+                <div class="editor-actions">
+                    <button id="btn-copy-payload" class="editor-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></svg>
+                        <span>Copy</span>
+                    </button>
+                </div>
+            </div>
+            <textarea id="editor-textarea-payload" class="editor-textarea" style="min-height: 160px;" placeholder="Payload JSON here..."></textarea>
+            <div id="status-payload" class="validation-msg">Payload Status</div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const editorToken = document.getElementById('editor-token');
+    const editorHeader = document.getElementById('editor-header');
+    const editorPayload = document.getElementById('editor-textarea-payload');
+
+    const inputSecret = document.getElementById('jwt-secret');
+    const checkboxShowSecret = document.getElementById('show-secret');
+
+    const btnLoadSample = document.getElementById('btn-load-sample');
+    const btnClearAll = document.getElementById('btn-clear-all');
+
+    const btnCopyToken = document.getElementById('btn-copy-token');
+    const btnCopyHeader = document.getElementById('btn-copy-header');
+    const btnCopyPayload = document.getElementById('btn-copy-payload');
+
+    const statusSignature = document.getElementById('status-signature');
+    const statusHeader = document.getElementById('status-header');
+    const statusPayload = document.getElementById('status-payload');
+
+    // Sample details
+    const sampleToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkplYW4gVmFsamVhbiIsImFkbWluIjp0cnVlLCJpYXQiOjE1MTYyMzkwMjIsImV4cCI6MTc5OTk5OTk5OSwiaXNzIjoieW9yYWJhLmNvbSIsImF1ZCI6ImRldmVsb3BlcnMifQ.pUN2teBAOL7CDek6Tfbs4_po-y8eytrIGdOhtO5b-6g';
+    const sampleSecret = 'your-256-bit-secret';
+
+    let isInternalUpdate = false; // Semaphore flag to prevent infinite loops between encoder and decoder
+
+    // Base64URL conversion helpers
+    function base64UrlEncode(str) {
+        // Encode utf-8 to Base64
+        const base64 = btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, function(match, p1) {
+            return String.fromCharCode('0x' + p1);
+        }));
+        // Convert to Base64URL
+        return base64.replace(/=/g, '').replace(/\+/g, '-').replace(/\//g, '_');
+    }
+
+    function decodeBase64Url(str) {
+        str = str.replace(/-/g, '+').replace(/_/g, '/');
+        const pad = str.length % 4;
+        if (pad) {
+            if (pad === 1) throw new Error('Invalid Base64URL string');
+            str += new Array(5 - pad).join('=');
+        }
+        return decodeURIComponent(atob(str).split('').map(function(c) {
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(''));
+    }
+
+    // Toggle Secret visibility
+    checkboxShowSecret.addEventListener('change', () => {
+        inputSecret.type = checkboxShowSecret.checked ? 'text' : 'password';
+    });
+
+    // Listeners
+    editorToken.addEventListener('input', () => {
+        if (!isInternalUpdate) {
+            decodeTokenFlow();
+        }
+    });
+
+    editorHeader.addEventListener('input', () => {
+        if (!isInternalUpdate) {
+            encodeTokenFlow();
+        }
+    });
+
+    editorPayload.addEventListener('input', () => {
+        if (!isInternalUpdate) {
+            encodeTokenFlow();
+        }
+    });
+
+    inputSecret.addEventListener('input', () => {
+        if (editorToken.value.trim() !== '') {
+            decodeTokenFlow();
+        }
+    });
+
+    // Copy buttons
+    btnCopyToken.addEventListener('click', () => copyToClipboard(editorToken, btnCopyToken));
+    btnCopyHeader.addEventListener('click', () => copyToClipboard(editorHeader, btnCopyHeader));
+    btnCopyPayload.addEventListener('click', () => copyToClipboard(editorPayload, btnCopyPayload));
+
+    // Toolbar actions
+    btnClearAll.addEventListener('click', () => {
+        isInternalUpdate = true;
+        editorToken.value = '';
+        editorHeader.value = '';
+        editorPayload.value = '';
+        hideStatuses();
+        isInternalUpdate = false;
+    });
+
+    btnLoadSample.addEventListener('click', () => {
+        isInternalUpdate = true;
+        editorToken.value = sampleToken;
+        inputSecret.value = sampleSecret;
+        isInternalUpdate = false;
+        decodeTokenFlow();
+    });
+
+    function hideStatuses() {
+        statusSignature.style.display = 'none';
+        statusHeader.style.display = 'none';
+        statusPayload.style.display = 'none';
+    }
+
+    function copyToClipboard(textarea, btn) {
+        const text = textarea.value;
+        if (text.trim() === '') return;
+        navigator.clipboard.writeText(text).then(() => {
+            const btnLabel = btn.querySelector('span') || btn;
+            const originalText = btnLabel.textContent;
+            btnLabel.textContent = 'Copied!';
+            setTimeout(() => {
+                btnLabel.textContent = originalText;
+            }, 1500);
+        });
+    }
+
+    // 1. DECODER FLOW (Token Input -> Parse Headers and Payload claims)
+    function decodeTokenFlow() {
+        const token = editorToken.value.trim();
+        if (token === '') {
+            hideStatuses();
+            return;
+        }
+
+        const parts = token.split('.');
+        if (parts.length !== 3) {
+            showError(statusSignature, 'Invalid Token Format: Must consist of Header.Payload.Signature');
+            return;
+        }
+
+        try {
+            isInternalUpdate = true;
+
+            // Decode Header
+            const decodedHeader = decodeBase64Url(parts[0]);
+            let parsedHeader = {};
+            try {
+                parsedHeader = JSON.parse(decodedHeader);
+                editorHeader.value = JSON.stringify(parsedHeader, null, 2);
+                statusHeader.style.display = 'none';
+            } catch (err) {
+                editorHeader.value = decodedHeader;
+                showError(statusHeader, 'Malformed JSON in parsed header string');
+            }
+
+            // Decode Payload
+            const decodedPayload = decodeBase64Url(parts[1]);
+            try {
+                const parsedPayload = JSON.parse(decodedPayload);
+                editorPayload.value = JSON.stringify(parsedPayload, null, 2);
+                statusPayload.style.display = 'none';
+            } catch (err) {
+                editorPayload.value = decodedPayload;
+                showError(statusPayload, 'Malformed JSON in parsed payload string');
+            }
+
+            // Verify Signature
+            verifyTokenSignature(parts[0], parts[1], parts[2], parsedHeader.alg || 'HS256');
+
+            isInternalUpdate = false;
+        } catch (error) {
+            isInternalUpdate = false;
+            showError(statusSignature, `Parse Error: ${error.message || 'Malformed base64 block'}`);
+        }
+    }
+
+    // 2. ENCODER FLOW (Header/Payload claims text edit -> Encode Token)
+    function encodeTokenFlow() {
+        const headerText = editorHeader.value.trim();
+        const payloadText = editorPayload.value.trim();
+
+        if (headerText === '' || payloadText === '') {
+            return;
+        }
+
+        let parsedHeader = null;
+        let parsedPayload = null;
+
+        // Validate Header JSON
+        try {
+            parsedHeader = JSON.parse(headerText);
+            statusHeader.style.display = 'none';
+        } catch (e) {
+            showError(statusHeader, 'Invalid Header JSON: ' + e.message);
+            return;
+        }
+
+        // Validate Payload JSON
+        try {
+            parsedPayload = JSON.parse(payloadText);
+            statusPayload.style.display = 'none';
+        } catch (e) {
+            showError(statusPayload, 'Invalid Payload JSON: ' + e.message);
+            return;
+        }
+
+        try {
+            isInternalUpdate = true;
+
+            // Base64URL encoding
+            const encodedHeader = base64UrlEncode(JSON.stringify(parsedHeader));
+            const encodedPayload = base64UrlEncode(JSON.stringify(parsedPayload));
+
+            // Generate Cryptographic Signature based on Header alg
+            const alg = parsedHeader.alg || 'HS256';
+            const secret = inputSecret.value;
+            const message = encodedHeader + '.' + encodedPayload;
+
+            let finalToken = '';
+
+            if (alg.toUpperCase() === 'HS256') {
+                // Cryptographically sign via CryptoJS HMAC-SHA256
+                const signature = CryptoJS.HmacSHA256(message, secret);
+                const encodedSignature = CryptoJS.enc.Base64.stringify(signature)
+                    .replace(/=/g, '')
+                    .replace(/\+/g, '-')
+                    .replace(/\//g, '_');
+                
+                finalToken = message + '.' + encodedSignature;
+                
+                statusSignature.className = 'validation-msg verified';
+                statusSignature.textContent = `✔ Signature Verified (Cryptographically re-signed with HS256)`;
+                statusSignature.style.display = 'block';
+            } else {
+                // Non-HMAC (RSA/ECDSA/None) - we keep dummy/original signature structure for display
+                const dummySignature = 'SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c';
+                finalToken = message + '.' + dummySignature;
+
+                statusSignature.className = 'validation-msg success';
+                statusSignature.textContent = `✔ Encoded (Custom algorithm "${alg}" requires private keys; signing with dummy signature)`;
+                statusSignature.style.display = 'block';
+            }
+
+            editorToken.value = finalToken;
+            isInternalUpdate = false;
+        } catch (err) {
+            isInternalUpdate = false;
+            showError(statusSignature, 'Error encoding values: ' + err.message);
+        }
+    }
+
+    // Cryptographic Signature verification routine
+    function verifyTokenSignature(headerB64, payloadB64, signatureB64, alg) {
+        if (alg.toUpperCase() !== 'HS256') {
+            statusSignature.className = 'validation-msg success';
+            statusSignature.textContent = `✔ Structure Valid (HMAC signature verification only supported for HS256. Found "${alg}")`;
+            statusSignature.style.display = 'block';
+            return;
+        }
+
+        const secret = inputSecret.value;
+        const message = headerB64 + '.' + payloadB64;
+
+        // Generate matching verification signature
+        const calculatedSignature = CryptoJS.HmacSHA256(message, secret);
+        const encodedCalculatedSignature = CryptoJS.enc.Base64.stringify(calculatedSignature)
+            .replace(/=/g, '')
+            .replace(/\+/g, '-')
+            .replace(/\//g, '_');
+
+        if (encodedCalculatedSignature === signatureB64) {
+            statusSignature.className = 'validation-msg verified';
+            statusSignature.textContent = `✔ Signature Verified (HMAC-SHA256 verified successfully)`;
+        } else {
+            statusSignature.className = 'validation-msg error';
+            statusSignature.textContent = `❌ Signature Verification Failed (Secret Mismatch or Invalid Token Signature)`;
+        }
+        statusSignature.style.display = 'block';
+    }
+
+    function showError(elem, message) {
+        elem.className = 'validation-msg error';
+        elem.textContent = '❌ ' + message;
+        elem.style.display = 'block';
+    }
+
+    // Initialize with standard HS256 sample
+    editorToken.value = sampleToken;
+    decodeTokenFlow();
+});
+</script>
+
+
+
+    
+    <section class="seo-rich-content">
+      <hr class="seo-divider">
+
+      
+
+      
+      
+      <div class="seo-section seo-steps">
+        <h2>How to Use JWT Inspector</h2>
+        <ol class="seo-steps-list">
+          
+            <li>
+              <h3>Input your data</h3>
+              <p>Paste, type, or upload your inputs into the input fields at the top of the page.</p>
+            </li>
+            <li>
+              <h3>Configure options</h3>
+              <p>Adjust any available options, dropdowns, checkboxes, or parameters to customize the output.</p>
+            </li>
+            <li>
+              <h3>Get instant results</h3>
+              <p>Our tool processes your input instantly completely offline. Copy the formatted results or download the generated output directly to your device.</p>
+            </li>
+          
+        </ol>
+      </div>
+
+      
+
+      <div class="seo-section seo-technical">
+        <h2>The Technical Details</h2>
+        <div class="seo-technical-content">
+          
+            <p>This interactive web utility is designed to provide quick, reliable, and completely private calculations and data transformations. Modern workflow requirements often call for quick format adjustments, conversions, or math estimations. By executing all logic directly in your browser using client-side JavaScript, this utility ensures that your sensitive inputs are never transmitted across the network, combining modern browser speed with absolute data confidentiality.</p>
+          
+        </div>
+      </div>
+
+      <div class="seo-section seo-faqs">
+        <h2>Frequently Asked Questions</h2>
+        <div class="seo-faq-accordion">
+          
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">Is my data safe and private when using JWT Inspector?</summary>
+              <div class="seo-faq-answer">
+                <p>Yes. All operations, conversions, and computations on JWT Inspector are performed entirely in your local web browser using client-side JavaScript. None of your data is sent to our servers, logged, or shared with third parties.</p>
+              </div>
+            </details>
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">How much does JWT Inspector cost to use?</summary>
+              <div class="seo-faq-answer">
+                <p>This utility is 100% free to use. There are no limits on usage, no subscriptions, no premium paywalls, and no registration required.</p>
+              </div>
+            </details>
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">Can I use JWT Inspector offline?</summary>
+              <div class="seo-faq-answer">
+                <p>Yes. Once this page is loaded in your browser, all core functionalities of JWT Inspector are executed client-side. You can disconnect from the internet and continue using the utility without any active network connection.</p>
+              </div>
+            </details>
+          
+        </div>
+      </div>
+    </section>
+    
+
+    
+
+    
+    <section class="related-section">
+      <h3>
+        Recommended Developer Tools
+        
+      </h3>
+      <p>
+        Boost your productivity with our other free browser-based developer utilities:
+        
+      </p>
+      <div class="related-grid">
+        
+        
+        
+        
+        
+          
+          
+          
+            
+              
+              
+              
+              
+                
+                <div class="post-card">
+                  <div class="post-title"><a href="/tools/notepad/">Notepad</a></div>
+                  <p class="post-desc">Retro Windows-like Notepad application. Full-screen distraction-free text edi...</p>
+                </div>
+              
+            
+          
+            
+              
+              
+              
+              
+                
+                <div class="post-card">
+                  <div class="post-title"><a href="/tools/jwt-decoder/">JWT Decoder</a></div>
+                  <p class="post-desc">Decode JSON Web Tokens (JWT) in real-time, view headers and payloads, and for...</p>
+                </div>
+              
+            
+          
+            
+              
+              
+              
+              
+                
+                <div class="post-card">
+                  <div class="post-title"><a href="/tools/json-formatter/">JSON Formatter</a></div>
+                  <p class="post-desc">Format, validate, and beautify JSON data with syntax highlighting.</p>
+                </div>
+              
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+        
+      </div>
+    </section>
+    
+
+    
+
+    
+
+    
+  </main>
+
+  <footer class="site-footer-dark">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h3>Popular Tools</h3>
+      <ul>
+        <li><a href="/tools/json-formatter/">JSON Formatter</a></li>
+        <li><a href="/tools/qr-code-generator/">QR Code Generator</a></li>
+        <li><a href="/tools/base64-encoder-decoder/">Base64 Encoder/Decoder</a></li>
+        <li><a href="/tools/text-compare/">Text Compare</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Calculators & Finance</h3>
+      <ul>
+        <li><a href="/finance/currency-calculator/">Currency Calculator</a></li>
+        <li><a href="/finance/mortgage-calculator/">Mortgage Calculator</a></li>
+        <li><a href="/calculators/ip-subnet-calculator/">IP Subnet Calculator</a></li>
+        <li><a href="/calculators/time-zone-calculator/">Time Zone Calculator</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Quick References</h3>
+      <ul>
+        <li><a href="/cheatsheets/git-commands/">Git Cheatsheet</a></li>
+        <li><a href="/cheatsheets/docker-commands/">Docker Cheatsheet</a></li>
+        <li><a href="/cheatsheets/react-hooks/">React Hooks Cheatsheet</a></li>
+        <li><a href="/cheatsheets/javascript/">JavaScript Cheatsheet</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/shafqatalix" aria-label="LinkedIn">
+        <img src="/images/social-icons/linkedin.svg" alt="LinkedIn">
+      </a>
+      <a href="https://twitter.com/shafqatalix" aria-label="X/Twitter">
+        <img src="/images/social-icons/twitter.svg" alt="X/Twitter">
+      </a>
+      <a href="https://github.com/shafqatalix" aria-label="GitHub">
+        <img src="/images/social-icons/github.svg" alt="GitHub">
+      </a>
+    </div>
+    <div class="footer-copy">&copy; 2026 YORABA. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+
+</html>

@@ -1,0 +1,174 @@
+# Yoraba Software Engineering Hub
+
+> Developer tools, finance, multimedia, cheatsheets, and in-depth software engineering articles.
+
+This site is a developer resource hub authored by Shafqat Ali. It contains practical tools, quick-reference cheatsheets, and articles covering topics like React, GraphQL, Docker, and Node.js. All landing pages (Tools, Calculators, Finance, Multimedia, Cheatsheets, and Blog Posts) feature interactive real-time search with a modern, responsive two-column grid layout. All tools execute entirely client-side (Zero-Data / Privacy-First), and include dynamic JSON-LD schemas (SoftwareApplication & FAQPage) along with machine-readable "TL;DR" summaries for optimized LLM crawling and citation.
+
+## Content Indices
+
+- [Home](https://yoraba.com/)
+- [Developer Tools](https://yoraba.com/tools/)
+- [JSON Tools Category](https://yoraba.com/tools/json/)
+- [Security Tools Category](https://yoraba.com/tools/security/)
+- [Text Tools Category](https://yoraba.com/tools/text/)
+- [Converters Category](https://yoraba.com/tools/converters/)
+- [Image Tools Category](https://yoraba.com/tools/images/)
+- [Finance Tools](https://yoraba.com/finance/)
+- [Multimedia Tools](https://yoraba.com/multimedia/)
+- [Cheatsheets](https://yoraba.com/cheatsheets/)
+- [Calculators](https://yoraba.com/calculators/)
+- [Blog Posts](https://yoraba.com/posts/)
+- [About](https://yoraba.com/about/)
+- [Author Profile](https://yoraba.com/author/)
+
+## Available Tools
+
+All tools are interactive and execute entirely client-side for privacy and speed.
+
+- [JSON Formatter](https://yoraba.com/tools/json-formatter/): Format and validate JSON data with syntax highlighting.
+- [XML Formatter](https://yoraba.com/tools/xml-formatter/): Format, minify, and validate XML data with syntax highlighting.
+- [QR Code Generator](https://yoraba.com/tools/qr-code-generator/): Create custom QR codes as high-quality PNG images or vector SVGs with custom colors, margins, and sizes.
+- [Regex Tester](https://yoraba.com/tools/regex-tester/): Test and debug regular expressions with live matching.
+- [HTML Encoder/Decoder](https://yoraba.com/tools/html-encoder-decoder/): Encode and decode HTML entities, format numeric or named entities, and prevent HTML/XSS injection.
+- [URL Encoder/Decoder](https://yoraba.com/tools/url-encoder-decoder/): Encode and decode URL strings quickly and safely.
+- [Base64 Encoder/Decoder](https://yoraba.com/tools/base64-encoder-decoder/): Encode and decode Base64 strings quickly.
+- [Text Case Converter](https://yoraba.com/tools/text-case-converter/): Convert text between camelCase, snake_case, UPPER CASE, and more.
+- [Text Compare](https://yoraba.com/tools/text-compare/): Compare two blocks of text side-by-side or inline with live highlighting of insertions, deletions, and line alignments.
+- [Text Counter & Analyzer](https://yoraba.com/tools/text-analyzer/): Live word, character, and line counter with tools to sort lines, remove duplicates, and reverse text.
+- [YAML ↔ JSON Converter](https://yoraba.com/tools/yaml-json-converter/): Convert YAML data to JSON and JSON data to YAML in real-time with syntax validation, minification, and copy features.
+- [CSV ↔ JSON Converter](https://yoraba.com/tools/csv-json-converter/): Convert CSV data to JSON and JSON data to CSV in real-time with custom delimiters, formatting, and copy features.
+- [XML ↔ JSON Converter](https://yoraba.com/tools/xml-json-converter/): Convert XML data to JSON and JSON data to XML in real-time with syntax validation, formatting, and copy features.
+- [Barcode Generator](https://yoraba.com/tools/barcode-generator/): Create custom, high-resolution vector barcodes in formats like Code 128, Code 39, EAN, and UPC with real-time downloads.
+- [JWT Decoder](https://yoraba.com/tools/jwt-decoder/): Decode JSON Web Tokens (JWT) in real-time, view headers and payloads, and format token timestamps into human-readable local dates.
+- [JWT Inspector](https://yoraba.com/tools/jwt-inspector/): Decode, inspect, edit, and cryptographically re-sign JSON Web Tokens (JWT) in real-time with signature verification.
+- [URL Parser](https://yoraba.com/tools/url-parser/): Parse and analyze URLs in real-time, inspect protocols, hostnames, and paths, and interactively edit query parameters to rebuild URLs instantly.
+- [Color Picker & Converter](https://yoraba.com/tools/color-picker/): Convert color spaces between HEX, RGB, HSL, and HSV in real-time, pick custom colors, and generate harmonic palettes.
+- [Cryptographic Hash Generator](https://yoraba.com/tools/hash-generator/): Generate secure cryptographic checksums including MD5, SHA-1, and SHA-256 instantly in your browser using native Web Crypto APIs.
+- [Markdown Playground](https://yoraba.com/tools/markdown-playground/): Write, edit, and preview Markdown formatting in real-time within an interactive playground with standard helpers, rich styles, and raw HTML outputs.
+- [HTML Playground](https://yoraba.com/tools/html-playground/): Write, test, and run self-contained HTML templates with inline styles and JavaScript directly in your browser.
+- [CSS Playground](https://yoraba.com/tools/css-playground/): Write, edit, and experiment with HTML and CSS in real-time within a responsive dual-pane playground and secure sandbox viewport.
+- [TypeScript Playground](https://yoraba.com/tools/typescript-playground/): Write, compile, and run TypeScript code directly in your browser with real-time transpilation and an interactive console output log terminal.
+- [JavaScript Playground](https://yoraba.com/tools/javascript-playground/): Write, test, and run JavaScript code directly in your browser with standard Monaco auto-completion, a secure sandbox DOM canvas, and an interactive console terminal.
+- [Vehicle VIN Decoder](https://yoraba.com/tools/vin-decoder/): Decode any 17-digit Vehicle Identification Number (VIN) in real-time, inspect country of origin, model year, manufacturer, and verify the mathematical check digit checksum.
+- [Country Code Lookup](https://yoraba.com/tools/country-code-lookup/): Search and lookup ISO country codes (Alpha-2, Alpha-3, Numeric), international dial codes, capitals, currencies, and flags in real-time.
+- [Book ISBN Validator](https://yoraba.com/tools/isbn-validator/): Mathematically validate ISBN-10 and ISBN-13 book codes, verify check digits, and lookup real-time book metadata via Open Library.
+- [Morse Code Converter](https://yoraba.com/tools/morse-code-converter/): Convert text to Morse code and Morse code to text in real-time, and synthesize real Morse audio beeps using native Web Audio.
+- [NATO Phonetic Alphabet Converter](https://yoraba.com/tools/nato-alphabet-converter/): Convert text into the official NATO phonetic radio spelling alphabet with pronunciation guides and speech synthesis.
+- [Phone Number Formatter](https://yoraba.com/tools/phone-number-formatter/): Format phone numbers into standard National, International, E.164, and TEL URI formats in real-time with country-specific rules.
+- [Merge PDFs](https://yoraba.com/tools/merge-pdfs/): Merge and combine multiple PDF files in your browser completely offline using pdf-lib. No server uploads, total privacy.
+- [Split PDF](https://yoraba.com/tools/split-pdf/): Split PDF files into individual pages, split in half, or extract custom page ranges completely offline in your browser using pdf-lib.
+- [Rotate PDF](https://yoraba.com/tools/rotate-pdf/): Rotate PDF files 90, 180, or 270 degrees clockwise. Select individual pages, odd/even pages, or the entire document to rotate and download offline.
+- [Extract PDF Pages](https://yoraba.com/tools/extract-pdf-pages/): Extract specific pages or page ranges from any PDF document, or invert selection to delete pages, completely offline using pdf-lib.
+- [Convert Images to PDF](https://yoraba.com/tools/image-to-pdf/): Convert JPEG and PNG images into a single PDF document. Re-order files, customize page sizes, margins, and download completely offline using pdf-lib.
+- [Convert PDF to Images](https://yoraba.com/tools/pdf-to-images/): Convert PDF documents into high-quality PNG or JPEG images completely in your browser. Render crisp page canvases and download them offline.
+- [ZIP File Creator](https://yoraba.com/tools/zip-creator/): Create, package, and compress multiple files and folders into a downloadable ZIP archive completely offline in your browser using JSZip.
+- [ZIP File Extractor](https://yoraba.com/tools/zip-extractor/): Extract, inspect, and preview the contents of any ZIP archive completely offline in your browser. Download individual files or extract all.
+- [MAC Address Formatter](https://yoraba.com/tools/mac-address-formatter/): Format, sanitize, and validate MAC addresses (MAC-48, EUI-64) into IEEE colon, hyphen, Cisco dot, binary, or raw hex, with client-side OUI vendor lookup.
+- [Interactive PDF Viewer](https://yoraba.com/tools/pdf-viewer/): View and read PDF documents directly in your browser with complete privacy. Features page navigation, zoom controls, and fit-to-width rendering completely offline.
+- [Unix Permissions Calculator](https://yoraba.com/tools/unix-permissions-calculator/): Interactive chmod permissions calculator. Select checkboxes, enter octal values, or input symbolic strings to calculate Unix file/directory permissions instantly.
+- [Cron Expression Builder](https://yoraba.com/tools/cron-expression-builder/): Interactive Cron expression builder. Select presets, toggle interactive crontab parameters, translate schedules to plain English, and calculate next execution runs instantly.
+- [Cron Parser](https://yoraba.com/tools/cron-parser/): Parse, validate, and debug crontab expression lines. Extract cron parameters and commands, translate schedules to plain English, and view next run executions.
+- [Notepad](https://yoraba.com/tools/notepad/): Retro Windows-like Notepad application. Full-screen distraction-free text editor with file open/save, F5 timestamp, Word Wrap, and formatting controls.
+
+## Available Finance Tools
+
+Financial calculators perform real-time estimates client-side with visual breakdowns, interest schedules, and currency conversions.
+
+- [Currency Calculator](https://yoraba.com/finance/currency-calculator/): Convert monetary amounts in real-time with live exchange rates for USD, EUR, GBP, CAD, JPY, and other global currencies.
+- [Discount Calculator](https://yoraba.com/finance/discount-calculator/): Calculate your final price, total savings, stacked discounts, and sales tax with interactive breakdowns.
+- [Tip Calculator](https://yoraba.com/finance/tip-calculator/): Calculate tips quickly, split the bill among friends, and view per-person splits with an interactive breakdown.
+- [Mortgage Calculator](https://yoraba.com/finance/mortgage-calculator/): Calculate your monthly mortgage payments including principal, interest, taxes, insurance, and HOA fees.
+- [Car Payment Calculator](https://yoraba.com/finance/car-payment-calculator/): Estimate your monthly auto loan payments including interest, principal, sales tax, and dealer fees.
+- [Personal Loan EMI Calculator](https://yoraba.com/finance/personal-loan-emi-calculator/): Calculate equated monthly installments (EMI), total interest, and view a yearly amortization schedule for personal loans.
+- [Savings / Compound Interest Calculator](https://yoraba.com/finance/savings-compound-interest-calculator/): Calculate the future value of your savings with regular monthly contributions and compound interest over time.
+- [Retirement Savings Calculator](https://yoraba.com/finance/retirement-savings-calculator/): Estimate your retirement nest egg and calculate inflation-adjusted future purchasing power based on age, savings, and returns.
+- [Loan Affordability Calculator](https://yoraba.com/finance/loan-affordability-calculator/): Calculate how much money you can afford to borrow based on your monthly budget or annual income and debt-to-income (DTI) ratio.
+- [Credit Card Payoff Calculator](https://yoraba.com/finance/credit-card-payoff-calculator/): Calculate how long it will take to pay off your credit card balance, or find the monthly payment needed to be debt-free by a target date.
+- [Investment Return / ROI Calculator](https://yoraba.com/finance/investment-return-roi-calculator/): Calculate your Return on Investment (ROI), Total Return, and Annualized Rate of Return (CAGR) incorporating fees and dividends.
+- [Salary / Take-Home Pay Calculator](https://yoraba.com/finance/salary-take-home-pay-calculator/): Estimate your annual, monthly, and bi-weekly take-home pay after federal taxes, FICA, state taxes, and pre-tax deductions.
+
+## Available Multimedia Tools
+
+Multimedia tools perform offline, client-side audio, video, image, and graphic optimizations directly in your browser with complete privacy.
+
+- [Audio Speed Changer](https://yoraba.com/multimedia/audio-speed-changer/): Adjust the playback speed and tempo of local MP3, WAV, M4A, or OGG audio files by up to 2.5x entirely in your browser. Render and download offline.
+- [Audio Volume Booster](https://yoraba.com/multimedia/audio-volume-booster/): Boost the volume of local MP3, WAV, M4A, or OGG audio files by up to 500% entirely in your browser. Real-time rendering and offline downloads using Web Audio APIs.
+- [Animated GIF Maker](https://yoraba.com/multimedia/gif-maker/): Create and compile custom animated GIFs from your JPEG and PNG images. Re-order frames, customize delays, dimensions, and download completely offline using gifshot.
+- [Image to Base64 Converter](https://yoraba.com/multimedia/image-base64-converter/): Convert JPEG, PNG, WEBP, and SVG images to Base64 strings, or decode Base64 strings back into downloadable images completely in your browser.
+- [Image Compressor](https://yoraba.com/multimedia/image-compressor/): Compress JPEG, PNG, and WEBP images completely in your browser, adjust compression levels, and view real-time file size savings.
+- [Image Format Converter](https://yoraba.com/multimedia/image-converter/): Convert images between PNG, JPEG, WEBP, BMP, and ICO formats instantly in your browser with adjustable quality levels.
+- [Image Resizer](https://yoraba.com/multimedia/image-resizer/): Resize JPEG, PNG, and WEBP images to custom dimensions or percentage scales completely in your browser while preserving aspect ratios.
+- [SVG Optimizer](https://yoraba.com/multimedia/svg-optimizer/): Optimize, clean, and minify Scalable Vector Graphics (SVG) in real-time, strip metadata and editor comments, and preview the optimized results.
+- [Video & Audio Converter](https://yoraba.com/multimedia/video-converter/): Convert video files to WebM, MP4, or extract audio tracks into lossless WAV files entirely in your browser using native hardware acceleration.
+- [Video Frame Extractor](https://yoraba.com/multimedia/video-frame-extractor/): Extract high-resolution PNG or JPEG frame images from local MP4, WebM, or OGG video files. Seek to exact milliseconds, step frame-by-step, and download offline.
+- [Internet & Media Calculator](https://yoraba.com/multimedia/internet-media-calculator/): Estimate video file sizes, download times, image aspect ratios, screen resolutions, and frame times in real-time.
+
+## Available Calculators
+
+Calculators perform real-time estimates client-side with visual breakdown bars and progress indicators.
+
+- [Length & Distance Calculator](https://yoraba.com/calculators/length-distance-calculator/): Convert between millimeters, inches, centimeters, meters, feet, kilometers, miles, yards, and nautical miles with formulas and real-time outputs.
+- [Area Calculator](https://yoraba.com/calculators/area-calculator/): Convert between square meters, square feet, acres, hectares, square kilometers, and square miles with formulas and real-time outputs.
+- [Speed Calculator](https://yoraba.com/calculators/speed-calculator/): Convert between miles per hour (MPH), kilometers per hour (KPH), knots, meters per second, and mach with formulas and real-time outputs.
+- [Time Unit Calculator](https://yoraba.com/calculators/time-calculator/): Convert between seconds, minutes, hours, days, weeks, months, and years with formulas and real-time outputs.
+- [Time Zone Calculator](https://yoraba.com/calculators/time-zone-calculator/): Convert date and time between your Local Time, UTC, PST, EST, GMT, and other global time zones instantly with DST support.
+- [Temperature Calculator](https://yoraba.com/calculators/temperature-calculator/): Convert temperatures between Celsius, Fahrenheit, and Kelvin with formulas and real-time outputs.
+- [Data Storage Calculator](https://yoraba.com/calculators/data-storage-calculator/): Convert between bits, bytes, kilobytes, megabytes, gigabytes, terabytes, and petabytes with exact formulas and real-time outputs.
+- [Cooking Converter](https://yoraba.com/calculators/cooking-calculator/): Convert cooking measurements between cups, grams, tablespoons, teaspoons, ounces, and oven temperatures with ingredient-specific densities.
+- [Internet & Media Calculator](https://yoraba.com/calculators/internet-media-calculator/): Estimate video file sizes, download times, image aspect ratios, screen resolutions, and frame times in real-time.
+- [Percentage Calculator](https://yoraba.com/calculators/percentage-calculator/): Calculate percentages, percentage ratios, and percentage increases or decreases with real-time formulas and outputs.
+- [Date Difference Calculator](https://yoraba.com/calculators/date-difference-calculator/): Calculate the exact number of days, weeks, months, years, and hours between any two dates with business day inclusions.
+- [Pressure Calculator](https://yoraba.com/calculators/pressure-calculator/): Convert between PSI, Bar, kilopascals (kPa), atmospheres (atm), and millimeters of mercury (mmHg) with exact formulas and outputs.
+- [Power Calculator](https://yoraba.com/calculators/power-calculator/): Convert between watts, kilowatts, megawatts, horsepower, and BTU per hour with exact formulas and real-time outputs.
+- [Fuel Cost / Mileage Calculator](https://yoraba.com/calculators/fuel-cost-mileage-calculator/): Calculate your estimated fuel cost for a road trip, split expenses among passengers, and find out how much gas you need.
+- [BMI / Body Health Calculator](https://yoraba.com/calculators/bmi-body-health-calculator/): Calculate your Body Mass Index (BMI), Basal Metabolic Rate (BMR), and Ideal Body Weight using metric or imperial measurements.
+- [IP Subnet Calculator](https://yoraba.com/calculators/ip-subnet-calculator/): Interactive IPv4 subnet calculator. Calculate subnet masks, network classes, broadcast addresses, usable IP ranges, and host counts in real-time with binary visualizer.
+- [CIDR Calculator & VLSM Planner](https://yoraba.com/calculators/cidr-calculator/): Interactive Classless Inter-Domain Routing (CIDR) calculator. Convert CIDR notations, design Variable Length Subnet Mask (VLSM) plans, and summarize routes.
+
+## Available Cheatsheets
+
+Quick-reference guides for developer commands, configurations, and API methods.
+
+- [Docker & DevOps](https://yoraba.com/cheatsheets/docker-commands/): Comprehensive reference for Docker, Docker Compose, Kubernetes kubectl, Helm, Terraform, GitHub Actions, and CI/CD basics.
+- [Kubernetes](https://yoraba.com/cheatsheets/kubernetes/): Comprehensive reference for Kubernetes kubectl commands, covering context management, namespace operations, pods, deployments, services, secrets, debugging, scaling, and cluster administration.
+- [Git Commands](https://yoraba.com/cheatsheets/git-commands/): Essential Git commands for everyday development.
+- [JavaScript Array Methods](https://yoraba.com/cheatsheets/javascript-array-methods/): Quick reference for JavaScript array methods.
+- [JavaScript](https://yoraba.com/cheatsheets/javascript/): Quick reference guide for modern JavaScript (ES6+), async patterns, DOM manipulation, and essential web APIs.
+- [TypeScript](https://yoraba.com/cheatsheets/typescript/): Quick reference guide for modern TypeScript (TS 5.x), covering types, interfaces, classes, generics, utility types, and advanced type patterns.
+- [Python](https://yoraba.com/cheatsheets/python/): Quick reference guide for modern Python (3.10+), covering core syntax, data structures, OOP, file handling, and idiomatic Pythonic patterns.
+- [Linux](https://yoraba.com/cheatsheets/linux/): Comprehensive reference for Linux file commands, process management, networking, permissions, grep, sed, awk, find, tar, curl, and wget.
+- [Rust](https://yoraba.com/cheatsheets/rust/): Comprehensive reference for Rust syntax, ownership, borrowing, structs, enums, error handling, traits, smart pointers, and Cargo.
+- [Go](https://yoraba.com/cheatsheets/go/): Comprehensive reference for Go (Golang) variables, slices, maps, pointers, structs, interfaces, concurrency (Goroutines/Channels), error handling, and CLI.
+- [Markdown](https://yoraba.com/cheatsheets/markdown/): Comprehensive reference for Markdown basic syntax, tables, task lists, syntax-highlighted code blocks, and GitHub Flavored Markdown (GFM).
+- [React Hooks](https://yoraba.com/cheatsheets/react-hooks/): Comprehensive reference for React Hooks (v18+), including useState, useEffect, useContext, useRef, useMemo, useCallback, useReducer, and custom hooks.
+- [CSS Flexbox](https://yoraba.com/cheatsheets/css-flexbox/): Comprehensive reference for CSS Flexible Box Layout (Flexbox), covering flex container properties, flex item properties, and common layout patterns.
+- [CSS Grid](https://yoraba.com/cheatsheets/css-grid/): Comprehensive reference for CSS Grid Layout, covering grid container properties, grid item placement, and responsive layout patterns.
+- [HTML Tags](https://yoraba.com/cheatsheets/html-tags/): Comprehensive reference for HTML5 tags, structural layout, forms, media embeds, tables, and global attributes.
+- [HTTP Status Codes](https://yoraba.com/cheatsheets/http-status-codes/): Comprehensive reference for HTTP response status codes, categorized by 1xx, 2xx, 3xx, 4xx, and 5xx classes.
+- [Regex Patterns](https://yoraba.com/cheatsheets/regex-patterns/): Comprehensive reference for regular expressions (Regex), covering character classes, anchors, quantifiers, lookarounds, flags, and common pattern examples.
+- [SQL Commands](https://yoraba.com/cheatsheets/sql-commands/): Comprehensive reference for SQL queries (DQL), manipulations (DML), definitions (DDL), JOINs, aggregations, transactions, and indexing.
+- [Windows Shortcuts](https://yoraba.com/cheatsheets/windows-shortcuts/): Comprehensive reference for essential Windows keyboard shortcuts, desktop navigation, window snapping, virtual desktops, and File Explorer.
+- [macOS Shortcuts](https://yoraba.com/cheatsheets/macos-shortcuts/): Comprehensive reference for essential macOS keyboard shortcuts, Spotlight, Mission Control, Finder navigation, and keyboard symbols.
+- [Browser Shortcuts](https://yoraba.com/cheatsheets/browser-shortcuts/): Comprehensive reference for essential web browser keyboard shortcuts, covering tab management, navigation, address bar features, zoom, and developer tools across Chrome, Safari, Edge, and Firefox.
+
+## Technical Blog Posts
+
+In-depth articles and tutorials covering modern software development, frameworks, and tools.
+
+- [Why GraphQL](https://yoraba.com/blogs/why-graphql/): Understand why GraphQL is a powerful choice for modern web APIs.
+- [Create blog with Ghost CMS, SQLite and Github comments](https://yoraba.com/blogs/ghost-blog-sqlite/): Step-by-step guide to setting up a high-performance blog using Ghost and comments.
+- [Simple Guide to Docker containers](https://yoraba.com/blogs/simple-guide-docker-containers/): Learn the fundamentals of containerization and Docker.
+- [React Performance Guide](https://yoraba.com/blogs/react-performance-guide/): Detailed optimization tips, practices, and guidelines for React applications.
+- [React Hooks Simplified](https://yoraba.com/blogs/react-hooks-simplified/): A beginner-friendly breakdown of state and lifecycle hooks in React.
+- [Testing React components using Jest](https://yoraba.com/blogs/testing-react-components-jest/): Best practices and configurations for testing React applications.
+- [Beginners guide to NodeJS, Express and React](https://yoraba.com/blogs/beginners-guide-node-express-react/): Comprehensive full-stack guide for building Node/Express/React applications.
+- [Remove git history](https://yoraba.com/blogs/remove-git-history/): Learn how to count commit frequencies and remove files/commits from Git history to reduce repository size.
+- [Count Sort algorithm](https://yoraba.com/blogs/count-sort/): Explanation and JavaScript implementation of the Counting Sort algorithm.
+
+## Optional
+
+These links provide secondary site information and policies.
+
+- [Privacy Policy](https://yoraba.com/privacy-policy/): Site privacy policy and cookie details.
+- [Site Technologies](https://yoraba.com/): Jekyll, GitHub Pages
+- [Author Profile](https://yoraba.com/author/): Shafqat Ali, Senior Software Engineer & Architect.

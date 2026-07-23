@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>Go | YORABA</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Go" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Comprehensive reference for Go (Golang) variables, slices, maps, pointers, structs, interfaces, concurrency (Goroutines/Channels), error handling, and CLI." />
+<meta name="twitter:description" property="og:description" content="Comprehensive reference for Go (Golang) variables, slices, maps, pointers, structs, interfaces, concurrency (Goroutines/Channels), error handling, and CLI." />
+<link rel="canonical" href="https://yoraba.com/cheatsheets/go/" />
+<meta property="og:url" content="https://yoraba.com/cheatsheets/go/" />
+<meta property="og:site_name" content="YORABA" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-07-23T14:08:42+00:00" />
+<meta property="article:modified_time" content="2026-07-23T14:08:42+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Go" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-07-23T14:08:42+00:00","datePublished":"2026-07-23T14:08:42+00:00","description":"Comprehensive reference for Go (Golang) variables, slices, maps, pointers, structs, interfaces, concurrency (Goroutines/Channels), error handling, and CLI.","headline":"Go","mainEntityOfPage":{"@type":"WebPage","@id":"https://yoraba.com/cheatsheets/go/"},"url":"https://yoraba.com/cheatsheets/go/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1117">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <script>
+(function() {
+  var saved = localStorage.getItem('theme');
+  var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  document.documentElement.dataset.theme = theme;
+  window.toggleTheme = function() {
+    var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem('theme', next);
+    var frame = document.querySelector('.utterances-frame');
+    if (frame) {
+      frame.contentWindow.postMessage(
+        { type: 'set-theme', theme: next === 'dark' ? 'github-dark' : 'github-light' },
+        'https://utteranc.es'
+      );
+    }
+  };
+})();
+</script>
+
+  <link rel="stylesheet" href="/assets/css/style.css?v=">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+ 
+  <!-- Google tag (gtag.js) -->
+<script async crossorigin="anonymous" src="https://www.googletagmanager.com/gtag/js?id=G-T8BWX5RG3W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T8BWX5RG3W');
+</script>
+
+
+
+<!-- PWA Manifest -->
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register("/sw.js")
+        .then(registration => {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        })
+        .catch(err => {
+          console.error('ServiceWorker registration failed: ', err);
+        });
+    });
+  }
+</script>
+
+<!-- You can set your favicon here -->
+<link rel="shortcut icon" type="image/svg+xml" href="/images/logo.svg">
+
+<!-- end custom head snippets -->
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Go Cheatsheet",
+    "description": "Comprehensive reference for Go (Golang) variables, slices, maps, pointers, structs, interfaces, concurrency (Goroutines/Channels), error handling, and CLI.",
+    "author": {
+      "@type": "Person",
+      "name": "Shafqat Ali",
+      "url": "https://yoraba.com/about/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "YORABA",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://yoraba.com/images/logo.svg"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://yoraba.com/cheatsheets/go/"
+    },
+    "inLanguage": "en-US",
+    "dateModified": "2026-07-23"
+  }
+  </script>
+  
+  
+  
+
+  
+  
+  
+</head>
+
+<body>
+  <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+  <nav class="site-nav">
+  <a class="nav-logo" href="/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+    </svg>
+    YORABA
+  </a>
+  <div class="nav-links" id="nav-links">
+    <a href="/tools">Tools</a>
+    <a href="/finance">Finance</a>
+    <a href="/multimedia">Multimedia</a>
+    <a href="/calculators">Calculators</a>
+    <a href="/cheatsheets">Cheatsheets</a>
+    <a href="/posts">Blogs</a>
+    <a href="/author">Author</a>
+    <a href="/about">About</a>
+  </div>
+  <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </button>
+  <button class="nav-toggle" aria-label="Toggle Menu"
+    onclick="document.getElementById('nav-links').classList.toggle('active')">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
+</nav>
+
+  <header class="page-header" role="banner">
+    <h1 class="project-name">Go</h1>
+    <h2 class="project-tagline">Comprehensive reference for Go (Golang) variables, slices, maps, pointers, structs, interfaces, concurrency (Goroutines/Channels), error handling, and CLI.</h2>
+  </header>
+
+  <main id="content" class="main-content" role="main">
+    
+    
+
+    
+    <nav class="breadcrumbs" aria-label="Breadcrumb" style="font-size: 0.85rem; margin-bottom: 1.5rem; color: var(--text-secondary); display: flex; align-items: center; flex-wrap: wrap; gap: 0.25rem;">
+      <a href="/" style="text-decoration: none; color: var(--link);">Home</a>
+      <span style="color: var(--border);">&rarr;</span>
+      
+      
+        <a href="/cheatsheets/" style="text-decoration: none; color: var(--link);">Cheatsheets</a>
+      
+      
+      
+      
+      <span style="color: var(--border);">&rarr;</span>
+      <span style="color: var(--text-secondary);">Go</span>
+    </nav>
+    
+
+    
+
+    
+    <div class="cheatsheet-actions">
+      <button onclick="window.print()" class="btn-pdf">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="8" y1="11" x2="16" y2="11"></line>
+          <text x="12" y="18" font-size="5.5" font-weight="900" fill="currentColor" stroke="none" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">PDF</text>
+        </svg>
+        Export as PDF
+      </button>
+    </div>
+
+    <h1 class="print-title">Go Cheatsheet</h1>
+    
+
+    
+    
+
+    
+
+    <p>A quick-reference guide for essential and advanced Go concepts, covering types, slices, maps, pointers, interfaces, concurrency primitives, and the Go toolchain.</p>
+
+<h2 id="variables--constants">Variables &amp; Constants</h2>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">main</span>
+
+<span class="k">import</span> <span class="s">"fmt"</span>
+
+<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c">// 1. Variable Declarations</span>
+    <span class="k">var</span> <span class="n">x</span> <span class="kt">int</span> <span class="o">=</span> <span class="m">10</span>              <span class="c">// Explicit type</span>
+    <span class="k">var</span> <span class="n">y</span> <span class="o">=</span> <span class="s">"hello"</span>             <span class="c">// Inferred type</span>
+    <span class="n">z</span> <span class="o">:=</span> <span class="no">true</span>                   <span class="c">// Short declaration operator (inside functions only)</span>
+
+    <span class="c">// Multiple assignments</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">:=</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span>
+
+    <span class="c">// 2. Constants</span>
+    <span class="k">const</span> <span class="n">Pi</span> <span class="o">=</span> <span class="m">3.14159</span>          <span class="c">// Compile-time resolved constant</span>
+    <span class="k">const</span> <span class="p">(</span>
+        <span class="n">StatusOk</span> <span class="o">=</span> <span class="m">200</span>
+        <span class="n">StatusFail</span> <span class="o">=</span> <span class="m">500</span>
+    <span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="control-flow">Control Flow</h2>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">// 1. Conditionals (no parentheses, braces required)</span>
+<span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="m">10</span> <span class="p">{</span>
+    <span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"Greater"</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"Less/Equal"</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c">// Inline statement evaluation (scope is restricted to the if/else block)</span>
+<span class="k">if</span> <span class="n">val</span> <span class="o">:=</span> <span class="n">calculate</span><span class="p">();</span> <span class="n">val</span> <span class="o">&gt;</span> <span class="m">0</span> <span class="p">{</span>
+    <span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c">// 2. For Loops (Go's only loop structure!)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="o">:=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="m">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">{</span>        <span class="c">// Standard loop</span>
+    <span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">for</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="m">100</span> <span class="p">{</span>                   <span class="c">// While-style loop</span>
+    <span class="n">x</span> <span class="o">+=</span> <span class="m">10</span>
+<span class="p">}</span>
+
+<span class="k">for</span> <span class="p">{</span>                           <span class="c">// Infinite loop</span>
+    <span class="k">break</span>
+<span class="p">}</span>
+
+<span class="c">// 3. Switch Statement (No implicit fallthrough, break is automatic)</span>
+<span class="k">switch</span> <span class="n">x</span> <span class="p">{</span>
+<span class="k">case</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="o">:</span>
+    <span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"One or Two"</span><span class="p">)</span>
+<span class="k">case</span> <span class="m">10</span><span class="o">:</span>
+    <span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"Ten"</span><span class="p">)</span>
+<span class="k">default</span><span class="o">:</span>
+    <span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"Default"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="slices--maps">Slices &amp; Maps</h2>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">// 1. Slices (Dynamically sized arrays)</span>
+<span class="k">var</span> <span class="n">s</span> <span class="p">[]</span><span class="kt">int</span>                     <span class="c">// nil slice</span>
+<span class="n">s</span> <span class="o">=</span> <span class="nb">append</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">)</span>             <span class="c">// Add elements dynamically</span>
+
+<span class="n">s2</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">10</span><span class="p">)</span>        <span class="c">// Slice with length 5 and capacity 10</span>
+<span class="n">s3</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">"a"</span><span class="p">,</span> <span class="s">"b"</span><span class="p">,</span> <span class="s">"c"</span><span class="p">}</span>   <span class="c">// Slice literal</span>
+
+<span class="c">// Slicing operations</span>
+<span class="n">subset</span> <span class="o">:=</span> <span class="n">s3</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">]</span>               <span class="c">// ["b", "c"] (index 1 to 2)</span>
+
+<span class="c">// Iterating with Range</span>
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span> <span class="o">:=</span> <span class="k">range</span> <span class="n">s3</span> <span class="p">{</span>
+    <span class="n">fmt</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s">"%d: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c">// 2. Maps (Hash tables)</span>
+<span class="n">ages</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">int</span><span class="p">)</span>    <span class="c">// Create map</span>
+<span class="n">ages</span><span class="p">[</span><span class="s">"Alice"</span><span class="p">]</span> <span class="o">=</span> <span class="m">30</span>
+
+<span class="c">// Map literal</span>
+<span class="n">userRoles</span> <span class="o">:=</span> <span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">{</span>
+    <span class="s">"admin"</span><span class="o">:</span> <span class="s">"read,write"</span><span class="p">,</span>
+    <span class="s">"user"</span><span class="o">:</span>  <span class="s">"read"</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c">// Check if key exists (comma ok idiom)</span>
+<span class="n">role</span><span class="p">,</span> <span class="n">ok</span> <span class="o">:=</span> <span class="n">userRoles</span><span class="p">[</span><span class="s">"guest"</span><span class="p">]</span>  <span class="c">// ok is false if key is missing</span>
+
+<span class="c">// Delete key</span>
+<span class="nb">delete</span><span class="p">(</span><span class="n">userRoles</span><span class="p">,</span> <span class="s">"user"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="functions-pointers--defer">Functions, Pointers &amp; defer</h2>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">// Multiple return values and named returns</span>
+<span class="k">func</span> <span class="n">divide</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="kt">float64</span><span class="p">)</span> <span class="p">(</span><span class="n">result</span> <span class="kt">float64</span><span class="p">,</span> <span class="n">err</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="n">b</span> <span class="o">==</span> <span class="m">0</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="m">0</span><span class="p">,</span> <span class="n">fmt</span><span class="o">.</span><span class="n">Errorf</span><span class="p">(</span><span class="s">"division by zero"</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">,</span> <span class="no">nil</span>          <span class="c">// Naked return of named variables</span>
+<span class="p">}</span>
+
+<span class="c">// Pointers (* = value at pointer, &amp; = address of value)</span>
+<span class="k">func</span> <span class="n">updateValue</span><span class="p">(</span><span class="n">ptr</span> <span class="o">*</span><span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">*</span><span class="n">ptr</span> <span class="o">=</span> <span class="m">20</span>                   <span class="c">// Dereference and assign new value</span>
+<span class="p">}</span>
+
+<span class="c">// defer (Delays execution of function until parent function returns - useful for resource cleanup)</span>
+<span class="k">func</span> <span class="n">readFile</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">file</span><span class="p">,</span> <span class="n">_</span> <span class="o">:=</span> <span class="n">os</span><span class="o">.</span><span class="n">Open</span><span class="p">(</span><span class="s">"data.txt"</span><span class="p">)</span>
+    <span class="k">defer</span> <span class="n">file</span><span class="o">.</span><span class="n">Close</span><span class="p">()</span>          <span class="c">// Closed automatically at end of function</span>
+    <span class="c">// ... read file ...</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="structs--methods">Structs &amp; Methods</h2>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">type</span> <span class="n">User</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="n">ID</span>    <span class="kt">int</span>
+    <span class="n">Name</span>  <span class="kt">string</span>
+    <span class="n">Email</span> <span class="kt">string</span>
+<span class="p">}</span>
+
+<span class="c">// Value Receiver Method (Operates on copy of struct)</span>
+<span class="k">func</span> <span class="p">(</span><span class="n">u</span> <span class="n">User</span><span class="p">)</span> <span class="n">Greet</span><span class="p">()</span> <span class="kt">string</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s">"Hello, "</span> <span class="o">+</span> <span class="n">u</span><span class="o">.</span><span class="n">Name</span>
+<span class="p">}</span>
+
+<span class="c">// Pointer Receiver Method (Operates on original struct, can modify fields)</span>
+<span class="k">func</span> <span class="p">(</span><span class="n">u</span> <span class="o">*</span><span class="n">User</span><span class="p">)</span> <span class="n">UpdateEmail</span><span class="p">(</span><span class="n">newEmail</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">u</span><span class="o">.</span><span class="n">Email</span> <span class="o">=</span> <span class="n">newEmail</span>
+<span class="p">}</span>
+
+<span class="c">// Instantiate struct</span>
+<span class="n">u</span> <span class="o">:=</span> <span class="n">User</span><span class="p">{</span><span class="n">ID</span><span class="o">:</span> <span class="m">1</span><span class="p">,</span> <span class="n">Name</span><span class="o">:</span> <span class="s">"Alice"</span><span class="p">,</span> <span class="n">Email</span><span class="o">:</span> <span class="s">"a@b.com"</span><span class="p">}</span>
+<span class="n">u</span><span class="o">.</span><span class="n">UpdateEmail</span><span class="p">(</span><span class="s">"new@b.com"</span><span class="p">)</span>      <span class="c">// Syntax shorthand for (&amp;u).UpdateEmail(...)</span>
+</code></pre></div></div>
+
+<h2 id="interfaces">Interfaces</h2>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">// Defining an Interface</span>
+<span class="k">type</span> <span class="n">Shape</span> <span class="k">interface</span> <span class="p">{</span>
+    <span class="n">Area</span><span class="p">()</span> <span class="kt">float64</span>
+    <span class="n">Perimeter</span><span class="p">()</span> <span class="kt">float64</span>
+<span class="p">}</span>
+
+<span class="k">type</span> <span class="n">Circle</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="n">Radius</span> <span class="kt">float64</span>
+<span class="p">}</span>
+
+<span class="c">// Implementing an Interface (Go interfaces are implemented implicitly!)</span>
+<span class="k">func</span> <span class="p">(</span><span class="n">c</span> <span class="n">Circle</span><span class="p">)</span> <span class="n">Area</span><span class="p">()</span> <span class="kt">float64</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="m">3.14</span> <span class="o">*</span> <span class="n">c</span><span class="o">.</span><span class="n">Radius</span> <span class="o">*</span> <span class="n">c</span><span class="o">.</span><span class="n">Radius</span>
+<span class="p">}</span>
+
+<span class="k">func</span> <span class="p">(</span><span class="n">c</span> <span class="n">Circle</span><span class="p">)</span> <span class="n">Perimeter</span><span class="p">()</span> <span class="kt">float64</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="m">2</span> <span class="o">*</span> <span class="m">3.14</span> <span class="o">*</span> <span class="n">c</span><span class="o">.</span><span class="n">Radius</span>
+<span class="p">}</span>
+
+<span class="c">// Empty Interface (Any type implements the empty interface)</span>
+<span class="k">var</span> <span class="n">anyValue</span> <span class="k">interface</span><span class="p">{}</span> <span class="o">=</span> <span class="s">"hello"</span>
+</code></pre></div></div>
+
+<h2 id="concurrency-goroutines--channels">Concurrency (Goroutines &amp; Channels)</h2>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">func</span> <span class="n">worker</span><span class="p">(</span><span class="n">id</span> <span class="kt">int</span><span class="p">,</span> <span class="n">jobs</span> <span class="o">&lt;-</span><span class="k">chan</span> <span class="kt">int</span><span class="p">,</span> <span class="n">results</span> <span class="k">chan</span><span class="o">&lt;-</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="o">:=</span> <span class="k">range</span> <span class="n">jobs</span> <span class="p">{</span>
+        <span class="n">results</span> <span class="o">&lt;-</span> <span class="n">j</span> <span class="o">*</span> <span class="m">2</span>        <span class="c">// Send result to channel</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c">// 1. Goroutine (Lightweight thread managed by Go runtime)</span>
+    <span class="k">go</span> <span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"Hello from background"</span><span class="p">)</span>
+
+    <span class="c">// 2. Channels (Thread-safe message pipes)</span>
+    <span class="n">ch</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="k">chan</span> <span class="kt">string</span><span class="p">)</span>
+    <span class="k">go</span> <span class="k">func</span><span class="p">()</span> <span class="p">{</span> <span class="n">ch</span> <span class="o">&lt;-</span> <span class="s">"ping"</span> <span class="p">}()</span> <span class="c">// Send to channel</span>
+    <span class="n">msg</span> <span class="o">:=</span> <span class="o">&lt;-</span><span class="n">ch</span>                  <span class="c">// Receive from channel</span>
+
+    <span class="c">// 3. Buffered Channels</span>
+    <span class="n">bufCh</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="k">chan</span> <span class="kt">int</span><span class="p">,</span> <span class="m">2</span><span class="p">)</span>  <span class="c">// Buffer size 2 (does not block sender until full)</span>
+
+    <span class="c">// 4. select (Blocks until one of its channel cases can execute)</span>
+    <span class="k">select</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="n">msg1</span> <span class="o">:=</span> <span class="o">&lt;-</span><span class="n">ch</span><span class="o">:</span>
+        <span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"Received"</span><span class="p">,</span> <span class="n">msg1</span><span class="p">)</span>
+    <span class="k">case</span> <span class="n">bufCh</span> <span class="o">&lt;-</span> <span class="m">10</span><span class="o">:</span>
+        <span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"Sent to buffer"</span><span class="p">)</span>
+    <span class="k">default</span><span class="o">:</span>
+        <span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"No channel active"</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="concurrency-sync-primitives">Concurrency Sync Primitives</h2>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="s">"sync"</span>
+
+<span class="c">// 1. WaitGroup (Block execution thread until multiple goroutines finish)</span>
+<span class="k">var</span> <span class="n">wg</span> <span class="n">sync</span><span class="o">.</span><span class="n">WaitGroup</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="o">:=</span> <span class="m">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="m">3</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">{</span>
+    <span class="n">wg</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="m">1</span><span class="p">)</span>                   <span class="c">// Increment WaitGroup counter</span>
+    <span class="k">go</span> <span class="k">func</span><span class="p">(</span><span class="n">id</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">defer</span> <span class="n">wg</span><span class="o">.</span><span class="n">Done</span><span class="p">()</span>         <span class="c">// Decrement counter when finished</span>
+        <span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"Job"</span><span class="p">,</span> <span class="n">id</span><span class="p">)</span>
+    <span class="p">}(</span><span class="n">i</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="n">wg</span><span class="o">.</span><span class="n">Wait</span><span class="p">()</span>                       <span class="c">// Block until counter reaches 0</span>
+
+<span class="c">// 2. Mutex (Ensure only one goroutine accesses critical section at a time)</span>
+<span class="k">var</span> <span class="p">(</span>
+    <span class="n">mu</span>    <span class="n">sync</span><span class="o">.</span><span class="n">Mutex</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="m">0</span>
+<span class="p">)</span>
+
+<span class="k">func</span> <span class="n">increment</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">mu</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>
+    <span class="k">defer</span> <span class="n">mu</span><span class="o">.</span><span class="n">Unlock</span><span class="p">()</span>
+    <span class="n">count</span><span class="o">++</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="error-handling">Error Handling</h2>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="s">"errors"</span>
+
+<span class="c">// 1. Returning Errors</span>
+<span class="k">func</span> <span class="n">findUser</span><span class="p">(</span><span class="n">id</span> <span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="o">*</span><span class="n">User</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="n">id</span> <span class="o">&lt;=</span> <span class="m">0</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="no">nil</span><span class="p">,</span> <span class="n">errors</span><span class="o">.</span><span class="n">New</span><span class="p">(</span><span class="s">"invalid user ID"</span><span class="p">)</span> <span class="c">// Standard error creation</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="o">&amp;</span><span class="n">User</span><span class="p">{</span><span class="n">ID</span><span class="o">:</span> <span class="n">id</span><span class="p">},</span> <span class="no">nil</span>
+<span class="p">}</span>
+
+<span class="c">// 2. Custom Error Structures</span>
+<span class="k">type</span> <span class="n">QueryError</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="n">Query</span> <span class="kt">string</span>
+    <span class="n">Err</span>   <span class="kt">error</span>
+<span class="p">}</span>
+
+<span class="k">func</span> <span class="p">(</span><span class="n">e</span> <span class="o">*</span><span class="n">QueryError</span><span class="p">)</span> <span class="n">Error</span><span class="p">()</span> <span class="kt">string</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">fmt</span><span class="o">.</span><span class="n">Sprintf</span><span class="p">(</span><span class="s">"Query %q failed: %v"</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">Query</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">Err</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="go-cli-toolchain">Go CLI Toolchain</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>go mod init &lt;module_name&gt;     <span class="c"># Initialize a new Go module (generates go.mod)</span>
+go run main.go                <span class="c"># Compile and run the specified Go file immediately</span>
+go build                      <span class="c"># Compile active directory package into executable binary</span>
+go build <span class="nt">-o</span> app_bin           <span class="c"># Compile and output binary using a custom filename</span>
+go <span class="nb">test</span>                       <span class="c"># Run all unit tests (*_test.go) in the active folder</span>
+go <span class="nb">test</span> <span class="nt">-v</span>                    <span class="c"># Run tests in verbose mode (list individual run outcomes)</span>
+go get &lt;package_path&gt;         <span class="c"># Download and add a remote dependency to go.mod</span>
+go <span class="nb">fmt</span>                        <span class="c"># Automatically format all Go files in active package</span>
+go vet                        <span class="c"># Run static analysis tool to find common semantic bugs</span>
+</code></pre></div></div>
+<hr />
+
+
+    
+
+    
+    <section class="related-section">
+      <h3>Recommended Cheatsheets</h3>
+      <p>Check out our other essential cheatsheets for developers:</p>
+      <div class="related-grid">
+        
+        
+          
+            
+            <div class="post-card">
+              <div class="post-title"><a href="/cheatsheets/browser-shortcuts/">Browser Shortcuts Cheatsheet</a></div>
+              <p class="post-desc">Comprehensive reference for essential web browser keyboard shortcuts, coverin...</p>
+            </div>
+          
+        
+          
+            
+            <div class="post-card">
+              <div class="post-title"><a href="/cheatsheets/css-flexbox/">CSS Flexbox Cheatsheet</a></div>
+              <p class="post-desc">Comprehensive reference for CSS Flexible Box Layout (Flexbox), covering flex ...</p>
+            </div>
+          
+        
+          
+            
+            <div class="post-card">
+              <div class="post-title"><a href="/cheatsheets/css-grid/">CSS Grid Cheatsheet</a></div>
+              <p class="post-desc">Comprehensive reference for CSS Grid Layout, covering grid container properti...</p>
+            </div>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </section>
+    
+
+    
+
+    
+
+    
+
+    
+  </main>
+
+  <footer class="site-footer-dark">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h3>Popular Tools</h3>
+      <ul>
+        <li><a href="/tools/json-formatter/">JSON Formatter</a></li>
+        <li><a href="/tools/qr-code-generator/">QR Code Generator</a></li>
+        <li><a href="/tools/base64-encoder-decoder/">Base64 Encoder/Decoder</a></li>
+        <li><a href="/tools/text-compare/">Text Compare</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Calculators & Finance</h3>
+      <ul>
+        <li><a href="/finance/currency-calculator/">Currency Calculator</a></li>
+        <li><a href="/finance/mortgage-calculator/">Mortgage Calculator</a></li>
+        <li><a href="/calculators/ip-subnet-calculator/">IP Subnet Calculator</a></li>
+        <li><a href="/calculators/time-zone-calculator/">Time Zone Calculator</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Quick References</h3>
+      <ul>
+        <li><a href="/cheatsheets/git-commands/">Git Cheatsheet</a></li>
+        <li><a href="/cheatsheets/docker-commands/">Docker Cheatsheet</a></li>
+        <li><a href="/cheatsheets/react-hooks/">React Hooks Cheatsheet</a></li>
+        <li><a href="/cheatsheets/javascript/">JavaScript Cheatsheet</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/shafqatalix" aria-label="LinkedIn">
+        <img src="/images/social-icons/linkedin.svg" alt="LinkedIn">
+      </a>
+      <a href="https://twitter.com/shafqatalix" aria-label="X/Twitter">
+        <img src="/images/social-icons/twitter.svg" alt="X/Twitter">
+      </a>
+      <a href="https://github.com/shafqatalix" aria-label="GitHub">
+        <img src="/images/social-icons/github.svg" alt="GitHub">
+      </a>
+    </div>
+    <div class="footer-copy">&copy; 2026 YORABA. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+
+</html>

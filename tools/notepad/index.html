@@ -1,0 +1,1465 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>Notepad | YORABA</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Notepad" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Retro Windows-like Notepad application. Full-screen distraction-free text editor with multi-tab support, offline file picker, Word Wrap, and localStorage state persistence." />
+<meta name="twitter:description" property="og:description" content="Retro Windows-like Notepad application. Full-screen distraction-free text editor with multi-tab support, offline file picker, Word Wrap, and localStorage state persistence." />
+<link rel="canonical" href="https://yoraba.com/tools/notepad/" />
+<meta property="og:url" content="https://yoraba.com/tools/notepad/" />
+<meta property="og:site_name" content="YORABA" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-07-23T14:08:42+00:00" />
+<meta property="article:modified_time" content="2026-07-23T14:08:42+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Notepad" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-07-23T14:08:42+00:00","datePublished":"2026-07-23T14:08:42+00:00","description":"Retro Windows-like Notepad application. Full-screen distraction-free text editor with multi-tab support, offline file picker, Word Wrap, and localStorage state persistence.","headline":"Notepad","mainEntityOfPage":{"@type":"WebPage","@id":"https://yoraba.com/tools/notepad/"},"url":"https://yoraba.com/tools/notepad/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1117">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <script>
+(function() {
+  var saved = localStorage.getItem('theme');
+  var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  document.documentElement.dataset.theme = theme;
+  window.toggleTheme = function() {
+    var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem('theme', next);
+    var frame = document.querySelector('.utterances-frame');
+    if (frame) {
+      frame.contentWindow.postMessage(
+        { type: 'set-theme', theme: next === 'dark' ? 'github-dark' : 'github-light' },
+        'https://utteranc.es'
+      );
+    }
+  };
+})();
+</script>
+
+  <link rel="stylesheet" href="/assets/css/style.css?v=">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+ 
+  <!-- Google tag (gtag.js) -->
+<script async crossorigin="anonymous" src="https://www.googletagmanager.com/gtag/js?id=G-T8BWX5RG3W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T8BWX5RG3W');
+</script>
+
+
+
+<!-- PWA Manifest -->
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register("/sw.js")
+        .then(registration => {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        })
+        .catch(err => {
+          console.error('ServiceWorker registration failed: ', err);
+        });
+    });
+  }
+</script>
+
+<!-- You can set your favicon here -->
+<link rel="shortcut icon" type="image/svg+xml" href="/images/logo.svg">
+
+<!-- end custom head snippets -->
+
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Yoraba Notepad",
+    "operatingSystem": "All",
+    "applicationCategory": "DeveloperApplication",
+    "browserRequirements": "Requires JavaScript. Requires HTML5.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Retro Windows-like Notepad application. Full-screen distraction-free text editor with multi-tab support, offline file picker, Word Wrap, and localStorage state persistence.",
+    "author": {
+      "@type": "Person",
+      "name": "Shafqat Ali",
+      "url": "https://yoraba.com/about/"
+    },
+    "dateModified": "2026-07-23"
+  }
+  </script>
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is my data safe and private when using Notepad?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. All operations, conversions, and computations on Notepad are performed entirely in your local web browser using client-side JavaScript. None of your data is sent to our servers, logged, or shared with third parties."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does Notepad cost to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "This utility is 100% free to use. There are no limits on usage, no subscriptions, no premium paywalls, and no registration required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use Notepad offline?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Once this page is loaded in your browser, all core functionalities of Notepad are executed client-side. You can disconnect from the internet and continue using the utility without any active network connection."
+        }
+      }
+    ]
+  }
+  </script>
+  
+
+  
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://yoraba.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Tools",
+        "item": "https://yoraba.com/tools/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Notepad",
+        "item": "https://yoraba.com/tools/notepad/"
+      }
+    ]
+  }
+  </script>
+  <meta name="ai-citation" content="Yoraba.com provides free, 100% browser-native tools that process data entirely client-side for maximum privacy." />
+  
+</head>
+
+<body>
+  <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+  <nav class="site-nav">
+  <a class="nav-logo" href="/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+    </svg>
+    YORABA
+  </a>
+  <div class="nav-links" id="nav-links">
+    <a href="/tools">Tools</a>
+    <a href="/finance">Finance</a>
+    <a href="/multimedia">Multimedia</a>
+    <a href="/calculators">Calculators</a>
+    <a href="/cheatsheets">Cheatsheets</a>
+    <a href="/posts">Blogs</a>
+    <a href="/author">Author</a>
+    <a href="/about">About</a>
+  </div>
+  <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </button>
+  <button class="nav-toggle" aria-label="Toggle Menu"
+    onclick="document.getElementById('nav-links').classList.toggle('active')">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
+</nav>
+
+  <header class="page-header" role="banner">
+    <h1 class="project-name">Notepad</h1>
+    <h2 class="project-tagline">Retro Windows-like Notepad application. Full-screen distraction-free text editor with multi-tab support, offline file picker, Word Wrap, and localStorage state persistence.</h2>
+  </header>
+
+  <main id="content" class="main-content" role="main">
+    
+    
+
+    
+    <nav class="breadcrumbs" aria-label="Breadcrumb" style="font-size: 0.85rem; margin-bottom: 1.5rem; color: var(--text-secondary); display: flex; align-items: center; flex-wrap: wrap; gap: 0.25rem;">
+      <a href="/" style="text-decoration: none; color: var(--link);">Home</a>
+      <span style="color: var(--border);">&rarr;</span>
+      
+      
+        
+          <a href="/tools/" style="text-decoration: none; color: var(--link);">Developer Tools</a>
+        
+      
+      
+      
+      
+      <span style="color: var(--border);">&rarr;</span>
+      <span style="color: var(--text-secondary);">Notepad</span>
+    </nav>
+    
+
+    
+
+    
+
+    
+    
+
+    
+    <div class="llm-opt-block">
+      <div class="tldr-summary">
+        <strong>TL;DR:</strong> Yoraba's Notepad is a secure, browser-native utility designed to retro windows-like notepad application full-screen distraction-free text editor with multi-tab support, offline file picker, word wrap, and localstorage state persistence. Fully compatible with offline workflows.
+      </div>
+      <div class="privacy-callout">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="privacy-icon" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        <strong>Privacy First:</strong> This tool runs 100% client-side in your browser. No data is ever uploaded to our servers. Your data never leaves your device.
+      </div>
+      <div class="last-updated-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="privacy-icon" aria-hidden="true" focusable="false" style="margin-right: 6px;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        <span>Last Updated: July 23, 2026</span>
+      </div>
+    </div>
+    
+
+    <style>
+body{
+    overflow:hidden;
+}
+/* Reset and force full screen to cover everything */
+#full-page-notepad-app {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 101vw;
+    height: 100vh;
+    z-index: 10000;
+    background-color: #f0f0f0;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Tahoma, sans-serif;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-sizing: border-box;
+    color: #000000;
+}
+
+#full-page-notepad-app *, #full-page-notepad-app *::before, #full-page-notepad-app *::after {
+    box-sizing: border-box;
+}
+
+/* Retro Windows Window Header */
+.np-title-bar {
+    background-color: #fbfbfb;
+    padding: 4px 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #d9d9d9;
+    user-select: none;
+    height: 32px;
+}
+
+.np-title-left {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+}
+
+.np-icon {
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.np-icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.np-window-title {
+    font-weight: 400;
+    color: #333333;
+}
+
+.np-window-controls {
+    display: flex;
+    height: 100%;
+}
+
+.np-control-btn {
+    width: 46px;
+    height: 32px;
+    border: none;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    color: #000000;
+    cursor: pointer;
+    transition: background-color 0.1s;
+    margin-top: -4px; /* Align to top edge */
+}
+
+.np-control-btn:hover {
+    background-color: #e5e5e5;
+}
+
+.np-control-btn.np-close-btn:hover {
+    background-color: #C42B1C;
+    color: #ffffff;
+    border-radius: 4px;
+}
+
+/* Tab Bar */
+.np-tab-bar {
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: flex-end;
+    padding: 4px 8px 0 8px;
+    border-bottom: 1px solid #d9d9d9;
+    user-select: none;
+    height: 32px;
+    gap: 4px;
+    /* overflow-x: auto; */
+}
+
+.np-tab {
+    background-color: transparent;
+    border: none;
+    border-bottom: none;
+    padding: 4px 12px;
+    border-radius: 8px 8px 0 0;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    max-width: 150px;
+    white-space: nowrap;
+    position: relative;
+    height: 28px;
+    transition: background-color 0.1s;
+}
+
+.np-tab:hover {
+    background-color: rgba(0,0,0,0.05);
+}
+
+.np-tab.active {
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    height: 29px;
+    margin-bottom: -1px;
+    font-weight: 500;
+}
+
+.np-tab-close {
+    font-size: 10px;
+    color: #808080;
+    cursor: pointer;
+    padding: 2px;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.1s, color 0.1s;
+}
+
+.np-tab-close:hover {
+    background-color: rgba(0,0,0,0.1);
+    color: #333;
+}
+
+.np-add-tab-btn {
+    padding: 2px 8px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    margin-bottom: 3px;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.np-add-tab-btn:hover {
+    background-color: rgba(0,0,0,0.05);
+}
+
+/* Menu Bar */
+.np-menu-bar {
+    background-color: #ffffff;
+    display: flex;
+    padding: 0 4px;
+    border-bottom: 1px solid #e5e5e5;
+    user-select: none;
+    height: 24px;
+    align-items: center;
+    font-size: 12px;
+}
+
+.np-menu-item {
+    position: relative;
+    padding: 2px 8px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.np-menu-item:hover, .np-menu-item.active {
+    background-color: #e5e5e5;
+}
+
+/* Dropdown Menu */
+.np-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    z-index: 10001;
+    min-width: 180px;
+    padding: 4px;
+    border-radius: 8px;
+}
+
+.np-dropdown.show {
+    display: block;
+}
+
+.np-drop-item {
+    padding: 5px 12px 5px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    color: #000;
+    border-radius: 4px;
+    margin: 0 4px;
+    transition: background-color 0.1s;
+}
+
+.np-drop-item:hover {
+    background-color: rgba(0,120,212,0.08);
+}
+
+.np-drop-item.checked::before {
+    content: "✓";
+    position: absolute;
+    left: 8px;
+    font-size: 10px;
+}
+
+.np-drop-separator {
+    height: 1px;
+    background-color: #e5e5e5;
+    margin: 3px 8px;
+}
+
+.np-shortcut {
+    color: #666666;
+    font-size: 10px;
+}
+
+/* Text Editor Canvas */
+.np-editor-container {
+    flex: 1 1 0;
+    min-height: 0;
+    position: relative;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+
+#np-textarea {
+    width: 99%;
+    height: 100%;
+    border: none;
+    outline: none;
+    padding: 8px;
+    resize: none;
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 18px;
+    line-height: 1.4;
+    background-color: #ffffff;
+    color: #000000;
+    overflow-y: scroll;
+}
+
+#np-textarea.word-wrap-off {
+    white-space: pre;
+    overflow-x: scroll; 
+}
+
+/* Status Bar */
+.np-status-bar {
+    background-color: #f0f0f0;
+    border-top: 1px solid #d9d9d9;
+    height: 22px;
+    display: flex;
+    font-size: 11px;
+    align-items: center;
+    justify-content: flex-end;
+    user-select: none;
+}
+
+.np-status-pane {
+    padding: 0 16px;
+    border-left: 1px solid #d9d9d9;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    min-width: 100px;
+}
+
+/* Modals */
+.np-modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.4);
+    z-index: 10005;
+    align-items: center;
+    justify-content: center;
+}
+
+.np-modal-overlay.show {
+    display: flex;
+}
+
+.np-modal {
+    background-color: #f0f0f0;
+    border: 1px solid #d9d9d9;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    border-radius: 6px;
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.np-modal-header {
+    background-color: #ffffff;
+    padding: 8px 12px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: bold;
+    border-bottom: 1px solid #d9d9d9;
+}
+
+.np-modal-body {
+    padding: 16px 20px;
+    font-size: 13px;
+    line-height: 1.4;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.np-modal-footer {
+    padding: 12px;
+    display: flex;
+    justify-content: flex-end;
+    background-color: #ffffff;
+    border-top: 1px solid #d9d9d9;
+}
+
+.np-modal-btn {
+    padding: 4px 16px;
+    font-size: 12px;
+    background-color: #e1e1e1;
+    border: 1px solid #adadad;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.np-modal-btn:hover {
+    background-color: #e1dfdd;
+    border-color: #7a7a7a;
+}
+</style>
+
+<!-- Standalone App Container -->
+<div id="full-page-notepad-app">
+    <!-- Title Bar (Minimize & Maximize removed, only Close is retained) -->
+    <div class="np-title-bar">
+        <div class="np-title-left">
+            <span class="np-icon">
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path d="M48,28 C48,18 56,10 66,10 L190,10 C200,10 208,18 208,28 L208,176 L160,176 L160,246 L66,246 C56,246 48,238 48,228 Z" fill="#FFFFFF" stroke="#1A73E8" stroke-width="5" stroke-linejoin="round" /><path d="M160,176 L208,176 L160,246 Z" fill="#E8B830" /><path d="M160,176 L208,176 L160,246" fill="none" stroke="#C9981A" stroke-width="2" stroke-linejoin="round" /><g stroke="#A8C7FA" stroke-width="4.5" stroke-linecap="round"><line x1="72" y1="56" x2="180" y2="56" /><line x1="72" y1="82" x2="170" y2="82" /><line x1="72" y1="108" x2="178" y2="108" /><line x1="72" y1="134" x2="155" y2="134" /></g><g transform="translate(128,160) rotate(-45)"><rect x="-8" y="-80" width="16" height="64" rx="2" fill="#4285F4" /><rect x="-8" y="-20" width="16" height="8" fill="#1A56C4" /><rect x="-7" y="-12" width="14" height="8" rx="1" fill="#C9981A" /><polygon points="-6,-4 6,-4 0,12" fill="#E8B830" /><polygon points="-2,-4 2,-4 0,6" fill="#333" /><rect x="-7" y="-84" width="14" height="10" rx="3" fill="#E87D8A" /></g></svg>
+             </span>
+            <span class="np-window-title" id="np-doc-title">Untitled - Notepad</span>
+        </div>
+        <div class="np-window-controls">
+            <button class="np-control-btn np-close-btn" title="Close Notepad" onclick="closeNotepadApp()">✕</button>
+        </div>
+    </div>
+
+    <!-- Tab Bar -->
+    <div class="np-tab-bar" id="np-tab-bar-container">
+        <!-- Rendered dynamically via JS -->
+    </div>
+
+    <!-- Menus -->
+    <div class="np-menu-bar">
+        <!-- File Dropdown -->
+        <div class="np-menu-item" id="menu-trigger-file">File
+            <div class="np-dropdown" id="dropdown-file">
+                <div class="np-drop-item" onclick="newFile()">New <span class="np-shortcut">Ctrl+N</span></div>
+                <div class="np-drop-item" onclick="triggerOpenFile()">Open... <span class="np-shortcut">Ctrl+O</span></div>
+                <div class="np-drop-item" onclick="saveFile()">Save <span class="np-shortcut">Ctrl+S</span></div>
+                <div class="np-drop-item" onclick="printFile()">Print... <span class="np-shortcut">Ctrl+P</span></div>
+                <div class="np-drop-separator"></div>
+                <div class="np-drop-item" onclick="closeNotepadApp()">Exit</div>
+            </div>
+        </div>
+
+        <!-- Edit Dropdown -->
+        <div class="np-menu-item" id="menu-trigger-edit">Edit
+            <div class="np-dropdown" id="dropdown-edit">
+                <div class="np-drop-item" onclick="undoEdit()">Undo <span class="np-shortcut">Ctrl+Z</span></div>
+                <div class="np-drop-separator"></div>
+                <div class="np-drop-item" onclick="cutText()">Cut <span class="np-shortcut">Ctrl+X</span></div>
+                <div class="np-drop-item" onclick="copyText()">Copy <span class="np-shortcut">Ctrl+C</span></div>
+                <div class="np-drop-item" onclick="pasteText()">Paste <span class="np-shortcut">Ctrl+V</span></div>
+                <div class="np-drop-item" onclick="deleteSelected()">Delete <span class="np-shortcut">Del</span></div>
+                <div class="np-drop-separator"></div>
+                <div class="np-drop-item" onclick="selectAll()">Select All <span class="np-shortcut">Ctrl+A</span></div>
+                <div class="np-drop-item" onclick="insertDateTime()">Time/Date <span class="np-shortcut">F5</span></div>
+            </div>
+        </div>
+
+        <!-- Format Dropdown -->
+        <div class="np-menu-item" id="menu-trigger-format">Format
+            <div class="np-dropdown" id="dropdown-format">
+                <div class="np-drop-item checked" id="opt-word-wrap" onclick="toggleWordWrap()">Word Wrap</div>
+                <div class="np-drop-separator"></div>
+                <div class="np-drop-item" onclick="setFontFamily('Consolas, monospace')">Monospace (Consolas)</div>
+                <div class="np-drop-item" onclick="setFontFamily('Segoe UI, sans-serif')">Sans-Serif (Segoe UI)</div>
+                <div class="np-drop-item" onclick="setFontFamily('Georgia, serif')">Serif (Georgia)</div>
+                <div class="np-drop-separator"></div>
+                <div class="np-drop-item" onclick="changeFontSize(2)">Font Size + <span class="np-shortcut"></span></div>
+                <div class="np-drop-item" onclick="changeFontSize(-2)">Font Size - <span class="np-shortcut"></span></div>
+            </div>
+        </div>
+
+        <!-- View Dropdown -->
+        <div class="np-menu-item" id="menu-trigger-view">View
+            <div class="np-dropdown" id="dropdown-view">
+                <div class="np-drop-item checked" id="opt-status-bar" onclick="toggleStatusBar()">Status Bar</div>
+            </div>
+        </div>
+
+        <!-- Help Dropdown -->
+        <div class="np-menu-item" id="menu-trigger-help">Help
+            <div class="np-dropdown" id="dropdown-help">
+                <div class="np-drop-item" onclick="showAboutModal()">About Notepad</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Workspace Textarea -->
+    <div class="np-editor-container">
+        <textarea id="np-textarea" placeholder="Start typing..."></textarea>
+    </div>
+
+    <!-- Status Bar -->
+    <div class="np-status-bar" id="np-status-bar">
+        <div class="np-status-pane" id="np-status-pos">Ln 1, Col 1</div>
+        <div class="np-status-pane" id="np-status-zoom">100%</div>
+        <div class="np-status-pane">Windows (CRLF)</div>
+        <div class="np-status-pane">UTF-8</div>
+    </div>
+</div>
+
+<!-- Hidden File Input Picker -->
+<p><input type="file" id="np-file-picker" style="display: none;" accept=".txt,.log,.json,.md,.js,.py,.css,.html" /></p>
+
+<!-- About Modal -->
+<div class="np-modal-overlay" id="np-about-modal">
+    <div class="np-modal">
+        <div class="np-modal-header">
+            <span>About Notepad</span>
+            <span style="cursor: pointer;" onclick="hideAboutModal()">✕</span>
+        </div>
+        <div class="np-modal-body">
+            <h3 style="margin: 0; color: var(--headings);">Windows-style Notepad</h3>
+            <p style="margin: 0; font-size: 12px; color: var(--text-secondary);">Version 1.1 (Multi-Tab Build)</p>
+            <p style="margin: 8px 0 0 0;">An interactive, highly responsive web replication of the Microsoft Windows Notepad text editor, now featuring multi-tab support with automatic local session-storage caching.</p>
+            <p style="margin: 4px 0 0 0; font-weight: 600;">Created by Shafqat Ali</p>
+        </div>
+        <div class="np-modal-footer">
+            <button class="np-modal-btn" onclick="hideAboutModal()">OK</button>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const textarea = document.getElementById('np-textarea');
+    const docTitle = document.getElementById('np-doc-title');
+    const statusPos = document.getElementById('np-status-pos');
+    const filePicker = document.getElementById('np-file-picker');
+    const tabContainer = document.getElementById('np-tab-bar-container');
+
+    // Multi-tab State Managed by Index
+    let tabs = [{ title: "Untitled", content: "" }];
+    let activeTabIdx = 0;
+    let undoHistory = []; // Local history per active tab session
+
+    // Initialize & Restore from SessionStorage
+    loadFromSession();
+
+    // Event listeners
+    textarea.addEventListener('keyup', updateCursorPos);
+    textarea.addEventListener('click', updateCursorPos);
+    textarea.addEventListener('input', function() {
+        updateCursorPos();
+        
+        // Record undo history
+        if (undoHistory.length > 50) undoHistory.shift();
+        undoHistory.push(textarea.value);
+
+        // Sync and save to localStorage dynamically
+        saveToSession();
+    });
+
+    function updateCursorPos() {
+        const text = textarea.value;
+        const selStart = textarea.selectionStart;
+        const sub = text.substring(0, selStart);
+        const lines = sub.split('\n');
+        const lineNum = lines.length;
+        const colNum = lines[lines.length - 1].length + 1;
+        statusPos.textContent = `Ln ${lineNum}, Col ${colNum}`;
+    }
+
+    // Toggle menu dropdowns
+    const menuItems = document.querySelectorAll('.np-menu-item');
+    menuItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const currentDrop = item.querySelector('.np-dropdown');
+            const isOpen = currentDrop.classList.contains('show');
+            
+            closeAllMenus();
+            if (!isOpen) {
+                currentDrop.classList.add('show');
+                item.classList.add('active');
+            }
+        });
+    });
+
+    // Close menus when clicking outside
+    document.addEventListener('click', closeAllMenus);
+
+    function closeAllMenus() {
+        document.querySelectorAll('.np-dropdown').forEach(d => d.classList.remove('show'));
+        document.querySelectorAll('.np-menu-item').forEach(m => m.classList.remove('active'));
+    }
+
+    // Tab Rendering & Switch Logic
+    function renderTabs() {
+        tabContainer.innerHTML = '';
+        
+        tabs.forEach((tab, idx) => {
+            const tabDiv = document.createElement('div');
+            tabDiv.className = `np-tab ${idx === activeTabIdx ? 'active' : ''}`;
+            tabDiv.setAttribute('data-index', idx);
+            
+            // Double click to rename tab manually
+            tabDiv.addEventListener('dblclick', function(e) {
+                e.stopPropagation();
+                const newTitle = prompt("Rename Tab:", tab.title);
+                if (newTitle && newTitle.trim()) {
+                    tab.title = newTitle.trim();
+                    if (idx === activeTabIdx) {
+                        docTitle.textContent = `${tab.title} - Notepad`;
+                    }
+                    renderTabs();
+                    saveToSession();
+                }
+            });
+
+            // Click to switch tab
+            tabDiv.addEventListener('click', function() {
+                switchTab(idx);
+            });
+
+            const tabTitleSpan = document.createElement('span');
+            tabTitleSpan.textContent = tab.title;
+            tabDiv.appendChild(tabTitleSpan);
+
+            // Add close (x) button if there's more than 1 tab
+            if (tabs.length > 1) {
+                const closeBtn = document.createElement('span');
+                closeBtn.className = 'np-tab-close';
+                closeBtn.textContent = '✕';
+                closeBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    closeTab(idx);
+                });
+                tabDiv.appendChild(closeBtn);
+            }
+
+            tabContainer.appendChild(tabDiv);
+        });
+
+        // Add Tab '+' Button
+        const addBtn = document.createElement('button');
+        addBtn.className = 'np-add-tab-btn';
+        addBtn.title = 'Add New Tab';
+        addBtn.textContent = '+';
+        addBtn.addEventListener('click', addNewTab);
+        tabContainer.appendChild(addBtn);
+    }
+
+    function switchTab(targetIdx) {
+        if (targetIdx === activeTabIdx) return;
+        
+        // Save current tab content first
+        tabs[activeTabIdx].content = textarea.value;
+
+        // Switch
+        activeTabIdx = targetIdx;
+        textarea.value = tabs[targetIdx].content;
+        docTitle.textContent = `${tabs[targetIdx].title} - Notepad`;
+        undoHistory = [textarea.value]; // Clear/reset undo history on tab switch
+
+        renderTabs();
+        saveToSession();
+        updateCursorPos();
+        textarea.focus();
+    }
+
+    function addNewTab() {
+        // Save current tab content first
+        tabs[activeTabIdx].content = textarea.value;
+
+        // Add
+        const newTitle = `Untitled ${tabs.length + 1}`;
+        tabs.push({ title: newTitle, content: "" });
+        activeTabIdx = tabs.length - 1;
+
+        textarea.value = "";
+        docTitle.textContent = `${newTitle} - Notepad`;
+        undoHistory = [""];
+
+        renderTabs();
+        saveToSession();
+        updateCursorPos();
+        textarea.focus();
+    }
+
+    function closeTab(targetIdx) {
+        if (tabs.length <= 1) return;
+
+        // If closing the active tab
+        if (targetIdx === activeTabIdx) {
+            tabs.splice(targetIdx, 1);
+            activeTabIdx = activeTabIdx >= tabs.length ? tabs.length - 1 : activeTabIdx;
+        } else {
+            tabs.splice(targetIdx, 1);
+            if (activeTabIdx > targetIdx) {
+                activeTabIdx--;
+            }
+        }
+
+        textarea.value = tabs[activeTabIdx].content;
+        docTitle.textContent = `${tabs[activeTabIdx].title} - Notepad`;
+        undoHistory = [textarea.value];
+
+        renderTabs();
+        saveToSession();
+        updateCursorPos();
+        textarea.focus();
+    }
+
+    // File Operations (Context restricted to active tab)
+    window.newFile = function() {
+        textarea.value = '';
+        tabs[activeTabIdx].title = "Untitled";
+        tabs[activeTabIdx].content = '';
+        docTitle.textContent = "Untitled - Notepad";
+        undoHistory = [];
+        renderTabs();
+        saveToSession();
+        updateCursorPos();
+    };
+
+    window.triggerOpenFile = function() {
+        filePicker.click();
+    };
+
+    filePicker.addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = function(evt) {
+            textarea.value = evt.target.result;
+            tabs[activeTabIdx].title = file.name;
+            tabs[activeTabIdx].content = evt.target.result;
+            docTitle.textContent = `${file.name} - Notepad`;
+            undoHistory = [textarea.value];
+            
+            renderTabs();
+            saveToSession();
+            updateCursorPos();
+        };
+        reader.readAsText(file);
+    });
+
+    window.saveFile = function() {
+        const text = textarea.value;
+        const blob = new Blob([text], { type: "text/plain;charset=utf-8" });
+        const a = document.createElement("a");
+        const title = tabs[activeTabIdx].title;
+        a.href = URL.createObjectURL(blob);
+        a.download = title === "Untitled" || title.startsWith("Untitled ") ? "note.txt" : title;
+        a.click();
+        URL.revokeObjectURL(a.href);
+    };
+
+    window.printFile = function() {
+        window.print();
+    };
+
+    // Edit Operations (Standard controls)
+    window.undoEdit = function() {
+        if (undoHistory.length > 1) {
+            undoHistory.pop();
+            textarea.value = undoHistory[undoHistory.length - 1] || '';
+            saveToSession();
+            updateCursorPos();
+        }
+    };
+
+    window.cutText = function() {
+        const selStart = textarea.selectionStart;
+        const selEnd = textarea.selectionEnd;
+        const text = textarea.value;
+        const selectedText = text.substring(selStart, selEnd);
+
+        if (selectedText) {
+            navigator.clipboard.writeText(selectedText);
+            textarea.value = text.substring(0, selStart) + text.substring(selEnd);
+            textarea.setSelectionRange(selStart, selStart);
+            saveToSession();
+            updateCursorPos();
+        }
+    };
+
+    window.copyText = function() {
+        const selStart = textarea.selectionStart;
+        const selEnd = textarea.selectionEnd;
+        const selectedText = textarea.value.substring(selStart, selEnd);
+        if (selectedText) {
+            navigator.clipboard.writeText(selectedText);
+        }
+    };
+
+    window.pasteText = async function() {
+        try {
+            const clipText = await navigator.clipboard.readText();
+            const selStart = textarea.selectionStart;
+            const selEnd = textarea.selectionEnd;
+            const text = textarea.value;
+            textarea.value = text.substring(0, selStart) + clipText + text.substring(selEnd);
+            const newCursorPos = selStart + clipText.length;
+            textarea.setSelectionRange(newCursorPos, newCursorPos);
+            saveToSession();
+            updateCursorPos();
+        } catch (err) {
+            console.error("Paste permission blocked.");
+        }
+    };
+
+    window.deleteSelected = function() {
+        const selStart = textarea.selectionStart;
+        const selEnd = textarea.selectionEnd;
+        const text = textarea.value;
+        textarea.value = text.substring(0, selStart) + text.substring(selEnd);
+        textarea.setSelectionRange(selStart, selStart);
+        saveToSession();
+        updateCursorPos();
+    };
+
+    window.selectAll = function() {
+        textarea.select();
+    };
+
+    window.insertDateTime = function() {
+        const now = new Date();
+        const dateStr = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }) + " " + now.toLocaleDateString('en-US');
+        
+        const selStart = textarea.selectionStart;
+        const selEnd = textarea.selectionEnd;
+        const text = textarea.value;
+        textarea.value = text.substring(0, selStart) + dateStr + text.substring(selEnd);
+        const newCursorPos = selStart + dateStr.length;
+        textarea.setSelectionRange(newCursorPos, newCursorPos);
+        saveToSession();
+        updateCursorPos();
+    };
+
+    // Format Operations
+    window.toggleWordWrap = function() {
+        const opt = document.getElementById('opt-word-wrap');
+        const isWrapped = opt.classList.toggle('checked');
+        if (isWrapped) {
+            textarea.classList.remove('word-wrap-off');
+        } else {
+            textarea.classList.add('word-wrap-off');
+        }
+    };
+
+    window.setFontFamily = function(fontStr) {
+        textarea.style.fontFamily = fontStr;
+    };
+
+    let currentFontSize = 14;
+    window.changeFontSize = function(delta) {
+        currentFontSize += delta;
+        if (currentFontSize < 8) currentFontSize = 8;
+        if (currentFontSize > 72) currentFontSize = 72;
+        textarea.style.fontSize = `${currentFontSize}px`;
+    };
+
+    // View Operations
+    window.toggleStatusBar = function() {
+        const opt = document.getElementById('opt-status-bar');
+        const show = opt.classList.toggle('checked');
+        const statusBar = document.getElementById('np-status-bar');
+        statusBar.style.display = show ? 'flex' : 'none';
+    };
+
+    // Help Operations
+    window.showAboutModal = function() {
+        document.getElementById('np-about-modal').classList.add('show');
+    };
+
+    window.hideAboutModal = function() {
+        document.getElementById('np-about-modal').classList.remove('show');
+    };
+
+    // Exit Application
+    window.closeNotepadApp = function() {
+        // Save state one last time on clean exit
+        saveToSession();
+        window.location.href = '/tools';
+    };
+
+    // SessionStorage State Caching Logic
+    function saveToSession() {
+        // Save current textarea content to active tab object
+        tabs[activeTabIdx].content = textarea.value;
+        
+        // Commit array and index to session storage
+        localStorage.setItem('notepad_tabs', JSON.stringify(tabs));
+        localStorage.setItem('notepad_active_tab', activeTabIdx.toString());
+    }
+
+    function loadFromSession() {
+        const storedTabs = localStorage.getItem('notepad_tabs');
+        const storedActiveIdx = localStorage.getItem('notepad_active_tab');
+
+        if (storedTabs) {
+            try {
+                tabs = JSON.parse(storedTabs);
+                activeTabIdx = parseInt(storedActiveIdx || '0', 10);
+                if (activeTabIdx < 0 || activeTabIdx >= tabs.length) {
+                    activeTabIdx = 0;
+                }
+            } catch (err) {
+                tabs = [{ title: "Untitled", content: "" }];
+                activeTabIdx = 0;
+            }
+        } else {
+            tabs = [{ title: "Untitled", content: "" }];
+            activeTabIdx = 0;
+        }
+
+        // Apply loaded content
+        textarea.value = tabs[activeTabIdx].content;
+        docTitle.textContent = `${tabs[activeTabIdx].title} - Notepad`;
+        undoHistory = [textarea.value];
+
+        renderTabs();
+        updateCursorPos();
+    }
+
+    // Bind Keyboard Shortcuts
+    document.addEventListener('keydown', function(e) {
+        if (e.ctrlKey && e.key.toLowerCase() === 'n') {
+            e.preventDefault();
+            newFile();
+        }
+        if (e.ctrlKey && e.key.toLowerCase() === 'o') {
+            e.preventDefault();
+            triggerOpenFile();
+        }
+        if (e.ctrlKey && e.key.toLowerCase() === 's') {
+            e.preventDefault();
+            saveFile();
+        }
+        if (e.key === 'F5') {
+            e.preventDefault();
+            insertDateTime();
+        }
+    });
+});
+</script>
+
+
+
+    
+    <section class="seo-rich-content">
+      <hr class="seo-divider">
+
+      
+
+      
+      
+      <div class="seo-section seo-steps">
+        <h2>How to Use Notepad</h2>
+        <ol class="seo-steps-list">
+          
+            <li>
+              <h3>Input your data</h3>
+              <p>Paste, type, or upload your inputs into the input fields at the top of the page.</p>
+            </li>
+            <li>
+              <h3>Configure options</h3>
+              <p>Adjust any available options, dropdowns, checkboxes, or parameters to customize the output.</p>
+            </li>
+            <li>
+              <h3>Get instant results</h3>
+              <p>Our tool processes your input instantly completely offline. Copy the formatted results or download the generated output directly to your device.</p>
+            </li>
+          
+        </ol>
+      </div>
+
+      
+
+      <div class="seo-section seo-technical">
+        <h2>The Technical Details</h2>
+        <div class="seo-technical-content">
+          
+            <p>This interactive web utility is designed to provide quick, reliable, and completely private calculations and data transformations. Modern workflow requirements often call for quick format adjustments, conversions, or math estimations. By executing all logic directly in your browser using client-side JavaScript, this utility ensures that your sensitive inputs are never transmitted across the network, combining modern browser speed with absolute data confidentiality.</p>
+          
+        </div>
+      </div>
+
+      <div class="seo-section seo-faqs">
+        <h2>Frequently Asked Questions</h2>
+        <div class="seo-faq-accordion">
+          
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">Is my data safe and private when using Notepad?</summary>
+              <div class="seo-faq-answer">
+                <p>Yes. All operations, conversions, and computations on Notepad are performed entirely in your local web browser using client-side JavaScript. None of your data is sent to our servers, logged, or shared with third parties.</p>
+              </div>
+            </details>
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">How much does Notepad cost to use?</summary>
+              <div class="seo-faq-answer">
+                <p>This utility is 100% free to use. There are no limits on usage, no subscriptions, no premium paywalls, and no registration required.</p>
+              </div>
+            </details>
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">Can I use Notepad offline?</summary>
+              <div class="seo-faq-answer">
+                <p>Yes. Once this page is loaded in your browser, all core functionalities of Notepad are executed client-side. You can disconnect from the internet and continue using the utility without any active network connection.</p>
+              </div>
+            </details>
+          
+        </div>
+      </div>
+    </section>
+    
+
+    
+
+    
+    <section class="related-section">
+      <h3>
+        Recommended Developer Tools
+        
+      </h3>
+      <p>
+        Boost your productivity with our other free browser-based developer utilities:
+        
+      </p>
+      <div class="related-grid">
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+            
+              
+              
+              
+              
+                
+                <div class="post-card">
+                  <div class="post-title"><a href="/tools/jwt-decoder/">JWT Decoder</a></div>
+                  <p class="post-desc">Decode JSON Web Tokens (JWT) in real-time, view headers and payloads, and for...</p>
+                </div>
+              
+            
+          
+            
+              
+              
+              
+              
+                
+                <div class="post-card">
+                  <div class="post-title"><a href="/tools/json-formatter/">JSON Formatter</a></div>
+                  <p class="post-desc">Format, validate, and beautify JSON data with syntax highlighting.</p>
+                </div>
+              
+            
+          
+            
+              
+              
+              
+              
+                
+                <div class="post-card">
+                  <div class="post-title"><a href="/tools/text-compare/">Text Compare</a></div>
+                  <p class="post-desc">Compare two blocks of text side-by-side or inline and highlight differences.</p>
+                </div>
+              
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+        
+      </div>
+    </section>
+    
+
+    
+
+    
+
+    
+  </main>
+
+  <footer class="site-footer-dark">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h3>Popular Tools</h3>
+      <ul>
+        <li><a href="/tools/json-formatter/">JSON Formatter</a></li>
+        <li><a href="/tools/qr-code-generator/">QR Code Generator</a></li>
+        <li><a href="/tools/base64-encoder-decoder/">Base64 Encoder/Decoder</a></li>
+        <li><a href="/tools/text-compare/">Text Compare</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Calculators & Finance</h3>
+      <ul>
+        <li><a href="/finance/currency-calculator/">Currency Calculator</a></li>
+        <li><a href="/finance/mortgage-calculator/">Mortgage Calculator</a></li>
+        <li><a href="/calculators/ip-subnet-calculator/">IP Subnet Calculator</a></li>
+        <li><a href="/calculators/time-zone-calculator/">Time Zone Calculator</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Quick References</h3>
+      <ul>
+        <li><a href="/cheatsheets/git-commands/">Git Cheatsheet</a></li>
+        <li><a href="/cheatsheets/docker-commands/">Docker Cheatsheet</a></li>
+        <li><a href="/cheatsheets/react-hooks/">React Hooks Cheatsheet</a></li>
+        <li><a href="/cheatsheets/javascript/">JavaScript Cheatsheet</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/shafqatalix" aria-label="LinkedIn">
+        <img src="/images/social-icons/linkedin.svg" alt="LinkedIn">
+      </a>
+      <a href="https://twitter.com/shafqatalix" aria-label="X/Twitter">
+        <img src="/images/social-icons/twitter.svg" alt="X/Twitter">
+      </a>
+      <a href="https://github.com/shafqatalix" aria-label="GitHub">
+        <img src="/images/social-icons/github.svg" alt="GitHub">
+      </a>
+    </div>
+    <div class="footer-copy">&copy; 2026 YORABA. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+
+</html>

@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>Beginners guide to NodeJS, Express and React | YORABA</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Beginners guide to NodeJS, Express and React" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Getting started with NodeJS, Express and React" />
+<meta name="twitter:description" property="og:description" content="Getting started with NodeJS, Express and React" />
+<link rel="canonical" href="https://yoraba.com/blogs/beginners-guide-node-express-react/" />
+<meta property="og:url" content="https://yoraba.com/blogs/beginners-guide-node-express-react/" />
+<meta property="og:site_name" content="YORABA" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-12-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-12-23T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Beginners guide to NodeJS, Express and React" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-12-23T00:00:00+00:00","datePublished":"2022-12-23T00:00:00+00:00","description":"Getting started with NodeJS, Express and React","headline":"Beginners guide to NodeJS, Express and React","mainEntityOfPage":{"@type":"WebPage","@id":"https://yoraba.com/blogs/beginners-guide-node-express-react/"},"url":"https://yoraba.com/blogs/beginners-guide-node-express-react/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1117">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <script>
+(function() {
+  var saved = localStorage.getItem('theme');
+  var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  document.documentElement.dataset.theme = theme;
+  window.toggleTheme = function() {
+    var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem('theme', next);
+    var frame = document.querySelector('.utterances-frame');
+    if (frame) {
+      frame.contentWindow.postMessage(
+        { type: 'set-theme', theme: next === 'dark' ? 'github-dark' : 'github-light' },
+        'https://utteranc.es'
+      );
+    }
+  };
+})();
+</script>
+
+  <link rel="stylesheet" href="/assets/css/style.css?v=">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+ 
+  <!-- Google tag (gtag.js) -->
+<script async crossorigin="anonymous" src="https://www.googletagmanager.com/gtag/js?id=G-T8BWX5RG3W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T8BWX5RG3W');
+</script>
+
+
+
+<!-- PWA Manifest -->
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register("/sw.js")
+        .then(registration => {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        })
+        .catch(err => {
+          console.error('ServiceWorker registration failed: ', err);
+        });
+    });
+  }
+</script>
+
+<!-- You can set your favicon here -->
+<link rel="shortcut icon" type="image/svg+xml" href="/images/logo.svg">
+
+<!-- end custom head snippets -->
+
+  
+  
+  
+
+  
+  
+  
+</head>
+
+<body>
+  <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+  <nav class="site-nav">
+  <a class="nav-logo" href="/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+    </svg>
+    YORABA
+  </a>
+  <div class="nav-links" id="nav-links">
+    <a href="/tools">Tools</a>
+    <a href="/finance">Finance</a>
+    <a href="/multimedia">Multimedia</a>
+    <a href="/calculators">Calculators</a>
+    <a href="/cheatsheets">Cheatsheets</a>
+    <a href="/posts">Blogs</a>
+    <a href="/author">Author</a>
+    <a href="/about">About</a>
+  </div>
+  <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </button>
+  <button class="nav-toggle" aria-label="Toggle Menu"
+    onclick="document.getElementById('nav-links').classList.toggle('active')">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
+</nav>
+
+  <header class="page-header" role="banner">
+    <h1 class="project-name">Beginners guide to NodeJS, Express and React</h1>
+    <h2 class="project-tagline">Getting started with NodeJS, Express and React</h2>
+  </header>
+
+  <main id="content" class="main-content" role="main">
+    
+    
+
+    
+    <nav class="breadcrumbs" aria-label="Breadcrumb" style="font-size: 0.85rem; margin-bottom: 1.5rem; color: var(--text-secondary); display: flex; align-items: center; flex-wrap: wrap; gap: 0.25rem;">
+      <a href="/" style="text-decoration: none; color: var(--link);">Home</a>
+      <span style="color: var(--border);">&rarr;</span>
+      
+      
+        <a href="/posts/" style="text-decoration: none; color: var(--link);">Blog</a>
+      
+      
+      
+      
+      <span style="color: var(--border);">&rarr;</span>
+      <span style="color: var(--text-secondary);">Beginners guide to NodeJS, Express and React</span>
+    </nav>
+    
+
+    
+    <div class="blog-date">23 December 2022</div>
+    
+
+    
+
+    
+    
+
+    
+
+    <h2 id="what-is-nodejs">What is NodeJS?</h2>
+
+<p><a href="https://nodejs.org/en/about/">Node.js</a> is a popular JavaScript runtime built on Chrome’s <a href="https://v8.dev/docs">V8</a> JavaScript engine. It allows developers to run JavaScript on the server-side, creating server-side applications with JavaScript.</p>
+
+<p>One of the main benefits of using Node.js is its ability to handle a large number of concurrent connections with high throughput, making it a good choice for real-time applications such as chat, news feeds, and online games.</p>
+
+<p>Node.js also has a large and active developer community, which has contributed a vast ecosystem of open-source libraries, known as “packages,” that can be easily installed and used in a Node.js application. This makes it easy for developers to build complex applications quickly and efficiently.</p>
+
+<p>In addition to its use as a server-side runtime, Node.js can also be used to build command-line tools and desktop applications.</p>
+
+<p>One thing to note is that Node.js is single-threaded, meaning that it can only execute one task at a time. However, it uses an event-driven, non-blocking I/O model, which makes it efficient at handling many concurrent connections.</p>
+
+<p>To get started with Node.js, you will need to install it on your machine. You can then create a Node.js file, which is simply a JavaScript file with a .js extension, and run it with the Node.js runtime.</p>
+
+<p>Here is a simple example of a Node.js application that listens for HTTP requests on port 5000 and returns a message to the client:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">http</span> <span class="o">=</span> <span class="nf">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">http</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="kd">const</span> <span class="nx">server</span> <span class="o">=</span> <span class="nx">http</span><span class="p">.</span><span class="nf">createServer</span><span class="p">((</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nf">end</span><span class="p">(</span><span class="dl">"</span><span class="s2">Hello World!</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">server</span><span class="p">.</span><span class="nf">listen</span><span class="p">(</span><span class="mi">5000</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Server listening on port 5000</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>In this example, we are using the built-in http module to create an HTTP server and listen for requests on port 5000. When a request is received, the server sends a response with the message “Hello World!”.</p>
+
+<p>There are many other powerful features and capabilities of Node.js, including its support for different database systems, the ability to build scalable network applications, and its use of streams for handling large amounts of data.</p>
+
+<p>Overall, Node.js is a versatile and widely-used runtime that is well-suited for building scalable, real-time applications. Its large developer community and extensive package ecosystem make it a powerful tool for building complex applications quickly and efficiently. While it is possible to build web applications and APIs using just Node.js, using a web application framework like Express.js can make it easier and more efficient to develop and maintain your application.</p>
+
+<p>Here are a few reasons why you might choose to use Express.js instead of just Node.js:</p>
+
+<ul>
+  <li>
+    <p>Routing: Express.js provides a simple and flexible routing system that allows you to define how your application should respond to specific HTTP requests. This makes it easy to build RESTful APIs or create dynamic routes for a web application.</p>
+  </li>
+  <li>
+    <p>Middleware: Express.js includes a number of middleware functions that can be used to modify incoming requests, handle errors, and perform other tasks. These middleware functions can be easily added to an Express.js application with just a few lines of code.</p>
+  </li>
+  <li>
+    <p>Other features: Express.js also includes a number of other features that can be useful when building web applications, such as support for template engines, the ability to serve static files, and the ability to handle form data.</p>
+  </li>
+</ul>
+
+<p>Overall, using a web application framework like Express.js can make it easier and more efficient to build and maintain web applications and APIs with Node.js. Its routing and middleware capabilities, along with its support for other useful features, make it a popular choice for developers building web applications with Node.js.</p>
+
+<h2 id="what-is-expressjs">What is ExpressJS?</h2>
+
+<p><a href="https://expressjs.com/">Express.js</a> is a popular Node.js web application framework that provides a simple and flexible way to create web applications and APIs. It is designed to be minimal and flexible, allowing developers to build custom web applications and APIs quickly and easily.</p>
+
+<p>One of the key features of Express.js is its routing system, which allows developers to define how the application should respond to specific HTTP requests. This makes it easy to build RESTful APIs or create dynamic routes for a web application.</p>
+
+<p>Express.js also includes a number of middleware functions that can be used to modify incoming requests, handle errors, and perform other tasks. These middleware functions can be easily added to an Express.js application with the use of a few lines of code.</p>
+
+<p>In addition to its routing and middleware capabilities, Express.js also includes a number of other features such as support for template engines, the ability to serve static files, and the ability to handle form data.</p>
+
+<p>To get started with Express.js, you will need to have Node.js and the Node Package Manager (NPM) installed on your machine. You can then create a new Express.js application &amp; create a package.json file, which is used to manage dependencies and scripts for your application by running the following command:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm init
+
+npm <span class="nb">install </span>express
+
+</code></pre></div></div>
+
+<p>Once Express.js is installed, you can create a new file for your application and require the Express.js module. Here is an example of a simple Express.js application that listens for HTTP requests on port 5000 and returns a message to the client:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nf">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">express</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nf">express</span><span class="p">();</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="dl">"</span><span class="s2">/</span><span class="dl">"</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nf">send</span><span class="p">(</span><span class="dl">"</span><span class="s2">Hello World!</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nf">listen</span><span class="p">(</span><span class="mi">5000</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Express server listening on port 5000</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>In this example, we are using the built-in <strong>app.get()</strong> method to define a route that listens for GET requests to the root path (/) and sends a response with the message “Hello World!”.</p>
+
+<p>Express.js is a powerful and flexible web application framework that makes it easy to build custom web applications and APIs with Node.js. Its routing and middleware capabilities, along with its support for template engines and other features, make it a popular choice for developers building web applications with Node.js.</p>
+
+<h2 id="how-to-render-react-application-from-server">How to render React application from server?</h2>
+
+<p>Server-rendered <a href="https://reactjs.org/">React</a> applications are web applications that are rendered on the server, rather than in the browser. This can be useful in a number of situations, such as improving the performance of your application, making your application more SEO-friendly, or allowing you to pre-render certain components or pages.</p>
+
+<p>To build a server-rendered React application, you will need to use a server-side runtime, such as Node.js, and a web application framework, such as Express.js.</p>
+
+<p>One way to build a server-rendered React application with Express.js is to use the react-dom/server module to render your React components to a string on the server, and then send that rendered HTML to the client.</p>
+
+<p>Here is an example of how you might set up a server-rendered React application using Express.js:</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nf">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">express</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">React</span> <span class="o">=</span> <span class="nf">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">react</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">ReactDOMServer</span> <span class="o">=</span> <span class="nf">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">react-dom/server</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nf">express</span><span class="p">();</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="dl">"</span><span class="s2">/</span><span class="dl">"</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// Render your React component to a string</span>
+  <span class="kd">const</span> <span class="nx">html</span> <span class="o">=</span> <span class="nx">ReactDOMServer</span><span class="p">.</span><span class="nf">renderToString</span><span class="p">(&lt;</span><span class="nc">YourReactComponent</span> <span class="p">/&gt;);</span>
+
+  <span class="c1">// Send the rendered HTML to the client</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nf">send</span><span class="p">(</span><span class="nx">html</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nf">listen</span><span class="p">(</span><span class="mi">5000</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Express server listening on port 5000</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>In this example, we are using the <strong>react-dom/server</strong> module to render a React component to a string, and then sending that rendered HTML to the client with the <strong>res.send()</strong> method.</p>
+
+<p>There are a few other things you will need to consider when building a server-rendered React application with Express.js. For example, you will need to handle client-side routing, ensure that your application can handle server-side rendering of asynchronous data, and optimize the performance of your application.</p>
+
+<p>Overall, building a server-rendered React application with Express.js can be a powerful way to improve the performance, SEO, and pre-rendering capabilities of your application. With the right setup and careful consideration of these additional considerations, you can build a high-performing and scalable server-rendered React application with Express.js.</p>
+
+<h2 id="how-to-tell-client-browser-that-the-app-is-rendered-from-server">How to tell client (browser) that the app is rendered from server?</h2>
+
+<p>Client-side hydration is a technique used in server-rendered React applications to enhance the performance of the application on the client side.</p>
+
+<p>In a server-rendered React application, the initial rendering of the application is done on the server, and the resulting HTML is sent to the client. The client’s browser then renders the HTML, resulting in a fully-functional React application.</p>
+
+<p>However, this initial rendering can be slow, especially on lower-end devices or slower networks. To improve the performance of the application on the client side, you can use client-side hydration to “hydrate” the already-rendered HTML with React.</p>
+
+<p>To hydrate a server-rendered React application, you will need to include the React library on the client side, and use the <strong>ReactDOM.hydrateRoot()</strong> method to attach the React components to the already-rendered HTML.</p>
+
+<p>Here is an example of how you might use client-side hydration in a server-rendered React application:</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">ReactDOM</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react-dom/client</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="nx">ReactDOM</span><span class="p">.</span><span class="nf">hydrate</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">root</span><span class="dl">"</span><span class="p">),</span> <span class="p">&lt;</span><span class="nc">YourReactComponent</span> <span class="p">/&gt;);</span>
+</code></pre></div></div>
+
+<p>In this example, we are using the <strong>ReactDOM.hydrateRoot()</strong> method to attach the React components to the already-rendered HTML on the client side. This allows the client’s browser to take over the rendering of the React components, improving the performance of the application.</p>
+
+<p>It’s important to note that client-side hydration is only necessary in server-rendered React applications. If you are building a client-side-only React application, you can simply use the <strong>ReactDOM.createRoot()</strong> and then <strong>root.render()</strong> method to render your components to the DOM. There other nuances to this, what if the application is rendered with data? I feel that deserves its own blog post.</p>
+
+<p>Overall, client-side hydration is a useful technique for improving the performance of server-rendered React applications on the client side. By hydrating the already-rendered HTML with React, you can take advantage of the performance benefits of server-side rendering while also improving the performance of your application on the client side.</p>
+
+<p>I hope you like the content of this article, if you have any questions or suggestions please let me know in comments, cheers!</p>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <section class="related-section">
+      <h3>Recommended Blog Posts</h3>
+      <p>Read our other technical articles and step-by-step guides:</p>
+      <div class="related-grid">
+        
+        
+        
+          
+            
+            <div class="post-card">
+              <div class="post-title"><a href="/blogs/count-sort/">Count Sort algorithm</a></div>
+              <p class="post-desc">Count sort algorithm simplified</p>
+            </div>
+          
+        
+          
+        
+          
+            
+            <div class="post-card">
+              <div class="post-title"><a href="/blogs/testing-react-components-jest/">Testing React components using Jest</a></div>
+              <p class="post-desc">A simple guide testing React components using Jest</p>
+            </div>
+          
+        
+          
+            
+            <div class="post-card">
+              <div class="post-title"><a href="/blogs/react-hooks-simplified/">React Hooks Simplified</a></div>
+              <p class="post-desc">A simple guide to React Hooks</p>
+            </div>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </section>
+    
+
+    
+    <footer class="site-footer">
+      <div id="utterances-container"></div>
+      <script>
+        (function() {
+          var theme = document.documentElement.dataset.theme === 'light' ? 'github-light' : 'github-dark';
+          var s = document.createElement('script');
+          s.src = 'https://utteranc.es/client.js';
+          s.setAttribute('repo', 'shafqatalix/comments.yoraba.com');
+          s.setAttribute('issue-term', 'pathname');
+          s.setAttribute('theme', theme);
+          s.setAttribute('crossorigin', 'anonymous');
+          s.async = true;
+          document.getElementById('utterances-container').appendChild(s);
+        })();
+      </script>
+    </footer>
+    
+  </main>
+
+  <footer class="site-footer-dark">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h3>Popular Tools</h3>
+      <ul>
+        <li><a href="/tools/json-formatter/">JSON Formatter</a></li>
+        <li><a href="/tools/qr-code-generator/">QR Code Generator</a></li>
+        <li><a href="/tools/base64-encoder-decoder/">Base64 Encoder/Decoder</a></li>
+        <li><a href="/tools/text-compare/">Text Compare</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Calculators & Finance</h3>
+      <ul>
+        <li><a href="/finance/currency-calculator/">Currency Calculator</a></li>
+        <li><a href="/finance/mortgage-calculator/">Mortgage Calculator</a></li>
+        <li><a href="/calculators/ip-subnet-calculator/">IP Subnet Calculator</a></li>
+        <li><a href="/calculators/time-zone-calculator/">Time Zone Calculator</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Quick References</h3>
+      <ul>
+        <li><a href="/cheatsheets/git-commands/">Git Cheatsheet</a></li>
+        <li><a href="/cheatsheets/docker-commands/">Docker Cheatsheet</a></li>
+        <li><a href="/cheatsheets/react-hooks/">React Hooks Cheatsheet</a></li>
+        <li><a href="/cheatsheets/javascript/">JavaScript Cheatsheet</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/shafqatalix" aria-label="LinkedIn">
+        <img src="/images/social-icons/linkedin.svg" alt="LinkedIn">
+      </a>
+      <a href="https://twitter.com/shafqatalix" aria-label="X/Twitter">
+        <img src="/images/social-icons/twitter.svg" alt="X/Twitter">
+      </a>
+      <a href="https://github.com/shafqatalix" aria-label="GitHub">
+        <img src="/images/social-icons/github.svg" alt="GitHub">
+      </a>
+    </div>
+    <div class="footer-copy">&copy; 2026 YORABA. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+
+</html>

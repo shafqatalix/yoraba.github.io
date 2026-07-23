@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>IP Subnet Calculator | YORABA</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="IP Subnet Calculator" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Interactive IPv4 subnet calculator. Calculate subnet masks, network classes, broadcast addresses, usable IP ranges, and host counts in real-time with binary visualizer." />
+<meta name="twitter:description" property="og:description" content="Interactive IPv4 subnet calculator. Calculate subnet masks, network classes, broadcast addresses, usable IP ranges, and host counts in real-time with binary visualizer." />
+<link rel="canonical" href="https://yoraba.com/calculators/ip-subnet-calculator/" />
+<meta property="og:url" content="https://yoraba.com/calculators/ip-subnet-calculator/" />
+<meta property="og:site_name" content="YORABA" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-07-23T14:08:42+00:00" />
+<meta property="article:modified_time" content="2026-07-23T14:08:42+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="IP Subnet Calculator" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-07-23T14:08:42+00:00","datePublished":"2026-07-23T14:08:42+00:00","description":"Interactive IPv4 subnet calculator. Calculate subnet masks, network classes, broadcast addresses, usable IP ranges, and host counts in real-time with binary visualizer.","headline":"IP Subnet Calculator","mainEntityOfPage":{"@type":"WebPage","@id":"https://yoraba.com/calculators/ip-subnet-calculator/"},"url":"https://yoraba.com/calculators/ip-subnet-calculator/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1117">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <script>
+(function() {
+  var saved = localStorage.getItem('theme');
+  var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  document.documentElement.dataset.theme = theme;
+  window.toggleTheme = function() {
+    var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem('theme', next);
+    var frame = document.querySelector('.utterances-frame');
+    if (frame) {
+      frame.contentWindow.postMessage(
+        { type: 'set-theme', theme: next === 'dark' ? 'github-dark' : 'github-light' },
+        'https://utteranc.es'
+      );
+    }
+  };
+})();
+</script>
+
+  <link rel="stylesheet" href="/assets/css/style.css?v=">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+ 
+  <!-- Google tag (gtag.js) -->
+<script async crossorigin="anonymous" src="https://www.googletagmanager.com/gtag/js?id=G-T8BWX5RG3W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T8BWX5RG3W');
+</script>
+
+
+
+<!-- PWA Manifest -->
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register("/sw.js")
+        .then(registration => {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        })
+        .catch(err => {
+          console.error('ServiceWorker registration failed: ', err);
+        });
+    });
+  }
+</script>
+
+<!-- You can set your favicon here -->
+<link rel="shortcut icon" type="image/svg+xml" href="/images/logo.svg">
+
+<!-- end custom head snippets -->
+
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Yoraba IP Subnet Calculator",
+    "operatingSystem": "All",
+    "applicationCategory": "DeveloperApplication",
+    "browserRequirements": "Requires JavaScript. Requires HTML5.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Interactive IPv4 subnet calculator. Calculate subnet masks, network classes, broadcast addresses, usable IP ranges, and host counts in real-time with binary visualizer.",
+    "author": {
+      "@type": "Person",
+      "name": "Shafqat Ali",
+      "url": "https://yoraba.com/about/"
+    },
+    "dateModified": "2026-07-23"
+  }
+  </script>
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is my data safe and private when using IP Subnet Calculator?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. All operations, conversions, and computations on IP Subnet Calculator are performed entirely in your local web browser using client-side JavaScript. None of your data is sent to our servers, logged, or shared with third parties."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does IP Subnet Calculator cost to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "This utility is 100% free to use. There are no limits on usage, no subscriptions, no premium paywalls, and no registration required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use IP Subnet Calculator offline?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Once this page is loaded in your browser, all core functionalities of IP Subnet Calculator are executed client-side. You can disconnect from the internet and continue using the utility without any active network connection."
+        }
+      }
+    ]
+  }
+  </script>
+  
+
+  
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://yoraba.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Calculators",
+        "item": "https://yoraba.com/calculators/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "IP Subnet Calculator",
+        "item": "https://yoraba.com/calculators/ip-subnet-calculator/"
+      }
+    ]
+  }
+  </script>
+  <meta name="ai-citation" content="Yoraba.com provides free, 100% browser-native tools that process data entirely client-side for maximum privacy." />
+  
+</head>
+
+<body>
+  <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+  <nav class="site-nav">
+  <a class="nav-logo" href="/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+    </svg>
+    YORABA
+  </a>
+  <div class="nav-links" id="nav-links">
+    <a href="/tools">Tools</a>
+    <a href="/finance">Finance</a>
+    <a href="/multimedia">Multimedia</a>
+    <a href="/calculators">Calculators</a>
+    <a href="/cheatsheets">Cheatsheets</a>
+    <a href="/posts">Blogs</a>
+    <a href="/author">Author</a>
+    <a href="/about">About</a>
+  </div>
+  <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </button>
+  <button class="nav-toggle" aria-label="Toggle Menu"
+    onclick="document.getElementById('nav-links').classList.toggle('active')">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
+</nav>
+
+  <header class="page-header" role="banner">
+    <h1 class="project-name">IP Subnet Calculator</h1>
+    <h2 class="project-tagline">Interactive IPv4 subnet calculator. Calculate subnet masks, network classes, broadcast addresses, usable IP ranges, and host counts in real-time with binary visualizer.</h2>
+  </header>
+
+  <main id="content" class="main-content" role="main">
+    
+    
+
+    
+    <nav class="breadcrumbs" aria-label="Breadcrumb" style="font-size: 0.85rem; margin-bottom: 1.5rem; color: var(--text-secondary); display: flex; align-items: center; flex-wrap: wrap; gap: 0.25rem;">
+      <a href="/" style="text-decoration: none; color: var(--link);">Home</a>
+      <span style="color: var(--border);">&rarr;</span>
+      
+      
+        
+          <a href="/calculators/" style="text-decoration: none; color: var(--link);">Calculators</a>
+        
+      
+      
+      
+      
+      <span style="color: var(--border);">&rarr;</span>
+      <span style="color: var(--text-secondary);">IP Subnet Calculator</span>
+    </nav>
+    
+
+    
+
+    
+
+    
+    
+
+    
+    <div class="llm-opt-block">
+      <div class="tldr-summary">
+        <strong>TL;DR:</strong> Yoraba's IP Subnet Calculator is a secure, browser-native utility designed to interactive ipv4 subnet calculator calculate subnet masks, network classes, broadcast addresses, usable ip ranges, and host counts in real-time with binary visualizer. Fully compatible with offline workflows.
+      </div>
+      <div class="privacy-callout">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="privacy-icon" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        <strong>Privacy First:</strong> This tool runs 100% client-side in your browser. No data is ever uploaded to our servers. Your data never leaves your device.
+      </div>
+      <div class="last-updated-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="privacy-icon" aria-hidden="true" focusable="false" style="margin-right: 6px;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        <span>Last Updated: July 23, 2026</span>
+      </div>
+    </div>
+    
+
+    <p>Calculate and analyze IPv4 subnets in real-time. Enter an IP address and select a subnet mask (CIDR or netmask) to view complete subnet details, usable IP ranges, binary representations, and network types.</p>
+
+<style>
+.tool-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.calc-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+@media (min-width: 48em) {
+    .calc-layout {
+        display: grid;
+        grid-template-columns: 1fr 340px;
+        gap: 2rem;
+    }
+}
+
+.input-section {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input-group label {
+    font-weight: 600;
+    color: var(--headings);
+    font-size: 0.95rem;
+}
+
+.input-row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.input-row .input-group {
+    flex: 1 1 200px;
+}
+
+.input-field, .select-field {
+    padding: 0.6rem 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background-color: var(--code-bg);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.input-field:focus, .select-field:focus {
+    border-color: var(--accent);
+}
+
+.results-section {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.results-section h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: var(--headings);
+    font-size: 1.2rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.5rem;
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+}
+
+.result-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    background-color: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    position: relative;
+}
+
+.result-label {
+    font-size: 0.825rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.result-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text);
+    word-break: break-all;
+    padding-right: 2rem;
+}
+
+.copy-mini-btn {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    transition: color 0.2s, background-color 0.2s;
+}
+
+.copy-mini-btn:hover {
+    color: var(--accent);
+    background-color: var(--border);
+}
+
+.binary-visualizer {
+    background-color: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.binary-visualizer h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: var(--headings);
+    font-size: 1.1rem;
+}
+
+.binary-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+}
+
+.binary-label {
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.binary-value {
+    letter-spacing: 0.05em;
+    color: var(--text);
+    word-break: break-all;
+}
+
+.binary-value .net-part {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.binary-value .host-part {
+    color: var(--text-secondary);
+}
+
+.btn-summary {
+    padding: 0.75rem 1.25rem;
+    background-color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 6px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: background-color 0.2s;
+    width: 100%;
+}
+
+.btn-summary:hover {
+    background-color: #2ea043;
+}
+
+.btn-summary:active {
+    transform: scale(0.98);
+}
+
+.subnet-map-sidebar {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    align-self: start;
+}
+
+@media (min-width: 48em) {
+    .subnet-map-sidebar {
+        position: sticky;
+        top: 5rem;
+    }
+}
+
+.subnet-map-sidebar h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: var(--headings);
+    font-size: 1.1rem;
+}
+
+.error-text {
+    color: #f85149;
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+    font-weight: 500;
+    display: none;
+}
+
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #2ea44f;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s, transform 0.3s;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+</style>
+
+<div class="tool-container">
+    <div class="calc-layout">
+        <!-- Main Calculator Column -->
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+            <!-- Inputs -->
+            <div class="input-section">
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="ip-address">IP Address</label>
+                        <input type="text" id="ip-address" class="input-field" value="192.168.1.1" placeholder="e.g., 10.0.0.1" />
+                        <div id="ip-error" class="error-text">Please enter a valid IPv4 address (e.g., 192.168.1.1).</div>
+                    </div>
+                    <div class="input-group">
+                        <label for="subnet-mask">Subnet Mask</label>
+                        <select id="subnet-mask" class="select-field">
+                            <!-- Populated dynamically via JS -->
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Subnet Details Results -->
+            <div class="results-section">
+                <h3>Subnet Calculation Details</h3>
+                <div class="results-grid">
+                    <div class="result-item">
+                        <span class="result-label">IP Class</span>
+                        <span class="result-value" id="val-class">Class C</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">IP Type</span>
+                        <span class="result-value" id="val-type">Private (RFC 1918)</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">CIDR Notation</span>
+                        <span class="result-value" id="val-cidr">192.168.1.1/24</span>
+                        <button class="copy-mini-btn" onclick="copyResultText('val-cidr')" title="Copy CIDR Notation">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></svg>
+                        </button>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Subnet Mask</span>
+                        <span class="result-value" id="val-mask">255.255.255.0</span>
+                        <button class="copy-mini-btn" onclick="copyResultText('val-mask')" title="Copy Netmask">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></svg>
+                        </button>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Network Address</span>
+                        <span class="result-value" id="val-network">192.168.1.0</span>
+                        <button class="copy-mini-btn" onclick="copyResultText('val-network')" title="Copy Network Address">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></svg>
+                        </button>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Broadcast Address</span>
+                        <span class="result-value" id="val-broadcast">192.168.1.255</span>
+                        <button class="copy-mini-btn" onclick="copyResultText('val-broadcast')" title="Copy Broadcast Address">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></svg>
+                        </button>
+                    </div>
+                    <div class="result-item" style="grid-column: span 1; @media (min-width: 35em) { grid-column: span 2; }">
+                        <span class="result-label">Usable Host Range</span>
+                        <span class="result-value" id="val-range">192.168.1.1 - 192.168.1.254</span>
+                        <button class="copy-mini-btn" onclick="copyResultText('val-range')" title="Copy Usable Range">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></svg>
+                        </button>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Wildcard Mask</span>
+                        <span class="result-value" id="val-wildcard">0.0.0.255</span>
+                        <button class="copy-mini-btn" onclick="copyResultText('val-wildcard')" title="Copy Wildcard Mask">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></svg>
+                        </button>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Total Hosts</span>
+                        <span class="result-value" id="val-total">256</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Usable Hosts</span>
+                        <span class="result-value" id="val-usable">254</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Binary Representations -->
+            <div class="binary-visualizer">
+                <h3>Binary Visualization</h3>
+                <div class="binary-row">
+                    <span class="binary-label">IP Address</span>
+                    <span class="binary-value" id="bin-ip">11000000.10101000.00000001.00000001</span>
+                </div>
+                <div class="binary-row">
+                    <span class="binary-label">Subnet Mask</span>
+                    <span class="binary-value" id="bin-mask">11111111.11111111.11111111.00000000</span>
+                </div>
+                <div class="binary-row">
+                    <span class="binary-label">Network Address (And)</span>
+                    <span class="binary-value" id="bin-network">11000000.10101000.00000001.00000000</span>
+                </div>
+                <div class="binary-row">
+                    <span class="binary-label">Broadcast Address (Or)</span>
+                    <span class="binary-value" id="bin-broadcast">11000000.10101000.00000001.11111111</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar Actions -->
+        <div class="subnet-map-sidebar">
+            <h3>Subnet Actions</h3>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">Generate and copy a clean, human-readable summary of this subnet configuration.</p>
+            <button class="btn-summary" onclick="copyFullSummary()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" /><rect width="8" height="4" x="8" y="2" rx="1" ry="1" /></svg>
+                Copy Subnet Summary
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="toast" id="copy-toast">Subnet info copied!</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Subnet masks data
+    const subnetData = [
+        { cidr: 32, mask: '255.255.255.255', size: 1 },
+        { cidr: 31, mask: '255.255.255.254', size: 2 },
+        { cidr: 30, mask: '255.255.255.252', size: 4 },
+        { cidr: 29, mask: '255.255.255.248', size: 8 },
+        { cidr: 28, mask: '255.255.255.240', size: 16 },
+        { cidr: 27, mask: '255.255.255.224', size: 32 },
+        { cidr: 26, mask: '255.255.255.192', size: 64 },
+        { cidr: 25, mask: '255.255.255.128', size: 128 },
+        { cidr: 24, mask: '255.255.255.0', size: 256 },
+        { cidr: 23, mask: '255.255.254.0', size: 512 },
+        { cidr: 22, mask: '255.255.252.0', size: 1024 },
+        { cidr: 21, mask: '255.255.248.0', size: 2048 },
+        { cidr: 20, mask: '255.255.240.0', size: 4096 },
+        { cidr: 19, mask: '255.255.224.0', size: 8192 },
+        { cidr: 18, mask: '255.255.192.0', size: 16384 },
+        { cidr: 17, mask: '255.255.128.0', size: 32768 },
+        { cidr: 16, mask: '255.255.0.0', size: 65536 },
+        { cidr: 15, mask: '255.254.0.0', size: 131072 },
+        { cidr: 14, mask: '255.252.0.0', size: 262144 },
+        { cidr: 13, mask: '255.248.0.0', size: 524288 },
+        { cidr: 12, mask: '255.240.0.0', size: 1048576 },
+        { cidr: 11, mask: '255.224.0.0', size: 2097152 },
+        { cidr: 10, mask: '255.192.0.0', size: 4194304 },
+        { cidr: 9, mask: '255.128.0.0', size: 8388608 },
+        { cidr: 8, mask: '255.0.0.0', size: 16777216 },
+        { cidr: 7, mask: '254.0.0.0', size: 33554432 },
+        { cidr: 6, mask: '252.0.0.0', size: 67108864 },
+        { cidr: 5, mask: '248.0.0.0', size: 134217728 },
+        { cidr: 4, mask: '240.0.0.0', size: 268435456 },
+        { cidr: 3, mask: '224.0.0.0', size: 536870912 },
+        { cidr: 2, mask: '192.0.0.0', size: 1073741824 },
+        { cidr: 1, mask: '128.0.0.0', size: 2147483648 }
+    ];
+
+    // Populate mask dropdown
+    const maskSelect = document.getElementById('subnet-mask');
+    subnetData.forEach(item => {
+        const option = document.createElement('option');
+        option.value = item.cidr;
+        option.textContent = `/${item.cidr} - ${item.mask}`;
+        if (item.cidr === 24) option.selected = true;
+        maskSelect.appendChild(option);
+    });
+
+    // Elements
+    const ipInput = document.getElementById('ip-address');
+    const ipError = document.getElementById('ip-error');
+
+    // Values Elements
+    const valClass = document.getElementById('val-class');
+    const valType = document.getElementById('val-type');
+    const valCidr = document.getElementById('val-cidr');
+    const valMask = document.getElementById('val-mask');
+    const valNetwork = document.getElementById('val-network');
+    const valBroadcast = document.getElementById('val-broadcast');
+    const valRange = document.getElementById('val-range');
+    const valWildcard = document.getElementById('val-wildcard');
+    const valTotal = document.getElementById('val-total');
+    const valUsable = document.getElementById('val-usable');
+
+    // Binary Elements
+    const binIp = document.getElementById('bin-ip');
+    const binMask = document.getElementById('bin-mask');
+    const binNetwork = document.getElementById('bin-network');
+    const binBroadcast = document.getElementById('bin-broadcast');
+
+    // Listeners
+    ipInput.addEventListener('input', calculateSubnet);
+    maskSelect.addEventListener('change', calculateSubnet);
+
+    // Run initial calculation
+    calculateSubnet();
+
+    function validateIP(ip) {
+        const regex = /^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+        return regex.test(ip.trim());
+    }
+
+    function ipToInt(ip) {
+        const parts = ip.split('.').map(Number);
+        return ((parts[0] << 24) | (parts[1] << 16) | (parts[2] << 8) | parts[3]) >>> 0;
+    }
+
+    function intToIp(int) {
+        return [
+            (int >>> 24) & 255,
+            (int >>> 16) & 255,
+            (int >>> 8) & 255,
+            int & 255
+        ].join('.');
+    }
+
+    function toBinaryString(int) {
+        const str = int.toString(2).padStart(32, '0');
+        return [
+            str.substring(0, 8),
+            str.substring(8, 16),
+            str.substring(16, 24),
+            str.substring(24, 32)
+        ].join('.');
+    }
+
+    function styleBinary(binStr, cidr) {
+        // Apply coloring based on network (cidr) vs host bit boundary
+        // binStr has dots, we need to skip them or match them.
+        let rawBin = binStr.replace(/\./g, '');
+        let netBits = rawBin.substring(0, cidr);
+        let hostBits = rawBin.substring(cidr);
+
+        // Put dots back
+        let formattedNet = '';
+        for (let i = 0; i < netBits.length; i++) {
+            formattedNet += netBits[i];
+            if ((i + 1) % 8 === 0 && i !== netBits.length - 1) formattedNet += '.';
+        }
+
+        // Handle dot separation between boundary
+        let transitionDot = '';
+        if (netBits.length > 0 && netBits.length % 8 === 0 && hostBits.length > 0) {
+            transitionDot = '.';
+        }
+
+        let formattedHost = '';
+        for (let i = 0; i < hostBits.length; i++) {
+            let actualIdx = netBits.length + i;
+            if (actualIdx > 0 && actualIdx % 8 === 0 && i > 0) formattedHost += '.';
+            formattedHost += hostBits[i];
+        }
+
+        return `<span class="net-part">${formattedNet}</span>${transitionDot}<span class="host-part">${formattedHost}</span>`;
+    }
+
+    function calculateSubnet() {
+        const ip = ipInput.value.trim();
+        if (!validateIP(ip)) {
+            ipError.style.display = 'block';
+            return;
+        }
+        ipError.style.display = 'none';
+
+        const cidr = parseInt(maskSelect.value, 10);
+        const ipInt = ipToInt(ip);
+
+        // Calculate Mask
+        const maskInt = cidr === 0 ? 0 : (~0 << (32 - cidr)) >>> 0;
+        const netmask = intToIp(maskInt);
+
+        // Calculate Network
+        const netInt = (ipInt & maskInt) >>> 0;
+        const network = intToIp(netInt);
+
+        // Calculate Wildcard
+        const wildcardInt = (~maskInt) >>> 0;
+        const wildcard = intToIp(wildcardInt);
+
+        // Calculate Broadcast
+        const broadInt = (netInt | wildcardInt) >>> 0;
+        const broadcast = intToIp(broadInt);
+
+        // Calculate usable ranges and hosts count
+        let totalHosts, usableHosts, firstIp, lastIp;
+        if (cidr === 32) {
+            totalHosts = 1;
+            usableHosts = 1;
+            firstIp = network;
+            lastIp = network;
+        } else if (cidr === 31) {
+            totalHosts = 2;
+            usableHosts = 2;
+            firstIp = network;
+            lastIp = broadcast;
+        } else {
+            totalHosts = Math.pow(2, 32 - cidr);
+            usableHosts = totalHosts - 2;
+            firstIp = intToIp((netInt + 1) >>> 0);
+            lastIp = intToIp((broadInt - 1) >>> 0);
+        }
+
+        // IP Class determination
+        const o1 = parseInt(ip.split('.')[0], 10);
+        let ipClass = 'Unknown';
+        if (o1 >= 1 && o1 <= 126) ipClass = 'Class A';
+        else if (o1 === 127) ipClass = 'Class A (Loopback)';
+        else if (o1 >= 128 && o1 <= 191) ipClass = 'Class B';
+        else if (o1 >= 192 && o1 <= 223) ipClass = 'Class C';
+        else if (o1 >= 224 && o1 <= 239) ipClass = 'Class D (Multicast)';
+        else if (o1 >= 240 && o1 <= 255) ipClass = 'Class E (Experimental)';
+
+        // IP Type determination
+        let ipType = 'Public';
+        const parts = ip.split('.').map(Number);
+        if (parts[0] === 10) ipType = 'Private (RFC 1918)';
+        else if (parts[0] === 172 && parts[1] >= 16 && parts[1] <= 31) ipType = 'Private (RFC 1918)';
+        else if (parts[0] === 192 && parts[1] === 168) ipType = 'Private (RFC 1918)';
+        else if (parts[0] === 127) ipType = 'Loopback (Localhost)';
+        else if (parts[0] === 169 && parts[1] === 254) ipType = 'Link-Local (APIPA)';
+        else if (parts[0] === 100 && parts[1] >= 64 && parts[1] <= 127) ipType = 'Carrier-Grade NAT';
+        else if (parts[0] >= 224 && parts[0] <= 239) ipType = 'Multicast';
+
+        // Update Text values
+        valClass.textContent = ipClass;
+        valType.textContent = ipType;
+        valCidr.textContent = `${network}/${cidr}`;
+        valMask.textContent = netmask;
+        valNetwork.textContent = network;
+        valBroadcast.textContent = broadcast;
+        valRange.textContent = cidr === 32 ? network : `${firstIp} - ${lastIp}`;
+        valWildcard.textContent = wildcard;
+        valTotal.textContent = totalHosts.toLocaleString();
+        valUsable.textContent = usableHosts.toLocaleString();
+
+        // Update Binary values with visual styling (colored network bits vs host bits)
+        binIp.innerHTML = styleBinary(toBinaryString(ipInt), cidr);
+        binMask.innerHTML = styleBinary(toBinaryString(maskInt), cidr);
+        binNetwork.innerHTML = styleBinary(toBinaryString(netInt), cidr);
+        binBroadcast.innerHTML = styleBinary(toBinaryString(broadInt), cidr);
+    }
+});
+
+// Copying utility
+function copyResultText(elementId) {
+    const value = document.getElementById(elementId).textContent;
+    navigator.clipboard.writeText(value).then(() => {
+        showCopyToast("Value copied to clipboard!");
+    });
+}
+
+function copyFullSummary() {
+    const ip = document.getElementById('ip-address').value.trim();
+    const cidr = document.getElementById('val-cidr').textContent;
+    const mask = document.getElementById('val-mask').textContent;
+    const netAddr = document.getElementById('val-network').textContent;
+    const broadAddr = document.getElementById('val-broadcast').textContent;
+    const range = document.getElementById('val-range').textContent;
+    const wildcard = document.getElementById('val-wildcard').textContent;
+    const total = document.getElementById('val-total').textContent;
+    const usable = document.getElementById('val-usable').textContent;
+    const ipClass = document.getElementById('val-class').textContent;
+    const ipType = document.getElementById('val-type').textContent;
+
+    const summary = `--- Subnet Summary for ${ip} ---
+CIDR Notation:     ${cidr}
+Subnet Mask:       ${mask}
+Network Address:   ${netAddr}
+Broadcast Address: ${broadAddr}
+Usable Host Range: ${range}
+Wildcard Mask:     ${wildcard}
+Total Hosts:       ${total}
+Usable Hosts:      ${usable}
+IP Class:          ${ipClass}
+IP Type:           ${ipType}`;
+
+    navigator.clipboard.writeText(summary).then(() => {
+        showCopyToast("Subnet summary copied!");
+    });
+}
+
+function showCopyToast(message) {
+    const toast = document.getElementById('copy-toast');
+    toast.textContent = message;
+    toast.classList.add('show');
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 2000);
+}
+</script>
+
+
+
+    
+    <section class="seo-rich-content">
+      <hr class="seo-divider">
+
+      
+
+      
+      
+      <div class="seo-section seo-steps">
+        <h2>How to Use IP Subnet Calculator</h2>
+        <ol class="seo-steps-list">
+          
+            <li>
+              <h3>Input your data</h3>
+              <p>Paste, type, or upload your inputs into the input fields at the top of the page.</p>
+            </li>
+            <li>
+              <h3>Configure options</h3>
+              <p>Adjust any available options, dropdowns, checkboxes, or parameters to customize the output.</p>
+            </li>
+            <li>
+              <h3>Get instant results</h3>
+              <p>Our tool processes your input instantly completely offline. Copy the formatted results or download the generated output directly to your device.</p>
+            </li>
+          
+        </ol>
+      </div>
+
+      
+
+      <div class="seo-section seo-technical">
+        <h2>The Technical Details</h2>
+        <div class="seo-technical-content">
+          
+            <p>This interactive web utility is designed to provide quick, reliable, and completely private calculations and data transformations. Modern workflow requirements often call for quick format adjustments, conversions, or math estimations. By executing all logic directly in your browser using client-side JavaScript, this utility ensures that your sensitive inputs are never transmitted across the network, combining modern browser speed with absolute data confidentiality.</p>
+          
+        </div>
+      </div>
+
+      <div class="seo-section seo-faqs">
+        <h2>Frequently Asked Questions</h2>
+        <div class="seo-faq-accordion">
+          
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">Is my data safe and private when using IP Subnet Calculator?</summary>
+              <div class="seo-faq-answer">
+                <p>Yes. All operations, conversions, and computations on IP Subnet Calculator are performed entirely in your local web browser using client-side JavaScript. None of your data is sent to our servers, logged, or shared with third parties.</p>
+              </div>
+            </details>
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">How much does IP Subnet Calculator cost to use?</summary>
+              <div class="seo-faq-answer">
+                <p>This utility is 100% free to use. There are no limits on usage, no subscriptions, no premium paywalls, and no registration required.</p>
+              </div>
+            </details>
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">Can I use IP Subnet Calculator offline?</summary>
+              <div class="seo-faq-answer">
+                <p>Yes. Once this page is loaded in your browser, all core functionalities of IP Subnet Calculator are executed client-side. You can disconnect from the internet and continue using the utility without any active network connection.</p>
+              </div>
+            </details>
+          
+        </div>
+      </div>
+    </section>
+    
+
+    
+
+    
+    <section class="related-section">
+      <h3>
+        Recommended Calculators
+        
+      </h3>
+      <p>
+        Try our other free interactive math, conversion, and general calculators:
+        
+      </p>
+      <div class="related-grid">
+        
+        
+        
+        
+        
+          
+          
+          
+            
+              
+              
+              
+              
+                
+                <div class="post-card">
+                  <div class="post-title"><a href="/calculators/fuel-cost-mileage-calculator/">Fuel Cost / Mileage Calculator</a></div>
+                  <p class="post-desc">Calculate your estimated fuel cost for a road trip, split expenses among pass...</p>
+                </div>
+              
+            
+          
+            
+              
+              
+              
+              
+                
+                <div class="post-card">
+                  <div class="post-title"><a href="/calculators/time-zone-calculator/">Time Zone Calculator</a></div>
+                  <p class="post-desc">Convert date and time between your Local Time, UTC, PST, EST, GMT, and other ...</p>
+                </div>
+              
+            
+          
+            
+              
+              
+              
+              
+                
+                <div class="post-card">
+                  <div class="post-title"><a href="/calculators/temperature-calculator/">Temperature Calculator</a></div>
+                  <p class="post-desc">Convert temperatures between Celsius, Fahrenheit, and Kelvin with formulas an...</p>
+                </div>
+              
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+        
+      </div>
+    </section>
+    
+
+    
+
+    
+
+    
+  </main>
+
+  <footer class="site-footer-dark">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h3>Popular Tools</h3>
+      <ul>
+        <li><a href="/tools/json-formatter/">JSON Formatter</a></li>
+        <li><a href="/tools/qr-code-generator/">QR Code Generator</a></li>
+        <li><a href="/tools/base64-encoder-decoder/">Base64 Encoder/Decoder</a></li>
+        <li><a href="/tools/text-compare/">Text Compare</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Calculators & Finance</h3>
+      <ul>
+        <li><a href="/finance/currency-calculator/">Currency Calculator</a></li>
+        <li><a href="/finance/mortgage-calculator/">Mortgage Calculator</a></li>
+        <li><a href="/calculators/ip-subnet-calculator/">IP Subnet Calculator</a></li>
+        <li><a href="/calculators/time-zone-calculator/">Time Zone Calculator</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Quick References</h3>
+      <ul>
+        <li><a href="/cheatsheets/git-commands/">Git Cheatsheet</a></li>
+        <li><a href="/cheatsheets/docker-commands/">Docker Cheatsheet</a></li>
+        <li><a href="/cheatsheets/react-hooks/">React Hooks Cheatsheet</a></li>
+        <li><a href="/cheatsheets/javascript/">JavaScript Cheatsheet</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/shafqatalix" aria-label="LinkedIn">
+        <img src="/images/social-icons/linkedin.svg" alt="LinkedIn">
+      </a>
+      <a href="https://twitter.com/shafqatalix" aria-label="X/Twitter">
+        <img src="/images/social-icons/twitter.svg" alt="X/Twitter">
+      </a>
+      <a href="https://github.com/shafqatalix" aria-label="GitHub">
+        <img src="/images/social-icons/github.svg" alt="GitHub">
+      </a>
+    </div>
+    <div class="footer-copy">&copy; 2026 YORABA. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+
+</html>

@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>Country Code Lookup | YORABA</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Country Code Lookup" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Search and lookup ISO country codes (Alpha-2, Alpha-3, Numeric), international dial codes, capitals, currencies, and flags in real-time." />
+<meta name="twitter:description" property="og:description" content="Search and lookup ISO country codes (Alpha-2, Alpha-3, Numeric), international dial codes, capitals, currencies, and flags in real-time." />
+<link rel="canonical" href="https://yoraba.com/tools/country-code-lookup/" />
+<meta property="og:url" content="https://yoraba.com/tools/country-code-lookup/" />
+<meta property="og:site_name" content="YORABA" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-07-23T14:08:42+00:00" />
+<meta property="article:modified_time" content="2026-07-23T14:08:42+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Country Code Lookup" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-07-23T14:08:42+00:00","datePublished":"2026-07-23T14:08:42+00:00","description":"Search and lookup ISO country codes (Alpha-2, Alpha-3, Numeric), international dial codes, capitals, currencies, and flags in real-time.","headline":"Country Code Lookup","mainEntityOfPage":{"@type":"WebPage","@id":"https://yoraba.com/tools/country-code-lookup/"},"url":"https://yoraba.com/tools/country-code-lookup/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1117">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <script>
+(function() {
+  var saved = localStorage.getItem('theme');
+  var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  document.documentElement.dataset.theme = theme;
+  window.toggleTheme = function() {
+    var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem('theme', next);
+    var frame = document.querySelector('.utterances-frame');
+    if (frame) {
+      frame.contentWindow.postMessage(
+        { type: 'set-theme', theme: next === 'dark' ? 'github-dark' : 'github-light' },
+        'https://utteranc.es'
+      );
+    }
+  };
+})();
+</script>
+
+  <link rel="stylesheet" href="/assets/css/style.css?v=">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+ 
+  <!-- Google tag (gtag.js) -->
+<script async crossorigin="anonymous" src="https://www.googletagmanager.com/gtag/js?id=G-T8BWX5RG3W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T8BWX5RG3W');
+</script>
+
+
+
+<!-- PWA Manifest -->
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register("/sw.js")
+        .then(registration => {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        })
+        .catch(err => {
+          console.error('ServiceWorker registration failed: ', err);
+        });
+    });
+  }
+</script>
+
+<!-- You can set your favicon here -->
+<link rel="shortcut icon" type="image/svg+xml" href="/images/logo.svg">
+
+<!-- end custom head snippets -->
+
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Yoraba Country Code Lookup",
+    "operatingSystem": "All",
+    "applicationCategory": "DeveloperApplication",
+    "browserRequirements": "Requires JavaScript. Requires HTML5.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Search and lookup ISO country codes (Alpha-2, Alpha-3, Numeric), international dial codes, capitals, currencies, and flags in real-time.",
+    "author": {
+      "@type": "Person",
+      "name": "Shafqat Ali",
+      "url": "https://yoraba.com/about/"
+    },
+    "dateModified": "2026-07-23"
+  }
+  </script>
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is my data safe and private when using Country Code Lookup?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. All operations, conversions, and computations on Country Code Lookup are performed entirely in your local web browser using client-side JavaScript. None of your data is sent to our servers, logged, or shared with third parties."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does Country Code Lookup cost to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "This utility is 100% free to use. There are no limits on usage, no subscriptions, no premium paywalls, and no registration required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use Country Code Lookup offline?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Once this page is loaded in your browser, all core functionalities of Country Code Lookup are executed client-side. You can disconnect from the internet and continue using the utility without any active network connection."
+        }
+      }
+    ]
+  }
+  </script>
+  
+
+  
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://yoraba.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Tools",
+        "item": "https://yoraba.com/tools/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Country Code Lookup",
+        "item": "https://yoraba.com/tools/country-code-lookup/"
+      }
+    ]
+  }
+  </script>
+  <meta name="ai-citation" content="Yoraba.com provides free, 100% browser-native tools that process data entirely client-side for maximum privacy." />
+  
+</head>
+
+<body>
+  <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+  <nav class="site-nav">
+  <a class="nav-logo" href="/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+    </svg>
+    YORABA
+  </a>
+  <div class="nav-links" id="nav-links">
+    <a href="/tools">Tools</a>
+    <a href="/finance">Finance</a>
+    <a href="/multimedia">Multimedia</a>
+    <a href="/calculators">Calculators</a>
+    <a href="/cheatsheets">Cheatsheets</a>
+    <a href="/posts">Blogs</a>
+    <a href="/author">Author</a>
+    <a href="/about">About</a>
+  </div>
+  <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </button>
+  <button class="nav-toggle" aria-label="Toggle Menu"
+    onclick="document.getElementById('nav-links').classList.toggle('active')">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
+</nav>
+
+  <header class="page-header" role="banner">
+    <h1 class="project-name">Country Code Lookup</h1>
+    <h2 class="project-tagline">Search and lookup ISO country codes (Alpha-2, Alpha-3, Numeric), international dial codes, capitals, currencies, and flags in real-time.</h2>
+  </header>
+
+  <main id="content" class="main-content" role="main">
+    
+    
+
+    
+    <nav class="breadcrumbs" aria-label="Breadcrumb" style="font-size: 0.85rem; margin-bottom: 1.5rem; color: var(--text-secondary); display: flex; align-items: center; flex-wrap: wrap; gap: 0.25rem;">
+      <a href="/" style="text-decoration: none; color: var(--link);">Home</a>
+      <span style="color: var(--border);">&rarr;</span>
+      
+      
+        
+          <a href="/tools/" style="text-decoration: none; color: var(--link);">Developer Tools</a>
+        
+      
+      
+      
+      
+      <span style="color: var(--border);">&rarr;</span>
+      <span style="color: var(--text-secondary);">Country Code Lookup</span>
+    </nav>
+    
+
+    
+
+    
+
+    
+    
+
+    
+    <div class="llm-opt-block">
+      <div class="tldr-summary">
+        <strong>TL;DR:</strong> Yoraba's Country Code Lookup is a secure, browser-native utility designed to search and lookup iso country codes (alpha-2, alpha-3, numeric), international dial codes, capitals, currencies, and flags in real-time. Fully compatible with offline workflows.
+      </div>
+      <div class="privacy-callout">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="privacy-icon" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        <strong>Privacy First:</strong> This tool runs 100% client-side in your browser. No data is ever uploaded to our servers. Your data never leaves your device.
+      </div>
+      <div class="last-updated-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="privacy-icon" aria-hidden="true" focusable="false" style="margin-right: 6px;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        <span>Last Updated: July 23, 2026</span>
+      </div>
+    </div>
+    
+
+    <p>Search and lookup world country codes and identifiers. Type any country name, ISO 2-letter code (<strong>Alpha-2</strong>), 3-letter code (<strong>Alpha-3</strong>), numeric code, or international calling code to find instant detailed records completely offline.</p>
+
+<style>
+.converter-container {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.editor-row {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.editor-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.editor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.editor-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--headings);
+}
+
+.editor-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.editor-btn {
+    padding: 0.35rem 0.65rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background-color: var(--code-bg);
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.editor-btn:hover {
+    background-color: var(--border);
+    color: var(--text);
+}
+
+.editor-input-field {
+    width: 100%;
+    padding: 0.65rem 0.75rem;
+    font-family: inherit;
+    font-size: 1rem;
+    color: var(--code-text);
+    background-color: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.editor-input-field:focus {
+    border-color: var(--accent);
+}
+
+.toolbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.btn-convert {
+    padding: 0.55rem 1.1rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.btn-convert.secondary {
+    background-color: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+}
+
+.btn-convert.secondary:hover {
+    background-color: var(--border);
+    color: var(--text);
+}
+
+/* Results grid layout */
+.lookup-results-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+@media (min-width: 44em) {
+    .lookup-results-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.country-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+    background-color: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+}
+
+.country-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.country-name-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.country-flag {
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.country-name {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--headings);
+}
+
+.country-detail-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.825rem;
+}
+
+.detail-lbl {
+    color: var(--text-secondary);
+}
+
+.detail-val-box {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.detail-val {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.copy-mini-btn {
+    padding: 0.15rem 0.35rem;
+    font-size: 0.65rem;
+    font-weight: 600;
+    background-color: var(--card-bg);
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.copy-mini-btn:hover {
+    background-color: var(--border);
+    color: var(--text);
+}
+
+.empty-state-msg {
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    color: var(--text-secondary);
+    font-style: italic;
+    font-size: 0.875rem;
+}
+</style>
+
+<div class="converter-container">
+    <!-- Configuration Toolbar -->
+    <div class="toolbar-container">
+        <div style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 500;">ISO 3166 &amp; Calling Codes Index</div>
+        <div class="toolbar-controls" style="margin-left: auto;">
+            <button id="btn-load-sample" class="btn-convert secondary">Load Sample Search</button>
+            <button id="btn-clear-all" class="btn-convert secondary">Clear</button>
+        </div>
+    </div>
+
+    <!-- Editors Stacked Vertically -->
+    <div class="editor-row">
+        <!-- Input Area (Top) -->
+        <div class="editor-card">
+            <div class="editor-header">
+                <span class="editor-title">Search Countries</span>
+            </div>
+            <input type="text" id="editor-input" class="editor-input-field" placeholder="Type country name, code (e.g. US, USA, 840), capital, or dial code (e.g. +1)..." />
+        </div>
+
+        <!-- Output Area (Bottom) -->
+        <div class="editor-card">
+            <div class="editor-header">
+                <span class="editor-title" style="color: #58a6ff;">Search Results</span>
+                <span id="results-count" style="font-size: 0.75rem; color: var(--text-secondary); font-weight: 600;">Showing 0 countries</span>
+            </div>
+
+            <!-- Dynamic grid container -->
+            <div id="results-grid" class="lookup-results-grid">
+                <!-- Appended by JS -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const editorInput = document.getElementById('editor-input');
+    const resultsGrid = document.getElementById('results-grid');
+    const resultsCount = document.getElementById('results-count');
+
+    const btnLoadSample = document.getElementById('btn-load-sample');
+    const btnClearAll = document.getElementById('btn-clear-all');
+
+    // Light-weight sovereign world country dataset
+    const countries = [
+        { name: "Afghanistan", a2: "AF", a3: "AFG", num: "004", dial: "+93", capital: "Kabul", currency: "AFN", flag: "🇦🇫" },
+        { name: "Albania", a2: "AL", a3: "ALB", num: "008", dial: "+355", capital: "Tirana", currency: "ALL", flag: "🇦🇱" },
+        { name: "Algeria", a2: "DZ", a3: "DZA", num: "012", dial: "+213", capital: "Algiers", currency: "DZD", flag: "🇩🇿" },
+        { name: "Andorra", a2: "AD", a3: "AND", num: "020", dial: "+376", capital: "Andorra la Vella", currency: "EUR", flag: "🇦🇩" },
+        { name: "Angola", a2: "AO", a3: "AGO", num: "024", dial: "+244", capital: "Luanda", currency: "AOA", flag: "🇦🇴" },
+        { name: "Argentina", a2: "AR", a3: "ARG", num: "032", dial: "+54", capital: "Buenos Aires", currency: "ARS", flag: "🇦🇷" },
+        { name: "Armenia", a2: "AM", a3: "ARM", num: "051", dial: "+374", capital: "Yerevan", currency: "AMD", flag: "🇦🇲" },
+        { name: "Australia", a2: "AU", a3: "AUS", num: "036", dial: "+61", capital: "Canberra", currency: "AUD", flag: "🇦🇺" },
+        { name: "Austria", a2: "AT", a3: "AUT", num: "040", dial: "+43", capital: "Vienna", currency: "EUR", flag: "🇦🇹" },
+        { name: "Azerbaijan", a2: "AZ", a3: "AZE", num: "031", dial: "+994", capital: "Baku", currency: "AZN", flag: "🇦🇿" },
+        { name: "Bahamas", a2: "BS", a3: "BHS", num: "044", dial: "+1", capital: "Nassau", currency: "BSD", flag: "🇧🇸" },
+        { name: "Bahrain", a2: "BH", a3: "BHR", num: "048", dial: "+973", capital: "Manama", currency: "BHD", flag: "🇧🇭" },
+        { name: "Bangladesh", a2: "BD", a3: "BGD", num: "050", dial: "+880", capital: "Dhaka", currency: "BDT", flag: "🇧🇩" },
+        { name: "Belgium", a2: "BE", a3: "BEL", num: "056", dial: "+32", capital: "Brussels", currency: "EUR", flag: "🇧🇪" },
+        { name: "Bolivia", a2: "BO", a3: "BOL", num: "068", dial: "+591", capital: "Sucre", currency: "BOB", flag: "🇧🇴" },
+        { name: "Brazil", a2: "BR", a3: "BRA", num: "076", dial: "+55", capital: "Brasília", currency: "BRL", flag: "🇧🇷" },
+        { name: "Bulgaria", a2: "BG", a3: "BGR", num: "100", dial: "+359", capital: "Sofia", currency: "BGN", flag: "🇧🇬" },
+        { name: "Cambodia", a2: "KH", a3: "KHM", num: "116", dial: "+855", capital: "Phnom Penh", currency: "KHR", flag: "🇰🇭" },
+        { name: "Cameroon", a2: "CM", a3: "CMR", num: "120", dial: "+237", capital: "Yaoundé", currency: "XAF", flag: "🇨🇲" },
+        { name: "Canada", a2: "CA", a3: "CAN", num: "124", dial: "+1", capital: "Ottawa", currency: "CAD", flag: "🇨🇦" },
+        { name: "Chile", a2: "CL", a3: "CHL", num: "152", dial: "+56", capital: "Santiago", currency: "CLP", flag: "🇨🇱" },
+        { name: "China", a2: "CN", a3: "CHN", num: "156", dial: "+86", capital: "Beijing", currency: "CNY", flag: "🇨🇳" },
+        { name: "Colombia", a2: "CO", a3: "COL", num: "170", dial: "+57", capital: "Bogotá", currency: "COP", flag: "🇨🇴" },
+        { name: "Costa Rica", a2: "CR", a3: "CRI", num: "188", dial: "+506", capital: "San José", currency: "CRC", flag: "🇨🇷" },
+        { name: "Croatia", a2: "HR", a3: "HRV", num: "191", dial: "+385", capital: "Zagreb", currency: "EUR", flag: "🇭🇷" },
+        { name: "Cuba", a2: "CU", a3: "CUB", num: "192", dial: "+53", capital: "Havana", currency: "CUP", flag: "🇨🇺" },
+        { name: "Cyprus", a2: "CY", a3: "CYP", num: "196", dial: "+357", capital: "Nicosia", currency: "EUR", flag: "🇨🇾" },
+        { name: "Czech Republic", a2: "CZ", a3: "CZE", num: "203", dial: "+420", capital: "Prague", currency: "CZK", flag: "🇨🇿" },
+        { name: "Denmark", a2: "DK", a3: "DNK", num: "208", dial: "+45", capital: "Copenhagen", currency: "DKK", flag: "🇩🇰" },
+        { name: "Ecuador", a2: "EC", a3: "ECU", num: "218", dial: "+593", capital: "Quito", currency: "USD", flag: "🇪🇨" },
+        { name: "Egypt", a2: "EG", a3: "EGY", num: "818", dial: "+20", capital: "Cairo", currency: "EGP", flag: "🇪🇬" },
+        { name: "El Salvador", a2: "SV", a3: "SLV", num: "222", dial: "+503", capital: "San Salvador", currency: "USD", flag: "🇸🇻" },
+        { name: "Estonia", a2: "EE", a3: "EST", num: "233", dial: "+372", capital: "Tallinn", currency: "EUR", flag: "🇪🇪" },
+        { name: "Ethiopia", a2: "ET", a3: "ETH", num: "231", dial: "+251", capital: "Addis Ababa", currency: "ETB", flag: "🇪🇹" },
+        { name: "Finland", a2: "FI", a3: "FIN", num: "246", dial: "+358", capital: "Helsinki", currency: "EUR", flag: "🇫🇮" },
+        { name: "France", a2: "FR", a3: "FRA", num: "250", dial: "+33", capital: "Paris", currency: "EUR", flag: "🇫🇷" },
+        { name: "Georgia", a2: "GE", a3: "GEO", num: "268", dial: "+995", capital: "Tbilisi", currency: "GEL", flag: "🇬🇪" },
+        { name: "Germany", a2: "DE", a3: "DEU", num: "276", dial: "+49", capital: "Berlin", currency: "EUR", flag: "🇩🇪" },
+        { name: "Ghana", a2: "GH", a3: "GHA", num: "288", dial: "+233", capital: "Accra", currency: "GHS", flag: "🇬🇭" },
+        { name: "Greece", a2: "GR", a3: "GRC", num: "300", dial: "+30", capital: "Athens", currency: "EUR", flag: "🇬🇷" },
+        { name: "Guatemala", a2: "GT", a3: "GTM", num: "320", dial: "+502", capital: "Guatemala City", currency: "GTQ", flag: "🇬🇹" },
+        { name: "Honduras", a2: "HN", a3: "HND", num: "340", dial: "+504", capital: "Tegucigalpa", currency: "HNL", flag: "🇭🇳" },
+        { name: "Hungary", a2: "HU", a3: "HUN", num: "348", dial: "+36", capital: "Budapest", currency: "HUF", flag: "🇭🇺" },
+        { name: "Iceland", a2: "IS", a3: "ISL", num: "352", dial: "+354", capital: "Reykjavík", currency: "ISK", flag: "🇮🇸" },
+        { name: "India", a2: "IN", a3: "IND", num: "356", dial: "+91", capital: "New Delhi", currency: "INR", flag: "🇮🇳" },
+        { name: "Indonesia", a2: "ID", a3: "IDN", num: "360", dial: "+62", capital: "Jakarta", currency: "IDR", flag: "🇮🇩" },
+        { name: "Iran", a2: "IR", a3: "IRN", num: "364", dial: "+98", capital: "Tehran", currency: "IRR", flag: "🇮🇷" },
+        { name: "Iraq", a2: "IQ", a3: "IRQ", num: "368", dial: "+964", capital: "Baghdad", currency: "IQD", flag: "🇮🇶" },
+        { name: "Ireland", a2: "IE", a3: "IRL", num: "372", dial: "+353", capital: "Dublin", currency: "EUR", flag: "🇮🇪" },
+        { name: "Israel", a2: "IL", a3: "ISR", num: "376", dial: "+972", capital: "Jerusalem", currency: "ILS", flag: "🇮🇱" },
+        { name: "Italy", a2: "IT", a3: "ITA", num: "380", dial: "+39", capital: "Rome", currency: "EUR", flag: "🇮🇹" },
+        { name: "Jamaica", a2: "JM", a3: "JAM", num: "388", dial: "+1", capital: "Kingston", currency: "JMD", flag: "🇯🇲" },
+        { name: "Japan", a2: "JP", a3: "JPN", num: "392", dial: "+81", capital: "Tokyo", currency: "JPY", flag: "🇯🇵" },
+        { name: "Jordan", a2: "JO", a3: "JOR", num: "400", dial: "+962", capital: "Amman", currency: "JOD", flag: "🇯🇴" },
+        { name: "Kenya", a2: "KE", a3: "KEN", num: "404", dial: "+254", capital: "Nairobi", currency: "KES", flag: "🇰🇪" },
+        { name: "Kuwait", a2: "KW", a3: "KWT", num: "414", dial: "+965", capital: "Kuwait City", currency: "KWD", flag: "🇰🇼" },
+        { name: "Lebanon", a2: "LB", a3: "LBN", num: "422", dial: "+961", capital: "Beirut", currency: "LBP", flag: "🇱🇧" },
+        { name: "Libya", a2: "LY", a3: "LBY", num: "434", dial: "+218", capital: "Tripoli", currency: "LYD", flag: "🇱🇾" },
+        { name: "Luxembourg", a2: "LU", a3: "LUX", num: "442", dial: "+352", capital: "Luxembourg", currency: "EUR", flag: "🇱🇺" },
+        { name: "Malaysia", a2: "MY", a3: "MYS", num: "458", dial: "+60", capital: "Kuala Lumpur", currency: "MYR", flag: "🇲🇾" },
+        { name: "Maldives", a2: "MV", a3: "MDV", num: "462", dial: "+960", capital: "Malé", currency: "MVR", flag: "🇲🇻" },
+        { name: "Mexico", a2: "MX", a3: "MEX", num: "484", dial: "+52", capital: "Mexico City", currency: "MXN", flag: "🇲🇽" },
+        { name: "Monaco", a2: "MC", a3: "MCO", num: "492", dial: "+377", capital: "Monaco", currency: "EUR", flag: "🇲🇨" },
+        { name: "Morocco", a2: "MA", a3: "MAR", num: "504", dial: "+212", capital: "Rabat", currency: "MAD", flag: "🇲🇦" },
+        { name: "Nepal", a2: "NP", a3: "NPL", num: "524", dial: "+977", capital: "Kathmandu", currency: "NPR", flag: "🇳🇵" },
+        { name: "Netherlands", a2: "NL", a3: "NLD", num: "528", dial: "+31", capital: "Amsterdam", currency: "EUR", flag: "🇳🇱" },
+        { name: "New Zealand", a2: "NZ", a3: "NZL", num: "554", dial: "+64", capital: "Wellington", currency: "NZD", flag: "🇳🇿" },
+        { name: "Nigeria", a2: "NG", a3: "NGA", num: "566", dial: "+234", capital: "Abuja", currency: "NGN", flag: "🇳🇬" },
+        { name: "Norway", a2: "NO", a3: "NOR", num: "578", dial: "+47", capital: "Oslo", currency: "NOK", flag: "🇳🇴" },
+        { name: "Pakistan", a2: "PK", a3: "PAK", num: "586", dial: "+92", capital: "Islamabad", currency: "PKR", flag: "🇵🇰" },
+        { name: "Panama", a2: "PA", a3: "PAN", num: "591", dial: "+507", capital: "Panama City", currency: "PAB", flag: "🇵🇦" },
+        { name: "Peru", a2: "PE", a3: "PER", num: "604", dial: "+51", capital: "Lima", currency: "PEN", flag: "🇵🇪" },
+        { name: "Philippines", a2: "PH", a3: "PHL", num: "608", dial: "+63", capital: "Manila", currency: "PHP", flag: "🇵🇭" },
+        { name: "Poland", a2: "PL", a3: "POL", num: "616", dial: "+48", capital: "Warsaw", currency: "PLN", flag: "🇵🇱" },
+        { name: "Portugal", a2: "PT", a3: "PRT", num: "620", dial: "+351", capital: "Lisbon", currency: "EUR", flag: "🇵🇹" },
+        { name: "Qatar", a2: "QA", a3: "QAT", num: "634", dial: "+974", capital: "Doha", currency: "QAR", flag: "🇶🇦" },
+        { name: "Romania", a2: "RO", a3: "ROU", num: "642", dial: "+40", capital: "Bucharest", currency: "RON", flag: "🇷🇴" },
+        { name: "Russia", a2: "RU", a3: "RUS", num: "643", dial: "+7", capital: "Moscow", currency: "RUB", flag: "🇷🇺" },
+        { name: "Saudi Arabia", a2: "SA", a3: "SAU", num: "682", dial: "+966", capital: "Riyadh", currency: "SAR", flag: "🇸🇦" },
+        { name: "Singapore", a2: "SG", a3: "SGP", num: "702", dial: "+65", capital: "Singapore", currency: "SGD", flag: "🇸🇬" },
+        { name: "South Africa", a2: "ZA", a3: "ZAF", num: "710", dial: "+27", capital: "Pretoria", currency: "ZAR", flag: "🇿🇦" },
+        { name: "Spain", a2: "ES", a3: "ESP", num: "724", dial: "+34", capital: "Madrid", currency: "EUR", flag: "🇪🇸" },
+        { name: "Sri Lanka", a2: "LK", a3: "LKA", num: "144", dial: "+94", capital: "Colombo", currency: "LKR", flag: "🇱🇰" },
+        { name: "Sweden", a2: "SE", a3: "SWE", num: "752", dial: "+46", capital: "Stockholm", currency: "SEK", flag: "🇸🇪" },
+        { name: "Switzerland", a2: "CH", a3: "CHE", num: "756", dial: "+41", capital: "Bern", currency: "CHF", flag: "🇨🇭" },
+        { name: "Thailand", a2: "TH", a3: "THA", num: "764", dial: "+66", capital: "Bangkok", currency: "THB", flag: "🇹🇭" },
+        { name: "Turkey", a2: "TR", a3: "TUR", num: "792", dial: "+90", capital: "Ankara", currency: "TRY", flag: "🇹🇷" },
+        { name: "Ukraine", a2: "UA", a3: "UKR", num: "804", dial: "+380", capital: "Kyiv", currency: "UAH", flag: "🇺🇦" },
+        { name: "United Arab Emirates", a2: "AE", a3: "ARE", num: "784", dial: "+971", capital: "Abu Dhabi", currency: "AED", flag: "🇦🇪" },
+        { name: "United Kingdom", a2: "GB", a3: "GBR", num: "826", dial: "+44", capital: "London", currency: "GBP", flag: "🇬🇧" },
+        { name: "United States", a2: "US", a3: "USA", num: "840", dial: "+1", capital: "Washington, D.C.", currency: "USD", flag: "🇺🇸" },
+        { name: "Uruguay", a2: "UY", a3: "URY", num: "858", dial: "+598", capital: "Montevideo", currency: "UYU", flag: "🇺🇾" },
+        { name: "Venezuela", a2: "VE", a3: "VEN", num: "862", dial: "+58", capital: "Caracas", currency: "VES", flag: "🇻🇪" },
+        { name: "Vietnam", a2: "VN", a3: "VNM", num: "704", dial: "+84", capital: "Hanoi", currency: "VND", flag: "🇻🇳" }
+    ];
+
+    editorInput.addEventListener('input', runSearch);
+
+    btnLoadSample.addEventListener('click', () => {
+        editorInput.value = 'United States';
+        runSearch();
+    });
+
+    btnClearAll.addEventListener('click', () => {
+        editorInput.value = '';
+        runSearch();
+    });
+
+    function runSearch() {
+        const query = editorInput.value.trim().toLowerCase();
+        resultsGrid.innerHTML = '';
+
+        // If query is empty, show standard default countries
+        const filterList = query === '' 
+            ? countries.slice(0, 12) // Default showing first 12 countries
+            : countries.filter(c => {
+                return c.name.toLowerCase().includes(query) ||
+                       c.a2.toLowerCase() === query ||
+                       c.a3.toLowerCase() === query ||
+                       c.num === query ||
+                       c.dial === query ||
+                       c.dial.replace('+', '') === query ||
+                       c.capital.toLowerCase().includes(query) ||
+                       c.currency.toLowerCase() === query;
+            });
+
+        resultsCount.textContent = `Showing ${filterList.length} of ${countries.length} countries`;
+
+        if (filterList.length === 0) {
+            resultsGrid.innerHTML = `<div class="empty-state-msg">No matching countries found for query "${editorInput.value}".</div>`;
+            return;
+        }
+
+        filterList.forEach(c => {
+            const card = document.createElement('div');
+            card.className = 'country-card';
+
+            card.innerHTML = `
+                <div class="country-card-header">
+                    <div class="country-name-wrapper">
+                        <span class="country-flag">${c.flag}</span>
+                        <span class="country-name">${c.name}</span>
+                    </div>
+                </div>
+                <div class="country-detail-row">
+                    <span class="detail-lbl">Alpha-2 Code</span>
+                    <div class="detail-val-box">
+                        <span class="detail-val">${c.a2}</span>
+                        <button class="copy-mini-btn" data-val="${c.a2}">Copy</button>
+                    </div>
+                </div>
+                <div class="country-detail-row">
+                    <span class="detail-lbl">Alpha-3 Code</span>
+                    <div class="detail-val-box">
+                        <span class="detail-val">${c.a3}</span>
+                        <button class="copy-mini-btn" data-val="${c.a3}">Copy</button>
+                    </div>
+                </div>
+                <div class="country-detail-row">
+                    <span class="detail-lbl">Numeric Code</span>
+                    <div class="detail-val-box">
+                        <span class="detail-val">${c.num}</span>
+                        <button class="copy-mini-btn" data-val="${c.num}">Copy</button>
+                    </div>
+                </div>
+                <div class="country-detail-row">
+                    <span class="detail-lbl">Calling Dial Code</span>
+                    <div class="detail-val-box">
+                        <span class="detail-val">${c.dial}</span>
+                        <button class="copy-mini-btn" data-val="${c.dial}">Copy</button>
+                    </div>
+                </div>
+                <div class="country-detail-row">
+                    <span class="detail-lbl">Capital City</span>
+                    <div class="detail-val-box">
+                        <span class="detail-val" style="font-family: inherit; font-size: 0.8rem;">${c.capital}</span>
+                    </div>
+                </div>
+                <div class="country-detail-row">
+                    <span class="detail-lbl">Base Currency</span>
+                    <div class="detail-val-box">
+                        <span class="detail-val">${c.currency}</span>
+                        <button class="copy-mini-btn" data-val="${c.currency}">Copy</button>
+                    </div>
+                </div>
+            `;
+
+            // Add inner copy button logic for mini swatches
+            card.querySelectorAll('.copy-mini-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const val = btn.dataset.val;
+                    navigator.clipboard.writeText(val).then(() => {
+                        const originalText = btn.textContent;
+                        btn.textContent = 'Copied!';
+                        setTimeout(() => {
+                            btn.textContent = originalText;
+                        }, 1000);
+                    });
+                });
+            });
+
+            resultsGrid.appendChild(card);
+        });
+    }
+
+    // Initialize list load
+    runSearch();
+});
+</script>
+
+
+
+    
+    <section class="seo-rich-content">
+      <hr class="seo-divider">
+
+      
+
+      
+      
+      <div class="seo-section seo-steps">
+        <h2>How to Use Country Code Lookup</h2>
+        <ol class="seo-steps-list">
+          
+            <li>
+              <h3>Input your data</h3>
+              <p>Paste, type, or upload your inputs into the input fields at the top of the page.</p>
+            </li>
+            <li>
+              <h3>Configure options</h3>
+              <p>Adjust any available options, dropdowns, checkboxes, or parameters to customize the output.</p>
+            </li>
+            <li>
+              <h3>Get instant results</h3>
+              <p>Our tool processes your input instantly completely offline. Copy the formatted results or download the generated output directly to your device.</p>
+            </li>
+          
+        </ol>
+      </div>
+
+      
+
+      <div class="seo-section seo-technical">
+        <h2>The Technical Details</h2>
+        <div class="seo-technical-content">
+          
+            <p>This interactive web utility is designed to provide quick, reliable, and completely private calculations and data transformations. Modern workflow requirements often call for quick format adjustments, conversions, or math estimations. By executing all logic directly in your browser using client-side JavaScript, this utility ensures that your sensitive inputs are never transmitted across the network, combining modern browser speed with absolute data confidentiality.</p>
+          
+        </div>
+      </div>
+
+      <div class="seo-section seo-faqs">
+        <h2>Frequently Asked Questions</h2>
+        <div class="seo-faq-accordion">
+          
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">Is my data safe and private when using Country Code Lookup?</summary>
+              <div class="seo-faq-answer">
+                <p>Yes. All operations, conversions, and computations on Country Code Lookup are performed entirely in your local web browser using client-side JavaScript. None of your data is sent to our servers, logged, or shared with third parties.</p>
+              </div>
+            </details>
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">How much does Country Code Lookup cost to use?</summary>
+              <div class="seo-faq-answer">
+                <p>This utility is 100% free to use. There are no limits on usage, no subscriptions, no premium paywalls, and no registration required.</p>
+              </div>
+            </details>
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">Can I use Country Code Lookup offline?</summary>
+              <div class="seo-faq-answer">
+                <p>Yes. Once this page is loaded in your browser, all core functionalities of Country Code Lookup are executed client-side. You can disconnect from the internet and continue using the utility without any active network connection.</p>
+              </div>
+            </details>
+          
+        </div>
+      </div>
+    </section>
+    
+
+    
+
+    
+    <section class="related-section">
+      <h3>
+        Recommended Developer Tools
+        
+      </h3>
+      <p>
+        Boost your productivity with our other free browser-based developer utilities:
+        
+      </p>
+      <div class="related-grid">
+        
+        
+        
+        
+        
+          
+          
+          
+            
+              
+              
+              
+              
+                
+                <div class="post-card">
+                  <div class="post-title"><a href="/tools/notepad/">Notepad</a></div>
+                  <p class="post-desc">Retro Windows-like Notepad application. Full-screen distraction-free text edi...</p>
+                </div>
+              
+            
+          
+            
+              
+              
+              
+              
+                
+                <div class="post-card">
+                  <div class="post-title"><a href="/tools/jwt-decoder/">JWT Decoder</a></div>
+                  <p class="post-desc">Decode JSON Web Tokens (JWT) in real-time, view headers and payloads, and for...</p>
+                </div>
+              
+            
+          
+            
+              
+              
+              
+              
+                
+                <div class="post-card">
+                  <div class="post-title"><a href="/tools/json-formatter/">JSON Formatter</a></div>
+                  <p class="post-desc">Format, validate, and beautify JSON data with syntax highlighting.</p>
+                </div>
+              
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+        
+      </div>
+    </section>
+    
+
+    
+
+    
+
+    
+  </main>
+
+  <footer class="site-footer-dark">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h3>Popular Tools</h3>
+      <ul>
+        <li><a href="/tools/json-formatter/">JSON Formatter</a></li>
+        <li><a href="/tools/qr-code-generator/">QR Code Generator</a></li>
+        <li><a href="/tools/base64-encoder-decoder/">Base64 Encoder/Decoder</a></li>
+        <li><a href="/tools/text-compare/">Text Compare</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Calculators & Finance</h3>
+      <ul>
+        <li><a href="/finance/currency-calculator/">Currency Calculator</a></li>
+        <li><a href="/finance/mortgage-calculator/">Mortgage Calculator</a></li>
+        <li><a href="/calculators/ip-subnet-calculator/">IP Subnet Calculator</a></li>
+        <li><a href="/calculators/time-zone-calculator/">Time Zone Calculator</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Quick References</h3>
+      <ul>
+        <li><a href="/cheatsheets/git-commands/">Git Cheatsheet</a></li>
+        <li><a href="/cheatsheets/docker-commands/">Docker Cheatsheet</a></li>
+        <li><a href="/cheatsheets/react-hooks/">React Hooks Cheatsheet</a></li>
+        <li><a href="/cheatsheets/javascript/">JavaScript Cheatsheet</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/shafqatalix" aria-label="LinkedIn">
+        <img src="/images/social-icons/linkedin.svg" alt="LinkedIn">
+      </a>
+      <a href="https://twitter.com/shafqatalix" aria-label="X/Twitter">
+        <img src="/images/social-icons/twitter.svg" alt="X/Twitter">
+      </a>
+      <a href="https://github.com/shafqatalix" aria-label="GitHub">
+        <img src="/images/social-icons/github.svg" alt="GitHub">
+      </a>
+    </div>
+    <div class="footer-copy">&copy; 2026 YORABA. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+
+</html>

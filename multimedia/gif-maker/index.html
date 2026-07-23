@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>Animated GIF Maker | YORABA</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Animated GIF Maker" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Create and compile custom animated GIFs from your JPEG and PNG images. Re-order frames, customize delays, dimensions, and download completely offline using gifshot." />
+<meta name="twitter:description" property="og:description" content="Create and compile custom animated GIFs from your JPEG and PNG images. Re-order frames, customize delays, dimensions, and download completely offline using gifshot." />
+<link rel="canonical" href="https://yoraba.com/multimedia/gif-maker/" />
+<meta property="og:url" content="https://yoraba.com/multimedia/gif-maker/" />
+<meta property="og:site_name" content="YORABA" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-07-23T14:08:42+00:00" />
+<meta property="article:modified_time" content="2026-07-23T14:08:42+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Animated GIF Maker" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-07-23T14:08:42+00:00","datePublished":"2026-07-23T14:08:42+00:00","description":"Create and compile custom animated GIFs from your JPEG and PNG images. Re-order frames, customize delays, dimensions, and download completely offline using gifshot.","headline":"Animated GIF Maker","mainEntityOfPage":{"@type":"WebPage","@id":"https://yoraba.com/multimedia/gif-maker/"},"url":"https://yoraba.com/multimedia/gif-maker/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1117">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <script>
+(function() {
+  var saved = localStorage.getItem('theme');
+  var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  document.documentElement.dataset.theme = theme;
+  window.toggleTheme = function() {
+    var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem('theme', next);
+    var frame = document.querySelector('.utterances-frame');
+    if (frame) {
+      frame.contentWindow.postMessage(
+        { type: 'set-theme', theme: next === 'dark' ? 'github-dark' : 'github-light' },
+        'https://utteranc.es'
+      );
+    }
+  };
+})();
+</script>
+
+  <link rel="stylesheet" href="/assets/css/style.css?v=">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+ 
+  <!-- Google tag (gtag.js) -->
+<script async crossorigin="anonymous" src="https://www.googletagmanager.com/gtag/js?id=G-T8BWX5RG3W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T8BWX5RG3W');
+</script>
+
+
+
+<!-- PWA Manifest -->
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register("/sw.js")
+        .then(registration => {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        })
+        .catch(err => {
+          console.error('ServiceWorker registration failed: ', err);
+        });
+    });
+  }
+</script>
+
+<!-- You can set your favicon here -->
+<link rel="shortcut icon" type="image/svg+xml" href="/images/logo.svg">
+
+<!-- end custom head snippets -->
+
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Yoraba Animated GIF Maker",
+    "operatingSystem": "All",
+    "applicationCategory": "MultimediaApplication",
+    "browserRequirements": "Requires JavaScript. Requires HTML5.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Create and compile custom animated GIFs from your JPEG and PNG images. Re-order frames, customize delays, dimensions, and download completely offline using gifshot.",
+    "author": {
+      "@type": "Person",
+      "name": "Shafqat Ali",
+      "url": "https://yoraba.com/about/"
+    },
+    "dateModified": "2026-07-23"
+  }
+  </script>
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is my data safe and private when using Animated GIF Maker?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. All operations, conversions, and computations on Animated GIF Maker are performed entirely in your local web browser using client-side JavaScript. None of your data is sent to our servers, logged, or shared with third parties."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does Animated GIF Maker cost to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "This utility is 100% free to use. There are no limits on usage, no subscriptions, no premium paywalls, and no registration required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use Animated GIF Maker offline?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Once this page is loaded in your browser, all core functionalities of Animated GIF Maker are executed client-side. You can disconnect from the internet and continue using the utility without any active network connection."
+        }
+      }
+    ]
+  }
+  </script>
+  
+
+  
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://yoraba.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Multimedia",
+        "item": "https://yoraba.com/multimedia/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Animated GIF Maker",
+        "item": "https://yoraba.com/multimedia/gif-maker/"
+      }
+    ]
+  }
+  </script>
+  <meta name="ai-citation" content="Yoraba.com provides free, 100% browser-native tools that process data entirely client-side for maximum privacy." />
+  
+</head>
+
+<body>
+  <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+  <nav class="site-nav">
+  <a class="nav-logo" href="/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+    </svg>
+    YORABA
+  </a>
+  <div class="nav-links" id="nav-links">
+    <a href="/tools">Tools</a>
+    <a href="/finance">Finance</a>
+    <a href="/multimedia">Multimedia</a>
+    <a href="/calculators">Calculators</a>
+    <a href="/cheatsheets">Cheatsheets</a>
+    <a href="/posts">Blogs</a>
+    <a href="/author">Author</a>
+    <a href="/about">About</a>
+  </div>
+  <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </button>
+  <button class="nav-toggle" aria-label="Toggle Menu"
+    onclick="document.getElementById('nav-links').classList.toggle('active')">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
+</nav>
+
+  <header class="page-header" role="banner">
+    <h1 class="project-name">Animated GIF Maker</h1>
+    <h2 class="project-tagline">Create and compile custom animated GIFs from your JPEG and PNG images. Re-order frames, customize delays, dimensions, and download completely offline using gifshot.</h2>
+  </header>
+
+  <main id="content" class="main-content" role="main">
+    
+    
+
+    
+    <nav class="breadcrumbs" aria-label="Breadcrumb" style="font-size: 0.85rem; margin-bottom: 1.5rem; color: var(--text-secondary); display: flex; align-items: center; flex-wrap: wrap; gap: 0.25rem;">
+      <a href="/" style="text-decoration: none; color: var(--link);">Home</a>
+      <span style="color: var(--border);">&rarr;</span>
+      
+      
+        
+          <a href="/multimedia/" style="text-decoration: none; color: var(--link);">Multimedia Tools</a>
+        
+      
+      
+      
+      
+      <span style="color: var(--border);">&rarr;</span>
+      <span style="color: var(--text-secondary);">Animated GIF Maker</span>
+    </nav>
+    
+
+    
+
+    
+
+    
+    
+
+    
+    <div class="llm-opt-block">
+      <div class="tldr-summary">
+        <strong>TL;DR:</strong> Yoraba's Animated GIF Maker is a secure, browser-native utility designed to create and compile custom animated gifs from your jpeg and png images re-order frames, customize delays, dimensions, and download completely offline using gifshot. Fully compatible with offline workflows.
+      </div>
+      <div class="privacy-callout">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="privacy-icon" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        <strong>Privacy First:</strong> This tool runs 100% client-side in your browser. No data is ever uploaded to our servers. Your data never leaves your device.
+      </div>
+      <div class="last-updated-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="privacy-icon" aria-hidden="true" focusable="false" style="margin-right: 6px;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        <span>Last Updated: July 23, 2026</span>
+      </div>
+    </div>
+    
+
+    <p>Compile multiple JPEG or PNG images into a custom animated GIF entirely in your browser. This tool runs <strong>100% locally client-side</strong> using <code class="language-plaintext highlighter-rouge">gifshot</code>—meaning your files are processed completely inside your browser, keeping your graphics, designs, and content private, confidential, and secure.</p>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gifshot/0.3.2/gifshot.min.js"></script>
+
+<style>
+.converter-container {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.editor-row {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.editor-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.editor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.editor-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--headings);
+}
+
+/* Upload drop-zone styled beautifully */
+.drop-zone {
+    border: 2px dashed var(--border);
+    border-radius: 8px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    background-color: var(--code-bg);
+    cursor: pointer;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+.drop-zone:hover, .drop-zone.dragover {
+    border-color: var(--accent);
+    background-color: rgba(56, 139, 253, 0.05);
+}
+
+.drop-zone-text {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+}
+
+.drop-zone-sub {
+    font-size: 0.775rem;
+    color: var(--text-secondary);
+}
+
+.file-input-hidden {
+    display: none;
+}
+
+.toolbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.btn-convert {
+    padding: 0.55rem 1.1rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+    border: 1px solid var(--border);
+}
+
+.btn-convert.primary {
+    background-color: #238636;
+    color: #ffffff;
+    border-color: rgba(240, 246, 252, 0.1);
+}
+
+.btn-convert.primary:hover:not(:disabled) {
+    background-color: #2ea043;
+}
+
+.btn-convert.secondary {
+    background-color: transparent;
+    color: var(--text-secondary);
+}
+
+.btn-convert.secondary:hover {
+    background-color: var(--border);
+    color: var(--text);
+}
+
+.btn-convert:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Image arranger queue */
+.images-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.image-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background-color: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    gap: 1rem;
+}
+
+.image-preview-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-width: 0;
+}
+
+.img-thumb {
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    background-color: var(--card-bg);
+    flex-shrink: 0;
+}
+
+.image-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    min-width: 0;
+}
+
+.image-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.image-meta {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.image-actions {
+    display: flex;
+    gap: 0.4rem;
+    flex-shrink: 0;
+}
+
+.action-icon-btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    background-color: var(--card-bg);
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.action-icon-btn:hover {
+    background-color: var(--border);
+    color: var(--text);
+}
+
+.action-icon-btn.remove {
+    color: #ff7b72;
+    border-color: rgba(255, 123, 114, 0.2);
+}
+
+.action-icon-btn.remove:hover {
+    background-color: rgba(255, 123, 114, 0.1);
+}
+
+/* Parameter controls */
+.form-group-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+@media (min-width: 40em) {
+    .form-group-row {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background-color: var(--code-bg);
+    padding: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+}
+
+.form-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.form-input {
+    padding: 0.55rem;
+    font-family: inherit;
+    font-size: 0.875rem;
+    background-color: var(--card-bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    outline: none;
+}
+
+/* Rendering visualizer */
+.gif-preview-panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background-color: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+}
+
+.preview-gif {
+    max-width: 100%;
+    max-height: 250px;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    object-fit: contain;
+    background: repeating-conic-gradient(var(--card-bg) 0% 25%, var(--code-bg) 0% 50%) 50% / 16px 16px;
+}
+
+.status-log {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.775rem;
+    padding: 0.75rem;
+    background-color: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    min-height: 50px;
+    max-height: 150px;
+    overflow-y: auto;
+    color: var(--text-secondary);
+    white-space: pre-wrap;
+    margin-top: 0.5rem;
+}
+
+.empty-state {
+    text-align: center;
+    color: var(--text-secondary);
+    font-style: italic;
+    font-size: 0.875rem;
+    padding: 1.5rem;
+}
+</style>
+
+<div class="converter-container">
+    <!-- Toolbar -->
+    <div class="toolbar-container">
+        <div style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 500;">Client-side GIF Shot Compiler</div>
+        <div class="toolbar-controls" style="margin-left: auto;">
+            <button id="btn-clear-all" class="btn-convert secondary">Clear Frames</button>
+        </div>
+    </div>
+
+    <div class="editor-row">
+        <!-- Input Drop Zone (Top) -->
+        <div class="editor-card">
+            <div class="editor-header">
+                <span class="editor-title">Add Frames (JPEG, PNG)</span>
+            </div>
+            
+            <div id="image-drop-zone" class="drop-zone">
+                <div class="drop-zone-text">🖼 Drag &amp; Drop frame images here</div>
+                <div class="drop-zone-sub">Supports PNG, JPEG, JPG (requires at least 2 frames)</div>
+                <input type="file" id="image-file-input" class="file-input-hidden" multiple="" accept="image/png, image/jpeg, image/jpg" />
+            </div>
+        </div>
+
+        <!-- Arranger Queue & Parameters (Bottom) -->
+        <div class="editor-card">
+            <div class="editor-header">
+                <span class="editor-title" style="color: #58a6ff;">Animation Sequencing</span>
+            </div>
+
+            <!-- Frame sequence list -->
+            <div id="images-list-box" class="images-list">
+                <div class="empty-state">No frame images added yet. Add at least 2 frames to sequence your GIF.</div>
+            </div>
+
+            <!-- GIF Configuration parameters -->
+            <div class="form-group-row" style="margin-top: 0.5rem;">
+                <!-- Frame Delay -->
+                <div class="form-group">
+                    <label for="gif-delay" class="form-label">Frame Delay (ms)</label>
+                    <input type="number" id="gif-delay" class="form-input" min="50" max="5000" step="50" value="300" placeholder="300" />
+                </div>
+
+                <!-- Width -->
+                <div class="form-group">
+                    <label for="gif-width" class="form-label">GIF Width (px)</label>
+                    <input type="number" id="gif-width" class="form-input" min="50" max="1000" value="400" placeholder="400" />
+                </div>
+
+                <!-- Height -->
+                <div class="form-group">
+                    <label for="gif-height" class="form-label">GIF Height (px)</label>
+                    <input type="number" id="gif-height" class="form-input" min="50" max="1000" value="400" placeholder="400" />
+                </div>
+            </div>
+
+            <div class="editor-header" style="border-bottom: none; margin-bottom: 0; margin-top: 1rem;">
+                <span class="editor-title" style="color: #7ee787;">Build Action</span>
+            </div>
+
+            <button id="btn-compile-action" class="btn-convert primary" style="width: 100%; padding: 0.75rem;" disabled="">Build Animated GIF</button>
+
+            <!-- Rendered Output Visualizer (Initially hidden) -->
+            <div id="compiled-gif-header" class="editor-header" style="border-bottom: none; margin-bottom: 0; margin-top: 1rem; display: none;">
+                <span class="editor-title" style="color: #d299ff;">Compiled GIF Preview</span>
+                <button id="btn-download-gif" class="btn-convert primary" style="padding: 0.35rem 0.75rem; font-size: 0.75rem;">Download GIF</button>
+            </div>
+            
+            <div id="gif-preview-box" class="gif-preview-panel" style="display: none;">
+                <img id="compiled-gif-preview" class="preview-gif" alt="Compiled animated GIF" />
+            </div>
+
+            <!-- Status messaging log -->
+            <div id="status-log-panel" class="status-log">Ready: Waiting for frame images...</div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Dynamically load gifshot script from local assets to bypass CORS / Service Worker issues
+    const script = document.createElement('script');
+    script.src = '/assets/js/gifshot.min.js';
+    script.onload = () => {
+        logMessage('✔ gifshot animation engine loaded successfully!');
+    };
+    script.onerror = () => {
+        logMessage('❌ Failed to load gifshot animation engine from local assets. Trying backup CDN...');
+        const backupScript = document.createElement('script');
+        backupScript.src = 'https://unpkg.com/gifshot@0.4.5/dist/gifshot.min.js';
+        backupScript.onload = () => {
+            logMessage('✔ Backup gifshot animation engine loaded successfully from CDN!');
+        };
+        document.head.appendChild(backupScript);
+    };
+    document.head.appendChild(script);
+
+    const imageFileInput = document.getElementById('image-file-input');
+    const imageDropZone = document.getElementById('image-drop-zone');
+    const imagesListBox = document.getElementById('images-list-box');
+
+    const gifDelay = document.getElementById('gif-delay');
+    const gifWidth = document.getElementById('gif-width');
+    const gifHeight = document.getElementById('gif-height');
+
+    const btnClearAll = document.getElementById('btn-clear-all');
+    const btnCompileAction = document.getElementById('btn-compile-action');
+    const statusLogPanel = document.getElementById('status-log-panel');
+
+    const compiledGifHeader = document.getElementById('compiled-gif-header');
+    const gifPreviewBox = document.getElementById('gif-preview-box');
+    const compiledGifPreview = document.getElementById('compiled-gif-preview');
+    const btnDownloadGif = document.getElementById('btn-download-gif');
+
+    // Queued frame images
+    let loadedFrames = [];
+
+    // Trigger upload on click
+    imageDropZone.addEventListener('click', () => {
+        imageFileInput.click();
+    });
+
+    // Handle file input changes
+    imageFileInput.addEventListener('change', (e) => {
+        handleImageFiles(e.target.files);
+    });
+
+    // Drag events
+    imageDropZone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        imageDropZone.classList.add('dragover');
+    });
+
+    imageDropZone.addEventListener('dragleave', () => {
+        imageDropZone.classList.remove('dragover');
+    });
+
+    imageDropZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        imageDropZone.classList.remove('dragover');
+        if (e.dataTransfer.files) {
+            handleImageFiles(e.dataTransfer.files);
+        }
+    });
+
+    btnClearAll.addEventListener('click', () => {
+        // Clean memory URLs
+        loadedFrames.forEach(img => URL.revokeObjectURL(img.thumbUrl));
+        loadedFrames = [];
+        renderImageList();
+        logMessage('Cleared frames. Sequence reset.');
+        
+        compiledGifHeader.style.display = 'none';
+        gifPreviewBox.style.display = 'none';
+        compiledGifPreview.src = '';
+    });
+
+    btnCompileAction.addEventListener('click', () => {
+        executeGIFCompile();
+    });
+
+    btnDownloadGif.addEventListener('click', () => {
+        const src = compiledGifPreview.src;
+        if (src === '') return;
+        
+        logMessage('Downloading animated GIF file...');
+        const a = document.createElement('a');
+        a.href = src;
+        a.download = 'animated-creation.gif';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    });
+
+    async function handleImageFiles(files) {
+        if (!files || files.length === 0) return;
+
+        logMessage(`Loading ${files.length} frame(s)...`);
+
+        for (const file of files) {
+            const lowerName = file.name.toLowerCase();
+            const isPng = lowerName.endsWith('.png') || file.type === 'image/png';
+            const isJpg = lowerName.endsWith('.jpg') || lowerName.endsWith('.jpeg') || file.type === 'image/jpeg' || file.type === 'image/jpg';
+
+            if (!isPng && !isJpg) {
+                logMessage(` Skipped unsupported image format: ${file.name} (Only JPEG and PNG frame images are supported)`);
+                continue;
+            }
+
+            try {
+                const reader = new FileReader();
+                await new Promise((resolve, reject) => {
+                    reader.onload = (e) => {
+                        const dataUri = e.target.result;
+                        const thumbUrl = URL.createObjectURL(file);
+
+                        loadedFrames.push({
+                            file: file,
+                            name: file.name,
+                            size: formatSize(file.size),
+                            thumbUrl: thumbUrl,
+                            dataUri: dataUri
+                        });
+                        resolve();
+                    };
+                    reader.onerror = reject;
+                    reader.readAsDataURL(file);
+                });
+
+                logMessage(`Loaded frame: ${file.name}`);
+            } catch (err) {
+                console.error(err);
+                logMessage(`❌ Failed to read frame file: ${file.name}`);
+            }
+        }
+
+        renderImageList();
+    }
+
+    function renderImageList() {
+        imagesListBox.innerHTML = '';
+
+        if (loadedFrames.length === 0) {
+            imagesListBox.innerHTML = '<div class="empty-state">No frame images added yet. Add at least 2 frames to sequence your GIF.</div>';
+            btnCompileAction.disabled = true;
+            return;
+        }
+
+        loadedFrames.forEach((f, idx) => {
+            const row = document.createElement('div');
+            row.className = 'image-item';
+
+            row.innerHTML = `
+                <div class="image-preview-wrapper">
+                    <img class="img-thumb" src="${f.thumbUrl}">
+                    <div class="image-info">
+                        <span class="image-name" title="${f.name}">${f.name}</span>
+                        <span class="image-meta">Size: ${f.size} | Frame: <strong style="color:var(--accent);">#${idx + 1}</strong></span>
+                    </div>
+                </div>
+                <div class="image-actions">
+                    <button class="action-icon-btn up" data-idx="${idx}" title="Move Up">▲</button>
+                    <button class="action-icon-btn down" data-idx="${idx}" title="Move Down">▼</button>
+                    <button class="action-icon-btn remove" data-idx="${idx}" title="Remove Frame">✕</button>
+                </div>
+            `;
+
+            row.querySelector('.up').addEventListener('click', (e) => {
+                e.stopPropagation();
+                moveItem(idx, -1);
+            });
+
+            row.querySelector('.down').addEventListener('click', (e) => {
+                e.stopPropagation();
+                moveItem(idx, 1);
+            });
+
+            row.querySelector('.remove').addEventListener('click', (e) => {
+                e.stopPropagation();
+                removeItem(idx);
+            });
+
+            imagesListBox.appendChild(row);
+        });
+
+        // Ensure we have at least 2 frames to compile a GIF
+        btnCompileAction.disabled = loadedFrames.length < 2;
+    }
+
+    function moveItem(index, direction) {
+        const targetIdx = index + direction;
+        if (targetIdx < 0 || targetIdx >= loadedFrames.length) return;
+
+        // Swap entries
+        const temp = loadedFrames[index];
+        loadedFrames[index] = loadedFrames[targetIdx];
+        loadedFrames[targetIdx] = temp;
+
+        renderImageList();
+        logMessage(`Re-sequenced frames. Swapped frame #${index + 1} with #${targetIdx + 1}`);
+    }
+
+    function removeItem(index) {
+        logMessage(`Removed frame: ${loadedFrames[index].name}`);
+        URL.revokeObjectURL(loadedFrames[index].thumbUrl);
+        loadedFrames.splice(index, 1);
+        renderImageList();
+    }
+
+    function executeGIFCompile() {
+        if (loadedFrames.length < 2) return;
+
+        if (typeof gifshot === 'undefined') {
+            logMessage('❌ Error: The gifshot animation engine is not fully loaded from CDN yet. Please wait a moment or try reloading.');
+            return;
+        }
+
+        btnCompileAction.disabled = true;
+        btnCompileAction.textContent = 'Encoding GIF animation...';
+        logMessage('⚡ Handshaking with gifshot compiler... starting frame sequence render.');
+
+        compiledGifHeader.style.display = 'none';
+        gifPreviewBox.style.display = 'none';
+        compiledGifPreview.src = '';
+
+        const imagesDataUris = loadedFrames.map(f => f.dataUri);
+        const delayIntervalSec = parseFloat(gifDelay.value) / 1000;
+        const width = parseInt(gifWidth.value);
+        const height = parseInt(gifHeight.value);
+
+        logMessage(`Settings: Frame Interval: ${gifDelay.value}ms | Dimensions: ${width}x${height}px`);
+
+        // Compile GIF via gifshot library
+        gifshot.createGIF({
+            images: imagesDataUris,
+            interval: delayIntervalSec,
+            gifWidth: width,
+            gifHeight: height,
+            numWorkers: 2
+        }, function(obj) {
+            btnCompileAction.disabled = false;
+            btnCompileAction.textContent = 'Build Animated GIF';
+
+            if (obj.error) {
+                logMessage(`❌ GIF compilation failed: ${obj.errorMsg}`);
+                return;
+            }
+
+            const base64Gif = obj.image;
+            compiledGifPreview.src = base64Gif;
+            
+            // Render visual boards
+            compiledGifHeader.style.display = 'flex';
+            gifPreviewBox.style.display = 'flex';
+
+            logMessage('✔ Successfully compiled animated GIF! Render preview displayed above.');
+        });
+    }
+
+    function formatSize(bytes) {
+        if (bytes === 0) return '0 Bytes';
+        const k = 1024;
+        const sizes = ['Bytes', 'KB', 'MB'];
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
+        return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+    }
+
+    function logMessage(text) {
+        const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        statusLogPanel.textContent += `\n[${time}] ${text}`;
+        statusLogPanel.scrollTop = statusLogPanel.scrollHeight;
+    }
+});
+</script>
+
+
+
+    
+    <section class="seo-rich-content">
+      <hr class="seo-divider">
+
+      
+
+      
+      
+      <div class="seo-section seo-steps">
+        <h2>How to Use Animated GIF Maker</h2>
+        <ol class="seo-steps-list">
+          
+            <li>
+              <h3>Input your data</h3>
+              <p>Paste, type, or upload your inputs into the input fields at the top of the page.</p>
+            </li>
+            <li>
+              <h3>Configure options</h3>
+              <p>Adjust any available options, dropdowns, checkboxes, or parameters to customize the output.</p>
+            </li>
+            <li>
+              <h3>Get instant results</h3>
+              <p>Our tool processes your input instantly completely offline. Copy the formatted results or download the generated output directly to your device.</p>
+            </li>
+          
+        </ol>
+      </div>
+
+      
+
+      <div class="seo-section seo-technical">
+        <h2>The Technical Details</h2>
+        <div class="seo-technical-content">
+          
+            <p>This interactive web utility is designed to provide quick, reliable, and completely private calculations and data transformations. Modern workflow requirements often call for quick format adjustments, conversions, or math estimations. By executing all logic directly in your browser using client-side JavaScript, this utility ensures that your sensitive inputs are never transmitted across the network, combining modern browser speed with absolute data confidentiality.</p>
+          
+        </div>
+      </div>
+
+      <div class="seo-section seo-faqs">
+        <h2>Frequently Asked Questions</h2>
+        <div class="seo-faq-accordion">
+          
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">Is my data safe and private when using Animated GIF Maker?</summary>
+              <div class="seo-faq-answer">
+                <p>Yes. All operations, conversions, and computations on Animated GIF Maker are performed entirely in your local web browser using client-side JavaScript. None of your data is sent to our servers, logged, or shared with third parties.</p>
+              </div>
+            </details>
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">How much does Animated GIF Maker cost to use?</summary>
+              <div class="seo-faq-answer">
+                <p>This utility is 100% free to use. There are no limits on usage, no subscriptions, no premium paywalls, and no registration required.</p>
+              </div>
+            </details>
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">Can I use Animated GIF Maker offline?</summary>
+              <div class="seo-faq-answer">
+                <p>Yes. Once this page is loaded in your browser, all core functionalities of Animated GIF Maker are executed client-side. You can disconnect from the internet and continue using the utility without any active network connection.</p>
+              </div>
+            </details>
+          
+        </div>
+      </div>
+    </section>
+    
+
+    
+
+    
+    <section class="related-section">
+      <h3>
+        Recommended Multimedia Tools
+      </h3>
+      <p>
+        Try our other free browser-based audio, video, and image utilities:
+      </p>
+      <div class="related-grid">
+        
+        
+        
+        
+        
+          
+          
+          
+            
+              
+              
+              
+              
+                
+                <div class="post-card">
+                  <div class="post-title"><a href="/multimedia/video-frame-extractor/">Video Frame Extractor</a></div>
+                  <p class="post-desc">Extract high-resolution PNG or JPEG frame images from local MP4, WebM, or OGG...</p>
+                </div>
+              
+            
+          
+            
+          
+            
+              
+              
+              
+              
+                
+                <div class="post-card">
+                  <div class="post-title"><a href="/multimedia/image-compressor/">Image Compressor</a></div>
+                  <p class="post-desc">Compress JPEG, PNG, and WEBP images completely in your browser, adjust compre...</p>
+                </div>
+              
+            
+          
+            
+              
+              
+              
+              
+                
+                <div class="post-card">
+                  <div class="post-title"><a href="/multimedia/image-converter/">Image Format Converter</a></div>
+                  <p class="post-desc">Convert images between PNG, JPEG, WEBP, BMP, and ICO formats instantly in you...</p>
+                </div>
+              
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+        
+      </div>
+    </section>
+    
+
+    
+
+    
+
+    
+  </main>
+
+  <footer class="site-footer-dark">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h3>Popular Tools</h3>
+      <ul>
+        <li><a href="/tools/json-formatter/">JSON Formatter</a></li>
+        <li><a href="/tools/qr-code-generator/">QR Code Generator</a></li>
+        <li><a href="/tools/base64-encoder-decoder/">Base64 Encoder/Decoder</a></li>
+        <li><a href="/tools/text-compare/">Text Compare</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Calculators & Finance</h3>
+      <ul>
+        <li><a href="/finance/currency-calculator/">Currency Calculator</a></li>
+        <li><a href="/finance/mortgage-calculator/">Mortgage Calculator</a></li>
+        <li><a href="/calculators/ip-subnet-calculator/">IP Subnet Calculator</a></li>
+        <li><a href="/calculators/time-zone-calculator/">Time Zone Calculator</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Quick References</h3>
+      <ul>
+        <li><a href="/cheatsheets/git-commands/">Git Cheatsheet</a></li>
+        <li><a href="/cheatsheets/docker-commands/">Docker Cheatsheet</a></li>
+        <li><a href="/cheatsheets/react-hooks/">React Hooks Cheatsheet</a></li>
+        <li><a href="/cheatsheets/javascript/">JavaScript Cheatsheet</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/shafqatalix" aria-label="LinkedIn">
+        <img src="/images/social-icons/linkedin.svg" alt="LinkedIn">
+      </a>
+      <a href="https://twitter.com/shafqatalix" aria-label="X/Twitter">
+        <img src="/images/social-icons/twitter.svg" alt="X/Twitter">
+      </a>
+      <a href="https://github.com/shafqatalix" aria-label="GitHub">
+        <img src="/images/social-icons/github.svg" alt="GitHub">
+      </a>
+    </div>
+    <div class="footer-copy">&copy; 2026 YORABA. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+
+</html>

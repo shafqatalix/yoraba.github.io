@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>Create blog with Ghost CMS, SQLite and Github comments | YORABA</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Create blog with Ghost CMS, SQLite and Github comments" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Setup blog using Ghost CMS, SQLite and Github comments" />
+<meta name="twitter:description" property="og:description" content="Setup blog using Ghost CMS, SQLite and Github comments" />
+<link rel="canonical" href="https://yoraba.com/blogs/ghost-blog-sqlite/" />
+<meta property="og:url" content="https://yoraba.com/blogs/ghost-blog-sqlite/" />
+<meta property="og:site_name" content="YORABA" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-11-15T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-11-15T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Create blog with Ghost CMS, SQLite and Github comments" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-11-15T00:00:00+00:00","datePublished":"2022-11-15T00:00:00+00:00","description":"Setup blog using Ghost CMS, SQLite and Github comments","headline":"Create blog with Ghost CMS, SQLite and Github comments","mainEntityOfPage":{"@type":"WebPage","@id":"https://yoraba.com/blogs/ghost-blog-sqlite/"},"url":"https://yoraba.com/blogs/ghost-blog-sqlite/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1117">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <script>
+(function() {
+  var saved = localStorage.getItem('theme');
+  var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  document.documentElement.dataset.theme = theme;
+  window.toggleTheme = function() {
+    var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem('theme', next);
+    var frame = document.querySelector('.utterances-frame');
+    if (frame) {
+      frame.contentWindow.postMessage(
+        { type: 'set-theme', theme: next === 'dark' ? 'github-dark' : 'github-light' },
+        'https://utteranc.es'
+      );
+    }
+  };
+})();
+</script>
+
+  <link rel="stylesheet" href="/assets/css/style.css?v=">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+ 
+  <!-- Google tag (gtag.js) -->
+<script async crossorigin="anonymous" src="https://www.googletagmanager.com/gtag/js?id=G-T8BWX5RG3W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T8BWX5RG3W');
+</script>
+
+
+
+<!-- PWA Manifest -->
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register("/sw.js")
+        .then(registration => {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        })
+        .catch(err => {
+          console.error('ServiceWorker registration failed: ', err);
+        });
+    });
+  }
+</script>
+
+<!-- You can set your favicon here -->
+<link rel="shortcut icon" type="image/svg+xml" href="/images/logo.svg">
+
+<!-- end custom head snippets -->
+
+  
+  
+  
+
+  
+  
+  
+</head>
+
+<body>
+  <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+  <nav class="site-nav">
+  <a class="nav-logo" href="/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+    </svg>
+    YORABA
+  </a>
+  <div class="nav-links" id="nav-links">
+    <a href="/tools">Tools</a>
+    <a href="/finance">Finance</a>
+    <a href="/multimedia">Multimedia</a>
+    <a href="/calculators">Calculators</a>
+    <a href="/cheatsheets">Cheatsheets</a>
+    <a href="/posts">Blogs</a>
+    <a href="/author">Author</a>
+    <a href="/about">About</a>
+  </div>
+  <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </button>
+  <button class="nav-toggle" aria-label="Toggle Menu"
+    onclick="document.getElementById('nav-links').classList.toggle('active')">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
+</nav>
+
+  <header class="page-header" role="banner">
+    <h1 class="project-name">Create blog with Ghost CMS, SQLite and Github comments</h1>
+    <h2 class="project-tagline">Setup blog using Ghost CMS, SQLite and Github comments</h2>
+  </header>
+
+  <main id="content" class="main-content" role="main">
+    
+    
+
+    
+    <nav class="breadcrumbs" aria-label="Breadcrumb" style="font-size: 0.85rem; margin-bottom: 1.5rem; color: var(--text-secondary); display: flex; align-items: center; flex-wrap: wrap; gap: 0.25rem;">
+      <a href="/" style="text-decoration: none; color: var(--link);">Home</a>
+      <span style="color: var(--border);">&rarr;</span>
+      
+      
+        <a href="/posts/" style="text-decoration: none; color: var(--link);">Blog</a>
+      
+      
+      
+      
+      <span style="color: var(--border);">&rarr;</span>
+      <span style="color: var(--text-secondary);">Create blog with Ghost CMS, SQLite and Github comments</span>
+    </nav>
+    
+
+    
+    <div class="blog-date">15 November 2022</div>
+    
+
+    
+
+    
+    
+
+    
+
+    <h2 id="overview">Overview</h2>
+
+<p><a href="https://ghost.org/">Ghost</a> is a very popular publishing and content management platform. There are variety of blogging &amp; content management platforms, but Ghost stands out for many reasons, these include but not limited to:</p>
+
+<ol>
+  <li>Ghost is open-source</li>
+  <li>Built on top of NodeJS which is extremely fast JavaScript runtime for server.</li>
+  <li>SEO optimized by default</li>
+  <li>Highly customizable</li>
+</ol>
+
+<p>In this article we are going to spin up new blog using Ghost using <a href="https://www.sqlite.org/index.html">SQLite</a> as backend database, and add <a href="https://docs.github.com/en/github/managing-your-work-on-github/about-issues">GitHub issues</a> as commenting system to blog.</p>
+
+<h2 id="key-points">Key Points</h2>
+
+<ul>
+  <li>Setup a blog using Ghost content management system (CMS).</li>
+  <li>Use SQLite as backend database &amp; setup automated backup.</li>
+  <li>Enable comments using Github issues.</li>
+</ul>
+
+<h2 id="1-setup-ghost-cms">1. Setup Ghost CMS</h2>
+
+<p>The first step is to set up a machine and install an operating system. Ubuntu Server is officially recommended operating system, but I personally prefer <a href="https://www.debian.org/">Debian</a>, mainly because it is more stable and less resource intensive. You can choose either one.</p>
+
+<p>Now the next thing to consider is blog host, where our blog is going to run? Here we have few options:</p>
+
+<ul>
+  <li><a href="https://aws.amazon.com/lightsail/">AWS Lightsail (Recommended)</a></li>
+  <li><a href="https://console.cloud.google.com/marketplace/product/click-to-deploy-images/ghost">Google Cloud Platform</a></li>
+  <li><a href="https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal">Azure</a></li>
+  <li><a href="https://marketplace.digitalocean.com/apps/ghost">Digital Ocean</a></li>
+</ul>
+
+<p>There is an abundance of options for hosting blogs, but the key is to choose the right one. AWS Lightsail is the most economical and easy to scale solution.</p>
+
+<p>For example the minimal setup would cost about $3.5 per month for a single Lightsail instance. If you are starting a new blog this seems to be the ideal choice as you won’t have much of the traffic at the beginning, and you can easily scale up as your blog started to attract more users.</p>
+
+<p>Open firewall port ‘443’ and ‘80’ on cloud instance firewall using network settings.</p>
+
+<blockquote>
+  <p>If you choose Ubuntu as operating system, append sudo in front of installation commands, for Debian run as root for some of the commands as described in bash comments.</p>
+</blockquote>
+
+<h3 id="install-updates">Install updates</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># sudo or root</span>
+apt update
+apt upgrade <span class="nt">-y</span>
+</code></pre></div></div>
+
+<p>###Install NodeJS LTS version</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># sudo or root</span>
+curl <span class="nt">-fsSL</span> https://deb.nodesource.com/setup_16.x | bash -
+apt <span class="nb">install</span> <span class="nt">-y</span> nodejs
+</code></pre></div></div>
+
+<h3 id="install-nginx">Install Nginx</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># sudo or root</span>
+apt <span class="nb">install </span>nginx
+</code></pre></div></div>
+
+<blockquote>
+  <p>Get the public IP of your cloud machine and create A record in your DNS registrar i.e. Route53 or GoDaddy. It would take a few hours to fully propagate DNS. You need to wait until your domain is publicly available, otherwise you wouldn’t be able to configure Letsencrypt SSL certificate for your domain.</p>
+</blockquote>
+
+<p>To verify if DNS is working correctly, type “yourdomain.com” in the browser and there should be welcome page for Nginx.</p>
+
+<h3 id="install-ghost">Install Ghost</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># sudo or root</span>
+npm <span class="nb">install </span>ghost-cli@latest <span class="nt">-g</span>
+Now <span class="nb">install </span>and configure your Ghost CMS website
+
+
+<span class="c"># Create directory: Change `techflak.com` to whatever you like</span>
+<span class="nb">sudo mkdir</span> <span class="nt">-p</span> /var/www/techflak.com
+
+<span class="c"># Set directory owner: Replace &lt;user&gt; with the name of your user</span>
+<span class="nb">sudo chown</span> &lt;user&gt;:&lt;user&gt; /var/www/techflak.com
+
+<span class="c"># Set the correct permissions</span>
+<span class="nb">sudo chmod </span>775 /var/www/techflak.com
+
+<span class="c"># Then navigate into it</span>
+<span class="nb">cd</span> /var/www/techflak.com
+
+ghost <span class="nb">install</span> <span class="nt">--db</span><span class="o">=</span>sqlite3
+</code></pre></div></div>
+
+<p>Installation wizard is going to ask you a bunch of questions during the installation process, choose the answers as yes or no.</p>
+
+<p>At the end it is going to ask if you want to start Ghost at the last step of install, choose “no”, at this point. We will start it manually after following configuration.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># assuming that you are at /var/www/techflak.com</span>
+npm <span class="nb">install </span>sqlite3 <span class="nt">--save</span>
+
+<span class="c"># start ghost instance</span>
+ghost start
+</code></pre></div></div>
+
+<p>Now your website is up and running, now you can focus of writing your first blog post and polishing your website such as creating logo, social accounts, about, and contact pages etc.</p>
+
+<blockquote>
+  <p>Tip: Delete all test articles from blog and make it private until you are ready to publish your first blog post.</p>
+</blockquote>
+
+<p>Database backups or comments are completely detached steps which means you don’t ever need to stop or restart ghost instance it in order to configure database backups or comments.</p>
+
+<p>You can do these at your convince as you don’t need them until you have at least one article ready to publish.</p>
+
+<h2 id="2-configure-database-backups-for-sqlite">2. Configure Database backups for SQLite</h2>
+
+<p>Database backup is an important step in order to keep your data safe in case of disaster. A full database management system such as MySQL has an automated way to making database backups as configured. Since we are using SQLite which is a file-based database and don’t have a backup mechanism. One option is copying and pasting the database file at regular intervals, which may end up corrupting the database file.</p>
+
+<p><a href="https://litestream.io/">Litestream</a> is an excellent backup and replication tool for SQLite databases. It continuously streams SQLite changes to S3-compatible storage. Quickly recover to the point of failure if your database goes down.</p>
+
+<h3 id="install-litestream">Install Litestream</h3>
+
+<p>Installation is very simple, run the following script.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget https://github.com/benbjohnson/litestream/releases/download/v0.3.3/litestream-v0.3.3-linux-amd64.deb
+
+<span class="nb">sudo </span>dpkg <span class="nt">-i</span> litestream-v0.3.3-linux-amd64.deb
+<span class="nb">sudo </span>systemctl <span class="nb">enable </span>litestream
+</code></pre></div></div>
+
+<p>Following are the two examples of configurations for local file system backup and other one is for backup to AWS s3.</p>
+
+<p>You can configure more than one database for backup, using single configuration file.</p>
+
+<h3 id="backup-to-local-file-system">Backup to local File system</h3>
+
+<p>Open file at “/etc/litestream.yml” and modify the content as following:</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">dbs</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">path</span><span class="pi">:</span> <span class="s">/var/www/techflak.com/content/data/ghost.db</span>
+    <span class="na">replicas</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">path</span><span class="pi">:</span> <span class="s">/backup/db</span>
+</code></pre></div></div>
+
+<h3 id="backup-to-aws-s3">Backup to AWS S3</h3>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">dbs</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">path</span><span class="pi">:</span> <span class="s">/var/www/techflak.com/content/data/ghost.db</span>
+    <span class="na">replicas</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">url</span><span class="pi">:</span> <span class="s">s3://mybkt.techflak.com/db</span>
+        <span class="na">region</span><span class="pi">:</span> <span class="s">us-east1</span>
+        <span class="na">access-key-id</span><span class="pi">:</span> <span class="s">AKIAxxxxxxxxxxxxxxxx</span>
+        <span class="na">secret-access-key</span><span class="pi">:</span> <span class="s">xxxxxxxxxxxxxxxxxxxxxx</span>
+</code></pre></div></div>
+
+<p>Here is the detail documentation for, how to configure databases backup. You can tweak frequency, verification and intervals using various configuration options.</p>
+
+<p>Once you are done with changes to configuration file, start service with the following command. You should see some files created in backup location.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>systemctl start litestream
+</code></pre></div></div>
+
+<h2 id="3-enable-comments-using-github-issues">3. Enable Comments using GitHub Issues</h2>
+
+<p>Comments are very important part of a blog, but unfortunately Ghost don’t have built in comments. So we have following options to choose from.</p>
+
+<ul>
+  <li><a href="https://github.com/utterance/utterances">Utterances</a> (recommended)</li>
+  <li><a href="https://github.com/posativ/isso/">ISSO Comment Server</a></li>
+  <li><a href="https://help.disqus.com/en/collections/191671-installation">Disqus</a></li>
+</ul>
+
+<p>We choose to use Utterances to be our choice for comments, simply because it is very easy to configure without running your own comments server. ISSO &amp; Schnack require running your own comments server and Disqs tracks your users data they also serve ads if you are using free version.</p>
+
+<p>Let’s configure Utterances, you can find the detailed documentation here, but I summarized into the following steps.</p>
+
+<ol>
+  <li>First, create public GitHub repo with the name of your blog domain, for example we have “username/yoraba.com” for this blog. Although the same name as blog is not required I would recommend this for marketing/SEO purpose.</li>
+  <li>Install <a href="https://github.com/apps/utterances">Utterances App</a> on your repo.</li>
+  <li>Go you code injections on you Ghost blog and put this in footer section. Don’t forget to update with your GitHub information.</li>
+</ol>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script
+  </span><span class="na">src=</span><span class="s">"https://utteranc.es/client.js"</span>
+  <span class="na">repo=</span><span class="s">"&lt;github-user&gt;/yoraba.com"</span>
+  <span class="na">issue-term=</span><span class="s">"pathname"</span>
+  <span class="na">theme=</span><span class="s">"github-light"</span>
+  <span class="na">crossorigin=</span><span class="s">"anonymous"</span>
+  <span class="na">async</span>
+<span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<p>This will inject comments at very end of your article, now anyone can add comments to blog article.</p>
+
+<p>Depending upon the theme you use, it might not look good, and you might want to customize the location of comments.</p>
+
+<h3 id="customizing-comments-location">Customizing Comments Location</h3>
+
+<p>Each theme in ghost has a comment “div” element with some class name applied for comments. The default theme it has class “post-full-comments” which can be captured to configured comments. Inject following JavaScript code to the footer of your ghost blog website.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">commentsEl</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">getElementsByClassName</span><span class="p">(</span><span class="dl">"</span><span class="s2">post-full-comments</span><span class="dl">"</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
+  <span class="k">if </span><span class="p">(</span><span class="nx">commentsEl</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">commentsEl</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">scriptTag</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">createElement</span><span class="p">(</span><span class="dl">"</span><span class="s2">script</span><span class="dl">"</span><span class="p">);</span>
+    <span class="nx">scriptTag</span><span class="p">.</span><span class="nf">setAttribute</span><span class="p">(</span><span class="dl">"</span><span class="s2">src</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">https://utteranc.es/client.js</span><span class="dl">"</span><span class="p">);</span>
+    <span class="nx">scriptTag</span><span class="p">.</span><span class="nf">setAttribute</span><span class="p">(</span><span class="dl">"</span><span class="s2">repo</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">&lt;github username&gt;/techflak.com</span><span class="dl">"</span><span class="p">);</span>
+    <span class="nx">scriptTag</span><span class="p">.</span><span class="nf">setAttribute</span><span class="p">(</span><span class="dl">"</span><span class="s2">issue-term</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">pathname</span><span class="dl">"</span><span class="p">);</span>
+    <span class="nx">scriptTag</span><span class="p">.</span><span class="nf">setAttribute</span><span class="p">(</span><span class="dl">"</span><span class="s2">theme</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">github-light</span><span class="dl">"</span><span class="p">);</span>
+    <span class="nx">scriptTag</span><span class="p">.</span><span class="nf">setAttribute</span><span class="p">(</span><span class="dl">"</span><span class="s2">crossorigin</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">anonymous</span><span class="dl">"</span><span class="p">);</span>
+    <span class="nx">scriptTag</span><span class="p">.</span><span class="nf">setAttribute</span><span class="p">(</span><span class="dl">"</span><span class="s2">async</span><span class="dl">"</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+    <span class="nx">commentsEl</span><span class="p">.</span><span class="nf">prepend</span><span class="p">(</span><span class="nx">scriptTag</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="nf">setTimeout</span><span class="p">(</span><span class="nx">setup</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Ghost is an excellent blogging platform which allows you to publish your blog articles without any hassle. Performance and search engine optimization (SEO) are top features of Ghost CMS, which allow your blog to be easily discoverable by search engines. Ghost don’t require a full feature database engine, you can run your blog on Ghost with SQLite as database, which can server thousands of users without a blink.</p>
+
+<p>If you read that far thank you for taking time, leave comments to provide feedback, and also to see if my comments are working :)</p>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <section class="related-section">
+      <h3>Recommended Blog Posts</h3>
+      <p>Read our other technical articles and step-by-step guides:</p>
+      <div class="related-grid">
+        
+        
+        
+          
+            
+            <div class="post-card">
+              <div class="post-title"><a href="/blogs/count-sort/">Count Sort algorithm</a></div>
+              <p class="post-desc">Count sort algorithm simplified</p>
+            </div>
+          
+        
+          
+            
+            <div class="post-card">
+              <div class="post-title"><a href="/blogs/beginners-guide-node-express-react/">Beginners guide to NodeJS, Express and React</a></div>
+              <p class="post-desc">Getting started with NodeJS, Express and React</p>
+            </div>
+          
+        
+          
+            
+            <div class="post-card">
+              <div class="post-title"><a href="/blogs/testing-react-components-jest/">Testing React components using Jest</a></div>
+              <p class="post-desc">A simple guide testing React components using Jest</p>
+            </div>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </section>
+    
+
+    
+    <footer class="site-footer">
+      <div id="utterances-container"></div>
+      <script>
+        (function() {
+          var theme = document.documentElement.dataset.theme === 'light' ? 'github-light' : 'github-dark';
+          var s = document.createElement('script');
+          s.src = 'https://utteranc.es/client.js';
+          s.setAttribute('repo', 'shafqatalix/comments.yoraba.com');
+          s.setAttribute('issue-term', 'pathname');
+          s.setAttribute('theme', theme);
+          s.setAttribute('crossorigin', 'anonymous');
+          s.async = true;
+          document.getElementById('utterances-container').appendChild(s);
+        })();
+      </script>
+    </footer>
+    
+  </main>
+
+  <footer class="site-footer-dark">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h3>Popular Tools</h3>
+      <ul>
+        <li><a href="/tools/json-formatter/">JSON Formatter</a></li>
+        <li><a href="/tools/qr-code-generator/">QR Code Generator</a></li>
+        <li><a href="/tools/base64-encoder-decoder/">Base64 Encoder/Decoder</a></li>
+        <li><a href="/tools/text-compare/">Text Compare</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Calculators & Finance</h3>
+      <ul>
+        <li><a href="/finance/currency-calculator/">Currency Calculator</a></li>
+        <li><a href="/finance/mortgage-calculator/">Mortgage Calculator</a></li>
+        <li><a href="/calculators/ip-subnet-calculator/">IP Subnet Calculator</a></li>
+        <li><a href="/calculators/time-zone-calculator/">Time Zone Calculator</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Quick References</h3>
+      <ul>
+        <li><a href="/cheatsheets/git-commands/">Git Cheatsheet</a></li>
+        <li><a href="/cheatsheets/docker-commands/">Docker Cheatsheet</a></li>
+        <li><a href="/cheatsheets/react-hooks/">React Hooks Cheatsheet</a></li>
+        <li><a href="/cheatsheets/javascript/">JavaScript Cheatsheet</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/shafqatalix" aria-label="LinkedIn">
+        <img src="/images/social-icons/linkedin.svg" alt="LinkedIn">
+      </a>
+      <a href="https://twitter.com/shafqatalix" aria-label="X/Twitter">
+        <img src="/images/social-icons/twitter.svg" alt="X/Twitter">
+      </a>
+      <a href="https://github.com/shafqatalix" aria-label="GitHub">
+        <img src="/images/social-icons/github.svg" alt="GitHub">
+      </a>
+    </div>
+    <div class="footer-copy">&copy; 2026 YORABA. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+
+</html>

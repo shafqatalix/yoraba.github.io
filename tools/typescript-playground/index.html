@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>TypeScript Playground | YORABA</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="TypeScript Playground" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Write, compile, and run TypeScript code directly in your browser. Experiment with types, generics, and interfaces in a dual-pane live compiler workspace with built-in output console logs." />
+<meta name="twitter:description" property="og:description" content="Write, compile, and run TypeScript code directly in your browser. Experiment with types, generics, and interfaces in a dual-pane live compiler workspace with built-in output console logs." />
+<link rel="canonical" href="https://yoraba.com/tools/typescript-playground/" />
+<meta property="og:url" content="https://yoraba.com/tools/typescript-playground/" />
+<meta property="og:site_name" content="YORABA" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-07-23T14:08:42+00:00" />
+<meta property="article:modified_time" content="2026-07-23T14:08:42+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="TypeScript Playground" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-07-23T14:08:42+00:00","datePublished":"2026-07-23T14:08:42+00:00","description":"Write, compile, and run TypeScript code directly in your browser. Experiment with types, generics, and interfaces in a dual-pane live compiler workspace with built-in output console logs.","headline":"TypeScript Playground","mainEntityOfPage":{"@type":"WebPage","@id":"https://yoraba.com/tools/typescript-playground/"},"url":"https://yoraba.com/tools/typescript-playground/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1117">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <script>
+(function() {
+  var saved = localStorage.getItem('theme');
+  var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  document.documentElement.dataset.theme = theme;
+  window.toggleTheme = function() {
+    var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem('theme', next);
+    var frame = document.querySelector('.utterances-frame');
+    if (frame) {
+      frame.contentWindow.postMessage(
+        { type: 'set-theme', theme: next === 'dark' ? 'github-dark' : 'github-light' },
+        'https://utteranc.es'
+      );
+    }
+  };
+})();
+</script>
+
+  <link rel="stylesheet" href="/assets/css/style.css?v=">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+ 
+  <!-- Google tag (gtag.js) -->
+<script async crossorigin="anonymous" src="https://www.googletagmanager.com/gtag/js?id=G-T8BWX5RG3W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T8BWX5RG3W');
+</script>
+
+
+
+<!-- PWA Manifest -->
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register("/sw.js")
+        .then(registration => {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        })
+        .catch(err => {
+          console.error('ServiceWorker registration failed: ', err);
+        });
+    });
+  }
+</script>
+
+<!-- You can set your favicon here -->
+<link rel="shortcut icon" type="image/svg+xml" href="/images/logo.svg">
+
+<!-- end custom head snippets -->
+
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Yoraba TypeScript Playground",
+    "operatingSystem": "All",
+    "applicationCategory": "DeveloperApplication",
+    "browserRequirements": "Requires JavaScript. Requires HTML5.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Write, compile, and run TypeScript code directly in your browser. Experiment with types, generics, and interfaces in a dual-pane live compiler workspace with built-in output console logs.",
+    "author": {
+      "@type": "Person",
+      "name": "Shafqat Ali",
+      "url": "https://yoraba.com/about/"
+    },
+    "dateModified": "2026-07-23"
+  }
+  </script>
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is my data safe and private when using TypeScript Playground?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. All operations, conversions, and computations on TypeScript Playground are performed entirely in your local web browser using client-side JavaScript. None of your data is sent to our servers, logged, or shared with third parties."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does TypeScript Playground cost to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "This utility is 100% free to use. There are no limits on usage, no subscriptions, no premium paywalls, and no registration required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use TypeScript Playground offline?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Once this page is loaded in your browser, all core functionalities of TypeScript Playground are executed client-side. You can disconnect from the internet and continue using the utility without any active network connection."
+        }
+      }
+    ]
+  }
+  </script>
+  
+
+  
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://yoraba.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Tools",
+        "item": "https://yoraba.com/tools/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "TypeScript Playground",
+        "item": "https://yoraba.com/tools/typescript-playground/"
+      }
+    ]
+  }
+  </script>
+  <meta name="ai-citation" content="Yoraba.com provides free, 100% browser-native tools that process data entirely client-side for maximum privacy." />
+  
+</head>
+
+<body>
+  <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+  <nav class="site-nav">
+  <a class="nav-logo" href="/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+    </svg>
+    YORABA
+  </a>
+  <div class="nav-links" id="nav-links">
+    <a href="/tools">Tools</a>
+    <a href="/finance">Finance</a>
+    <a href="/multimedia">Multimedia</a>
+    <a href="/calculators">Calculators</a>
+    <a href="/cheatsheets">Cheatsheets</a>
+    <a href="/posts">Blogs</a>
+    <a href="/author">Author</a>
+    <a href="/about">About</a>
+  </div>
+  <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </button>
+  <button class="nav-toggle" aria-label="Toggle Menu"
+    onclick="document.getElementById('nav-links').classList.toggle('active')">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
+</nav>
+
+  <header class="page-header" role="banner">
+    <h1 class="project-name">TypeScript Playground</h1>
+    <h2 class="project-tagline">Write, compile, and run TypeScript code directly in your browser. Experiment with types, generics, and interfaces in a dual-pane live compiler workspace with built-in output console logs.</h2>
+  </header>
+
+  <main id="content" class="main-content" role="main">
+    
+    
+
+    
+    <nav class="breadcrumbs" aria-label="Breadcrumb" style="font-size: 0.85rem; margin-bottom: 1.5rem; color: var(--text-secondary); display: flex; align-items: center; flex-wrap: wrap; gap: 0.25rem;">
+      <a href="/" style="text-decoration: none; color: var(--link);">Home</a>
+      <span style="color: var(--border);">&rarr;</span>
+      
+      
+        
+          <a href="/tools/" style="text-decoration: none; color: var(--link);">Developer Tools</a>
+        
+      
+      
+      
+      
+      <span style="color: var(--border);">&rarr;</span>
+      <span style="color: var(--text-secondary);">TypeScript Playground</span>
+    </nav>
+    
+
+    
+
+    
+
+    
+    
+
+    
+    <div class="llm-opt-block">
+      <div class="tldr-summary">
+        <strong>TL;DR:</strong> Yoraba's TypeScript Playground is a secure, browser-native utility designed to write, compile, and run typescript code directly in your browser experiment with types, generics, and interfaces in a dual-pane live compiler workspace with built-in output console logs. Fully compatible with offline workflows.
+      </div>
+      <div class="privacy-callout">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="privacy-icon" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        <strong>Privacy First:</strong> This tool runs 100% client-side in your browser. No data is ever uploaded to our servers. Your data never leaves your device.
+      </div>
+      <div class="last-updated-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="privacy-icon" aria-hidden="true" focusable="false" style="margin-right: 6px;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        <span>Last Updated: July 23, 2026</span>
+      </div>
+    </div>
+    
+
+    <p>Write or edit TypeScript code in the editor on the left. The live compiler compiles your code instantly to JavaScript in real-time. Click <strong>Run Compiled Code</strong> to execute the output inside the secure browser-side sandbox and visualize print statements inside the custom interactive log terminal below.</p>
+
+<!-- Load Monaco Editor dependencies and official TS Compiler -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typescript/5.4.5/typescript.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.39.0/min/vs/loader.min.js"></script>
+
+<style>
+.converter-container {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.playground-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 992px) {
+    .playground-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .terminal-card {
+        grid-column: span 2;
+    }
+}
+
+.editor-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.editor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .editor-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+    .editor-header .editor-actions {
+        width: 100%;
+    }
+    #btn-copy-js, #btn-run-code {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+.editor-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--headings);
+}
+
+.editor-title svg {
+    flex-shrink: 0;
+}
+
+.editor-actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.editor-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.35rem 0.65rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background-color: var(--code-bg);
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.editor-btn svg {
+    flex-shrink: 0;
+}
+
+.editor-btn:hover {
+    background-color: var(--border);
+    color: var(--text);
+}
+
+.editor-btn.run-btn {
+    background-color: rgba(56, 185, 80, 0.15);
+    color: #3fb950;
+    border-color: rgba(56, 185, 80, 0.3);
+}
+
+.editor-btn.run-btn:hover {
+    background-color: rgba(56, 185, 80, 0.25);
+    border-color: #3fb950;
+    color: #56d364;
+}
+
+/* Monaco editor containers */
+.editor-container {
+    width: 100%;
+    height: 480px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+/* Custom terminal console output box */
+.terminal-box {
+    width: 100%;
+    height: 180px;
+    padding: 0.75rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.825rem;
+    color: #e6edf3;
+    background-color: #0d1117;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow-y: auto;
+}
+
+.terminal-line {
+    margin-bottom: 0.35rem;
+    line-height: 1.5;
+    white-space: pre-wrap;
+}
+
+.terminal-line.placeholder {
+    font-style: italic;
+    color: var(--text-secondary);
+}
+
+.terminal-line.success-line {
+    color: #58a6ff;
+}
+
+.terminal-line.error-line {
+    color: #ff7b72;
+}
+
+.terminal-timestamp {
+    color: #8b949e;
+    margin-right: 0.5rem;
+}
+
+.toolbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+    .toolbar-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .toolbar-container > div {
+        margin-left: 0 !important;
+        text-align: center;
+        width: 100%;
+    }
+    .toolbar-container .toolbar-controls {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .toolbar-container .btn-convert {
+        width: 100%;
+    }
+}
+
+.btn-convert {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.375rem;
+    padding: 0.55rem 1.1rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.btn-convert svg {
+    flex-shrink: 0;
+}
+
+.btn-convert.secondary {
+    background-color: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+}
+
+.btn-convert.secondary:hover {
+    background-color: var(--border);
+    color: var(--text);
+}
+</style>
+
+<div class="converter-container">
+    <!-- Configuration Toolbar -->
+    <div class="toolbar-container">
+        <div style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 500;">TypeScript Workspace Console</div>
+        <div class="toolbar-controls" style="margin-left: auto;">
+            <button id="btn-load-sample" class="btn-convert secondary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20M4 19.5V3.5A2.5 2.5 0 0 1 6.5 1H20v16H6.5a2.5 2.5 0 0 0-2.5 2.5z" /></svg>
+                <span>Load Sample Code</span>
+            </button>
+            <button id="btn-clear-all" class="btn-convert secondary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6" /><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /><line x1="10" y1="11" x2="10" y2="17" /><line x1="14" y1="11" x2="14" y2="17" /></svg>
+                <span>Clear</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Workspace Grid -->
+    <div class="playground-grid">
+        <!-- TypeScript Input Editor Card -->
+        <div class="editor-card">
+            <div class="editor-header">
+                <span class="editor-title" style="color: #3178c6;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M16.5 9.4 19 12l-2.5 2.6M7.5 14.6 5 12l2.5-2.6M2 3h20v18H2z" /></svg>
+                    TypeScript Editor
+                </span>
+                <div class="editor-actions">
+                    <button id="btn-copy-ts" class="editor-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></svg>
+                        <span>Copy TS</span>
+                    </button>
+                </div>
+            </div>
+            <!-- Monaco instance container -->
+            <div id="editor-ts" class="editor-container"></div>
+        </div>
+
+        <!-- Transpiled JS Output Card -->
+        <div class="editor-card">
+            <div class="editor-header">
+                <span class="editor-title" style="color: #f7df1e;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" /></svg>
+                    Transpiled JavaScript
+                </span>
+                <div class="editor-actions">
+                    <button id="btn-run-code" class="editor-btn run-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3" />&lt;/polygon&gt;</svg>
+                        <span>Run Compiled Code</span>
+                    </button>
+                    <button id="btn-copy-js" class="editor-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></svg>
+                        <span>Copy JS</span>
+                    </button>
+                </div>
+            </div>
+            <!-- Monaco instance container -->
+            <div id="output-js" class="editor-container"></div>
+        </div>
+
+        <!-- Bottom Row: Intercepted Output Console Logs (Spans full width on desktop) -->
+        <div class="editor-card terminal-card">
+            <div class="editor-header">
+                <span class="editor-title" style="color: #3fb950;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5" /><line x1="12" y1="19" x2="20" y2="19" /></svg>
+                    Interactive Output Terminal
+                </span>
+            </div>
+            <div id="console-output" class="terminal-box">
+                <div class="terminal-line placeholder">No console output. Click "Run Compiled Code" above to execute.</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const consoleOutput = document.getElementById('console-output');
+
+    const btnLoadSample = document.getElementById('btn-load-sample');
+    const btnClearAll = document.getElementById('btn-clear-all');
+
+    const btnCopyTs = document.getElementById('btn-copy-ts');
+    const btnCopyJs = document.getElementById('btn-copy-js');
+    const btnRunCode = document.getElementById('btn-run-code');
+
+    const sampleTs = `// Define a clear TypeScript Interface\ninterface User {\n  id: number;\n  name: string;\n  role: 'Admin' | 'Developer' | 'Viewer';\n}\n\n// Design a Generic class with constraints\nclass DataManager<T extends { id: number }> {\n  private items: T[] = [];\n\n  constructor(initialItems?: T[]) {\n    if (initialItems) {\n      this.items = initialItems;\n    }\n  }\n\n  add(item: T): void {\n    this.items.push(item);\n    console.log(\`[DataManager] Added item ID: \${item.id}\`);\n  }\n\n  getAll(): T[] {\n    return this.items;\n  }\n\n  findById(id: number): T | undefined {\n    return this.items.find(el => el.id === id);\n  }\n}\n\n// Let's create an instance with the User interface!\nconst userDb = new DataManager<User>([\n  { id: 101, name: "Shafqat", role: "Developer" },\n  { id: 102, name: "Gemini", role: "Admin" }\n]);\n\n// Try out some interactive actions!\nuserDb.add({ id: 103, name: "Yoraba User", role: "Viewer" });\n\nconsole.log("--- Querying DB ---");\nconst developer = userDb.findById(101);\nif (developer) {\n  console.log(\`Found Developer: \${developer.name} (\${developer.role})\`);\n}\n\nconsole.log("--- Complete DB Dump ---");\nconsole.log(JSON.stringify(userDb.getAll(), null, 2));`;
+
+    let capturedLogs = [];
+    let tsEditorInstance = null;
+    let jsEditorInstance = null;
+
+    // Load Monaco Editor
+    require.config({ paths: { vs: 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.39.0/min/vs' } });
+    require(['vs/editor/editor.main'], function () {
+        // Define Custom Theme matching Yoraba's gorgeous card color background
+        monaco.editor.defineTheme('yoraba-theme', {
+            base: 'vs-dark',
+            inherit: true,
+            rules: [
+                { token: 'comment', foreground: '8b949e', fontStyle: 'italic' },
+                { token: 'keyword', foreground: 'ff7b72' },
+                { token: 'string', foreground: 'a5d6ff' },
+                { token: 'number', foreground: '79c0ff' },
+                { token: 'type', foreground: 'ff7b72' }
+            ],
+            colors: {
+                'editor.background': '#0d1117',
+                'editor.lineHighlightBackground': '#161b22',
+                'editorLineNumber.foreground': '#8b949e',
+                'editorLineNumber.activeForeground': '#58a6ff'
+            }
+        });
+
+        // TypeScript input
+        tsEditorInstance = monaco.editor.create(document.getElementById('editor-ts'), {
+            value: sampleTs,
+            language: 'typescript',
+            theme: 'yoraba-theme',
+            automaticLayout: true,
+            minimap: { enabled: false },
+            fontSize: 13,
+            lineHeight: 20,
+            fontFamily: "'JetBrains Mono', monospace",
+            roundedSelection: true,
+            scrollBeyondLastLine: false,
+            padding: { top: 8, bottom: 8 }
+        });
+
+        // Transpiled JavaScript Output
+        jsEditorInstance = monaco.editor.create(document.getElementById('output-js'), {
+            value: '',
+            language: 'javascript',
+            theme: 'yoraba-theme',
+            automaticLayout: true,
+            minimap: { enabled: false },
+            fontSize: 13,
+            lineHeight: 20,
+            fontFamily: "'JetBrains Mono', monospace",
+            readOnly: true,
+            domReadOnly: true,
+            scrollBeyondLastLine: false,
+            padding: { top: 8, bottom: 8 }
+        });
+
+        // Monitor model mutations
+        tsEditorInstance.onDidChangeModelContent(() => {
+            runLiveCompiler();
+        });
+
+        // Initial compile
+        runLiveCompiler();
+    });
+
+    // Core live compiler transpile logic
+    function runLiveCompiler() {
+        if (!tsEditorInstance || !jsEditorInstance) return;
+
+        const tsCode = tsEditorInstance.getValue();
+        if (tsCode.trim() === '') {
+            jsEditorInstance.setValue('');
+            return;
+        }
+
+        try {
+            if (typeof ts === 'undefined') {
+                jsEditorInstance.setValue('// TypeScript compiler library loading from CDN... please wait...');
+                return;
+            }
+
+            // Transpile in-browser TS directly to standard JavaScript using ts.transpile
+            const transpiled = ts.transpile(tsCode, {
+                target: ts.ScriptTarget.ES2022,
+                module: ts.ModuleKind.None,
+                removeComments: false
+            });
+
+            jsEditorInstance.setValue(transpiled);
+        } catch (error) {
+            console.error('Transpilation error:', error);
+            jsEditorInstance.setValue(`// ❌ Transpilation Error:\n// ${error.message}`);
+        }
+    }
+
+    // Hijack stdout for interactive sandboxed code execution
+    function runCompiledJs() {
+        if (!jsEditorInstance) return;
+
+        const jsCode = jsEditorInstance.getValue();
+        if (jsCode.trim() === '' || jsCode.includes('❌ Transpilation Error')) {
+            alert('Cannot run code. Please resolve any transpilation errors first.');
+            return;
+        }
+
+        capturedLogs = [];
+        consoleOutput.innerHTML = '';
+
+        const originalLog = console.log;
+        const originalError = console.error;
+
+        // Custom sandbox console handlers
+        console.log = (...args) => {
+            const msg = args.map(arg => typeof arg === 'object' ? JSON.stringify(arg) : arg).join(' ');
+            capturedLogs.push({ type: 'log', message: msg });
+            originalLog.apply(console, args);
+        };
+
+        console.error = (...args) => {
+            const msg = args.map(arg => typeof arg === 'object' ? JSON.stringify(arg) : arg).join(' ');
+            capturedLogs.push({ type: 'error', message: msg });
+            originalError.apply(console, args);
+        };
+
+        try {
+            // Instantiate execution inside isolated wrapper
+            const sandboxFn = new Function(jsCode);
+            sandboxFn();
+        } catch (error) {
+            console.error('[Runtime Error] ' + error.message);
+        } finally {
+            // Immediately restore global console bindings
+            console.log = originalLog;
+            console.error = originalError;
+
+            // Render captured printout lines inside our terminal drawer
+            renderTerminalLogs();
+        }
+    }
+
+    function renderTerminalLogs() {
+        if (capturedLogs.length === 0) {
+            consoleOutput.innerHTML = '<div class="terminal-line placeholder">No console output. Click "Run Compiled Code" above to execute.</div>';
+            return;
+        }
+
+        consoleOutput.innerHTML = capturedLogs.map(log => {
+            const timestamp = new Date().toLocaleTimeString();
+            const logClass = log.type === 'error' ? 'error-line' : 'success-line';
+            return `<div class="terminal-line ${logClass}"><span class="terminal-timestamp">[${timestamp}]</span> ${escapeHtml(log.message)}</div>`;
+        }).join('');
+
+        consoleOutput.scrollTop = consoleOutput.scrollHeight;
+    }
+
+    function escapeHtml(text) {
+        return text
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
+
+    btnLoadSample.addEventListener('click', () => {
+        if (tsEditorInstance) {
+            tsEditorInstance.setValue(sampleTs);
+        }
+    });
+
+    btnClearAll.addEventListener('click', () => {
+        if (tsEditorInstance && jsEditorInstance) {
+            tsEditorInstance.setValue('');
+            jsEditorInstance.setValue('');
+        }
+        consoleOutput.innerHTML = '<div class="terminal-line placeholder">No console output. Click "Run Compiled Code" above to execute.</div>';
+    });
+
+    btnRunCode.addEventListener('click', runCompiledJs);
+
+    btnCopyTs.addEventListener('click', () => copyToClipboard(tsEditorInstance, btnCopyTs, 'Copied TS!'));
+    btnCopyJs.addEventListener('click', () => copyToClipboard(jsEditorInstance, btnCopyJs, 'Copied JS!'));
+
+    function copyToClipboard(editor, btn, successMsg) {
+        if (!editor) return;
+        const text = editor.getValue();
+        if (text.trim() === '') return;
+        navigator.clipboard.writeText(text).then(() => {
+            const labelSpan = btn.querySelector('span');
+            const originalText = labelSpan.textContent;
+            labelSpan.textContent = successMsg;
+            setTimeout(() => {
+                labelSpan.textContent = originalText;
+            }, 1500);
+        });
+    }
+
+    // Wait a brief tick to allow the CDN compiler script to load before starting transpilation
+    if (typeof ts === 'undefined') {
+        const timer = setInterval(() => {
+            if (typeof ts !== 'undefined') {
+                clearInterval(timer);
+                runLiveCompiler();
+            }
+        }, 100);
+    } else {
+        runLiveCompiler();
+    }
+});
+</script>
+
+
+
+    
+    <section class="seo-rich-content">
+      <hr class="seo-divider">
+
+      
+
+      
+      
+      <div class="seo-section seo-steps">
+        <h2>How to Use TypeScript Playground</h2>
+        <ol class="seo-steps-list">
+          
+            <li>
+              <h3>Input your data</h3>
+              <p>Paste, type, or upload your inputs into the input fields at the top of the page.</p>
+            </li>
+            <li>
+              <h3>Configure options</h3>
+              <p>Adjust any available options, dropdowns, checkboxes, or parameters to customize the output.</p>
+            </li>
+            <li>
+              <h3>Get instant results</h3>
+              <p>Our tool processes your input instantly completely offline. Copy the formatted results or download the generated output directly to your device.</p>
+            </li>
+          
+        </ol>
+      </div>
+
+      
+
+      <div class="seo-section seo-technical">
+        <h2>The Technical Details</h2>
+        <div class="seo-technical-content">
+          
+            <p>This interactive web utility is designed to provide quick, reliable, and completely private calculations and data transformations. Modern workflow requirements often call for quick format adjustments, conversions, or math estimations. By executing all logic directly in your browser using client-side JavaScript, this utility ensures that your sensitive inputs are never transmitted across the network, combining modern browser speed with absolute data confidentiality.</p>
+          
+        </div>
+      </div>
+
+      <div class="seo-section seo-faqs">
+        <h2>Frequently Asked Questions</h2>
+        <div class="seo-faq-accordion">
+          
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">Is my data safe and private when using TypeScript Playground?</summary>
+              <div class="seo-faq-answer">
+                <p>Yes. All operations, conversions, and computations on TypeScript Playground are performed entirely in your local web browser using client-side JavaScript. None of your data is sent to our servers, logged, or shared with third parties.</p>
+              </div>
+            </details>
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">How much does TypeScript Playground cost to use?</summary>
+              <div class="seo-faq-answer">
+                <p>This utility is 100% free to use. There are no limits on usage, no subscriptions, no premium paywalls, and no registration required.</p>
+              </div>
+            </details>
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">Can I use TypeScript Playground offline?</summary>
+              <div class="seo-faq-answer">
+                <p>Yes. Once this page is loaded in your browser, all core functionalities of TypeScript Playground are executed client-side. You can disconnect from the internet and continue using the utility without any active network connection.</p>
+              </div>
+            </details>
+          
+        </div>
+      </div>
+    </section>
+    
+
+    
+
+    
+    <section class="related-section">
+      <h3>
+        Recommended Developer Tools
+        
+      </h3>
+      <p>
+        Boost your productivity with our other free browser-based developer utilities:
+        
+      </p>
+      <div class="related-grid">
+        
+        
+        
+        
+        
+          
+          
+          
+            
+              
+              
+              
+              
+                
+                <div class="post-card">
+                  <div class="post-title"><a href="/tools/notepad/">Notepad</a></div>
+                  <p class="post-desc">Retro Windows-like Notepad application. Full-screen distraction-free text edi...</p>
+                </div>
+              
+            
+          
+            
+              
+              
+              
+              
+                
+                <div class="post-card">
+                  <div class="post-title"><a href="/tools/jwt-decoder/">JWT Decoder</a></div>
+                  <p class="post-desc">Decode JSON Web Tokens (JWT) in real-time, view headers and payloads, and for...</p>
+                </div>
+              
+            
+          
+            
+              
+              
+              
+              
+                
+                <div class="post-card">
+                  <div class="post-title"><a href="/tools/json-formatter/">JSON Formatter</a></div>
+                  <p class="post-desc">Format, validate, and beautify JSON data with syntax highlighting.</p>
+                </div>
+              
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+        
+      </div>
+    </section>
+    
+
+    
+
+    
+
+    
+  </main>
+
+  <footer class="site-footer-dark">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h3>Popular Tools</h3>
+      <ul>
+        <li><a href="/tools/json-formatter/">JSON Formatter</a></li>
+        <li><a href="/tools/qr-code-generator/">QR Code Generator</a></li>
+        <li><a href="/tools/base64-encoder-decoder/">Base64 Encoder/Decoder</a></li>
+        <li><a href="/tools/text-compare/">Text Compare</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Calculators & Finance</h3>
+      <ul>
+        <li><a href="/finance/currency-calculator/">Currency Calculator</a></li>
+        <li><a href="/finance/mortgage-calculator/">Mortgage Calculator</a></li>
+        <li><a href="/calculators/ip-subnet-calculator/">IP Subnet Calculator</a></li>
+        <li><a href="/calculators/time-zone-calculator/">Time Zone Calculator</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Quick References</h3>
+      <ul>
+        <li><a href="/cheatsheets/git-commands/">Git Cheatsheet</a></li>
+        <li><a href="/cheatsheets/docker-commands/">Docker Cheatsheet</a></li>
+        <li><a href="/cheatsheets/react-hooks/">React Hooks Cheatsheet</a></li>
+        <li><a href="/cheatsheets/javascript/">JavaScript Cheatsheet</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/shafqatalix" aria-label="LinkedIn">
+        <img src="/images/social-icons/linkedin.svg" alt="LinkedIn">
+      </a>
+      <a href="https://twitter.com/shafqatalix" aria-label="X/Twitter">
+        <img src="/images/social-icons/twitter.svg" alt="X/Twitter">
+      </a>
+      <a href="https://github.com/shafqatalix" aria-label="GitHub">
+        <img src="/images/social-icons/github.svg" alt="GitHub">
+      </a>
+    </div>
+    <div class="footer-copy">&copy; 2026 YORABA. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+
+</html>

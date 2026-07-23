@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>Cooking Converter | YORABA</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Cooking Converter" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Convert cooking measurements between cups, grams, tablespoons, teaspoons, ounces, and oven temperatures with ingredient-specific densities." />
+<meta name="twitter:description" property="og:description" content="Convert cooking measurements between cups, grams, tablespoons, teaspoons, ounces, and oven temperatures with ingredient-specific densities." />
+<link rel="canonical" href="https://yoraba.com/calculators/cooking-calculator/" />
+<meta property="og:url" content="https://yoraba.com/calculators/cooking-calculator/" />
+<meta property="og:site_name" content="YORABA" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-07-23T14:08:42+00:00" />
+<meta property="article:modified_time" content="2026-07-23T14:08:42+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Cooking Converter" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-07-23T14:08:42+00:00","datePublished":"2026-07-23T14:08:42+00:00","description":"Convert cooking measurements between cups, grams, tablespoons, teaspoons, ounces, and oven temperatures with ingredient-specific densities.","headline":"Cooking Converter","mainEntityOfPage":{"@type":"WebPage","@id":"https://yoraba.com/calculators/cooking-calculator/"},"url":"https://yoraba.com/calculators/cooking-calculator/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1117">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <script>
+(function() {
+  var saved = localStorage.getItem('theme');
+  var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  document.documentElement.dataset.theme = theme;
+  window.toggleTheme = function() {
+    var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem('theme', next);
+    var frame = document.querySelector('.utterances-frame');
+    if (frame) {
+      frame.contentWindow.postMessage(
+        { type: 'set-theme', theme: next === 'dark' ? 'github-dark' : 'github-light' },
+        'https://utteranc.es'
+      );
+    }
+  };
+})();
+</script>
+
+  <link rel="stylesheet" href="/assets/css/style.css?v=">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+ 
+  <!-- Google tag (gtag.js) -->
+<script async crossorigin="anonymous" src="https://www.googletagmanager.com/gtag/js?id=G-T8BWX5RG3W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T8BWX5RG3W');
+</script>
+
+
+
+<!-- PWA Manifest -->
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register("/sw.js")
+        .then(registration => {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        })
+        .catch(err => {
+          console.error('ServiceWorker registration failed: ', err);
+        });
+    });
+  }
+</script>
+
+<!-- You can set your favicon here -->
+<link rel="shortcut icon" type="image/svg+xml" href="/images/logo.svg">
+
+<!-- end custom head snippets -->
+
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Yoraba Cooking Converter",
+    "operatingSystem": "All",
+    "applicationCategory": "DeveloperApplication",
+    "browserRequirements": "Requires JavaScript. Requires HTML5.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Convert cooking measurements between cups, grams, tablespoons, teaspoons, ounces, and oven temperatures with ingredient-specific densities.",
+    "author": {
+      "@type": "Person",
+      "name": "Shafqat Ali",
+      "url": "https://yoraba.com/about/"
+    },
+    "dateModified": "2026-07-23"
+  }
+  </script>
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is my data safe and private when using Cooking Converter?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. All operations, conversions, and computations on Cooking Converter are performed entirely in your local web browser using client-side JavaScript. None of your data is sent to our servers, logged, or shared with third parties."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does Cooking Converter cost to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "This utility is 100% free to use. There are no limits on usage, no subscriptions, no premium paywalls, and no registration required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use Cooking Converter offline?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Once this page is loaded in your browser, all core functionalities of Cooking Converter are executed client-side. You can disconnect from the internet and continue using the utility without any active network connection."
+        }
+      }
+    ]
+  }
+  </script>
+  
+
+  
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://yoraba.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Calculators",
+        "item": "https://yoraba.com/calculators/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Cooking Converter",
+        "item": "https://yoraba.com/calculators/cooking-calculator/"
+      }
+    ]
+  }
+  </script>
+  <meta name="ai-citation" content="Yoraba.com provides free, 100% browser-native tools that process data entirely client-side for maximum privacy." />
+  
+</head>
+
+<body>
+  <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+  <nav class="site-nav">
+  <a class="nav-logo" href="/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+    </svg>
+    YORABA
+  </a>
+  <div class="nav-links" id="nav-links">
+    <a href="/tools">Tools</a>
+    <a href="/finance">Finance</a>
+    <a href="/multimedia">Multimedia</a>
+    <a href="/calculators">Calculators</a>
+    <a href="/cheatsheets">Cheatsheets</a>
+    <a href="/posts">Blogs</a>
+    <a href="/author">Author</a>
+    <a href="/about">About</a>
+  </div>
+  <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </button>
+  <button class="nav-toggle" aria-label="Toggle Menu"
+    onclick="document.getElementById('nav-links').classList.toggle('active')">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
+</nav>
+
+  <header class="page-header" role="banner">
+    <h1 class="project-name">Cooking Converter</h1>
+    <h2 class="project-tagline">Convert cooking measurements between cups, grams, tablespoons, teaspoons, ounces, and oven temperatures with ingredient-specific densities.</h2>
+  </header>
+
+  <main id="content" class="main-content" role="main">
+    
+    
+
+    
+    <nav class="breadcrumbs" aria-label="Breadcrumb" style="font-size: 0.85rem; margin-bottom: 1.5rem; color: var(--text-secondary); display: flex; align-items: center; flex-wrap: wrap; gap: 0.25rem;">
+      <a href="/" style="text-decoration: none; color: var(--link);">Home</a>
+      <span style="color: var(--border);">&rarr;</span>
+      
+      
+        
+          <a href="/calculators/" style="text-decoration: none; color: var(--link);">Calculators</a>
+        
+      
+      
+      
+      
+      <span style="color: var(--border);">&rarr;</span>
+      <span style="color: var(--text-secondary);">Cooking Converter</span>
+    </nav>
+    
+
+    
+
+    
+
+    
+    
+
+    
+    <div class="llm-opt-block">
+      <div class="tldr-summary">
+        <strong>TL;DR:</strong> Yoraba's Cooking Converter is a secure, browser-native utility designed to convert cooking measurements between cups, grams, tablespoons, teaspoons, ounces, and oven temperatures with ingredient-specific densities. Fully compatible with offline workflows.
+      </div>
+      <div class="privacy-callout">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="privacy-icon" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        <strong>Privacy First:</strong> This tool runs 100% client-side in your browser. No data is ever uploaded to our servers. Your data never leaves your device.
+      </div>
+      <div class="last-updated-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="privacy-icon" aria-hidden="true" focusable="false" style="margin-right: 6px;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        <span>Last Updated: July 23, 2026</span>
+      </div>
+    </div>
+    
+
+    <p>Convert cooking and baking measurements across volume, weight, and oven temperatures. This converter supports <strong>ingredient-specific densities</strong> for precise baking results.</p>
+
+<style>
+.tool-container {
+    margin-top: 1.5rem;
+}
+
+.calc-layout {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 1.5rem;
+}
+
+@media (min-width: 48em) {
+    .calc-layout {
+        display: grid;
+        grid-template-columns: 1fr 340px;
+        gap: 2rem;
+    }
+}
+
+.calc-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input-group label {
+    font-weight: 600;
+    color: var(--headings);
+    font-size: 0.95rem;
+}
+
+.input-row {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.input-row .input-group {
+    flex: 1;
+}
+
+.calc-input {
+    width: 100%;
+    padding: 0.65rem 0.75rem;
+    font-family: inherit;
+    font-size: 0.875rem;
+    color: var(--code-text);
+    background-color: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.calc-input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(63, 185, 80, 0.3);
+}
+
+input[type="number"].calc-input {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+select.calc-input {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%238b949e' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 12px;
+    padding-right: 2rem;
+}
+
+.swap-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 38px;
+    margin-top: 1.5rem;
+    font-size: 1.25rem;
+    background-color: var(--card-bg);
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.swap-btn:hover {
+    background-color: var(--border);
+    color: var(--text);
+    border-color: var(--text-secondary);
+}
+
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: 1.25rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+}
+
+.section-title {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--headings);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.4rem;
+    margin: 0 0 0.5rem 0;
+}
+
+.shortcut-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+}
+
+@media (min-width: 36em) {
+    .shortcut-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.shortcut-btn {
+    padding: 0.55rem 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-align: center;
+    background-color: var(--code-bg);
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.shortcut-btn:hover {
+    background-color: var(--border);
+    color: var(--text);
+}
+
+.shortcut-btn.active {
+    background-color: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+}
+
+.results-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: 1.5rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+@media (min-width: 48em) {
+    .results-sidebar {
+        position: sticky;
+        top: 2rem;
+        align-self: start;
+    }
+}
+
+.results-header {
+    text-align: center;
+}
+
+.results-title {
+    font-weight: 600;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.results-big-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--headings);
+    margin: 0.5rem 0;
+    word-break: break-all;
+}
+
+.formula-card {
+    padding: 1rem;
+    background-color: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 0.825rem;
+    color: var(--text);
+}
+
+.formula-title {
+    font-weight: 600;
+    color: var(--headings);
+    margin-bottom: 0.4rem;
+}
+
+.formula-text {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent);
+}
+
+.btn-clear {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 0.875rem;
+    background-color: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-clear:hover {
+    background-color: var(--border);
+    color: var(--text);
+}
+</style>
+
+<div class="tool-container">
+    <div class="calc-layout">
+        <!-- Controls on Left -->
+        <div class="calc-controls">
+            <!-- Main Conversion Controls -->
+            <div class="options-container">
+                <h3 class="section-title">Volume &amp; Weight Settings</h3>
+                
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="cook-value">Amount</label>
+                        <input type="number" id="cook-value" class="calc-input" value="1" min="0" step="any" />
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="cook-ingredient">Ingredient Density</label>
+                        <select id="cook-ingredient" class="calc-input">
+                            <option value="water" selected="">Water / Milk (Liquid)</option>
+                            <option value="flour">All-Purpose Flour</option>
+                            <option value="sugar">Granulated Sugar</option>
+                            <option value="brown_sugar">Brown Sugar (Packed)</option>
+                            <option value="butter">Butter</option>
+                            <option value="oats">Rolled Oats</option>
+                            <option value="rice">White Rice (Uncooked)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="cook-from">From</label>
+                        <select id="cook-from" class="calc-input">
+                            <option value="cups" selected="">Cups (cup)</option>
+                            <option value="grams">Grams (g)</option>
+                            <option value="tablespoons">Tablespoons (tbsp)</option>
+                            <option value="teaspoons">Teaspoons (tsp)</option>
+                            <option value="ounces">Ounces (oz)</option>
+                            <option value="milliliters">Milliliters (ml)</option>
+                        </select>
+                    </div>
+
+                    <button id="cook-swap" class="swap-btn" title="Swap Units">⇄</button>
+
+                    <div class="input-group">
+                        <label for="cook-to">To</label>
+                        <select id="cook-to" class="calc-input">
+                            <option value="cups">Cups (cup)</option>
+                            <option value="grams">Grams (g)</option>
+                            <option value="tablespoons" selected="">Tablespoons (tbsp)</option>
+                            <option value="teaspoons">Teaspoons (tsp)</option>
+                            <option value="ounces">Ounces (oz)</option>
+                            <option value="milliliters">Milliliters (ml)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Conversion Shortcuts -->
+            <div class="options-container">
+                <h3 class="section-title">Quick Shortcuts</h3>
+                <div class="shortcut-grid">
+                    <button class="shortcut-btn" data-from="cups" data-to="tablespoons" id="default-shortcut">Cups ↔ Tablespoons</button>
+                    <button class="shortcut-btn" data-from="teaspoons" data-to="tablespoons">Teaspoons ↔ Tablespoons</button>
+                    <button class="shortcut-btn" data-from="ounces" data-to="grams">Ounces ↔ Grams</button>
+                    <button class="shortcut-btn" data-from="cups" data-to="grams" data-ingredient="flour">Cups ↔ Grams (Flour)</button>
+                    <button class="shortcut-btn" data-from="cups" data-to="grams" data-ingredient="sugar">Cups ↔ Grams (Sugar)</button>
+                </div>
+            </div>
+
+            <!-- oven temperatures converter -->
+            <div class="options-container">
+                <h3 class="section-title">Oven Temperature Quick Converter</h3>
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="oven-f">Fahrenheit (°F)</label>
+                        <input type="number" id="oven-f" class="calc-input" value="350" step="5" />
+                    </div>
+                    <div class="swap-btn" style="border:none; background:transparent; cursor:default; pointer-events:none; margin-top:1.5rem;">⇄</div>
+                    <div class="input-group">
+                        <label for="oven-c">Celsius (°C)</label>
+                        <input type="number" id="oven-c" class="calc-input" value="177" step="5" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar Summary & Breakdown -->
+        <div class="results-sidebar">
+            <div class="results-header">
+                <h4 class="results-title">Converted Quantity</h4>
+                <div class="results-big-num" id="cook-result">0</div>
+            </div>
+
+            <!-- Formula display -->
+            <div class="formula-card">
+                <div class="formula-title">Conversion Formula:</div>
+                <div class="formula-text" id="cook-formula">1 Cup = 16 Tablespoons</div>
+            </div>
+
+            <!-- Baking Tip Card -->
+            <div class="formula-card" style="background-color: var(--card-bg); border-color: var(--border);">
+                <div class="formula-title" style="color: var(--headings); display: flex; gap:0.4rem; align-items:center;">
+                    <span>💡</span>
+                    <span>Baking Tip:</span>
+                </div>
+                <p style="font-size:0.775rem; color: var(--text-secondary); margin: 0; line-height: 1.4;" id="cook-tip">
+                    Measuring by weight (grams) is highly recommended for baking as flour and sugars compress easily when scooped.
+                </p>
+            </div>
+
+            <button id="cook-btn-reset" class="btn-clear">Reset Calculator</button>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Inputs
+    const valueInput = document.getElementById('cook-value');
+    const ingredientSelect = document.getElementById('cook-ingredient');
+    const fromSelect = document.getElementById('cook-from');
+    const toSelect = document.getElementById('cook-to');
+    const btnSwap = document.getElementById('cook-swap');
+    const btnReset = document.getElementById('cook-btn-reset');
+    const shortcutButtons = document.querySelectorAll('.shortcut-btn');
+
+    const ovenF = document.getElementById('oven-f');
+    const ovenC = document.getElementById('oven-c');
+
+    // Outputs
+    const resultOutput = document.getElementById('cook-result');
+    const formulaText = document.getElementById('cook-formula');
+    const tipText = document.getElementById('cook-tip');
+
+    // Volumetric units converted to milliliters (ml)
+    const volFactors = {
+        cups: 236.5882365,
+        tablespoons: 14.7867648,
+        teaspoons: 4.9289216,
+        milliliters: 1
+    };
+
+    // Ingredient densities: grams per 1 cup (236.588 ml)
+    const densities = {
+        water: 236.588,
+        flour: 120.0,
+        sugar: 200.0,
+        brown_sugar: 220.0,
+        butter: 227.0,
+        oats: 90.0,
+        rice: 185.0
+    };
+
+    // Weight factors relative to 1 Gram (g)
+    const weightFactors = {
+        grams: 1,
+        ounces: 28.3495231
+    };
+
+    const unitSymbols = {
+        cups: 'cups',
+        grams: 'g',
+        tablespoons: 'tbsp',
+        teaspoons: 'tsp',
+        ounces: 'oz',
+        milliliters: 'ml'
+    };
+
+    const bakingTips = {
+        water: "Water and milk have identical volume-to-weight ratios (1 ml = 1 g).",
+        flour: "Always fluff flour with a fork before measuring. Scooping packs it, adding up to 25% too much flour!",
+        sugar: "Granulated sugar flows easily and is quite consistent, but weighing always gives the most precise results.",
+        brown_sugar: "Brown sugar should be firmly packed into the measuring cup unless the recipe says otherwise.",
+        butter: "One standard stick of butter is exactly 1/2 cup, 8 tablespoons, or 113 grams.",
+        oats: "Rolled oats are very light. Be careful not to pack them when measuring.",
+        rice: "Uncooked rice expands to about 3 times its volume when boiled."
+    };
+
+    // Listeners for standard input changes
+    [valueInput, ingredientSelect, fromSelect, toSelect].forEach(elem => {
+        elem.addEventListener('input', () => {
+            clearShortcutActiveStates();
+            highlightMatchingShortcut();
+            calculateConversion();
+        });
+    });
+
+    // Oven Temperature Link conversions (F <-> C)
+    ovenF.addEventListener('input', () => {
+        const f = parseFloat(ovenF.value);
+        if (!isNaN(f)) {
+            ovenC.value = Math.round((f - 32) * (5/9));
+        } else {
+            ovenC.value = '';
+        }
+    });
+
+    ovenC.addEventListener('input', () => {
+        const c = parseFloat(ovenC.value);
+        if (!isNaN(c)) {
+            ovenF.value = Math.round(c * (9/5) + 32);
+        } else {
+            ovenF.value = '';
+        }
+    });
+
+    // Swap button logic
+    btnSwap.addEventListener('click', () => {
+        const temp = fromSelect.value;
+        fromSelect.value = toSelect.value;
+        toSelect.value = temp;
+        clearShortcutActiveStates();
+        highlightMatchingShortcut();
+        calculateConversion();
+    });
+
+    // Shortcut buttons logic
+    shortcutButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const requestedFrom = btn.dataset.from;
+            const requestedTo = btn.dataset.to;
+            const requestedIng = btn.dataset.ingredient;
+
+            if (requestedIng) {
+                ingredientSelect.value = requestedIng;
+            }
+
+            if (fromSelect.value === requestedTo && toSelect.value === requestedFrom) {
+                fromSelect.value = requestedFrom;
+                toSelect.value = requestedTo;
+            } else {
+                fromSelect.value = requestedFrom;
+                toSelect.value = requestedTo;
+            }
+
+            clearShortcutActiveStates();
+            btn.classList.add('active');
+            calculateConversion();
+        });
+    });
+
+    // Reset button logic
+    btnReset.addEventListener('click', () => {
+        valueInput.value = 1;
+        ingredientSelect.value = 'water';
+        fromSelect.value = 'cups';
+        toSelect.value = 'tablespoons';
+        ovenF.value = 350;
+        ovenC.value = 177;
+        clearShortcutActiveStates();
+        const defaultShortcut = document.getElementById('default-shortcut');
+        if (defaultShortcut) defaultShortcut.classList.add('active');
+        calculateConversion();
+    });
+
+    function clearShortcutActiveStates() {
+        shortcutButtons.forEach(b => b.classList.remove('active'));
+    }
+
+    function highlightMatchingShortcut() {
+        const fromVal = fromSelect.value;
+        const toVal = toSelect.value;
+        const ingVal = ingredientSelect.value;
+        shortcutButtons.forEach(btn => {
+            const btnIng = btn.dataset.ingredient;
+            const matchesIng = !btnIng || btnIng === ingVal;
+            if (matchesIng && ((btn.dataset.from === fromVal && btn.dataset.to === toVal) || 
+                (btn.dataset.from === toVal && btn.dataset.to === fromVal))) {
+                btn.classList.add('active');
+            }
+        });
+    }
+
+    function formatNumber(num, maxDigits = 4) {
+        if (num === 0) return '0';
+        const str = num.toString();
+        if (str.includes('e')) {
+            return num.toFixed(maxDigits).replace(/\.?0+$/, '');
+        }
+        if (num % 1 !== 0) {
+            return parseFloat(num.toFixed(maxDigits)).toString();
+        }
+        return num.toLocaleString('en-US');
+    }
+
+    function calculateConversion() {
+        const val = parseFloat(valueInput.value);
+        if (isNaN(val)) {
+            resultOutput.textContent = '---';
+            formulaText.textContent = 'Enter a valid numeric value';
+            return;
+        }
+
+        const fromUnit = fromSelect.value;
+        const toUnit = toSelect.value;
+        const ingredient = ingredientSelect.value;
+
+        // Is unit volumetric or weight?
+        const isFromVol = volFactors[fromUnit] !== undefined;
+        const isToVol = volFactors[toUnit] !== undefined;
+
+        let resultVal = 0;
+        let baseMl = 0;
+
+        // We convert everything to a base Milliliter (ml) equivalent for the selected ingredient
+        // 1. Convert 'From' Unit to Milliliters
+        if (isFromVol) {
+            baseMl = val * volFactors[fromUnit];
+        } else {
+            // It's a weight (Grams / Ounces). We convert weight to ml based on density!
+            // Weight in grams = Value * Weight Factor
+            const grams = val * weightFactors[fromUnit];
+            // Since density = grams / 236.588 ml:
+            // ml = grams / (density / 236.588)
+            const cupDensity = densities[ingredient];
+            baseMl = grams / (cupDensity / 236.5882365);
+        }
+
+        // 2. Convert base Milliliters to 'To' Unit
+        if (isToVol) {
+            resultVal = baseMl / volFactors[toUnit];
+        } else {
+            // Convert ml to Weight in Grams, then to To Unit
+            const cupDensity = densities[ingredient];
+            const grams = baseMl * (cupDensity / 236.5882365);
+            resultVal = grams / weightFactors[toUnit];
+        }
+
+        // Update main result
+        resultOutput.textContent = `${formatNumber(resultVal, 3)} ${unitSymbols[toUnit]}`;
+
+        // Generate Formula Card (1 From Unit = X To Units)
+        let ratio = 0;
+        if (isFromVol) {
+            const ml = volFactors[fromUnit];
+            if (isToVol) {
+                ratio = ml / volFactors[toUnit];
+            } else {
+                const cupDensity = densities[ingredient];
+                const grams = ml * (cupDensity / 236.5882365);
+                ratio = grams / weightFactors[toUnit];
+            }
+        } else {
+            const grams = weightFactors[fromUnit];
+            if (isToVol) {
+                const cupDensity = densities[ingredient];
+                const ml = grams / (cupDensity / 236.5882365);
+                ratio = ml / volFactors[toUnit];
+            } else {
+                ratio = grams / weightFactors[toUnit];
+            }
+        }
+
+        // Trim unit singular labels
+        const singularFrom = fromUnit.replace(/s$/, '').replace('teaspoon', 'Teaspoon').replace('tablespoon', 'Tablespoon').replace('cup', 'Cup').replace('gram', 'Gram').replace('ounce', 'Ounce').replace('milliliter', 'Milliliter');
+        formulaText.textContent = `For ${ingredientSelect.options[ingredientSelect.selectedIndex].text}:\n1 ${singularFrom} = ${formatNumber(ratio, 4)} ${unitSymbols[toUnit]}`;
+
+        // Render matching baking tip
+        tipText.textContent = bakingTips[ingredient] || "";
+    }
+
+    // Initialize with default states
+    highlightMatchingShortcut();
+    calculateConversion();
+});
+</script>
+
+
+
+    
+    <section class="seo-rich-content">
+      <hr class="seo-divider">
+
+      
+
+      
+      
+      <div class="seo-section seo-steps">
+        <h2>How to Use Cooking Converter</h2>
+        <ol class="seo-steps-list">
+          
+            <li>
+              <h3>Input your data</h3>
+              <p>Paste, type, or upload your inputs into the input fields at the top of the page.</p>
+            </li>
+            <li>
+              <h3>Configure options</h3>
+              <p>Adjust any available options, dropdowns, checkboxes, or parameters to customize the output.</p>
+            </li>
+            <li>
+              <h3>Get instant results</h3>
+              <p>Our tool processes your input instantly completely offline. Copy the formatted results or download the generated output directly to your device.</p>
+            </li>
+          
+        </ol>
+      </div>
+
+      
+
+      <div class="seo-section seo-technical">
+        <h2>The Technical Details</h2>
+        <div class="seo-technical-content">
+          
+            <p>This interactive web utility is designed to provide quick, reliable, and completely private calculations and data transformations. Modern workflow requirements often call for quick format adjustments, conversions, or math estimations. By executing all logic directly in your browser using client-side JavaScript, this utility ensures that your sensitive inputs are never transmitted across the network, combining modern browser speed with absolute data confidentiality.</p>
+          
+        </div>
+      </div>
+
+      <div class="seo-section seo-faqs">
+        <h2>Frequently Asked Questions</h2>
+        <div class="seo-faq-accordion">
+          
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">Is my data safe and private when using Cooking Converter?</summary>
+              <div class="seo-faq-answer">
+                <p>Yes. All operations, conversions, and computations on Cooking Converter are performed entirely in your local web browser using client-side JavaScript. None of your data is sent to our servers, logged, or shared with third parties.</p>
+              </div>
+            </details>
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">How much does Cooking Converter cost to use?</summary>
+              <div class="seo-faq-answer">
+                <p>This utility is 100% free to use. There are no limits on usage, no subscriptions, no premium paywalls, and no registration required.</p>
+              </div>
+            </details>
+            <details class="seo-faq-item">
+              <summary class="seo-faq-question">Can I use Cooking Converter offline?</summary>
+              <div class="seo-faq-answer">
+                <p>Yes. Once this page is loaded in your browser, all core functionalities of Cooking Converter are executed client-side. You can disconnect from the internet and continue using the utility without any active network connection.</p>
+              </div>
+            </details>
+          
+        </div>
+      </div>
+    </section>
+    
+
+    
+
+    
+    <section class="related-section">
+      <h3>
+        Recommended Calculators
+        
+      </h3>
+      <p>
+        Try our other free interactive math, conversion, and general calculators:
+        
+      </p>
+      <div class="related-grid">
+        
+        
+        
+        
+        
+          
+          
+          
+            
+              
+              
+              
+              
+                
+                <div class="post-card">
+                  <div class="post-title"><a href="/calculators/fuel-cost-mileage-calculator/">Fuel Cost / Mileage Calculator</a></div>
+                  <p class="post-desc">Calculate your estimated fuel cost for a road trip, split expenses among pass...</p>
+                </div>
+              
+            
+          
+            
+              
+              
+              
+              
+                
+                <div class="post-card">
+                  <div class="post-title"><a href="/calculators/time-zone-calculator/">Time Zone Calculator</a></div>
+                  <p class="post-desc">Convert date and time between your Local Time, UTC, PST, EST, GMT, and other ...</p>
+                </div>
+              
+            
+          
+            
+              
+              
+              
+              
+                
+                <div class="post-card">
+                  <div class="post-title"><a href="/calculators/temperature-calculator/">Temperature Calculator</a></div>
+                  <p class="post-desc">Convert temperatures between Celsius, Fahrenheit, and Kelvin with formulas an...</p>
+                </div>
+              
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+        
+      </div>
+    </section>
+    
+
+    
+
+    
+
+    
+  </main>
+
+  <footer class="site-footer-dark">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h3>Popular Tools</h3>
+      <ul>
+        <li><a href="/tools/json-formatter/">JSON Formatter</a></li>
+        <li><a href="/tools/qr-code-generator/">QR Code Generator</a></li>
+        <li><a href="/tools/base64-encoder-decoder/">Base64 Encoder/Decoder</a></li>
+        <li><a href="/tools/text-compare/">Text Compare</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Calculators & Finance</h3>
+      <ul>
+        <li><a href="/finance/currency-calculator/">Currency Calculator</a></li>
+        <li><a href="/finance/mortgage-calculator/">Mortgage Calculator</a></li>
+        <li><a href="/calculators/ip-subnet-calculator/">IP Subnet Calculator</a></li>
+        <li><a href="/calculators/time-zone-calculator/">Time Zone Calculator</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Quick References</h3>
+      <ul>
+        <li><a href="/cheatsheets/git-commands/">Git Cheatsheet</a></li>
+        <li><a href="/cheatsheets/docker-commands/">Docker Cheatsheet</a></li>
+        <li><a href="/cheatsheets/react-hooks/">React Hooks Cheatsheet</a></li>
+        <li><a href="/cheatsheets/javascript/">JavaScript Cheatsheet</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/shafqatalix" aria-label="LinkedIn">
+        <img src="/images/social-icons/linkedin.svg" alt="LinkedIn">
+      </a>
+      <a href="https://twitter.com/shafqatalix" aria-label="X/Twitter">
+        <img src="/images/social-icons/twitter.svg" alt="X/Twitter">
+      </a>
+      <a href="https://github.com/shafqatalix" aria-label="GitHub">
+        <img src="/images/social-icons/github.svg" alt="GitHub">
+      </a>
+    </div>
+    <div class="footer-copy">&copy; 2026 YORABA. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+
+</html>
